@@ -1,7 +1,10 @@
 """
+Agent for query wheather the slot is relevant to the ontology.
+
 This module sets up an agent to determine if the queried slots are relevant to
 the ontology definition. The step is used to filter out irrelevant slots from
-the ontology definition, as some of the slots are high level abstract attributes.
+the ontology definition, as some of the slots are high level abstract
+attributes.
 """
 
 import json
@@ -25,8 +28,8 @@ class CustomOutputSchema(BaseIOSchema):
         ...,
         description=(
             "The response from the agent in json format, with each "
-            "field corresponding to a query from the user, and the value (0 or 1) "
-            "indicating whether the query is true or false."
+            "field corresponding to a query from the user, and the value "
+            "(0 or 1) indicating whether the query is true or false."
         ),
     )
 
@@ -42,20 +45,29 @@ class CustomInputSchema(BaseIOSchema):
     """The input schema for the CustomAgent.
 
     The input will be a string representing a list of attribute names
-    (delimited by ","). Each attribute name corresponds to a query from the user.
+    (delimited by ","). Each attribute name corresponds to a query from the
+    user.
     """
 
     query: str = Field(
         ...,
         description=(
-            "A string representing a list of attribute names (delimited by ','). "
-            "Each attribute name corresponds to a query from the user."
+            "A string representing a list of attribute names "
+            "(delimited by ','). Each attribute name corresponds to a query "
+            "from the user."
         ),
     )
 
 
 class AgentRelevantSlot(Agent):
-    def __init__(self, config):
+    """Agent for query slot relevance to ontology."""
+
+    def __init__(self, config: str):
+        """Initialize the agent.
+
+        Args:
+            config (str): The path to the configuration file.
+        """
         super().__init__(
             config,
             name="relevant_slot",
@@ -67,12 +79,12 @@ class AgentRelevantSlot(Agent):
         """Send query to the agent to determine slot relevance.
 
         Args:
-            query (str | dict): either a string representing a list of attribute
-                names (delimited by ","), or a dictionary with keys containing
-                the attribute names.
+            query (str | dict): either a string representing a list of
+            attribute names (delimited by ","), or a dictionary with keys
+            containing the attribute names.
         """
         if isinstance(query, dict):
             query = ",".join(query.keys())
         response = self.agent.run(CustomInputSchema(query=query))
-        response: CustomOutputSchema
+        # response: CustomOutputSchema
         return response.decode()

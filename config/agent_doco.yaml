@@ -57,20 +57,20 @@ assign_slot:
     For example,
     'Paragraph' can be associated with 'contains' attribute, as an 'Paragraph' can contain
     components like 'Sentence'. 'contains' attribute can also be used to indicate the actual
-    textual content. Similarly, 'Figure' can 
+    textual content. Similarly, 'Figure' can
     be associated with 'isContainedBy' attribute, as a 'Figure' can be contained by other
     component such as an 'ListOfFigures'. Another example is that 'ChapterTitle' can be associated
-    with 'isContainedByAsHeader' attribute, as a 'ChapterTitle' can be contained by a 
-    'Chapter' as a 'Header'. On the other hand, 'Abstract' should not be associated with 
+    with 'isContainedByAsHeader' attribute, as a 'ChapterTitle' can be contained by a
+    'Chapter' as a 'Header'. On the other hand, 'Abstract' should not be associated with
     'isContainedByAsHeader' attribute, as an 'Abstract' is not a 'Header'.
     Broadly speaking, "contains" and "isContainedBy" are common attributes
     that can link classes to other components in the document and thus should be
     considered applicable to ALL classes of document components.
     If in doubt, can assume the attribute is applicable to the class.
     Return a dictionary with key being the tuple of class name and attribute name,
-    and each value (0 or 1) indicating whether the attribute name is applicable to 
+    and each value (0 or 1) indicating whether the attribute name is applicable to
     the class (1) or not (0).
   output_instructions: >-
     Return the response in json format, with each key corresponding to a tuple from the user,
-    and the value (0 or 1) indicating whether the attribute is applicable to the class 
+    and the value (0 or 1) indicating whether the attribute is applicable to the class
     (value of 1) or not (value of 0).

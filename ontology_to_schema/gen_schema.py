@@ -1,10 +1,38 @@
+"""
+This module provides functionality to convert OWL ontologies to LinkML schemas.
+
+Classes:
+    OwlImportEngine: An ImportEngine that takes schema-style OWL and converts
+    it to a LinkML schema.
+
+Functions:
+    fix_class_definition_sequence: Fix the sequence of class definitions in a
+    LinkML schema YAML file to follow the inheritance hierarchy.
+
+The OwlImportEngine class includes methods to:
+    - Initialize the engine with configuration and logging.
+    - Reset internal state.
+    - Read OWL files in functional syntax.
+    - Extract prefixes from ontology documents or TTL files.
+    - Process various OWL axioms and declarations.
+    - Handle subclass relationships and slot usage.
+    - Remove redundant and irrelevant slots.
+    - Query agents for slot relevance and assignment.
+    - Convert OWL ontologies to LinkML schemas.
+    - Rename forbidden class names.
+    - Add slots to classes based on domain and range.
+
+The fix_class_definition_sequence function ensures that class definitions in a
+LinkML schema YAML file follow the inheritance hierarchy by reordering them.
+"""
+
 import logging
 import os
 import pathlib
 from collections import OrderedDict, defaultdict, deque
 from copy import deepcopy
 from functools import partial
-from typing import Any, Dict, List, Tuple, Union
+from typing import Any, Dict, List, Set, Tuple, Union
 
 import yaml
 from funowl import (
@@ -13,7 +41,6 @@ from funowl import (
     AnnotationProperty,
     AnnotationPropertyRange,
     AnonymousIndividual,
-    Axiom,
     Class,
     ClassExpression,
     DataAllValuesFrom,
@@ -62,9 +89,7 @@ logging.basicConfig(
 
 
 class OwlImportEngine(ImportEngine):
-    """
-    An ImportEngine that takes schema-style OWL and converts it to a LinkML schema
-    """
+    """Takes OWL file and converts it to a LinkML schema."""
 
     FORBIDDEN_CLASS_NAMES = ["List", "Dict", "Set", "Tuple"]
 
@@ -79,23 +104,23 @@ class OwlImportEngine(ImportEngine):
         self.logger.setLevel(log_level)
 
         self.include_unmapped_annotations = False
-        self.classes = {}
-        self.slots = {}
-        self.enums = {}
-        self.types = {}
-        self.schema = {}
-        self.prefix_dict = {}
-        self.inv_prefix_dict = {}
-        self.iri_to_name_map = {}
-        self.name_to_iri_map = {}
-        self.all_properties = {}
-        self.same_slots = {}
+        self.classes: Dict[str, Dict] = {}
+        self.slots: Dict[str, Dict] = {}
+        self.enums: Dict[Any, Any] = {}
+        self.types: Dict[Any, Any] = {}
+        self.schema: Dict[str, Any] = {}
+        self.prefix_dict: Dict[str, str] = {}
+        self.inv_prefix_dict: Dict[str, str] = {}
+        self.iri_to_name_map: Dict[str, str] = {}
+        self.name_to_iri_map: Dict[str, str] = {}
+        self.all_properties: Dict[str, str] = {}
+        self.same_slots: Dict[str, str] = {}
 
-        self.subclassof = defaultdict(set)
-        self.subclassof_list = defaultdict(list)
-        self.slot_isamap = defaultdict(set)
-        self.slot_usage_map = defaultdict(dict)
-        self.single_valued_slots = set()
+        self.subclassof: defaultdict[str, set] = defaultdict(set)
+        self.subclassof_list: defaultdict[str, list] = defaultdict(list)
+        self.slot_isamap: defaultdict[str, set] = defaultdict(set)
+        self.slot_usage_map: defaultdict[str, dict] = defaultdict(dict)
+        self.single_valued_slots: Set[str] = set()
 
         self.agent_relevant_slot = (
             AgentRelevantSlot(agent_cfg) if agent_cfg is not None else None
@@ -106,12 +131,14 @@ class OwlImportEngine(ImportEngine):
         )
 
     def reset(self):
+        """Reset the internal state of the engine."""
         for name, value in self.__dict__.items():
             self.logger.debug(f"Resetting {name}")
             if isinstance(value, (dict, defaultdict)):
                 value.clear()
 
     def iri_as_name(self, v):
+        """Convert IRI to name."""
         v = str(v)
         if v in self.iri_to_name_map:
             return self.iri_to_name_map[v]
@@ -124,6 +151,7 @@ class OwlImportEngine(ImportEngine):
         return n
 
     def get_name(self, entity):
+        """Get the name of an entity."""
         return self.iri_as_name(entity)
 
     def _as_name(self, v):
@@ -136,17 +164,19 @@ class OwlImportEngine(ImportEngine):
     def read_ofn_file(self, file: str) -> Tuple[OntologyDocument, Ontology]:
         """Read an OWL file (*.ofn) and return the ontology document."""
         doc = to_python(file, print_progress=False)
-        ontology = doc.ontology
-        ontology: Ontology
+        ontology: Ontology = doc.ontology
+        # ontology: Ontology
         if len(ontology.axioms) == 0:
             raise Exception(
-                f"Empty ontology in {file} (note: ontologies must be in functional syntax)"
+                f"Empty ontology in {file} "
+                + "(note: ontologies must be in functional syntax)"
             )
         return doc, ontology
 
     def extract_prefixes(
         self, doc: OntologyDocument, name: Union[str, None] = None
-    ) -> Dict[str, str]:
+    ) -> Tuple[Dict[str, str], Dict[str, str]]:
+        """Extract prefixes from an ontology document."""
         prefix_dict = {}
         for p in doc.prefixDeclarations.as_prefixes():
             prefix_name = (
@@ -164,7 +194,8 @@ class OwlImportEngine(ImportEngine):
 
     def extract_prefixes_ttl(
         self, ttl: str, name: Union[str, None] = None
-    ) -> Dict[str, str]:
+    ) -> Tuple[Dict[str, str], Dict[str, str]]:
+        """Extract prefixes from a TTL file."""
         # read ttl file
         prefix_dict = {}
         inv_prefix_dict = {}
@@ -179,13 +210,16 @@ class OwlImportEngine(ImportEngine):
             inv_prefix_dict.pop(schema_iri)
         return prefix_dict, inv_prefix_dict
 
-    def extract_imports(self, ontology: Ontology) -> List[str]:
+    def extract_imports(self, ontology: Ontology) -> Dict[str, str]:
+        """Extract imports from an ontology."""
         imports_dict = {}
         for i in ontology.directlyImportsDocuments:
             imports_dict[self.get_name(i.iri)] = i.iri.v
         return imports_dict
 
-    def expand_intersection(self, c: ObjectIntersectionOf, intersect_list=None):
+    def expand_intersection(
+        self, c: ObjectIntersectionOf, intersect_list=None
+    ):
         """Recursively expand intersections."""
         if intersect_list is None:
             intersect_list = []
@@ -209,6 +243,7 @@ class OwlImportEngine(ImportEngine):
         return union_list
 
     def expand(self, c: Union[ObjectIntersectionOf, ObjectUnionOf], lst=None):
+        """Expand class expressions in an intersection or union."""
         if lst is None:
             lst = []
         for x in c.classExpressions:
@@ -221,11 +256,13 @@ class OwlImportEngine(ImportEngine):
         return lst
 
     def set_slot_usage(self, child, p, k, v):
+        """Set the slot usage for a child class."""
         if p not in self.slot_usage_map[child]:
             self.slot_usage_map[child][p] = {}
         self.slot_usage_map[child][p][k] = v
 
     def set_cardinality(self, child, p, min_card, max_card):
+        """Set the cardinality of slot for a child class."""
         if max_card is not None:
             if max_card == 1:
                 self.set_slot_usage(child, p, "multivalued", False)
@@ -300,7 +337,8 @@ class OwlImportEngine(ImportEngine):
                         _set_slot_usage_range(parent.classExpression)
                     else:
                         self.logger.error(
-                            f"Cannot yet handle anonymous ranges: {parent.classExpression}"
+                            "Cannot yet handle anonymous ranges:"
+                            + f" {parent.classExpression}"
                         )
                 elif isinstance(parent, ObjectSomeValuesFrom):
                     p = self.get_name(parent.objectPropertyExpression)
@@ -316,7 +354,8 @@ class OwlImportEngine(ImportEngine):
                         _set_slot_usage_range(parent.classExpression)
                     else:
                         self.logger.error(
-                            f"Cannot yet handle anonymous ranges: {parent.classExpression}"
+                            "Cannot yet handle anonymous ranges:"
+                            + f" {parent.classExpression}"
                         )
                 elif isinstance(parent, DataSomeValuesFrom):
                     if len(parent.dataPropertyExpressions) == 1:
@@ -324,7 +363,8 @@ class OwlImportEngine(ImportEngine):
                         _set_cardinality(p, 1, None)
                     else:
                         self.logger.error(
-                            f"Cannot handle multiple data property expressions: {parent}"
+                            "Cannot handle multiple data property"
+                            + f" expressions: {parent}"
                         )
                 elif isinstance(parent, DataAllValuesFrom):
                     if len(parent.dataPropertyExpressions) == 1:
@@ -338,7 +378,8 @@ class OwlImportEngine(ImportEngine):
                             self.logger.error(f"Cannot handle range of {r}")
                     else:
                         self.logger.error(
-                            f"Cannot handle multiple data property expressions: {parent}"
+                            "Cannot handle multiple data property"
+                            + f" expressions: {parent}"
                         )
                 elif isinstance(parent, DataHasValue):
                     p = self.get_name(parent.dataPropertyExpression)
@@ -361,12 +402,15 @@ class OwlImportEngine(ImportEngine):
                 self.add_class_info(c, "mixins", p, True)
 
     def add_class_info(self, *args, **kwargs):
+        """Add class information to the schema."""
         self.add_element_info("classes", *args, **kwargs)
 
     def add_slot_info(self, *args, **kwargs):
+        """Add slot information to the schema."""
         self.add_element_info("slots", *args, **kwargs)
 
     def add_range(self, sn, range_cn):
+        """Add range information to the schema."""
         if sn not in self.schema["slots"]:
             self.schema["slots"][sn] = {}
         if "range" not in self.schema["slots"][sn]:
@@ -376,6 +420,7 @@ class OwlImportEngine(ImportEngine):
     def add_element_info(
         self, type: str, cn: str, sn: str, v: Any, multivalued=False
     ):
+        """Add element information to the schema."""
         if cn not in self.schema[type]:
             self.schema[type][cn] = {}
         c = self.schema[type][cn]
@@ -420,6 +465,7 @@ class OwlImportEngine(ImportEngine):
                         s["any_of"] = [{"range": x} for x in rg]
 
     def process_annotation_assertion(self, a: AnnotationAssertion):
+        """Process annotation assertions."""
         p = a.property
         strp = str(p)
         sub = a.subject.v
@@ -478,7 +524,8 @@ class OwlImportEngine(ImportEngine):
         """Process the slot usage."""
         self.logger.info("Processing slot usage...")
         for cn, usage in self.slot_usage_map.items():
-            # example usage content: {'contains': {'range':'Text', 'domain':'Any',
+            # example usage content:
+            # {'contains': {'range':'Text', 'domain':'Any',
             # 'required': True, 'multivalued': True}}
             _usage = {}
             for sn, u in usage.items():
@@ -499,13 +546,16 @@ class OwlImportEngine(ImportEngine):
                     if sn not in self.schema["classes"][cn]["slots"]:
                         # add the slot to the class if it is not already there
                         self.schema["classes"][cn]["slots"].append(sn_equiv)
-
                 _usage[sn_equiv] = u
             self.schema["classes"][cn]["slot_usage"] = _usage
 
-    def add_identifier(self, identifier: str):
+    def add_identifier(self, identifier: str | None):
+        """Add an identifier to the schema."""
         if identifier is not None:
-            self.slots[identifier] = {"identifier": True, "range": "uriorcurie"}
+            self.slots[identifier] = {
+                "identifier": True,
+                "range": "uriorcurie",
+            }
             for c in self.classes.values():
                 if not c.get("is_a", None) and not c.get("mixins", []):
                     if "slots" not in c:
@@ -513,7 +563,7 @@ class OwlImportEngine(ImportEngine):
                     c["slots"].append(identifier)
 
     def determine_slot_relevance(self, slots, agent):
-        """Determine the relevance of slots to the ontology as a whole
+        """Determine the relevance of slots to the ontology as a whole.
 
         Use agenic AI to determine the relevance of slots to classes.
         """
@@ -529,6 +579,7 @@ class OwlImportEngine(ImportEngine):
         return True
 
     def del_by_name(self, slots, del_list):
+        """Delete slots by name."""
         for sn in del_list:
             slots.pop(sn)
 
@@ -543,9 +594,10 @@ class OwlImportEngine(ImportEngine):
                 if sn_other not in slots:
                     continue
                 if self.compare_slot(slot_info, slots[sn_other]):
-                    self.same_slots[sn_other] = (
-                        sn  # record the equivalent slot for the ones to be deleted
-                    )
+                    self.same_slots[
+                        sn_other
+                    ] = sn  # record the equivalent slot for the ones to be
+                    # deleted
                     del_list.append(sn_other)
         self.del_by_name(slots, del_list)
 
@@ -564,7 +616,9 @@ class OwlImportEngine(ImportEngine):
 
     def query_slot_assignment(self, slots):
         """Query the slot assignment agent to determine slot assignment."""
-        self.logger.info("Querying slot assignment agent (might take a while)...")
+        self.logger.info(
+            "Querying slot assignment agent (might take a while)..."
+        )
         if len(slots) > 0 and self.agent_assign_slot is not None:
             cls_name = self.get_class_names()
             slot_name = self.get_slot_names(slots)
@@ -603,11 +657,8 @@ class OwlImportEngine(ImportEngine):
                                 append_this = True
                                 break
                     else:
-                        # use agentic ai to determine whether to assign the slot
-                        # when the domain is Any (unspecified)
-                        self.logger.debug(
-                            f"Retrieving result for {cn}, {sn}, {assign_result.get((cn, sn), None)}"
-                        )
+                        # use agentic ai to determine whether to assign the
+                        # slot when the domain is Any (unspecified)
                         append_this = assign_result.get((cn, sn), True)
                 else:
                     if cn == slot_domain:
@@ -646,6 +697,7 @@ class OwlImportEngine(ImportEngine):
     def rename_forbidden_class_names(self):
         """Rename class if the name coincide with the forbidden class names."""
         self.logger.info("Checking class names...")
+
         def _rename(old_name):
             return self.schema["name"].capitalize() + old_name
 
@@ -685,18 +737,16 @@ class OwlImportEngine(ImportEngine):
     def convert(
         self,
         file: str,
-        name: str = None,
-        identifier: str = None,
-        **kwargs,
+        name: str | None = None,
+        identifier: str | None = None,
     ) -> SchemaDefinition:
         """
-        Converts an OWL schema-style ontology
+        Convert an OWL schema-style ontology.
 
-        :param file:
-        :param name:
-        :param identifier:
-        :param kwargs:
-        :return:
+        Args:
+            file (str): path to the OWL file
+            name (str): name of the schema
+            identifier (str): identifier for the schema
         """
         self.reset()
 
@@ -714,7 +764,8 @@ class OwlImportEngine(ImportEngine):
             if not ofn_filepath.exists():
                 self.logger.info(f"Converting {filepath} to .ofn using ROBOT")
                 if os.system(
-                    f"robot convert -i {str(filepath)} -output {str(ofn_filepath)}"
+                    f"robot convert -i {str(filepath)} "
+                    + f"-output {str(ofn_filepath)}"
                 ):
                     raise Exception("Error converting to .ofn")
         elif filepath.suffix != ".ofn":
@@ -764,7 +815,6 @@ class OwlImportEngine(ImportEngine):
         # iterate over the axioms and process them
         self.logger.info(f"Processing axioms in {file}...")
         for a in ontology.axioms:
-            a: Axiom
             # self.logger.debug(f"Axiom: {a}")
 
             # process Declaration declarations
@@ -816,14 +866,15 @@ class OwlImportEngine(ImportEngine):
                 ):
                     child = self.get_name(sub.v)
                     sup = a.superObjectPropertyExpression.v
-                    if isinstance(sup, ObjectPropertyExpression) and isinstance(
-                        sup.v, ObjectProperty
-                    ):
+                    if isinstance(
+                        sup, ObjectPropertyExpression
+                    ) and isinstance(sup.v, ObjectProperty):
                         parent = self.get_name(sup.v)
                         self.slot_isamap[child].add(parent)
                     else:
                         self.logger.error(
-                            f"cannot handle anon object parent properties for {a}"
+                            "cannot handle anon object parent"
+                            + f" properties for {a}"
                         )
                 else:
                     self.logger.error(
@@ -841,10 +892,11 @@ class OwlImportEngine(ImportEngine):
                         self.slot_isamap[child].add(parent)
                     else:
                         self.logger.error(
-                            f"cannot handle anon data parent properties for {a}"
+                            "cannot handle anon data parent properties"
+                            + f" for {a}"
                         )
                 else:
-                    self.logger(
+                    self.logger.error(
                         f"cannot handle anon data child properties for {a}"
                     )
 
@@ -929,8 +981,10 @@ def fix_class_definition_sequence(
 
     Args:
         yaml_file (str): path to the YAML file
-        overwrite (bool, optional): whether to overwrite the file. Defaults to True.
-                                    if set to False, the fixed schema is returned.
+        overwrite (bool, optional): whether to overwrite the file.
+                                    Defaults to True.
+                                    if set to False, the fixed schema is
+                                    returned.
     """
     # read yaml file
     # first check if the file is a yaml file and if the file exists
@@ -939,14 +993,14 @@ def fix_class_definition_sequence(
         raise ValueError("File is not a YAML file.")
     if not os.path.exists(yaml_file):
         raise FileNotFoundError("File does not exist.")
-    with open(yaml_file, "r") as f:
+    with open(yaml_file) as f:
         schema = yaml.safe_load(f)
 
     if "classes" not in schema:
         raise ValueError("No class definitions")
     classes = deepcopy(schema["classes"])
     classes_ordered = OrderedDict()
-    stack = deque()
+    stack: deque[Tuple[str, dict]] = deque()
     while len(classes) > 0:
         # pop from beginning
         c = (k := next(iter(classes)), classes.pop(k))
@@ -974,7 +1028,6 @@ def fix_class_definition_sequence(
                         stack.append((parent, classes[parent]))
 
     schema["classes"] = dict(classes_ordered)
-    # assert len(classes) == len(classes_ordered), "Not all classes are ordered"
     for k in classes.keys():
         if k not in classes_ordered:
             logger.error(f"Class {k} not ordered")
@@ -982,5 +1035,6 @@ def fix_class_definition_sequence(
     if overwrite:
         with open(yaml_file, "w") as f:
             yaml.dump(schema, f, default_flow_style=False, sort_keys=False)
+        return None
     else:
         return schema

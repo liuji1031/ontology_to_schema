@@ -14,12 +14,14 @@ openai = "^1.65.5"
 groq = "^0.18.0"
 quantulum3 = {extras = ["classifier"], version = "^0.9.2"}
 typer = "^0.15.2"
+types-pyyaml = "^6.0.12.20241230"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
 pre-commit = "^4.1.0"
 bumpversion = "^0.6.0"
+types-pyyaml = "^6.0.12.20241230"
 
 [tool.poetry.scripts]
 ontology-to-schema = "ontology_to_schema.cli:app"

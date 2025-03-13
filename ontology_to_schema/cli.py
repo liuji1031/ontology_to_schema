@@ -1,10 +1,14 @@
+"""Command line interface for the ontology_to_schema package."""
 import logging
 import pathlib
 
 import typer
 from schema_automator.utils.schemautils import write_schema
 
-from ontology_to_schema.gen_schema import OwlImportEngine, fix_class_definition_sequence
+from ontology_to_schema.gen_schema import (
+    OwlImportEngine,
+    fix_class_definition_sequence,
+)
 
 app = typer.Typer()
 
@@ -47,6 +51,7 @@ def main(
     ),
     log_level: str = typer.Option("INFO", help="Log level"),
 ):
+    """Command line interface for the ontology_to_schema package."""
     logger.setLevel(log_level)
     logger.info(f"Ontology file: {inp_path}")
     logger.info(f"Output schema file: {out_path}")
@@ -63,6 +68,7 @@ def main(
     write_schema(schema, out_path)
     fix_class_definition_sequence(out_path, overwrite=True)
     logger.info("✅ All done!")
+
 
 if __name__ == "__main__":
     app()
