@@ -64,7 +64,7 @@ class Agent:
         )
 
         self.agent = BaseAgent(
-            cfg=BaseAgentConfig(
+            config=BaseAgentConfig(
                 client=setup_client(cfg.get("provider", "groq")),
                 model=cfg.get("model", "llama-3.3-70b-versatile"),
                 memory=AgentMemory(),
