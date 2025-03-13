@@ -1,0 +1,10 @@
+.venv
+venv
+.litellm_cache
+.vscode
+archive
+pdf
+schema
+ttl
+.pytest_cache
+__pycache__
