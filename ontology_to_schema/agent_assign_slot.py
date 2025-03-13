@@ -7,7 +7,7 @@ the ontology definition, as some of the slots are high level abstract
 attributes.
 """
 
-import json
+import ast
 from typing import Dict, List, Tuple
 
 from atomic_agents.lib.base.base_io_schema import BaseIOSchema
@@ -34,7 +34,8 @@ class CustomOutputSchema(BaseIOSchema):
 
     def decode(self) -> Dict[Tuple[str, str], bool]:
         """Decode the response from the agent."""
-        response_dict = json.loads(self.response)
+        # response_dict = json.loads(self.response)
+        response_dict = ast.literal_eval(self.response)
         out_dict = {}
         for k, v in response_dict.items():
             cn, sn = k[1:-1].split(",")
@@ -98,7 +99,7 @@ class AgentAssignSlot(Agent):
 
     def query(
         self, cls_name: List[str], slot_name: List[str]
-    ) -> Dict[str, bool]:
+    ) -> Dict[Tuple[str, str], bool]:
         """Send query to the agent to determine slot relevance.
 
         Args:
@@ -106,6 +107,8 @@ class AgentAssignSlot(Agent):
             slot_name (List[str]): list of attribute names
         """
         query = self.get_query(cls_name, slot_name)
-        response = self.agent.run(CustomInputSchema(query=query))
+        response: CustomOutputSchema = self.agent.run(
+            CustomInputSchema(query=query)
+        )
         # response: CustomOutputSchema
         return response.decode()
