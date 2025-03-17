@@ -67,7 +67,7 @@ class Agent:
             config=BaseAgentConfig(
                 client=setup_client(
                     cfg.get("provider", "groq"),
-                    cfg.get("api_key_env_varname", "GROQ_API_KEY"),
+                    cfg.get("api_key_env_varname", "API_KEY"),
                 ),
                 model=cfg.get("model", "llama-3.3-70b-versatile"),
                 memory=AgentMemory(),
