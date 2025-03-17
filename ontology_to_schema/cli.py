@@ -49,7 +49,9 @@ def main(
         readable=True,
         resolve_path=True,
     ),
-    log_level: str = typer.Option("INFO", help="Log level"),
+    log_level: str = typer.Option(
+        "INFO", "--log_level", "-l", help="Log level"
+    ),
 ):
     """Command line interface for the ontology_to_schema package."""
     logger.setLevel(log_level)
