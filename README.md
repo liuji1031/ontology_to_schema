@@ -15,8 +15,9 @@ ontology-to-schema -i doco.ttl -a config/agent_doco.yaml -o schema/doco.yaml
 
 | Argument | Description | Required |
 |----------|-------------| -------- |
-| `--inp_path` `-i`  | Path to input ontology file in Turtle format. | Yes |
-| `--out_path` `-o`   | Output schema file in YAML format. | Yes |
+| `--inp_dir` `-i`  | Directory of the input ontology file in Turtle format. | Yes |
+| `--file_name` `-f` | File name of the Turtle file. | Yes |
+| `--out_dir` `-o`   | Output directory of the output schema file in YAML format. | Yes |
 | `--agent_cfg` `-a`   | Configuration file for agents in YAML format. | Yes |
 |`--log_level` `-l`  | Log level for logging (ERROR, WARNING, INFO, etc.) | No|
 
