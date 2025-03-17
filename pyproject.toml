@@ -6,7 +6,7 @@ authors = ["Ji Liu <liuji1031@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 rdflib = "^7.1.3"
 schema-automator = "^0.5.3"
 atomic-agents = "^1.0.23"
