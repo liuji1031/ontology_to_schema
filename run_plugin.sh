@@ -4,13 +4,13 @@ version=$(<VERSION)
 
 # Update with your data
 api_key=${GROQ_API_KEY}
-input_filename=filename
-host_input_dir=/path/to/input/
-host_output_dir=/path/to/output/
-host_agent_cfg=/path/to/agent_config.yaml
+input_filename=doco.ttl
+host_input_dir=./ttl/
+host_output_dir=./schema/
+host_agent_cfg=./config/agent_doco.yaml
 
-container_input_dir="/inpDir"
-container_output_dir="/outDir"
+container_input_dir="/inp_dir"
+container_output_dir="/out_dir"
 container_agent_cfg="/agent_config.yaml"
 
 docker run -e API_KEY=${api_key} \
