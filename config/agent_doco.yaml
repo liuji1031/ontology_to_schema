@@ -1,5 +1,6 @@
 relevant_slot:
   provider: groq
+  api_key_env_varname: GROQ_API_KEY
   model: llama-3.3-70b-versatile
   model_api_parameters:
     max_tokens: 6000
@@ -28,6 +29,7 @@ relevant_slot:
 
 assign_slot:
   provider: groq
+  api_key_env_varname: GROQ_API_KEY
   model: llama-3.3-70b-versatile
   model_api_parameters:
     max_tokens: 6000
