@@ -1,5 +1,7 @@
 FROM polusai/bfio:2.4.7
 
+# ENV API_KEY=""
+ENV PYSTOW_HOME=/opt/executables/
 RUN apt-get update &&\
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 
@@ -36,5 +38,5 @@ RUN pip3 install "${EXEC_DIR}/${TOOL_DIR}" --no-cache-dir
 
 # Set the entrypoint
 # TODO: Change the entrypoint to the tool entrypoint
-# ENTRYPOINT ["python3", "-m", "polus.images.formats.pyramid_generator_2d"]
-# CMD ["--help"]
+ENTRYPOINT ["ontology-to-schema"]
+CMD ["--help"]
