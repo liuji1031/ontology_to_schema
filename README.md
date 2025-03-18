@@ -10,7 +10,7 @@ The package requires [ROBOT](https://robot.obolibrary.org/) package, which conve
 Example usage of the package on DoCO definition (the Turtle file can be downloaded from [here](https://sparontologies.github.io/doco/current/doco.ttl)):
 
 ```
-ontology-to-schema -i doco.ttl -a config/agent_doco.yaml -o schema/doco.yaml
+ontology-to-schema -i ./ttl/ -f doco.ttl -a config/agent_doco.yaml -o ./schema/
 ```
 
 | Argument | Description | Required |
@@ -31,6 +31,7 @@ The settings for these 2 agents are specified in the supplied agent setting file
 relevant_slot: # step 1 agent
   provider: groq
   model: llama-3.3-70b-versatile
+  api_key_env_varname: API_KEY
   model_api_parameters:
     max_tokens: 6000
     temperature: 0.0
@@ -44,6 +45,7 @@ relevant_slot: # step 1 agent
 assign_slot: # step 2 agent
   provider: groq
   model: llama-3.3-70b-versatile
+  api_key_env_varname: API_KEY
   model_api_parameters:
     max_tokens: 6000
     temperature: 0.0
@@ -55,4 +57,7 @@ assign_slot: # step 2 agent
     <output_instructions stuff>
 ```
 
-The detailed content for agent settings specifically for DoCO can be found in `config/agent_doco.yaml`. To use these
+The detailed content for agent settings specifically for DoCO can be found in `config/agent_doco.yaml`. "api_key_env_varname" specifies the name of the environment variable to retrieve API key from.
+
+### Docker usage
+See `run_docker.sh` to see an example usage.
