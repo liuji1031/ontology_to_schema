@@ -93,7 +93,10 @@ from ontology_to_schema.agent_assign_slot import AgentAssignSlot
 from ontology_to_schema.agent_relevant_slot import AgentRelevantSlot
 
 logging.basicConfig(
-    format="%(asctime)s - %(name)-8s - %(levelname)-8s - %(message)s",
+    format=(
+        "%(asctime)s - %(name)-8s - line %(lineno)d "
+        "- %(levelname)-8s - %(message)s"
+    ),
     datefmt="%d-%b-%y %H:%M:%S",
 )
 
@@ -779,17 +782,22 @@ class OwlImportEngine(ImportEngine):
                 self.expand_unions(x, union_list)
         return union_list
 
-    def expand(self, c: Union[ObjectIntersectionOf, ObjectUnionOf], lst=None):
+    def expand(
+        self, c: Union[Class, ObjectIntersectionOf, ObjectUnionOf], lst=None
+    ) -> list[ClassExpression]:
         """Expand class expressions in an intersection or union."""
         if lst is None:
             lst = []
-        for x in c.classExpressions:
-            if isinstance(x, ObjectIntersectionOf) or isinstance(
-                x, ObjectUnionOf
-            ):
-                self.expand(x, lst)
-            else:
-                lst.append(x)
+        if isinstance(c, Class):
+            lst.append(c)
+        else:
+            for x in c.classExpressions:
+                if isinstance(x, ObjectIntersectionOf) or isinstance(
+                    x, ObjectUnionOf
+                ):
+                    self.expand(x, lst)
+                else:
+                    lst.append(x)
         return lst
 
     def set_slot_usage(self, cls_uri, property, usage_key, usage_value):
@@ -831,72 +839,109 @@ class OwlImportEngine(ImportEngine):
         _set_slot_usage = partial(self.set_slot_usage, child_cls_uri)
         _set_cardinality = partial(self.set_cardinality, child_cls_uri)
 
-        def _set_slot_usage_range(e: ClassExpression):
+        def _set_slot_usage_range(property_uri: str, e: ClassExpression):
             rng_list = []
             for x in self.expand(e):
                 if isinstance(x, Class):
                     rng_list.append(self.to_full_uri(str(x.v)))
-                if rng_list:  # remove duplicates
-                    rng_list = list(set(rng_list))
-                if len(rng_list) == 1:
-                    _set_slot_usage(p, "range", rng_list[0])
                 else:
-                    _set_slot_usage(p, "range", "Any")
-                    _set_slot_usage(
-                        p, "any_of", [{"range": v} for v in rng_list]
+                    self.logger.error(
+                        f"Cannot yet handle {x} in for {child_cls_uri}"
+                    )
+            if rng_list:  # remove duplicates
+                rng_list = list(set(rng_list))
+
+            for r_uri in rng_list:
+                if "slot_usage" in self.classes[child_cls_uri]:
+                    if (
+                        property_uri
+                        not in self.classes[child_cls_uri]["slot_usage"]
+                    ):
+                        self.classes[child_cls_uri]["slot_usage"][
+                            property_uri
+                        ] = {}
+
+                    slot_usage = self.classes[child_cls_uri]["slot_usage"][
+                        property_uri
+                    ]
+
+                    if "range" not in slot_usage:  # no range defined
+                        slot_usage["range"] = r_uri
+                    else:  # range already defined
+                        if "any_of" in slot_usage:  # multiple range defined
+                            slot_usage["any_of"].append({"range": r_uri})
+                        else:  # only single range defined
+                            slot_usage["any_of"] = [
+                                {"range": slot_usage["range"]},
+                                {"range": r_uri},
+                            ]
+                            slot_usage["range"] = "Any"
+
+                else:
+                    self.add_info(
+                        "classes",
+                        child_cls_uri,
+                        "slot_usage",
+                        {property_uri: {"range": r_uri}},
                     )
 
         subclassof_class_set = set()
         # self.logger.debug(f"Processing parent of {child}")
         for parent in subclassof_list:
-            p = None
+            parent_uri = None
             # self.logger.debug(f"\tProcessing parent: {parent}")
             # begin switch cases
             if isinstance(parent, Class):
-                p = self.to_full_uri(parent)
-                subclassof_class_set.add(p)  # add to set
+                parent_uri = self.to_full_uri(parent)
+                subclassof_class_set.add(parent_uri)  # add to set
             elif isinstance(parent, DataExactCardinality):
-                p = self.to_full_uri(parent.dataPropertyExpression)
-                _set_cardinality(p, parent.card, parent.card)
+                property_uri = self.to_full_uri(parent.dataPropertyExpression)
+                _set_cardinality(property_uri, parent.card, parent.card)
             elif isinstance(parent, ObjectExactCardinality):
-                p = self.to_full_uri(parent.objectPropertyExpression)
-                _set_cardinality(p, parent.card, parent.card)
+                property_uri = self.to_full_uri(
+                    parent.objectPropertyExpression
+                )
+                _set_cardinality(property_uri, parent.card, parent.card)
             elif isinstance(parent, ObjectMinCardinality):
-                p = self.to_full_uri(parent.objectPropertyExpression)
-                _set_cardinality(p, parent.min_, None)
+                property_uri = self.to_full_uri(
+                    parent.objectPropertyExpression
+                )
+                _set_cardinality(property_uri, parent.min_, None)
             elif isinstance(parent, DataMinCardinality):
-                p = self.to_full_uri(parent.dataPropertyExpression)
-                _set_cardinality(p, parent.min_, None)
+                property_uri = self.to_full_uri(parent.dataPropertyExpression)
+                _set_cardinality(property_uri, parent.min_, None)
             elif isinstance(parent, ObjectMaxCardinality):
-                p = self.to_full_uri(parent.objectPropertyExpression)
-                _set_cardinality(p, None, parent.max_)
+                property_uri = self.to_full_uri(
+                    parent.objectPropertyExpression
+                )
+                _set_cardinality(property_uri, None, parent.max_)
             elif isinstance(parent, DataMaxCardinality):
-                p = self.to_full_uri(parent.dataPropertyExpression)
-                _set_cardinality(p, None, parent.max_)
+                property_uri = self.to_full_uri(parent.dataPropertyExpression)
+                _set_cardinality(property_uri, None, parent.max_)
             elif isinstance(parent, ObjectAllValuesFrom):
-                p = self.to_full_uri(parent.objectPropertyExpression)
-                if isinstance(parent.classExpression, Class):
-                    cn = self.to_full_uri(parent.classExpression)
-                    _set_slot_usage(p, "range", cn)
-                elif isinstance(
-                    parent.classExpression, ObjectUnionOf
-                ) or isinstance(parent.classExpression, ObjectIntersectionOf):
-                    _set_slot_usage_range(parent.classExpression)
+                property_uri = self.to_full_uri(
+                    parent.objectPropertyExpression
+                )
+                if isinstance(
+                    parent.classExpression,
+                    (Class, ObjectUnionOf, ObjectIntersectionOf),
+                ):
+                    _set_slot_usage_range(property_uri, parent.classExpression)
                 else:
                     self.logger.error(
                         "Cannot yet handle anonymous ranges:"
                         + f" {parent.classExpression}"
                     )
             elif isinstance(parent, ObjectSomeValuesFrom):
-                p = self.to_full_uri(parent.objectPropertyExpression)
-                _set_cardinality(p, 1, None)
-                if isinstance(parent.classExpression, Class):
-                    cn = self.to_full_uri(parent.classExpression)
-                    _set_slot_usage(p, "range", cn)
-                elif isinstance(
-                    parent.classExpression, ObjectUnionOf
-                ) or isinstance(parent.classExpression, ObjectIntersectionOf):
-                    _set_slot_usage_range(parent.classExpression)
+                property_uri = self.to_full_uri(
+                    parent.objectPropertyExpression
+                )
+                _set_cardinality(property_uri, 1, None)
+                if isinstance(
+                    parent.classExpression,
+                    (Class, ObjectUnionOf, ObjectIntersectionOf),
+                ):
+                    _set_slot_usage_range(property_uri, parent.classExpression)
                 else:
                     self.logger.error(
                         "Cannot yet handle anonymous ranges:"
@@ -904,8 +949,10 @@ class OwlImportEngine(ImportEngine):
                     )
             elif isinstance(parent, DataSomeValuesFrom):
                 if len(parent.dataPropertyExpressions) == 1:
-                    p = self.to_full_uri(parent.dataPropertyExpressions[0])
-                    _set_cardinality(p, 1, None)
+                    property_uri = self.to_full_uri(
+                        parent.dataPropertyExpressions[0]
+                    )
+                    _set_cardinality(property_uri, 1, None)
                 else:
                     self.logger.error(
                         "Cannot handle multiple data property"
@@ -913,12 +960,14 @@ class OwlImportEngine(ImportEngine):
                     )
             elif isinstance(parent, DataAllValuesFrom):
                 if len(parent.dataPropertyExpressions) == 1:
-                    p = self.to_full_uri(parent.dataPropertyExpressions[0])
+                    property_uri = self.to_full_uri(
+                        parent.dataPropertyExpressions[0]
+                    )
                     r = parent.dataRange
                     if isinstance(r, DataOneOf):
                         self.logger.error(f"TODO: enum for {r}")
                     elif isinstance(r, Datatype):
-                        _set_slot_usage(p, "range", r)
+                        _set_slot_usage(property_uri, "range", r)
                     else:
                         self.logger.error(f"Cannot handle range of {r}")
                 else:
@@ -927,11 +976,11 @@ class OwlImportEngine(ImportEngine):
                         + f" expressions: {parent}"
                     )
             elif isinstance(parent, DataHasValue):
-                p = self.to_full_uri(parent.dataPropertyExpression)
-                lit = parent.literal.v
-                if isinstance(lit, TypedLiteral):
-                    lit = lit.literal
-                _set_slot_usage(p, "equals_string", str(lit))
+                property_uri = self.to_full_uri(parent.dataPropertyExpression)
+                lit_val = parent.literal.v
+                if isinstance(lit_val, TypedLiteral):
+                    lit_val = lit_val.literal
+                _set_slot_usage(property_uri, "equals_string", str(lit_val))
             else:
                 self.logger.error(
                     f"cannot handle anonymous parent classes for {parent}",
@@ -941,11 +990,11 @@ class OwlImportEngine(ImportEngine):
         subclassof_class_list = list(subclassof_class_set)
         if len(subclassof_class_list) == 0:
             return
-        p = subclassof_class_list.pop()
-        self.add_info("classes", child_cls_uri, "is_a", p)
+        parent_uri = subclassof_class_list.pop()
+        self.add_info("classes", child_cls_uri, "is_a", parent_uri)
 
-        for p in subclassof_class_list:
-            self.add_info("classes", child_cls_uri, "mixins", p, True)
+        for parent_uri in subclassof_class_list:
+            self.add_info("classes", child_cls_uri, "mixins", parent_uri, True)
 
     def add_class_info(self, *args, **kwargs):
         """Add class information to the schema."""
