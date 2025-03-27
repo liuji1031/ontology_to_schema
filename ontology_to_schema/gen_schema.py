@@ -101,7 +101,9 @@ logging.basicConfig(
 )
 
 
-TOOL_NAME = "ontology_to_schema"
+TOOL_NAME = os.path.join(
+    os.path.basename(os.path.dirname(__file__)), os.path.basename(__file__)
+)
 LINKML_TYPES = [
     lm.String,
     lm.String,
@@ -846,7 +848,7 @@ class OwlImportEngine(ImportEngine):
                     rng_list.append(self.to_full_uri(str(x.v)))
                 else:
                     self.logger.error(
-                        f"Cannot yet handle {x} in for {child_cls_uri}"
+                        f"Cannot yet handle range {x} for {child_cls_uri}"
                     )
             if rng_list:  # remove duplicates
                 rng_list = list(set(rng_list))
