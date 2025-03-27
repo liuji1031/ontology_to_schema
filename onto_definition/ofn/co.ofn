@@ -1,0 +1,255 @@
+Prefix(:=<http://purl.org/co#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(swrl:=<http://www.w3.org/2003/11/swrl#>)
+Prefix(error:=<http://www.essepuntato.it/2009/10/error/>)
+Prefix(swrlb:=<http://www.w3.org/2003/11/swrlb#>)
+
+
+Ontology(<http://purl.org/co>
+Import(<http://purl.org/spar/error>)
+Annotation(dc:contributor "Marco Ocana")
+Annotation(dc:contributor "Paolo Ciccarese")
+Annotation(dc:contributor "Silvio Peroni")
+Annotation(dc:creator <http://www.paolociccarese.info>)
+Annotation(dc:date "March 19, 2012")
+Annotation(dc:format "application/rdf+xml")
+Annotation(dc:language "en")
+Annotation(dc:title "The Collections Ontology
+(CO)"@en)
+Annotation(owl:versionInfo "2.0")
+
+Declaration(Class(<http://purl.org/co/Bag>))
+Declaration(Class(<http://purl.org/co/Collection>))
+Declaration(Class(<http://purl.org/co/Item>))
+Declaration(Class(<http://purl.org/co/List>))
+Declaration(Class(<http://purl.org/co/ListItem>))
+Declaration(Class(<http://purl.org/co/Set>))
+Declaration(Class(owl:Thing))
+Declaration(ObjectProperty(<http://purl.org/co/element>))
+Declaration(ObjectProperty(<http://purl.org/co/elementOf>))
+Declaration(ObjectProperty(<http://purl.org/co/firstItem>))
+Declaration(ObjectProperty(<http://purl.org/co/firstItemOf>))
+Declaration(ObjectProperty(<http://purl.org/co/followedBy>))
+Declaration(ObjectProperty(<http://purl.org/co/item>))
+Declaration(ObjectProperty(<http://purl.org/co/itemContent>))
+Declaration(ObjectProperty(<http://purl.org/co/itemContentOf>))
+Declaration(ObjectProperty(<http://purl.org/co/itemOf>))
+Declaration(ObjectProperty(<http://purl.org/co/lastItem>))
+Declaration(ObjectProperty(<http://purl.org/co/lastItemOf>))
+Declaration(ObjectProperty(<http://purl.org/co/nextItem>))
+Declaration(ObjectProperty(<http://purl.org/co/precededBy>))
+Declaration(ObjectProperty(<http://purl.org/co/previousItem>))
+Declaration(DataProperty(<http://purl.org/co/index>))
+Declaration(DataProperty(<http://purl.org/co/size>))
+Declaration(DataProperty(error:hasError))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:format))
+Declaration(AnnotationProperty(dc:language))
+Declaration(AnnotationProperty(dc:publisher))
+Declaration(AnnotationProperty(dc:title))
+Declaration(Datatype(xsd:date))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/co/element> (has element)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/element> "The link to the members of a collection"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/element> "has element"@en)
+InverseObjectProperties(<http://purl.org/co/element> <http://purl.org/co/elementOf>)
+ObjectPropertyDomain(<http://purl.org/co/element> <http://purl.org/co/Collection>)
+
+# Object Property: <http://purl.org/co/elementOf> (is element of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/elementOf> "The link to a collection in which the object is member."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/elementOf> "is element of"@en)
+
+# Object Property: <http://purl.org/co/firstItem> (has first item)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/firstItem> "The link to the first item of the list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/firstItem> "has first item"@en)
+SubObjectPropertyOf(<http://purl.org/co/firstItem> <http://purl.org/co/item>)
+InverseObjectProperties(<http://purl.org/co/firstItem> <http://purl.org/co/firstItemOf>)
+FunctionalObjectProperty(<http://purl.org/co/firstItem>)
+ObjectPropertyDomain(<http://purl.org/co/firstItem> <http://purl.org/co/List>)
+ObjectPropertyRange(<http://purl.org/co/firstItem> ObjectIntersectionOf(<http://purl.org/co/ListItem> ObjectExactCardinality(0 <http://purl.org/co/previousItem>) DataHasValue(<http://purl.org/co/index> "1"^^xsd:positiveInteger)))
+
+# Object Property: <http://purl.org/co/firstItemOf> (is first item of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/firstItemOf> "The link to a list in which the item is first item."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/firstItemOf> "is first item of"@en)
+SubObjectPropertyOf(<http://purl.org/co/firstItemOf> <http://purl.org/co/itemOf>)
+
+# Object Property: <http://purl.org/co/followedBy> (is followed by)
+
+AnnotationAssertion(dc:description <http://purl.org/co/followedBy> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is followed by I[i+1], ... , I[n-1] and I[n]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/co/followedBy> "The link to the following item in a list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/followedBy> "is followed by"@en)
+InverseObjectProperties(<http://purl.org/co/followedBy> <http://purl.org/co/precededBy>)
+TransitiveObjectProperty(<http://purl.org/co/followedBy>)
+ObjectPropertyDomain(<http://purl.org/co/followedBy> <http://purl.org/co/ListItem>)
+ObjectPropertyRange(<http://purl.org/co/followedBy> <http://purl.org/co/ListItem>)
+
+# Object Property: <http://purl.org/co/item> (has item)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/item> "The link to every item of the bag"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/item> "has item"@en)
+InverseObjectProperties(<http://purl.org/co/item> <http://purl.org/co/itemOf>)
+ObjectPropertyDomain(<http://purl.org/co/item> <http://purl.org/co/Bag>)
+ObjectPropertyRange(<http://purl.org/co/item> <http://purl.org/co/Item>)
+
+# Object Property: <http://purl.org/co/itemContent> (has item content)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/itemContent> "The link to the actual resource to which the item refers."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/itemContent> "has item content"@en)
+InverseObjectProperties(<http://purl.org/co/itemContent> <http://purl.org/co/itemContentOf>)
+FunctionalObjectProperty(<http://purl.org/co/itemContent>)
+ObjectPropertyDomain(<http://purl.org/co/itemContent> <http://purl.org/co/Item>)
+ObjectPropertyRange(<http://purl.org/co/itemContent> ObjectComplementOf(<http://purl.org/co/Item>))
+
+# Object Property: <http://purl.org/co/itemContentOf> (is item content of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/itemContentOf> "The link to the item that refers to the resource."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/itemContentOf> "is item content of"@en)
+
+# Object Property: <http://purl.org/co/itemOf> (is item of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/itemOf> "The link to a bag in which the item is member."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/itemOf> "is item of"@en)
+
+# Object Property: <http://purl.org/co/lastItem> (has last item)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/lastItem> "The link to the last item of the list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/lastItem> "has last item"@en)
+SubObjectPropertyOf(<http://purl.org/co/lastItem> <http://purl.org/co/item>)
+InverseObjectProperties(<http://purl.org/co/lastItem> <http://purl.org/co/lastItemOf>)
+FunctionalObjectProperty(<http://purl.org/co/lastItem>)
+ObjectPropertyDomain(<http://purl.org/co/lastItem> <http://purl.org/co/List>)
+ObjectPropertyRange(<http://purl.org/co/lastItem> ObjectIntersectionOf(<http://purl.org/co/ListItem> ObjectExactCardinality(0 <http://purl.org/co/nextItem>)))
+
+# Object Property: <http://purl.org/co/lastItemOf> (is last item of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/lastItemOf> "The link to a list in which the item is last item."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/lastItemOf> "is last item of"@en)
+SubObjectPropertyOf(<http://purl.org/co/lastItemOf> <http://purl.org/co/itemOf>)
+
+# Object Property: <http://purl.org/co/nextItem> (has next item)
+
+AnnotationAssertion(dc:description <http://purl.org/co/nextItem> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/co/nextItem> "The link to the next item in a list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/nextItem> "has next item"@en)
+SubObjectPropertyOf(<http://purl.org/co/nextItem> <http://purl.org/co/followedBy>)
+InverseObjectProperties(<http://purl.org/co/nextItem> <http://purl.org/co/previousItem>)
+FunctionalObjectProperty(<http://purl.org/co/nextItem>)
+
+# Object Property: <http://purl.org/co/precededBy> (is preceded by)
+
+AnnotationAssertion(dc:description <http://purl.org/co/precededBy> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/co/precededBy> "The link to the preceding item in a list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/precededBy> "is preceded by"@en)
+TransitiveObjectProperty(<http://purl.org/co/precededBy>)
+
+# Object Property: <http://purl.org/co/previousItem> (has previous item)
+
+AnnotationAssertion(dc:description <http://purl.org/co/previousItem> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/co/previousItem> "The link to the previous item in a list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/previousItem> "has previous item"@en)
+SubObjectPropertyOf(<http://purl.org/co/previousItem> <http://purl.org/co/precededBy>)
+FunctionalObjectProperty(<http://purl.org/co/previousItem>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/co/index> (has index)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/index> "A number identifying the position, starting from 1, of a particular list item within a list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/index> "has index"@en)
+DataPropertyDomain(<http://purl.org/co/index> <http://purl.org/co/ListItem>)
+DataPropertyRange(<http://purl.org/co/index> xsd:positiveInteger)
+
+# Data Property: <http://purl.org/co/size> (has size)
+
+AnnotationAssertion(dc:description <http://purl.org/co/size> "CO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:
+- the size of the set {a, b, c} is three
+- the size of the bag [a, a, b, b, b, c] is five
+- the size of the list (a, b, c, b, a, b, c, c) is seven"@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/co/size> "The number of item belonging to a collection."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/size> "has size"@en)
+DataPropertyDomain(<http://purl.org/co/size> <http://purl.org/co/Collection>)
+DataPropertyRange(<http://purl.org/co/size> xsd:nonNegativeInteger)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/co/Bag> (bag)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/Bag> "Collection that can have a number of copies of each object"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/Bag> "bag"@en)
+SubClassOf(<http://purl.org/co/Bag> <http://purl.org/co/Collection>)
+DisjointClasses(<http://purl.org/co/Bag> <http://purl.org/co/Set>)
+
+# Class: <http://purl.org/co/Collection> (collection)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/Collection> "A group of objects that can be considered as a whole."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/Collection> "collection"@en)
+SubClassOf(<http://purl.org/co/Collection> owl:Thing)
+SubClassOf(<http://purl.org/co/Collection> ObjectAllValuesFrom(<http://purl.org/co/element> owl:Thing))
+SubClassOf(<http://purl.org/co/Collection> DataExactCardinality(1 <http://purl.org/co/size>))
+DisjointClasses(<http://purl.org/co/Collection> <http://purl.org/co/Item>)
+
+# Class: <http://purl.org/co/Item> (item)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/Item> "Element belonging to a bag"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/Item> "item"@en)
+SubClassOf(<http://purl.org/co/Item> owl:Thing)
+SubClassOf(<http://purl.org/co/Item> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.org/co/item>) <http://purl.org/co/Bag>))
+
+# Class: <http://purl.org/co/List> (list)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/List> "An ordered array of items, that can be present in multiple copies"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/List> "list"@en)
+SubClassOf(<http://purl.org/co/List> ObjectIntersectionOf(<http://purl.org/co/Bag> ObjectAllValuesFrom(<http://purl.org/co/item> <http://purl.org/co/ListItem>)))
+SubClassOf(<http://purl.org/co/List> ObjectMaxCardinality(1 <http://purl.org/co/firstItem>))
+SubClassOf(<http://purl.org/co/List> ObjectMaxCardinality(1 <http://purl.org/co/lastItem>))
+
+# Class: <http://purl.org/co/ListItem> (list item)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/ListItem> "element belonging to a list"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/ListItem> "list item"@en)
+SubClassOf(<http://purl.org/co/ListItem> <http://purl.org/co/Item>)
+SubClassOf(<http://purl.org/co/ListItem> DataExactCardinality(1 <http://purl.org/co/index>))
+
+# Class: <http://purl.org/co/Set> (set)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/co/Set> "A collection that cannot contain duplicate elements."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/co/Set> "set"@en)
+SubClassOf(<http://purl.org/co/Set> <http://purl.org/co/Collection>)
+
+
+SubClassOf(ObjectIntersectionOf(<http://purl.org/co/List> ObjectSomeValuesFrom(<http://purl.org/co/item> <http://purl.org/co/ListItem>)) ObjectIntersectionOf(<http://purl.org/co/List> ObjectSomeValuesFrom(<http://purl.org/co/firstItem> <http://purl.org/co/Item>) ObjectSomeValuesFrom(<http://purl.org/co/lastItem> <http://purl.org/co/Item>)))
+SubObjectPropertyOf(ObjectPropertyChain(<http://purl.org/co/item> <http://purl.org/co/itemContent>) <http://purl.org/co/element>)
+SubObjectPropertyOf(ObjectPropertyChain(<http://purl.org/co/item> <http://purl.org/co/nextItem>) <http://purl.org/co/item>)
+DLSafeRule(Body(ObjectPropertyAtom(<http://purl.org/co/followedBy> Variable(<urn:swrl#x>) Variable(<urn:swrl#x>)))Head(DataPropertyAtom(error:hasError Variable(<urn:swrl#x>) "A list item cannot be followed by itself")))
+DLSafeRule(Body(ObjectPropertyAtom(<http://purl.org/co/itemOf> Variable(<urn:swrl#i>) Variable(<urn:swrl#l>)) DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#i>) Variable(<urn:swrl#value>)) DataPropertyAtom(<http://purl.org/co/size> Variable(<urn:swrl#l>) Variable(<urn:swrl#value>)))Head(ObjectPropertyAtom(<http://purl.org/co/lastItem> Variable(<urn:swrl#l>) Variable(<urn:swrl#i>))))
+DLSafeRule(Body(DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#li>) "1") ObjectPropertyAtom(<http://purl.org/co/itemOf> Variable(<urn:swrl#li>) Variable(<urn:swrl#l>)))Head(ObjectPropertyAtom(<http://purl.org/co/firstItem> Variable(<urn:swrl#l>) Variable(<urn:swrl#li>))))
+DLSafeRule(Body(ObjectPropertyAtom(<http://purl.org/co/itemOf> Variable(<urn:swrl#li1>) Variable(<urn:swrl#l>)) ObjectPropertyAtom(<http://purl.org/co/itemOf> Variable(<urn:swrl#li2>) Variable(<urn:swrl#l>)) DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#li1>) Variable(<urn:swrl#r1>)) DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#li2>) Variable(<urn:swrl#r2>)) BuiltInAtom(swrlb:add Variable(<urn:swrl#r2>) Variable(<urn:swrl#r1>) "1"^^xsd:integer))Head(ObjectPropertyAtom(<http://purl.org/co/nextItem> Variable(<urn:swrl#li1>) Variable(<urn:swrl#li2>))))
+DLSafeRule(Body(DataPropertyAtom(<http://purl.org/co/size> Variable(<urn:swrl#l>) Variable(<urn:swrl#value>)) ObjectPropertyAtom(<http://purl.org/co/lastItem> Variable(<urn:swrl#l>) Variable(<urn:swrl#i>)))Head(DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#i>) Variable(<urn:swrl#value>))))
+DLSafeRule(Body(DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#last>) Variable(<urn:swrl#r>)) ObjectPropertyAtom(<http://purl.org/co/lastItem> Variable(<urn:swrl#list>) Variable(<urn:swrl#last>)))Head(DataPropertyAtom(<http://purl.org/co/size> Variable(<urn:swrl#list>) Variable(<urn:swrl#r>))))
+DLSafeRule(Body(ObjectPropertyAtom(<http://purl.org/co/nextItem> Variable(<urn:swrl#current>) Variable(<urn:swrl#next>)) DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#current>) Variable(<urn:swrl#r>)) BuiltInAtom(swrlb:add Variable(<urn:swrl#nextR>) Variable(<urn:swrl#r>) "1"^^xsd:integer))Head(DataPropertyAtom(<http://purl.org/co/index> Variable(<urn:swrl#next>) Variable(<urn:swrl#nextR>))))
+DLSafeRule(Body(ObjectPropertyAtom(<http://purl.org/co/precededBy> Variable(<urn:swrl#x>) Variable(<urn:swrl#x>)))Head(DataPropertyAtom(error:hasError Variable(<urn:swrl#x>) "A list item cannot be preceded by itself")))
+)

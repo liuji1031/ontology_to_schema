@@ -1,0 +1,296 @@
+Prefix(:=<http://purl.org/spar/fr#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(vs:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(wot:=<http://xmlns.com/wot/0.1/>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(prov:=<http://www.w3.org/ns/prov#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(vann:=<http://purl.org/vocab/vann/>)
+Prefix(dcterms:=<http://purl.org/dc/terms/>)
+
+
+Ontology(<http://purl.org/spar/fr>
+Import(<http://purl.org/spar/datacite/>)
+Annotation(dc:contributor "Silvio Peroni")
+Annotation(dc:creator <https://w3id.org/people/idafensp>)
+Annotation(dc:creator <https://w3id.org/people/mpoveda>)
+Annotation(dc:publisher <http://www.oeg-upm.net/>)
+Annotation(dc:title "FAIR reviews ontology"@en)
+Annotation(dcterms:created "2017-09-01"^^xsd:date)
+Annotation(dcterms:issued "2017-11-07"^^xsd:date)
+Annotation(dcterms:modified "2018-07-03"^^xsd:date)
+Annotation(vann:preferredNamespacePrefix "fr"^^xsd:date)
+Annotation(vann:preferredNamespaceUri "http://purl.org/spar/fr/")
+Annotation(rdfs:comment "This vocabulary represents scientific reviews. This model is used to annotate http://fairreviews.linkeddata.es/ data."@en)
+Annotation(owl:priorVersion <https://w3id.org/fr/def/core#>)
+Annotation(owl:versionInfo "1.0")
+
+Declaration(Class(<http://lexvo.org/ontology#Language>))
+Declaration(Class(dcterms:Agent))
+Declaration(Class(<http://purl.org/spar/bido/DiscreteReviewRatingScale>))
+Declaration(Class(<http://purl.org/spar/bido/DiscreteReviewerConfidenceScale>))
+Declaration(Class(<http://purl.org/spar/bido/ReviewRatingScale>))
+Declaration(Class(<http://purl.org/spar/bido/ReviewRatingValue>))
+Declaration(Class(<http://purl.org/spar/bido/ReviewerConfidenceScale>))
+Declaration(Class(<http://purl.org/spar/bido/ReviewerConfidenceValue>))
+Declaration(Class(<http://purl.org/spar/bido/ScholarlyVenueManagementSystem>))
+Declaration(Class(<http://purl.org/spar/datacite/Identifier>))
+Declaration(Class(<http://purl.org/spar/fabio/Comment>))
+Declaration(Class(<http://purl.org/spar/fabio/Endeavour>))
+Declaration(Class(<http://purl.org/spar/fabio/Expression>))
+Declaration(Class(<http://purl.org/spar/fabio/Reply>))
+Declaration(Class(<http://purl.org/spar/fabio/Review>))
+Declaration(Class(<http://purl.org/spar/fabio/Work>))
+Declaration(Class(<http://purl.org/spar/fr/ConveningOrganization>))
+Declaration(Class(<http://purl.org/spar/fr/ReviewVersion>))
+Declaration(Class(<http://purl.org/spar/fr/TrackingSystem>))
+Declaration(Class(<http://www.w3.org/2004/02/skos/core#Concept>))
+Declaration(Class(<http://www.w3.org/2004/02/skos/core#ConceptScheme>))
+Declaration(Class(<http://www.w3.org/ns/odrl/2/Policy>))
+Declaration(Class(foaf:Agent))
+Declaration(Class(foaf:Person))
+Declaration(ObjectProperty(dcterms:creator))
+Declaration(ObjectProperty(dcterms:language))
+Declaration(ObjectProperty(dcterms:license))
+Declaration(ObjectProperty(<http://purl.org/spar/fr/hasRating>))
+Declaration(ObjectProperty(<http://purl.org/spar/fr/hasReviewerConfidence>))
+Declaration(ObjectProperty(<http://purl.org/spar/fr/hasSubReviewer>))
+Declaration(ObjectProperty(<http://purl.org/spar/fr/issuedAt>))
+Declaration(ObjectProperty(<http://purl.org/spar/fr/issuedFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/fr/releasedBy>))
+Declaration(ObjectProperty(<http://www.w3.org/2004/02/skos/core#closeMatch>))
+Declaration(ObjectProperty(<http://www.w3.org/2004/02/skos/core#inScheme>))
+Declaration(DataProperty(dcterms:issued))
+Declaration(DataProperty(dcterms:modified))
+Declaration(DataProperty(<http://purl.org/spar/bido/hasConfidenceValue>))
+Declaration(DataProperty(<http://purl.org/spar/fabio/hasURL>))
+Declaration(DataProperty(<http://purl.org/spar/fr/ratingValue>))
+Declaration(NamedIndividual(<http://purl.org/NET/rdflicense/cc-by4.0>))
+Declaration(NamedIndividual(<http://purl.org/spar/fr>))
+Declaration(NamedIndividual(<http://purl.org/spar/fr/>))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:language))
+Declaration(AnnotationProperty(dc:publisher))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dcterms:created))
+Declaration(AnnotationProperty(dcterms:creator))
+Declaration(AnnotationProperty(dcterms:issued))
+Declaration(AnnotationProperty(dcterms:language))
+Declaration(AnnotationProperty(dcterms:license))
+Declaration(AnnotationProperty(dcterms:modified))
+Declaration(AnnotationProperty(vann:preferredNamespacePrefix))
+Declaration(AnnotationProperty(vann:preferredNamespaceUri))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#prefLabel>))
+Declaration(Datatype(xsd:date))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: dcterms:creator (dcterms:creator)
+
+SubAnnotationPropertyOf(dcterms:creator dc:creator)
+AnnotationPropertyRange(dcterms:creator dcterms:Agent)
+
+# Annotation Property: dcterms:issued (dcterms:issued)
+
+SubAnnotationPropertyOf(dcterms:issued dc:date)
+AnnotationPropertyRange(dcterms:issued rdfs:Literal)
+
+# Annotation Property: dcterms:language (dcterms:language)
+
+SubAnnotationPropertyOf(dcterms:language dc:language)
+AnnotationPropertyRange(dcterms:language dcterms:LinguisticSystem)
+
+# Annotation Property: dcterms:license (dcterms:license)
+
+SubAnnotationPropertyOf(dcterms:license dc:rights)
+AnnotationPropertyRange(dcterms:license dcterms:LicenseDocument)
+
+# Annotation Property: dcterms:modified (dcterms:modified)
+
+SubAnnotationPropertyOf(dcterms:modified dc:date)
+AnnotationPropertyRange(dcterms:modified rdfs:Literal)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/fr/hasRating> (has rating)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/hasRating> "The relation between a review and a given rating assigned by a reviewer."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/hasRating> "has rating"@en)
+ObjectPropertyDomain(<http://purl.org/spar/fr/hasRating> <http://purl.org/spar/fabio/Review>)
+ObjectPropertyRange(<http://purl.org/spar/fr/hasRating> <http://purl.org/spar/bido/ReviewRatingValue>)
+
+# Object Property: <http://purl.org/spar/fr/hasReviewerConfidence> (has reviewer confidence)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/hasReviewerConfidence> "Relation between a review the confidence set by the author about the review topic. As the review can be written only by one author the confidence is assumed to be for such author about the given paper without need of creating a new class involving the three actors in a n-ary alike solution.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/hasReviewerConfidence> "has reviewer confidence"@en)
+ObjectPropertyDomain(<http://purl.org/spar/fr/hasReviewerConfidence> <http://purl.org/spar/fabio/Review>)
+ObjectPropertyRange(<http://purl.org/spar/fr/hasReviewerConfidence> <http://purl.org/spar/bido/ReviewerConfidenceValue>)
+
+# Object Property: <http://purl.org/spar/fr/hasSubReviewer> (has sub-reviewer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/hasSubReviewer> "The relation between a review and agents that have contributed to the overall review as sub-reviwers."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/hasSubReviewer> "has sub-reviewer"@en)
+ObjectPropertyDomain(<http://purl.org/spar/fr/hasSubReviewer> <http://purl.org/spar/fabio/Review>)
+ObjectPropertyRange(<http://purl.org/spar/fr/hasSubReviewer> foaf:Agent)
+
+# Object Property: <http://purl.org/spar/fr/issuedAt> (issued at)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/issuedAt> "The relation between a review and the tracking or scholarly venue management system where the reviewing process took place."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/issuedAt> "issued at"@en)
+ObjectPropertyDomain(<http://purl.org/spar/fr/issuedAt> <http://purl.org/spar/fabio/Review>)
+ObjectPropertyRange(<http://purl.org/spar/fr/issuedAt> <http://purl.org/spar/fr/TrackingSystem>)
+
+# Object Property: <http://purl.org/spar/fr/issuedFor> (issued for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/issuedFor> "The realation between a review and the entity (e.g. conference, journal) that it was issued for (usually the one that requested the review)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/issuedFor> "issued for"@en)
+ObjectPropertyDomain(<http://purl.org/spar/fr/issuedFor> <http://purl.org/spar/fabio/Review>)
+ObjectPropertyRange(<http://purl.org/spar/fr/issuedFor> <http://purl.org/spar/fr/ConveningOrganization>)
+
+# Object Property: <http://purl.org/spar/fr/releasedBy> (released by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/releasedBy> "The relation between the review and the agent publishing it. It might be the the author of the review or conference or journal to which the scientific resource was submitted to."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/releasedBy> "released by"@en)
+ObjectPropertyDomain(<http://purl.org/spar/fr/releasedBy> <http://purl.org/spar/fabio/Review>)
+ObjectPropertyRange(<http://purl.org/spar/fr/releasedBy> foaf:Agent)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/spar/bido/hasConfidenceValue> (has confidence value)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/bido/hasConfidenceValue> "Confidence value of expertise in the review topic given by the reviwer"@en)
+AnnotationAssertion(rdfs:isDefinedBy <http://purl.org/spar/bido/hasConfidenceValue> "http://purl.org/spar/bido-review-measures/")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/hasConfidenceValue> "has confidence value"@en)
+
+# Data Property: <http://purl.org/spar/fabio/hasURL> (<http://purl.org/spar/fabio/hasURL>)
+
+DataPropertyDomain(<http://purl.org/spar/fabio/hasURL> <http://purl.org/spar/fabio/Endeavour>)
+DataPropertyRange(<http://purl.org/spar/fabio/hasURL> xsd:anyURI)
+
+# Data Property: <http://purl.org/spar/fr/ratingValue> (rating value)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/ratingValue> "Numerical value of the rating given to a review."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/ratingValue> "rating value"@en)
+DataPropertyDomain(<http://purl.org/spar/fr/ratingValue> <http://purl.org/spar/bido/ReviewRatingValue>)
+DataPropertyRange(<http://purl.org/spar/fr/ratingValue> rdfs:Literal)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://lexvo.org/ontology#Language> (Language)
+
+AnnotationAssertion(rdfs:comment <http://lexvo.org/ontology#Language> "Language of the scientific contribution (paper, review, etc.)."@en)
+AnnotationAssertion(rdfs:label <http://lexvo.org/ontology#Language> "Language"@en)
+
+# Class: <http://purl.org/spar/bido/DiscreteReviewRatingScale> (Discrete review reating scale)
+
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/DiscreteReviewRatingScale> "Discrete review reating scale"@en)
+SubClassOf(<http://purl.org/spar/bido/DiscreteReviewRatingScale> <http://purl.org/spar/bido/ReviewRatingScale>)
+
+# Class: <http://purl.org/spar/bido/DiscreteReviewerConfidenceScale> (Discrete reviewer confidence scale)
+
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/DiscreteReviewerConfidenceScale> "Discrete reviewer confidence scale"@en)
+SubClassOf(<http://purl.org/spar/bido/DiscreteReviewerConfidenceScale> <http://purl.org/spar/bido/ReviewerConfidenceScale>)
+
+# Class: <http://purl.org/spar/bido/ReviewRatingScale> (Review rating scale)
+
+AnnotationAssertion(rdfs:isDefinedBy <http://purl.org/spar/bido/ReviewRatingScale> "http://purl.org/spar/bido-review-measures/")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/ReviewRatingScale> "Review rating scale"@en)
+
+# Class: <http://purl.org/spar/bido/ReviewRatingValue> (Review rating concept)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/bido/ReviewRatingValue> "The set of values of a given rating scale."@en)
+AnnotationAssertion(rdfs:isDefinedBy <http://purl.org/spar/bido/ReviewRatingValue> "http://purl.org/spar/bido-review-measures/")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/ReviewRatingValue> "Review rating concept"@en)
+
+# Class: <http://purl.org/spar/bido/ReviewerConfidenceScale> (Reviwer confidence scale)
+
+AnnotationAssertion(rdfs:isDefinedBy <http://purl.org/spar/bido/ReviewerConfidenceScale> "http://purl.org/spar/bido-review-measures/")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/ReviewerConfidenceScale> "Reviwer confidence scale"@en)
+
+# Class: <http://purl.org/spar/bido/ReviewerConfidenceValue> (Reviewer confidence value)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/bido/ReviewerConfidenceValue> "The set of values of a given confidence scale."@en)
+AnnotationAssertion(rdfs:isDefinedBy <http://purl.org/spar/bido/ReviewerConfidenceValue> "http://purl.org/spar/bido-review-measures/")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/bido/ReviewerConfidenceValue> "Reviewer confidence value"@en)
+
+# Class: <http://purl.org/spar/datacite/Identifier> (identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/Identifier> "Un identificador que identifica de forma única a una entidad - tal como una agencia de financiación, una persona y un recurso - que pertenece a un esquema particular, como los especificados por individuos de la clase datacite:IdentifierScheme."@es)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/Identifier> "identificador"@es)
+
+# Class: <http://purl.org/spar/fabio/Expression> (<http://purl.org/spar/fabio/Expression>)
+
+SubClassOf(<http://purl.org/spar/fabio/Expression> <http://purl.org/spar/fabio/Endeavour>)
+
+# Class: <http://purl.org/spar/fabio/Reply> (<http://purl.org/spar/fabio/Reply>)
+
+SubClassOf(<http://purl.org/spar/fabio/Reply> <http://purl.org/spar/fabio/Work>)
+
+# Class: <http://purl.org/spar/fabio/Review> (<http://purl.org/spar/fabio/Review>)
+
+SubClassOf(<http://purl.org/spar/fabio/Review> <http://purl.org/spar/fabio/Work>)
+
+# Class: <http://purl.org/spar/fabio/Work> (<http://purl.org/spar/fabio/Work>)
+
+SubClassOf(<http://purl.org/spar/fabio/Work> <http://purl.org/spar/fabio/Endeavour>)
+
+# Class: <http://purl.org/spar/fr/ConveningOrganization> (Convening organization)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/ConveningOrganization> "A venue (e.g. conference, workshop), a expression collection (e.g. journal, special issue), or an individual agent (e.g. organization, researcher) collecting scientific contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/ConveningOrganization> "Convening organization"@en)
+SubClassOf(<http://purl.org/spar/fr/ConveningOrganization> foaf:Agent)
+
+# Class: <http://purl.org/spar/fr/ReviewVersion> (Review Version)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/ReviewVersion> "A version of a given review, defining its content and rating, which may vary over the time ."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/ReviewVersion> "Review Version"@en)
+SubClassOf(<http://purl.org/spar/fr/ReviewVersion> <http://purl.org/spar/fabio/Comment>)
+
+# Class: <http://purl.org/spar/fr/TrackingSystem> (Tracking system)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fr/TrackingSystem> "The platform where the review process takes place."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/fr/TrackingSystem> "Tracking system"@en)
+SubClassOf(<http://purl.org/spar/fr/TrackingSystem> <http://purl.org/spar/bido/ScholarlyVenueManagementSystem>)
+
+# Class: <http://www.w3.org/ns/odrl/2/Policy> (Policy)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/ns/odrl/2/Policy> "A non-empty group of Permissions and/or Prohibitions."@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/odrl/2/Policy> "Policy"@en)
+
+# Class: foaf:Agent (foaf:Agent)
+
+AnnotationAssertion(rdfs:isDefinedBy foaf:Agent <http://xmlns.com/foaf/0.1/>)
+
+# Class: foaf:Person (foaf:Person)
+
+AnnotationAssertion(rdfs:isDefinedBy foaf:Person <http://xmlns.com/foaf/0.1/>)
+SubClassOf(foaf:Person foaf:Agent)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://purl.org/spar/fr> (<http://purl.org/spar/fr>)
+
+ObjectPropertyAssertion(dcterms:license <http://purl.org/spar/fr> <http://purl.org/NET/rdflicense/cc-by4.0>)
+
+
+)

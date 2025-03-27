@@ -1,0 +1,512 @@
+Prefix(:=<http://purl.org/spar/doco#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(deo:=<http://purl.org/spar/deo/>)
+Prefix(orb:=<http://purl.org/orb/1.0/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sro:=<http://salt.semanticauthoring.org/ontologies/sro#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(doco:=<http://purl.org/spar/doco/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(terms:=<http://purl.org/dc/terms/>)
+Prefix(pattern:=<http://www.essepuntato.it/2008/12/pattern#>)
+
+
+Ontology(<http://purl.org/spar/doco>
+<http://purl.org/spar/doco/2015-07-03>
+Import(<http://purl.org/spar/deo>)
+Import(<http://purl.org/spar/po>)
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2015-07-03")
+Annotation(dc:description <http://purl.org/spar/doco/doco%20architecture.png>)
+Annotation(dc:description "DoCO, the Document Components Ontology, provides a structured vocabulary written in OWL 2 DL of document components, both structural (e.g. block, inline, paragraph, section, chapter) and rhetorical (e.g. introduction, discussion, acknowledgements, reference list, figure, appendix), enabling these components, and documents composed of them, to be described in RDF. It imports the Discourse Elements Ontology (http://purl.org/spar/deo) and the Document Structural Patterns Ontology (http://purl.org/spar/po), and uses seven rhetorical block elements abstracted from the SALT Rhetorical Ontology and the Ontology of Rhetorical Blocks (ORB)."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "DoCO, the Document Components Ontology"@en)
+Annotation(rdfs:comment "The Document Components Ontology (DoCO) in an ontology that provides a structured vocabulary written of document components, both structural (e.g., block, inline, paragraph, section, chapter) and rhetorical (e.g., introduction, discussion, acknowledgements, reference list, figure, appendix).
+
+**URL:** http://purl.org/spar/doco
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/doco
+
+**Cite as:** Constantin, A., Peroni, S., Pettifer, S., Shotton, D., Vitali, F. (2016). The Document Components Ontology (DoCO). In Semantic Web, 7 (2): 167-181. DOI: http://dx.doi.org/10.3233/SW-150177"@en)
+Annotation(rdfs:comment "This ontology is available at http://purl.org/spar/doco, and uses the namespace prefix doco."@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/DoCO/2014-05-14_doco-1_2.owl>)
+Annotation(owl:versionInfo "1.3")
+
+Declaration(Class(orb:Acknowledgements))
+Declaration(Class(orb:Header))
+Declaration(Class(deo:BibliographicReference))
+Declaration(Class(deo:Caption))
+Declaration(Class(deo:DiscourseElement))
+Declaration(Class(deo:Reference))
+Declaration(Class(doco:Abstract))
+Declaration(Class(doco:Afterword))
+Declaration(Class(doco:Appendix))
+Declaration(Class(doco:BackMatter))
+Declaration(Class(doco:BibliographicReferenceList))
+Declaration(Class(doco:Bibliography))
+Declaration(Class(doco:BlockQuotation))
+Declaration(Class(doco:BodyMatter))
+Declaration(Class(doco:CaptionedBox))
+Declaration(Class(doco:Chapter))
+Declaration(Class(doco:ChapterLabel))
+Declaration(Class(doco:ChapterSubtitle))
+Declaration(Class(doco:ChapterTitle))
+Declaration(Class(doco:Colophon))
+Declaration(Class(doco:ComplexRunInQuotation))
+Declaration(Class(doco:Figure))
+Declaration(Class(doco:FigureBox))
+Declaration(Class(doco:FigureLabel))
+Declaration(Class(doco:Footnote))
+Declaration(Class(doco:Foreword))
+Declaration(Class(doco:Formula))
+Declaration(Class(doco:FormulaBox))
+Declaration(Class(doco:FrontMatter))
+Declaration(Class(doco:Glossary))
+Declaration(Class(doco:Index))
+Declaration(Class(doco:Label))
+Declaration(Class(doco:Line))
+Declaration(Class(doco:List))
+Declaration(Class(doco:ListOfAgents))
+Declaration(Class(doco:ListOfAuthors))
+Declaration(Class(doco:ListOfContributors))
+Declaration(Class(doco:ListOfFigures))
+Declaration(Class(doco:ListOfOrganizations))
+Declaration(Class(doco:ListOfReferences))
+Declaration(Class(doco:ListOfTables))
+Declaration(Class(doco:Paragraph))
+Declaration(Class(doco:Part))
+Declaration(Class(doco:Preface))
+Declaration(Class(doco:Section))
+Declaration(Class(doco:SectionLabel))
+Declaration(Class(doco:SectionSubtitle))
+Declaration(Class(doco:SectionTitle))
+Declaration(Class(doco:Sentence))
+Declaration(Class(doco:SimpleRunInQuotation))
+Declaration(Class(doco:Stanza))
+Declaration(Class(doco:Subtitle))
+Declaration(Class(doco:Table))
+Declaration(Class(doco:TableBox))
+Declaration(Class(doco:TableLabel))
+Declaration(Class(doco:TableOfContents))
+Declaration(Class(doco:TextBox))
+Declaration(Class(doco:TextChunk))
+Declaration(Class(doco:Title))
+Declaration(Class(sro:Abstract))
+Declaration(Class(pattern:Block))
+Declaration(Class(pattern:Container))
+Declaration(Class(pattern:Field))
+Declaration(Class(pattern:HeadedContainer))
+Declaration(Class(pattern:Inline))
+Declaration(Class(pattern:Meta))
+Declaration(Class(pattern:Milestone))
+Declaration(Class(pattern:Pattern))
+Declaration(Class(pattern:Popup))
+Declaration(Class(pattern:Table))
+Declaration(ObjectProperty(terms:hasPart))
+Declaration(ObjectProperty(terms:isPartOf))
+Declaration(ObjectProperty(terms:relation))
+Declaration(ObjectProperty(pattern:contains))
+Declaration(ObjectProperty(pattern:isContainedBy))
+Declaration(ObjectProperty(pattern:isContainedByAsHeader))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: pattern:contains (contains)
+
+SubObjectPropertyOf(pattern:contains terms:hasPart)
+
+# Object Property: pattern:isContainedBy (is contained by)
+
+SubObjectPropertyOf(pattern:isContainedBy terms:isPartOf)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: orb:Header (orb:Header)
+
+EquivalentClasses(orb:Header doco:FrontMatter)
+
+# Class: doco:Abstract (abstract)
+
+AnnotationAssertion(rdfs:comment doco:Abstract "A brief summary of a book, a research article, thesis, review, conference proceeding or any in-depth analysis of a particular subject or discipline, the purpose of which is to help the reader quickly ascertain the publication's purpose.")
+AnnotationAssertion(rdfs:label doco:Abstract "abstract")
+EquivalentClasses(doco:Abstract sro:Abstract)
+SubClassOf(doco:Abstract ObjectIntersectionOf(ObjectUnionOf(doco:Chapter doco:Section) ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(doco:BodyMatter doco:FrontMatter))))
+
+# Class: doco:Afterword (afterword)
+
+AnnotationAssertion(rdfs:comment doco:Afterword "A literary device that is often found at the end of a piece of literature. It generally covers the story of how the book came into being, or how the idea for the book was developed. Alternatively, it may be written by someone other than the author of the book, and may discuss the work's historical or cultural context, if the work is being reissued many years after its original publication."@en)
+AnnotationAssertion(rdfs:label doco:Afterword "afterword"@en)
+SubClassOf(doco:Afterword ObjectIntersectionOf(doco:Section ObjectSomeValuesFrom(terms:isPartOf doco:BackMatter)))
+
+# Class: doco:Appendix (appendix)
+
+AnnotationAssertion(rdfs:comment doco:Appendix "A supplemental addition to the main work. It may contain data, more detailed information about methods and materials, or provide additional detail concerning the information found in the main work."@en)
+AnnotationAssertion(rdfs:label doco:Appendix "appendix"@en)
+SubClassOf(doco:Appendix ObjectIntersectionOf(ObjectIntersectionOf(doco:Section pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf doco:BackMatter)))
+
+# Class: doco:BackMatter (back matter)
+
+AnnotationAssertion(rdfs:comment doco:BackMatter "The final principle part of a document, in which is usually found the bibliography, index, appendixes, etc."@en)
+AnnotationAssertion(rdfs:label doco:BackMatter "back matter"@en)
+SubClassOf(doco:BackMatter ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+SubClassOf(doco:BackMatter ObjectAllValuesFrom(pattern:isContainedBy ObjectComplementOf(ObjectUnionOf(doco:BackMatter doco:BodyMatter doco:FrontMatter))))
+
+# Class: doco:BibliographicReferenceList (bibliographic reference list)
+
+AnnotationAssertion(rdfs:comment doco:BibliographicReferenceList "A list, usually within a bibliography, of all the references within the citing document that refer to  journal articles, books, book chapters, Web sites or similar publications."@en)
+AnnotationAssertion(rdfs:label doco:BibliographicReferenceList "bibliographic reference list"@en)
+SubClassOf(doco:BibliographicReferenceList ObjectIntersectionOf(doco:ListOfReferences ObjectSomeValuesFrom(pattern:contains deo:BibliographicReference)))
+
+# Class: doco:Bibliography (bibliography)
+
+AnnotationAssertion(rdfs:comment doco:Bibliography "A document section containing a list of bibliographic references."@en)
+AnnotationAssertion(rdfs:label doco:Bibliography "bibliography"@en)
+SubClassOf(doco:Bibliography ObjectIntersectionOf(ObjectUnionOf(doco:Chapter doco:Section) ObjectSomeValuesFrom(terms:hasPart deo:BibliographicReference)))
+
+# Class: doco:BlockQuotation (block quotation)
+
+AnnotationAssertion(rdfs:comment doco:BlockQuotation "A block quotation (also known as a long quotation or extract) is a quotation in a written document which is set off from the main text as a container for distinct paragraphs, which is typically distinguished visually using indentation, a different font, or smaller size. Block quotations are used for longer passages than run-in quotations (which are set off with quotation marks)."@en)
+AnnotationAssertion(rdfs:label doco:BlockQuotation "block quotation"@en)
+SubClassOf(doco:BlockQuotation pattern:Container)
+
+# Class: doco:BodyMatter (body matter)
+
+AnnotationAssertion(rdfs:comment doco:BodyMatter "The central principle part of a document, that contains the real content. It may be subdivided hierarchically by the use of chapters and sections."@en)
+AnnotationAssertion(rdfs:label doco:BodyMatter "body matter"@en)
+SubClassOf(doco:BodyMatter ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+SubClassOf(doco:BodyMatter ObjectAllValuesFrom(pattern:isContainedBy ObjectComplementOf(ObjectUnionOf(doco:BackMatter doco:BodyMatter doco:FrontMatter))))
+
+# Class: doco:CaptionedBox (captioned box)
+
+AnnotationAssertion(rdfs:comment doco:CaptionedBox "A rectangle space within a page that contains an object and its related caption."@en)
+AnnotationAssertion(rdfs:label doco:CaptionedBox "captioned box"@en)
+SubClassOf(doco:CaptionedBox ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Container) ObjectSomeValuesFrom(terms:hasPart deo:Caption)))
+
+# Class: doco:Chapter (chapter)
+
+AnnotationAssertion(rdfs:comment doco:Chapter "A principle division of the body matter of a large document, such as a book, a report or a legislative document."@en)
+AnnotationAssertion(rdfs:label doco:Chapter "chapter"@en)
+SubClassOf(doco:Chapter ObjectIntersectionOf(deo:DiscourseElement pattern:HeadedContainer))
+SubClassOf(doco:Chapter ObjectSomeValuesFrom(pattern:contains ObjectUnionOf(doco:Paragraph doco:Section)))
+SubClassOf(doco:Chapter ObjectSomeValuesFrom(pattern:contains ObjectComplementOf(doco:Chapter)))
+
+# Class: doco:ChapterLabel (chapter label)
+
+AnnotationAssertion(rdfs:comment doco:ChapterLabel "A block containing a label for the chapter, that may include the chapter number."@en)
+AnnotationAssertion(rdfs:label doco:ChapterLabel "chapter label"@en)
+SubClassOf(doco:ChapterLabel ObjectIntersectionOf(doco:Label ObjectSomeValuesFrom(terms:isPartOf doco:Chapter)))
+DisjointClasses(doco:ChapterLabel doco:SectionLabel)
+
+# Class: doco:ChapterSubtitle (chapter subtitle)
+
+AnnotationAssertion(rdfs:comment doco:ChapterSubtitle "The subtitle of a chapter."@en)
+AnnotationAssertion(rdfs:label doco:ChapterSubtitle "chapter subtitle"@en)
+SubClassOf(doco:ChapterSubtitle doco:Subtitle)
+SubClassOf(doco:ChapterSubtitle ObjectSomeValuesFrom(terms:isPartOf doco:Chapter))
+DisjointClasses(doco:ChapterSubtitle doco:SectionSubtitle)
+
+# Class: doco:ChapterTitle (chapter title)
+
+AnnotationAssertion(rdfs:comment doco:ChapterTitle "The title of a chapter."@en)
+AnnotationAssertion(rdfs:label doco:ChapterTitle "chapter title"@en)
+SubClassOf(doco:ChapterTitle doco:Title)
+SubClassOf(doco:ChapterTitle ObjectSomeValuesFrom(pattern:isContainedByAsHeader doco:Chapter))
+DisjointClasses(doco:ChapterTitle doco:SectionTitle)
+
+# Class: doco:Colophon (colophon)
+
+AnnotationAssertion(rdfs:comment doco:Colophon "A brief description of publication or production notes relevant to the document."@en)
+AnnotationAssertion(rdfs:label doco:Colophon "colophon"@en)
+SubClassOf(doco:Colophon ObjectIntersectionOf(doco:Section ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(doco:BackMatter doco:FrontMatter))))
+
+# Class: doco:ComplexRunInQuotation (complex run-in quotation)
+
+AnnotationAssertion(rdfs:comment doco:ComplexRunInQuotation "A quotation with a complex structure, that is included inline and is usually enclosed within quotation marks."@en)
+AnnotationAssertion(rdfs:label doco:ComplexRunInQuotation "complex run-in quotation"@en)
+SubClassOf(doco:ComplexRunInQuotation deo:DiscourseElement)
+SubClassOf(doco:ComplexRunInQuotation pattern:Popup)
+
+# Class: doco:Figure (figure)
+
+AnnotationAssertion(rdfs:comment doco:Figure "A communication object comprising one or more graphics, drawings, images, or other visual representations.."@en)
+AnnotationAssertion(rdfs:label doco:Figure "figure"@en)
+SubClassOf(doco:Figure deo:DiscourseElement)
+SubClassOf(doco:Figure ObjectUnionOf(pattern:Meta pattern:Milestone))
+
+# Class: doco:FigureBox (figure box)
+
+AnnotationAssertion(rdfs:comment doco:FigureBox "A space within a document that contains a figure and its caption."@en)
+AnnotationAssertion(rdfs:label doco:FigureBox "figure box"@en)
+SubClassOf(doco:FigureBox ObjectIntersectionOf(doco:CaptionedBox ObjectSomeValuesFrom(terms:hasPart doco:Figure)))
+DisjointClasses(doco:FigureBox doco:TableBox)
+
+# Class: doco:FigureLabel (figure label)
+
+AnnotationAssertion(rdfs:comment doco:FigureLabel "A block containing a label for the figure box, that may include the figure number."@en)
+AnnotationAssertion(rdfs:label doco:FigureLabel "figure label"@en)
+SubClassOf(doco:FigureLabel ObjectIntersectionOf(doco:Label ObjectSomeValuesFrom(terms:isPartOf doco:FigureBox)))
+
+# Class: doco:Footnote (footnote)
+
+AnnotationAssertion(rdfs:comment doco:Footnote "A structure within a sentence that permits the author to make a comment or to cite another publication in support of the text, or both. A footnote is normally flagged by a superscript number immediately following that portion of the text to which it relates. For convenience of reading, the text of the footnote is usually printed at the bottom of the page or at the end of a text."@en)
+AnnotationAssertion(rdfs:label doco:Footnote "footnote"@en)
+SubClassOf(doco:Footnote deo:DiscourseElement)
+SubClassOf(doco:Footnote ObjectUnionOf(pattern:Container pattern:Popup))
+
+# Class: doco:Foreword (foreword)
+
+AnnotationAssertion(rdfs:comment doco:Foreword "A section in a book or report, usually written by someone other than the author, that introduces or commends the document to the reader. It may include description of the interaction between the writer of the foreword and the author."@en)
+AnnotationAssertion(rdfs:label doco:Foreword "foreword"@en)
+SubClassOf(doco:Foreword ObjectIntersectionOf(doco:Section ObjectSomeValuesFrom(terms:isPartOf doco:FrontMatter)))
+
+# Class: doco:Formula (formula)
+
+AnnotationAssertion(rdfs:comment doco:Formula "A unit of information expressed in mathematical, chemical or logical symbols and language."@en)
+AnnotationAssertion(rdfs:label doco:Formula "formula"@en)
+SubClassOf(doco:Formula deo:DiscourseElement)
+SubClassOf(doco:Formula pattern:Popup)
+
+# Class: doco:FormulaBox (formula box)
+
+AnnotationAssertion(rdfs:comment doco:FormulaBox "A space within a document that contains one or more formulae."@en)
+AnnotationAssertion(rdfs:label doco:FormulaBox "formula box"@en)
+SubClassOf(doco:FormulaBox ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Container) ObjectSomeValuesFrom(terms:hasPart doco:Formula)))
+
+# Class: doco:FrontMatter (front matter)
+
+AnnotationAssertion(rdfs:comment doco:FrontMatter "The initial principle part of a document, usually containing self-referential metadata. In a book, this typically includes its title, authors, publisher, publication date, ISBN and copyright declaration, together with the preface, foreword, table of content, etc. In a journal article, the front matter is normally restricted to the title, authors and the authors' affiliation details, although the latter may alternatively be included in a footnote or the back matter. In books, the front matter pages may be numbered in lowercase Roman numerals."@en)
+AnnotationAssertion(rdfs:label doco:FrontMatter "front matter"@en)
+SubClassOf(doco:FrontMatter ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+SubClassOf(doco:FrontMatter ObjectAllValuesFrom(pattern:isContainedBy ObjectComplementOf(ObjectUnionOf(doco:BackMatter doco:BodyMatter doco:FrontMatter))))
+
+# Class: doco:Glossary (glossary)
+
+AnnotationAssertion(rdfs:comment doco:Glossary "A set of definitions of words or phrases of importance to the work, normally alphabetized. In longer works of fiction, the entries may contains places and characters."@en)
+AnnotationAssertion(rdfs:label doco:Glossary "glossary"@en)
+SubClassOf(doco:Glossary ObjectIntersectionOf(doco:Section ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(doco:BackMatter doco:FrontMatter))))
+
+# Class: doco:Index (index)
+
+AnnotationAssertion(rdfs:comment doco:Index "A section containing a list of references to information on the named topic of importance to the content of the document. The references may be to page numbers, paragraph numbers, section numbers or chapter numbers within the document."@en)
+AnnotationAssertion(rdfs:label doco:Index "index"@en)
+SubClassOf(doco:Index ObjectIntersectionOf(ObjectIntersectionOf(doco:Section pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf doco:BackMatter)))
+SubClassOf(doco:Index ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(doco:ListOfReferences ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation doco:TextChunk)))))
+
+# Class: doco:Label (label)
+
+AnnotationAssertion(rdfs:comment doco:Label "A block containing text, that may include a number (e.g., \"Chapter Three\", \"3.2\", \"Figure 1\", \"Table\"), used to identify an item within the document, for example a chapter, a figure, a section or a table."@en)
+AnnotationAssertion(rdfs:label doco:Label "label"@en)
+SubClassOf(doco:Label deo:DiscourseElement)
+SubClassOf(doco:Label ObjectSomeValuesFrom(pattern:isContainedBy ObjectUnionOf(pattern:Block pattern:Container)))
+
+# Class: doco:Line (line)
+
+AnnotationAssertion(rdfs:comment doco:Line "A line in poetry is a unit of language into which a poem is divided which operates on principles which are distinct from and not necessarily coincident with grammatical structures, such as the sentence or clauses in sentences.
+
+A distinct numbered group of lines in verse is normally called a stanza."@en)
+AnnotationAssertion(rdfs:label doco:Line "line"@en)
+SubClassOf(doco:Line deo:DiscourseElement)
+SubClassOf(doco:Line pattern:Block)
+
+# Class: doco:List (list)
+
+AnnotationAssertion(rdfs:comment doco:List "An enumeration of items."@en)
+AnnotationAssertion(rdfs:label doco:List "list"@en)
+SubClassOf(doco:List deo:DiscourseElement)
+SubClassOf(doco:List ObjectIntersectionOf(pattern:Table ObjectSomeValuesFrom(pattern:contains pattern:Pattern)))
+SubClassOf(doco:List ObjectAllValuesFrom(pattern:contains ObjectUnionOf(pattern:Block pattern:Field ObjectIntersectionOf(pattern:Container ObjectComplementOf(ObjectUnionOf(pattern:HeadedContainer pattern:Table))))))
+
+# Class: doco:ListOfAgents (list of agents)
+
+AnnotationAssertion(rdfs:comment doco:ListOfAgents "A list of items each denoting an agent, such as an author, a contributor or an organization, related to a particular publication."@en)
+AnnotationAssertion(rdfs:label doco:ListOfAgents "list of agents"@en)
+SubClassOf(doco:ListOfAgents doco:List)
+DisjointClasses(doco:ListOfAgents doco:ListOfReferences)
+
+# Class: doco:ListOfAuthors (list of authors)
+
+AnnotationAssertion(rdfs:comment doco:ListOfAuthors "A list of items each denoting an author of a particular publication."@en)
+AnnotationAssertion(rdfs:label doco:ListOfAuthors "list of authors"@en)
+SubClassOf(doco:ListOfAuthors doco:ListOfAgents)
+
+# Class: doco:ListOfContributors (list of contributors)
+
+AnnotationAssertion(rdfs:comment doco:ListOfContributors "A list of items, each denoting a contributor to a publication such as an encyclopedia or a text book, where such contributions are insufficient to warrant classification as author."@en)
+AnnotationAssertion(rdfs:label doco:ListOfContributors "list of contributors"@en)
+SubClassOf(doco:ListOfContributors doco:ListOfAgents)
+
+# Class: doco:ListOfFigures (list of figures)
+
+AnnotationAssertion(rdfs:comment doco:ListOfFigures "A section of the document listing all the figures, identified by their titles and referenced to their locations in the document. May also be referred to as 'List of illustrations'."@en)
+AnnotationAssertion(rdfs:label doco:ListOfFigures "list of figures"@en)
+SubClassOf(doco:ListOfFigures ObjectIntersectionOf(ObjectIntersectionOf(doco:Section pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(doco:BackMatter doco:FrontMatter))))
+SubClassOf(doco:ListOfFigures ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(doco:ListOfReferences ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation doco:FigureBox)))))
+
+# Class: doco:ListOfOrganizations (list of organizations)
+
+AnnotationAssertion(rdfs:comment doco:ListOfOrganizations "A list of items, each denoting an organization or institution related to the publication, for example the authors' affiliations, or the suppliers of information, software, equipment or consumables used in the work described in the publication."@en)
+AnnotationAssertion(rdfs:label doco:ListOfOrganizations "list of organizations"@en)
+SubClassOf(doco:ListOfOrganizations doco:ListOfAgents)
+
+# Class: doco:ListOfReferences (list of references)
+
+AnnotationAssertion(rdfs:comment doco:ListOfReferences "A list of items each representing a reference to a specific part of the same document, or to another publication."@en)
+AnnotationAssertion(rdfs:label doco:ListOfReferences "list of references"@en)
+SubClassOf(doco:ListOfReferences ObjectIntersectionOf(doco:List ObjectAllValuesFrom(pattern:contains deo:Reference)))
+
+# Class: doco:ListOfTables (list of tables)
+
+AnnotationAssertion(rdfs:comment doco:ListOfTables "A section of the document listing all the tables, identified by their titles and referenced to their locations in the document."@en)
+AnnotationAssertion(rdfs:label doco:ListOfTables "list of tables"@en)
+SubClassOf(doco:ListOfTables ObjectIntersectionOf(ObjectIntersectionOf(doco:Section pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(doco:BackMatter doco:FrontMatter))))
+SubClassOf(doco:ListOfTables ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(doco:ListOfReferences ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation doco:TableBox)))))
+
+# Class: doco:Paragraph (paragraph)
+
+AnnotationAssertion(rdfs:comment doco:Paragraph "A self-contained unit of discourse that deals with a particular point or idea. Paragraphs contains one or more sentences. The start of a paragraph is indicated by beginning on a new line, which may be indented or separated by a small vertical space by the preceding paragraph. "@en)
+AnnotationAssertion(rdfs:label doco:Paragraph "paragraph"@en)
+SubClassOf(doco:Paragraph ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Block) ObjectSomeValuesFrom(pattern:contains doco:Sentence)))
+
+# Class: doco:Part (part)
+
+AnnotationAssertion(rdfs:comment doco:Part "A container of a semantic subdivision of a document. For example, chapters of a novel may be grouped into distinct parts that may be named 'Part 1', 'Part 2', etc., 'Book 1', 'Book 2', etc., or 'Genesis', 'Exodus', etc."@en)
+AnnotationAssertion(rdfs:label doco:Part "part"@en)
+SubClassOf(doco:Part ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+
+# Class: doco:Preface (preface)
+
+AnnotationAssertion(rdfs:comment doco:Preface "A section describing how the document came into being, or how the idea for it was developed. The preface may contains acknowledgements. The preface to a later edition of the work often explains in what respect that edition differs from previous ones."@en)
+AnnotationAssertion(rdfs:label doco:Preface "preface"@en)
+SubClassOf(doco:Preface ObjectIntersectionOf(doco:Section ObjectSomeValuesFrom(terms:isPartOf doco:FrontMatter)))
+
+# Class: doco:Section (section)
+
+AnnotationAssertion(rdfs:comment doco:Section "A logical division of the text, usually numbered and/or titled, which may contain subsections."@en)
+AnnotationAssertion(rdfs:label doco:Section "section"@en)
+SubClassOf(doco:Section ObjectIntersectionOf(deo:DiscourseElement pattern:HeadedContainer))
+SubClassOf(doco:Section ObjectSomeValuesFrom(pattern:contains ObjectUnionOf(doco:Paragraph doco:Section)))
+SubClassOf(doco:Section ObjectSomeValuesFrom(pattern:contains ObjectComplementOf(doco:Chapter)))
+
+# Class: doco:SectionLabel (section label)
+
+AnnotationAssertion(rdfs:comment doco:SectionLabel "A block containing a label for the section, that may include the section number."@en)
+AnnotationAssertion(rdfs:label doco:SectionLabel "section label"@en)
+SubClassOf(doco:SectionLabel doco:Label)
+SubClassOf(doco:SectionLabel ObjectSomeValuesFrom(terms:isPartOf doco:Section))
+
+# Class: doco:SectionSubtitle (section subtitle)
+
+AnnotationAssertion(rdfs:comment doco:SectionSubtitle "The subtitle of a section."@en)
+AnnotationAssertion(rdfs:label doco:SectionSubtitle "section subtitle"@en)
+SubClassOf(doco:SectionSubtitle doco:Subtitle)
+SubClassOf(doco:SectionSubtitle ObjectSomeValuesFrom(terms:isPartOf doco:Section))
+
+# Class: doco:SectionTitle (section title)
+
+AnnotationAssertion(rdfs:comment doco:SectionTitle "The title of a section."@en)
+AnnotationAssertion(rdfs:label doco:SectionTitle "section title"@en)
+SubClassOf(doco:SectionTitle doco:Title)
+SubClassOf(doco:SectionTitle ObjectSomeValuesFrom(pattern:isContainedByAsHeader doco:Section))
+
+# Class: doco:Sentence (sentence)
+
+AnnotationAssertion(rdfs:comment doco:Sentence "An expression in natural language forming a single grammatical unit. A sentence minimally consists of a subject and an intransitive verb, or a subject, a transitive verb and an object, and may include additional dependent clauses. In written text, a sentence is always terminated by a full stop. A sentence can include words grouped meaningfully to express a statement, a question, an exclamation, a request or a command."@en)
+AnnotationAssertion(rdfs:label doco:Sentence "sentence"@en)
+SubClassOf(doco:Sentence deo:DiscourseElement)
+SubClassOf(doco:Sentence pattern:Inline)
+
+# Class: doco:SimpleRunInQuotation (simple run-in quotation)
+
+AnnotationAssertion(rdfs:comment doco:SimpleRunInQuotation "A textual quotation that is included inline and is usually enclosed within quotation marks."@en)
+AnnotationAssertion(rdfs:label doco:SimpleRunInQuotation "simple run-in quotation"@en)
+SubClassOf(doco:SimpleRunInQuotation pattern:Inline)
+
+# Class: doco:Stanza (stanza)
+
+AnnotationAssertion(rdfs:comment doco:Stanza "A unit within a larger poem. A stanza consists of a grouping of lines, set off by a vertical space from other stanzas, that usually has a set pattern of meter and rhyme."@en)
+AnnotationAssertion(rdfs:label doco:Stanza "stanza"@en)
+SubClassOf(doco:Stanza ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Container) ObjectAllValuesFrom(pattern:contains doco:Line)))
+
+# Class: doco:Subtitle (subtitle)
+
+AnnotationAssertion(rdfs:comment doco:Subtitle "An explanatory or alternative title of a publication. For example, Mary Shelley uses the alternative title 'The Modern Prometheus' to hint at the theme of her most famous novel 'Frankenstein'; Nick Efford uses the subtitle 'a practical introduction using Java' to qualify the title of his book 'Digital Image Processing'."@en)
+AnnotationAssertion(rdfs:label doco:Subtitle "subtitle"@en)
+SubClassOf(doco:Subtitle deo:DiscourseElement)
+SubClassOf(doco:Subtitle pattern:Block)
+
+# Class: doco:Table (table)
+
+AnnotationAssertion(rdfs:comment doco:Table "A set of data arranged in cells within rows and columns."@en)
+AnnotationAssertion(rdfs:label doco:Table "table"@en)
+SubClassOf(doco:Table deo:DiscourseElement)
+SubClassOf(doco:Table pattern:Table)
+SubClassOf(doco:Table ObjectSomeValuesFrom(pattern:contains pattern:Container))
+
+# Class: doco:TableBox (table box)
+
+AnnotationAssertion(rdfs:comment doco:TableBox "A space within a document that contains a table and its caption."@en)
+AnnotationAssertion(rdfs:label doco:TableBox "table box"@en)
+SubClassOf(doco:TableBox ObjectIntersectionOf(doco:CaptionedBox ObjectSomeValuesFrom(terms:hasPart doco:Table)))
+
+# Class: doco:TableLabel (table label)
+
+AnnotationAssertion(rdfs:comment doco:TableLabel "A block containing a label for the table box, that may include the table number."@en)
+AnnotationAssertion(rdfs:label doco:TableLabel "table label"@en)
+SubClassOf(doco:TableLabel ObjectIntersectionOf(doco:Label ObjectSomeValuesFrom(terms:isPartOf doco:TableBox)))
+
+# Class: doco:TableOfContents (table of contents)
+
+AnnotationAssertion(rdfs:comment doco:TableOfContents "A section of the document listing all the chapters and sections, identified by their titles and referenced to their locations in the document. The table of contents may include a list of the front-matter and back-matter items, in addition to the body-matter items.  Where the document is a journal or magazine issue, the table of content lists the constituent items contained in that issue, typically by title, authors and first page number."@en)
+AnnotationAssertion(rdfs:label doco:TableOfContents "table of contents"@en)
+SubClassOf(doco:TableOfContents ObjectIntersectionOf(doco:Section ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(doco:BackMatter doco:FrontMatter))))
+SubClassOf(doco:TableOfContents ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(doco:ListOfReferences ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation doco:Section)))))
+
+# Class: doco:TextBox (text box)
+
+AnnotationAssertion(rdfs:comment doco:TextBox "A space within a document that contains textual content relating to, quoting from or expanding upon the main text. Usually a textbox is delimited by a border or use of a background colour distinct from that of the main text."@en)
+AnnotationAssertion(rdfs:label doco:TextBox "text box"@en)
+SubClassOf(doco:TextBox deo:DiscourseElement)
+SubClassOf(doco:TextBox pattern:Container)
+
+# Class: doco:TextChunk (text chunk)
+
+AnnotationAssertion(rdfs:comment doco:TextChunk "A piece of text defined by a start point and an end point."@en)
+AnnotationAssertion(rdfs:label doco:TextChunk "text chunk"@en)
+SubClassOf(doco:TextChunk pattern:Inline)
+
+# Class: doco:Title (title)
+
+AnnotationAssertion(rdfs:comment doco:Title "A word, phrase or sentence that precedes and indicates the subject of a document or a document component - e.g., a book, a report, a news article, a chapter, a section or a table."@en)
+AnnotationAssertion(rdfs:label doco:Title "title"@en)
+SubClassOf(doco:Title deo:DiscourseElement)
+SubClassOf(doco:Title ObjectUnionOf(pattern:Block pattern:Field))
+SubClassOf(doco:Title ObjectSomeValuesFrom(pattern:isContainedByAsHeader pattern:HeadedContainer))
+
+
+DisjointClasses(doco:Abstract doco:Afterword doco:Appendix doco:Colophon doco:Foreword doco:Glossary doco:Index doco:ListOfFigures doco:ListOfTables doco:Preface doco:TableOfContents)
+DisjointClasses(doco:BackMatter doco:BodyMatter doco:CaptionedBox doco:Chapter doco:ComplexRunInQuotation doco:Footnote doco:Formula doco:FormulaBox doco:FrontMatter doco:List doco:Part doco:Section doco:Table)
+DisjointClasses(doco:Label doco:Paragraph doco:Subtitle doco:Title)
+DisjointClasses(doco:ListOfAuthors doco:ListOfContributors doco:ListOfOrganizations)
+DisjointClasses(doco:Sentence doco:SimpleRunInQuotation doco:TextChunk)
+)

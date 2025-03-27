@@ -1,0 +1,643 @@
+Prefix(:=<http://purl.org/spar/frbr#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(core:=<http://purl.org/vocab/frbr/core#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2008/05/skos#>)
+Prefix(swrl:=<http://www.w3.org/2003/11/swrl#>)
+Prefix(swrlb:=<http://www.w3.org/2003/11/swrlb#>)
+Prefix(dcterms:=<http://purl.org/dc/terms/>)
+
+
+Ontology(<http://purl.org/spar/frbr>
+<http://purl.org/spar/frbr/2018-03-29>
+Annotation(dc:contributor "David Shotton")
+Annotation(dc:creator "Paolo Ciccarese")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2018-03-29")
+Annotation(dc:description "This vocabulary is an expression in OWL 2 DL of the basic concepts and relations described in the IFLA report on the Functional Requirements for Bibliographic Records (FRBR), also described in Ian Davis's RDF vocabulary (http://vocab.org/frbr/core)."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "Essential FRBR in OWL2 DL"@en)
+Annotation(rdfs:comment "The Essential FRBR in OWL2 DL Ontology (FRBR) is an expression in OWL 2 DL of the basic concepts and relations described in the IFLA report on the Functional Requirements for Bibliographic Records (FRBR), also described in Ian Davis's RDF vocabulary.
+
+**URL:** http://purl.org/spar/frbr
+
+**Creators**: [Paolo Ciccarese](http://orcid.org/0000-0002-5156-2703), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**Contributors:**: [David Shotton](http://orcid.org/0000-0001-5506-523X)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/frbr")
+Annotation(owl:priorVersion <http://purl.org/spar/frbr/2011-06-29>)
+Annotation(owl:versionInfo "1.0.1")
+
+Declaration(Class(core:Concept))
+Declaration(Class(core:CorporateBody))
+Declaration(Class(core:Endeavour))
+Declaration(Class(core:Event))
+Declaration(Class(core:Expression))
+Declaration(Class(core:Item))
+Declaration(Class(core:Manifestation))
+Declaration(Class(core:Object))
+Declaration(Class(core:Person))
+Declaration(Class(core:Place))
+Declaration(Class(core:ResponsibleEntity))
+Declaration(Class(core:Subject))
+Declaration(Class(core:Work))
+Declaration(ObjectProperty(core:abridgement))
+Declaration(ObjectProperty(core:abridgementOf))
+Declaration(ObjectProperty(core:adaption))
+Declaration(ObjectProperty(core:adaptionOf))
+Declaration(ObjectProperty(core:alternate))
+Declaration(ObjectProperty(core:alternateOf))
+Declaration(ObjectProperty(core:arrangement))
+Declaration(ObjectProperty(core:arrangementOf))
+Declaration(ObjectProperty(core:complement))
+Declaration(ObjectProperty(core:complementOf))
+Declaration(ObjectProperty(core:creator))
+Declaration(ObjectProperty(core:creatorOf))
+Declaration(ObjectProperty(core:embodiment))
+Declaration(ObjectProperty(core:embodimentOf))
+Declaration(ObjectProperty(core:exemplar))
+Declaration(ObjectProperty(core:exemplarOf))
+Declaration(ObjectProperty(core:imitation))
+Declaration(ObjectProperty(core:imitationOf))
+Declaration(ObjectProperty(core:owner))
+Declaration(ObjectProperty(core:ownerOf))
+Declaration(ObjectProperty(core:part))
+Declaration(ObjectProperty(core:partOf))
+Declaration(ObjectProperty(core:producer))
+Declaration(ObjectProperty(core:producerOf))
+Declaration(ObjectProperty(core:realization))
+Declaration(ObjectProperty(core:realizationOf))
+Declaration(ObjectProperty(core:realizer))
+Declaration(ObjectProperty(core:realizerOf))
+Declaration(ObjectProperty(core:reconfiguration))
+Declaration(ObjectProperty(core:reconfigurationOf))
+Declaration(ObjectProperty(core:relatedEndeavour))
+Declaration(ObjectProperty(core:reproduction))
+Declaration(ObjectProperty(core:reproductionOf))
+Declaration(ObjectProperty(core:responsibleEntity))
+Declaration(ObjectProperty(core:responsibleEntityOf))
+Declaration(ObjectProperty(core:revision))
+Declaration(ObjectProperty(core:revisionOf))
+Declaration(ObjectProperty(core:subject))
+Declaration(ObjectProperty(core:subjectOf))
+Declaration(ObjectProperty(core:successor))
+Declaration(ObjectProperty(core:successorOf))
+Declaration(ObjectProperty(core:summarization))
+Declaration(ObjectProperty(core:summarizationOf))
+Declaration(ObjectProperty(core:supplement))
+Declaration(ObjectProperty(core:supplementOf))
+Declaration(ObjectProperty(core:transformation))
+Declaration(ObjectProperty(core:transformationOf))
+Declaration(ObjectProperty(core:translation))
+Declaration(ObjectProperty(core:translationOf))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:isDefinedBy))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(skos:note))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: skos:note (skos:note)
+
+AnnotationAssertion(rdfs:isDefinedBy skos:note <http://www.w3.org/2008/05/skos#>)
+AnnotationAssertion(rdfs:label skos:note "skos:note"@en)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: core:abridgement (has abridgement)
+
+AnnotationAssertion(rdfs:comment core:abridgement "An expression abridged in another one.
+
+In the abridged expression some content of the previous expression is removed, but the result does not alter the content to the extent that it becomes a new work. The expressions resulting from such modification are generally autonomous in nature (i.e., they do not normally require reference to the prior expression in order to be used or understood). "@en)
+AnnotationAssertion(rdfs:label core:abridgement "has abridgement"@en)
+SubObjectPropertyOf(core:abridgement core:relatedEndeavour)
+InverseObjectProperties(core:abridgement core:abridgementOf)
+ObjectPropertyDomain(core:abridgement core:Expression)
+ObjectPropertyRange(core:abridgement core:Expression)
+
+# Object Property: core:abridgementOf (is abridgement of)
+
+AnnotationAssertion(rdfs:comment core:abridgementOf "It identifies the entire expression of an abridged one."@en)
+AnnotationAssertion(rdfs:label core:abridgementOf "is abridgement of"@en)
+SubObjectPropertyOf(core:abridgementOf core:relatedEndeavour)
+
+# Object Property: core:adaption (has adaption)
+
+AnnotationAssertion(rdfs:comment core:adaption "A work/expression adapted in another one.
+
+This property describe the modification of an original work that is sufficient in degree to warrant their being considered as new works, rather than simply different expressions of the same work. If there exists a relation of this kind among two different expressions, they always refer to different works."@en)
+AnnotationAssertion(rdfs:label core:adaption "has adaption"@en)
+SubObjectPropertyOf(core:adaption core:relatedEndeavour)
+InverseObjectProperties(core:adaption core:adaptionOf)
+ObjectPropertyDomain(core:adaption ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:adaption ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:adaptionOf (is adaption of)
+
+AnnotationAssertion(rdfs:comment core:adaptionOf "It identifies the work/expression of an adapted one."@en)
+AnnotationAssertion(rdfs:label core:adaptionOf "is adaption of"@en)
+SubObjectPropertyOf(core:adaptionOf core:relatedEndeavour)
+
+# Object Property: core:alternate (has alternate)
+
+AnnotationAssertion(rdfs:comment core:alternate "A manifestation having another one as alternate.
+
+The alternate relationship involves manifestations that effectively serve as alternates for each other. The alternate relationship obtains, for example, when a publication, sound recording, video, etc. is issued in more than one format or when it is released simultaneously by different publishers in different countries."@en)
+AnnotationAssertion(rdfs:label core:alternate "has alternate"@en)
+SubObjectPropertyOf(core:alternate core:relatedEndeavour)
+InverseObjectProperties(core:alternate core:alternateOf)
+ObjectPropertyDomain(core:alternate core:Manifestation)
+ObjectPropertyRange(core:alternate core:Manifestation)
+
+# Object Property: core:alternateOf (is alternate of)
+
+AnnotationAssertion(rdfs:comment core:alternateOf "It identifies the manifestation of an alternative one."@en)
+AnnotationAssertion(rdfs:label core:alternateOf "is alternate of"@en)
+SubObjectPropertyOf(core:alternateOf core:relatedEndeavour)
+
+# Object Property: core:arrangement (has arrangement)
+
+AnnotationAssertion(rdfs:comment core:arrangement "An expression arranged in another one.
+
+In the arranged expression some content of the previous expression is changed in some way, but the result does not alter the content to the extent that it becomes a new work. The expressions resulting from such modification are generally autonomous in nature (i.e., they do not normally require reference to the prior expression in order to be used or understood)."@en)
+AnnotationAssertion(rdfs:label core:arrangement "has arrangement"@en)
+SubObjectPropertyOf(core:arrangement core:relatedEndeavour)
+InverseObjectProperties(core:arrangement core:arrangementOf)
+ObjectPropertyDomain(core:arrangement core:Expression)
+ObjectPropertyRange(core:arrangement core:Expression)
+
+# Object Property: core:arrangementOf (is arrangement of)
+
+AnnotationAssertion(rdfs:comment core:arrangementOf "It identifies the original expression of an arranged one."@en)
+AnnotationAssertion(rdfs:label core:arrangementOf "is arrangement of"@en)
+SubObjectPropertyOf(core:arrangementOf core:relatedEndeavour)
+
+# Object Property: core:complement (has complement)
+
+AnnotationAssertion(rdfs:comment core:complement "An expression work/expression having another one as complement.
+
+This property describes works that are intended to be combined with or inserted into the related work. In other words, they are intended to be integrated in some way with the other work, but were not part of the original conception of that prior work. If there exists a relation of this kind among two different expressions, then they always refer to different works."@en)
+AnnotationAssertion(rdfs:label core:complement "has complement"@en)
+SubObjectPropertyOf(core:complement core:relatedEndeavour)
+InverseObjectProperties(core:complement core:complementOf)
+ObjectPropertyDomain(core:complement ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:complement ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:complementOf (is complement of)
+
+AnnotationAssertion(rdfs:comment core:complementOf "It identifies the work/expression of that is a complement of another one."@en)
+AnnotationAssertion(rdfs:label core:complementOf "is complement of"@en)
+SubObjectPropertyOf(core:complementOf core:relatedEndeavour)
+
+# Object Property: core:creator (has creator)
+
+AnnotationAssertion(rdfs:comment core:creator "A work linked to its creator."@en)
+AnnotationAssertion(rdfs:label core:creator "has creator"@en)
+SubObjectPropertyOf(core:creator core:responsibleEntity)
+InverseObjectProperties(core:creator core:creatorOf)
+ObjectPropertyDomain(core:creator core:Work)
+
+# Object Property: core:creatorOf (is creator of)
+
+AnnotationAssertion(rdfs:comment core:creatorOf "The creator of a particular work."@en)
+AnnotationAssertion(rdfs:label core:creatorOf "is creator of"@en)
+SubObjectPropertyOf(core:creatorOf core:responsibleEntityOf)
+
+# Object Property: core:embodiment (has embodiment)
+
+AnnotationAssertion(rdfs:comment core:embodiment "An expression embodied in a manifestation."@en)
+AnnotationAssertion(rdfs:label core:embodiment "has embodiment"@en)
+SubObjectPropertyOf(core:embodiment core:relatedEndeavour)
+InverseObjectProperties(core:embodiment core:embodimentOf)
+ObjectPropertyDomain(core:embodiment core:Expression)
+ObjectPropertyRange(core:embodiment core:Manifestation)
+
+# Object Property: core:embodimentOf (is embodiment of)
+
+AnnotationAssertion(rdfs:comment core:embodimentOf "A manifestation that embodies an expression."@en)
+AnnotationAssertion(rdfs:label core:embodimentOf "is embodiment of"@en)
+SubObjectPropertyOf(core:embodimentOf core:relatedEndeavour)
+
+# Object Property: core:exemplar (has exemplar)
+
+AnnotationAssertion(rdfs:comment core:exemplar "A manifestation exemplified in an item."@en)
+AnnotationAssertion(rdfs:label core:exemplar "has exemplar"@en)
+SubObjectPropertyOf(core:exemplar core:relatedEndeavour)
+InverseObjectProperties(core:exemplar core:exemplarOf)
+ObjectPropertyDomain(core:exemplar core:Manifestation)
+ObjectPropertyRange(core:exemplar core:Item)
+
+# Object Property: core:exemplarOf (is exemplar of)
+
+AnnotationAssertion(rdfs:comment core:exemplarOf "An item that exemplifies a manifestation."@en)
+AnnotationAssertion(rdfs:label core:exemplarOf "is exemplar of"@en)
+SubObjectPropertyOf(core:exemplarOf core:relatedEndeavour)
+FunctionalObjectProperty(core:exemplarOf)
+
+# Object Property: core:imitation (has imitation)
+
+AnnotationAssertion(rdfs:comment core:imitation "An work/expression imitated in another one.
+
+This property describes works that are intended to be an imitation another original work that is sufficient in degree to warrant their being considered as new works, rather than simply different expressions of the same work. If there exists a relation of this kind among two different expressions, then they always refer to different works."@en)
+AnnotationAssertion(rdfs:label core:imitation "has imitation"@en)
+SubObjectPropertyOf(core:imitation core:relatedEndeavour)
+InverseObjectProperties(core:imitation core:imitationOf)
+ObjectPropertyDomain(core:imitation ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:imitation ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:imitationOf (is imitation of)
+
+AnnotationAssertion(rdfs:comment core:imitationOf "It identifies the work/expression of an imitated one."@en)
+AnnotationAssertion(rdfs:label core:imitationOf "is imitation of"@en)
+SubObjectPropertyOf(core:imitationOf core:relatedEndeavour)
+
+# Object Property: core:owner (has owner)
+
+AnnotationAssertion(rdfs:comment core:owner "An item linked to its owner."@en)
+AnnotationAssertion(rdfs:label core:owner "has owner"@en)
+SubObjectPropertyOf(core:owner core:responsibleEntity)
+InverseObjectProperties(core:owner core:ownerOf)
+ObjectPropertyDomain(core:owner core:Item)
+
+# Object Property: core:ownerOf (is owner of)
+
+AnnotationAssertion(rdfs:comment core:ownerOf "The owner of a particular item."@en)
+AnnotationAssertion(rdfs:label core:ownerOf "is owner of"@en)
+SubObjectPropertyOf(core:ownerOf core:responsibleEntityOf)
+
+# Object Property: core:part (has part)
+
+AnnotationAssertion(rdfs:comment core:part "A part of an endeavour."@en)
+AnnotationAssertion(rdfs:label core:part "has part"@en)
+AnnotationAssertion(skos:note core:part "Unlike the FRBR version in RDF http://vocab.org/frbr/core.html the present version defines partonomy relationships transitive."@en)
+SubObjectPropertyOf(core:part core:relatedEndeavour)
+InverseObjectProperties(core:part core:partOf)
+TransitiveObjectProperty(core:part)
+
+# Object Property: core:partOf (is part of)
+
+AnnotationAssertion(rdfs:comment core:partOf "An endeavour incorporating another endeavour."@en)
+AnnotationAssertion(rdfs:label core:partOf "is part of"@en)
+AnnotationAssertion(skos:note core:partOf "Unlike the FRBR version in RDF http://vocab.org/frbr/core.html the present version defines partonomy relationships transitive."@en)
+SubObjectPropertyOf(core:partOf core:relatedEndeavour)
+TransitiveObjectProperty(core:partOf)
+
+# Object Property: core:producer (has producer)
+
+AnnotationAssertion(rdfs:comment core:producer "A manifestation linked to its prodecer."@en)
+AnnotationAssertion(rdfs:label core:producer "has producer"@en)
+SubObjectPropertyOf(core:producer core:responsibleEntity)
+InverseObjectProperties(core:producer core:producerOf)
+ObjectPropertyDomain(core:producer core:Manifestation)
+
+# Object Property: core:producerOf (is producer of)
+
+AnnotationAssertion(rdfs:comment core:producerOf "The producer of a particular manifestation."@en)
+AnnotationAssertion(rdfs:label core:producerOf "is producer of"@en)
+SubObjectPropertyOf(core:producerOf core:responsibleEntityOf)
+
+# Object Property: core:realization (has realization)
+
+AnnotationAssertion(rdfs:comment core:realization "A work realized through an expression."@en)
+AnnotationAssertion(rdfs:label core:realization "has realization"@en)
+SubObjectPropertyOf(core:realization core:relatedEndeavour)
+InverseObjectProperties(core:realization core:realizationOf)
+ObjectPropertyDomain(core:realization core:Work)
+ObjectPropertyRange(core:realization core:Expression)
+
+# Object Property: core:realizationOf (is realization of)
+
+AnnotationAssertion(rdfs:comment core:realizationOf "An expression that realizes a work."@en)
+AnnotationAssertion(rdfs:label core:realizationOf "is realization of"@en)
+SubObjectPropertyOf(core:realizationOf core:relatedEndeavour)
+FunctionalObjectProperty(core:realizationOf)
+
+# Object Property: core:realizer (has realizer)
+
+AnnotationAssertion(rdfs:comment core:realizer "An expression linked to its realizer."@en)
+AnnotationAssertion(rdfs:label core:realizer "has realizer"@en)
+SubObjectPropertyOf(core:realizer core:responsibleEntity)
+InverseObjectProperties(core:realizer core:realizerOf)
+ObjectPropertyDomain(core:realizer core:Expression)
+
+# Object Property: core:realizerOf (is realizer of)
+
+AnnotationAssertion(rdfs:comment core:realizerOf "The realizer of a particular expression."@en)
+AnnotationAssertion(rdfs:label core:realizerOf "is realizer of"@en)
+SubObjectPropertyOf(core:realizerOf core:responsibleEntityOf)
+
+# Object Property: core:reconfiguration (has reconfiguration)
+
+AnnotationAssertion(rdfs:comment core:reconfiguration "An item reconfigured in another one.
+
+The reconfiguration relationship is one in which one or more items are changed in such a way that a new item or items result. Most commonly, an item of one manifestation is bound with an item of a different manifestation to make a new item. "@en)
+AnnotationAssertion(rdfs:label core:reconfiguration "has reconfiguration"@en)
+SubObjectPropertyOf(core:reconfiguration core:relatedEndeavour)
+InverseObjectProperties(core:reconfiguration core:reconfigurationOf)
+ObjectPropertyDomain(core:reconfiguration core:Item)
+ObjectPropertyRange(core:reconfiguration core:Item)
+
+# Object Property: core:reconfigurationOf (is reconfiguration of)
+
+AnnotationAssertion(rdfs:comment core:reconfigurationOf "It identifies the manifestation of a reconfigured one."@en)
+AnnotationAssertion(rdfs:label core:reconfigurationOf "is reconfiguration of"@en)
+SubObjectPropertyOf(core:reconfigurationOf core:relatedEndeavour)
+
+# Object Property: core:relatedEndeavour (has related endeavour)
+
+AnnotationAssertion(rdfs:label core:relatedEndeavour "has related endeavour"@en)
+ObjectPropertyDomain(core:relatedEndeavour core:Endeavour)
+ObjectPropertyRange(core:relatedEndeavour core:Endeavour)
+
+# Object Property: core:reproduction (has reproduction)
+
+AnnotationAssertion(rdfs:comment core:reproduction "A manifestation/item reproduced in another one.
+
+A reproduction indicates the relationship as it would be drawn from the first manifestation/item in the relationship to the second manifestation/item in the relationship."@en)
+AnnotationAssertion(rdfs:label core:reproduction "has reproduction"@en)
+SubObjectPropertyOf(core:reproduction core:relatedEndeavour)
+InverseObjectProperties(core:reproduction core:reproductionOf)
+ObjectPropertyDomain(core:reproduction ObjectUnionOf(core:Item core:Manifestation))
+ObjectPropertyRange(core:reproduction ObjectUnionOf(core:Item core:Manifestation))
+
+# Object Property: core:reproductionOf (is reproduction of)
+
+AnnotationAssertion(rdfs:comment core:reproductionOf "It identifies the manifestation/item of a reproduced one."@en)
+AnnotationAssertion(rdfs:label core:reproductionOf "is reproduction of"@en)
+SubObjectPropertyOf(core:reproductionOf core:relatedEndeavour)
+
+# Object Property: core:responsibleEntity (has responsible entity)
+
+AnnotationAssertion(rdfs:comment core:responsibleEntity "Any endeavour having a particular entity that is responsible of it."@en)
+AnnotationAssertion(rdfs:label core:responsibleEntity "has responsible entity"@en)
+SubObjectPropertyOf(core:responsibleEntity owl:topObjectProperty)
+InverseObjectProperties(core:responsibleEntity core:responsibleEntityOf)
+ObjectPropertyDomain(core:responsibleEntity core:Endeavour)
+ObjectPropertyRange(core:responsibleEntity core:ResponsibleEntity)
+
+# Object Property: core:responsibleEntityOf (is responsible entity of)
+
+AnnotationAssertion(rdfs:comment core:responsibleEntityOf "An entity that is resposible for a particular endeavour."@en)
+AnnotationAssertion(rdfs:label core:responsibleEntityOf "is responsible entity of"@en)
+SubObjectPropertyOf(core:responsibleEntityOf owl:topObjectProperty)
+
+# Object Property: core:revision (has revision)
+
+AnnotationAssertion(rdfs:comment core:revision "An expression revised in another one.
+
+A revision has the intent to alter or update the content of the prior expression, but without changing the content so much that it becomes a new work."@en)
+AnnotationAssertion(rdfs:label core:revision "has revision"@en)
+SubObjectPropertyOf(core:revision core:relatedEndeavour)
+InverseObjectProperties(core:revision core:revisionOf)
+ObjectPropertyDomain(core:revision core:Expression)
+ObjectPropertyRange(core:revision core:Expression)
+
+# Object Property: core:revisionOf (is revision of)
+
+AnnotationAssertion(rdfs:comment core:revisionOf "It identifies the previous expression of a revised one."@en)
+AnnotationAssertion(rdfs:label core:revisionOf "is revision of"@en)
+SubObjectPropertyOf(core:revisionOf core:relatedEndeavour)
+
+# Object Property: core:subject (has subject)
+
+AnnotationAssertion(rdfs:comment core:subject "A work linked to a particular subject it is talking about."@en)
+AnnotationAssertion(rdfs:label core:subject "has subject"@en)
+SubObjectPropertyOf(core:subject owl:topObjectProperty)
+InverseObjectProperties(core:subject core:subjectOf)
+ObjectPropertyDomain(core:subject core:Work)
+ObjectPropertyRange(core:subject ObjectUnionOf(core:CorporateBody core:Endeavour core:Subject))
+
+# Object Property: core:subjectOf (is subject of)
+
+AnnotationAssertion(rdfs:comment core:subjectOf "A subject a work talks abbout."@en)
+AnnotationAssertion(rdfs:label core:subjectOf "is subject of"@en)
+SubObjectPropertyOf(core:subjectOf owl:topObjectProperty)
+
+# Object Property: core:successor (has successor)
+
+AnnotationAssertion(rdfs:comment core:successor "An expression work/expression having another one as successor.
+
+The successor type of relationship involves a kind of linear progression of content from one work/expression to the other. In some cases, the content of the successor may be closely connected to the content of the preceding work, which would result in a work that is referential. In others, such as with loosely connected parts of a trilogy, the successor will be autonomous. Serial publications that result from the merger or split of their predecessors and stand on their own without requiring reference to the predecessor are also examples of autonomous works that fall within the successor relationship type. If there exists a relation of this kind among two different expressions, then they always refer to different works."@en)
+AnnotationAssertion(rdfs:label core:successor "has successor"@en)
+SubObjectPropertyOf(core:successor core:relatedEndeavour)
+InverseObjectProperties(core:successor core:successorOf)
+ObjectPropertyDomain(core:successor ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:successor ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:successorOf (is successor of)
+
+AnnotationAssertion(rdfs:comment core:successorOf "It identifies the previous work/expression of a succeeded one."@en)
+AnnotationAssertion(rdfs:label core:successorOf "is successor of"@en)
+SubObjectPropertyOf(core:successorOf core:relatedEndeavour)
+
+# Object Property: core:summarization (has summarization)
+
+AnnotationAssertion(rdfs:comment core:summarization "A work/expression summarized in another one.
+
+This property describe the summarization of an original work that is sufficient in degree to warrant their being considered as new works, rather than simply different expressions of the same work. If there exists a relation of this kind among two different expressions, they always refer to different works."@en)
+AnnotationAssertion(rdfs:label core:summarization "has summarization"@en)
+SubObjectPropertyOf(core:summarization core:relatedEndeavour)
+InverseObjectProperties(core:summarization core:summarizationOf)
+ObjectPropertyDomain(core:summarization ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:summarization ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:summarizationOf (is summarization of)
+
+AnnotationAssertion(rdfs:comment core:summarizationOf "It identifies the original work/expression of a summarized one."@en)
+AnnotationAssertion(rdfs:label core:summarizationOf "is summarization of"@en)
+SubObjectPropertyOf(core:summarizationOf core:relatedEndeavour)
+
+# Object Property: core:supplement (has supplement)
+
+AnnotationAssertion(rdfs:comment core:supplement "An expression work/expression having another one as supplement.
+
+The supplement relationship type involves works/expressions that are intended to be used in conjunction with another work/expression. Some of these, such as indices, concordances, teachers' guides, glosses, and instruction manuals for electronic resources will be so closely associated with the content of the related work/expression that they are useless without the other work/expression."@en)
+AnnotationAssertion(rdfs:label core:supplement "has supplement"@en)
+SubObjectPropertyOf(core:supplement core:relatedEndeavour)
+InverseObjectProperties(core:supplement core:supplementOf)
+ObjectPropertyDomain(core:supplement ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:supplement ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:supplementOf (is supplement of)
+
+AnnotationAssertion(rdfs:comment core:supplementOf "It identifies the work/expression of a particular supplement of it."@en)
+AnnotationAssertion(rdfs:label core:supplementOf "is supplement of"@en)
+SubObjectPropertyOf(core:supplementOf core:relatedEndeavour)
+
+# Object Property: core:transformation (has transformation)
+
+AnnotationAssertion(rdfs:comment core:transformation "An work/expression transformed in another one.
+
+This property describes the transformation of an original work or expression into another work or expression that is sufficiently different in degree to warrant the product of the transformation being considered as a new work or expression, rather than simply a different expression of the original work. If there exists a frbr:transformation relation between two different expressions, then they always relate to different works."@en)
+AnnotationAssertion(rdfs:label core:transformation "has transformation"@en)
+SubObjectPropertyOf(core:transformation core:relatedEndeavour)
+InverseObjectProperties(core:transformation core:transformationOf)
+ObjectPropertyDomain(core:transformation ObjectUnionOf(core:Expression core:Work))
+ObjectPropertyRange(core:transformation ObjectUnionOf(core:Expression core:Work))
+
+# Object Property: core:transformationOf (is transformation of)
+
+AnnotationAssertion(rdfs:comment core:transformationOf "It identifies the original work/expression of a trasformed one."@en)
+AnnotationAssertion(rdfs:label core:transformationOf "is transformation of"@en)
+SubObjectPropertyOf(core:transformationOf core:relatedEndeavour)
+
+# Object Property: core:translation (has translation)
+
+AnnotationAssertion(rdfs:comment core:translation "An expression translated in another one.
+
+It allows to refer to a literal translation, in which the intent is to render the intellectual content of the previous expression as accurately as possible."@en)
+AnnotationAssertion(rdfs:label core:translation "has translation"@en)
+SubObjectPropertyOf(core:translation core:relatedEndeavour)
+InverseObjectProperties(core:translation core:translationOf)
+ObjectPropertyDomain(core:translation core:Expression)
+ObjectPropertyRange(core:translation core:Expression)
+
+# Object Property: core:translationOf (is translation of)
+
+AnnotationAssertion(rdfs:comment core:translationOf "It identifies the original expression of a translated one."@en)
+AnnotationAssertion(rdfs:label core:translationOf "is translation of"@en)
+SubObjectPropertyOf(core:translationOf core:relatedEndeavour)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: core:Concept (concept)
+
+AnnotationAssertion(rdfs:comment core:Concept "An abstract notion or idea.
+
+The entity defined as concept encompasses a comprehensive range of abstractions that may be the subject of a work: fields of knowledge, disciplines, schools of thought (philosophies, religions, political ideologies, etc.), theories, processes, techniques, practices, etc.  A concept may be broad in nature or narrowly defined and precise. "@en)
+AnnotationAssertion(rdfs:label core:Concept "concept"@en)
+SubClassOf(core:Concept core:Subject)
+
+# Class: core:CorporateBody (corporate body)
+
+AnnotationAssertion(rdfs:comment core:CorporateBody "An organization or group of individuals and/or organizations acting as a unit.
+
+The entity defined as corporate body encompasses organizations and groups of individuals and/or organizations that are identified by a particular name, including occasional groups and groups that are constituted as meetings, conferences, congresses, expeditions, exhibitions, festivals, fairs, etc."@en)
+AnnotationAssertion(rdfs:label core:CorporateBody "corporate body"@en)
+SubClassOf(core:CorporateBody core:ResponsibleEntity)
+DisjointClasses(core:CorporateBody core:Person)
+
+# Class: core:Endeavour (endeavour)
+
+AnnotationAssertion(rdfs:comment core:Endeavour "It describes different aspects of user interests in the products of intellectual or artistic artifact."@en)
+AnnotationAssertion(rdfs:label core:Endeavour "endeavour"@en)
+EquivalentClasses(core:Endeavour ObjectUnionOf(core:Expression core:Item core:Manifestation core:Work))
+
+# Class: core:Event (event)
+
+AnnotationAssertion(rdfs:comment core:Event "An action or occurrence.
+
+The entity defined as event encompasses a comprehensive range of actions and occurrences that may be the subject of a work: historical events, epochs, periods of time, etc. "@en)
+AnnotationAssertion(rdfs:label core:Event "event"@en)
+SubClassOf(core:Event core:Subject)
+
+# Class: core:Expression (expression)
+
+AnnotationAssertion(rdfs:comment core:Expression "The intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, image, object, movement, etc., or any combination of such forms.
+
+An expression is the specific intellectual or artistic form that a work takes each time it is \"realized.\" Expression encompasses, for example, the specific words, sentences, paragraphs, etc. that result from the realization of a work in the form of a text, or the particular sounds, phrasing, etc. resulting from the realization of a musical work."@en)
+AnnotationAssertion(rdfs:label core:Expression "expression"@en)
+EquivalentClasses(core:Expression ObjectIntersectionOf(core:Endeavour ObjectSomeValuesFrom(core:embodiment core:Manifestation) ObjectSomeValuesFrom(core:realizationOf core:Work)))
+EquivalentClasses(core:Expression ObjectIntersectionOf(core:Endeavour ObjectAllValuesFrom(core:part core:Expression) ObjectAllValuesFrom(core:partOf core:Expression)))
+DisjointClasses(core:Expression core:Item)
+DisjointClasses(core:Expression core:Manifestation)
+DisjointClasses(core:Expression core:Work)
+
+# Class: core:Item (item)
+
+AnnotationAssertion(rdfs:comment core:Item "A single exemplar of a manifestation.
+
+The entity defined as item is a concrete entity. It is in many instances a single physical object (e.g., a copy of a one-volume monograph, a single audio cassette, etc.). There are instances, however, where the entity defined as item comprises more than one physical object (e.g., a monograph issued as two separately bound volumes, a recording issued on three separate compact discs, etc.). "@en)
+AnnotationAssertion(rdfs:label core:Item "item"@en)
+EquivalentClasses(core:Item ObjectIntersectionOf(core:Endeavour ObjectSomeValuesFrom(core:exemplarOf core:Manifestation)))
+EquivalentClasses(core:Item ObjectIntersectionOf(core:Endeavour ObjectAllValuesFrom(core:part core:Item) ObjectAllValuesFrom(core:partOf core:Item)))
+DisjointClasses(core:Item core:Manifestation)
+DisjointClasses(core:Item core:Work)
+
+# Class: core:Manifestation (manifestation)
+
+AnnotationAssertion(rdfs:comment core:Manifestation "The physical embodiment of an expression of a work.
+
+The entity defined as manifestation encompasses a wide range of materials and formats. As an entity, manifestation represents all the physical objects that bear the same characteristics, in respect to both intellectual content and physical form. "@en)
+AnnotationAssertion(rdfs:label core:Manifestation "manifestation"@en)
+EquivalentClasses(core:Manifestation ObjectIntersectionOf(core:Endeavour ObjectSomeValuesFrom(core:embodimentOf core:Expression) ObjectSomeValuesFrom(core:exemplar core:Item)))
+EquivalentClasses(core:Manifestation ObjectIntersectionOf(core:Endeavour ObjectAllValuesFrom(core:part core:Manifestation) ObjectAllValuesFrom(core:partOf core:Manifestation)))
+DisjointClasses(core:Manifestation core:Work)
+
+# Class: core:Object (object)
+
+AnnotationAssertion(rdfs:comment core:Object "A material thing.
+
+The entity defined as object encompasses a comprehensive range of material things that may be the subject of a work: animate and inanimate objects occurring in nature; fixed, movable, and moving objects that are the product of human creation; objects that no longer exist. "@en)
+AnnotationAssertion(rdfs:label core:Object "object"@en)
+SubClassOf(core:Object core:Subject)
+
+# Class: core:Person (person)
+
+AnnotationAssertion(rdfs:comment core:Person "An individual. The entity defined as person encompasses individuals that are deceased as well as those that are living."@en)
+AnnotationAssertion(rdfs:label core:Person "person"@en)
+SubClassOf(core:Person core:ResponsibleEntity)
+
+# Class: core:Place (place)
+
+AnnotationAssertion(rdfs:comment core:Place "A location.
+
+The entity defined as place encompasses a comprehensive range of locations: terrestrial and extra-terrestrial; historical and contemporary; geographic features and geo-political jurisdictions. "@en)
+AnnotationAssertion(rdfs:label core:Place "place"@en)
+SubClassOf(core:Place core:Subject)
+
+# Class: core:ResponsibleEntity (responsible entity)
+
+AnnotationAssertion(rdfs:comment core:ResponsibleEntity "It represents those responsible for the intellectual or artistic content, the physical production and dissemination, or the custodianship of any endeavour."@en)
+AnnotationAssertion(rdfs:label core:ResponsibleEntity "responsible entity"@en)
+
+# Class: core:Subject (subject)
+
+AnnotationAssertion(rdfs:comment core:Subject "It represents an additional set of entities that serve as the subjects of works."@en)
+AnnotationAssertion(rdfs:label core:Subject "subject"@en)
+
+# Class: core:Work (work)
+
+AnnotationAssertion(rdfs:comment core:Work "A distinct intellectual or artistic creation.
+
+A work is an abstract entity; there is no single material object one can point to as the work. We recognize the work through individual realizations or expressions of the work, but the work itself exists only in the commonality of content between and among the various expressions of the work. When we speak of Homer's Iliad as a work, our point of reference is not a particular recitation or text of the work, but the intellectual creation that lies behind all the various expressions of the work. "@en)
+AnnotationAssertion(rdfs:label core:Work "work"@en)
+EquivalentClasses(core:Work ObjectIntersectionOf(core:Endeavour ObjectSomeValuesFrom(core:realization core:Expression)))
+EquivalentClasses(core:Work ObjectIntersectionOf(core:Endeavour ObjectAllValuesFrom(core:part core:Work) ObjectAllValuesFrom(core:partOf core:Work)))
+
+
+DisjointClasses(core:Concept core:Event core:Object core:Place)
+DLSafeRule(Body(ObjectPropertyAtom(core:abridgement Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)))Head(SameIndividualAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:adaption Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:arrangement Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)))Head(SameIndividualAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:complement Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:imitation Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)) ObjectPropertyAtom(core:revision Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)))Head(SameIndividualAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)) ObjectPropertyAtom(core:successor Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)) ObjectPropertyAtom(core:summarization Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)) ObjectPropertyAtom(core:supplement Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)) ObjectPropertyAtom(core:transformation Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)))Head(DifferentIndividualsAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+DLSafeRule(Body(ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e1>) Variable(<urn:swrl#w1>)) ObjectPropertyAtom(core:realizationOf Variable(<urn:swrl#e2>) Variable(<urn:swrl#w2>)) ObjectPropertyAtom(core:translation Variable(<urn:swrl#e1>) Variable(<urn:swrl#e2>)))Head(SameIndividualAtom(Variable(<urn:swrl#w1>) Variable(<urn:swrl#w2>))))
+)

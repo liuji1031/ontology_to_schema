@@ -1,0 +1,293 @@
+Prefix(:=<http://xmlns.com/wot/0.1/>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(vs:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://xmlns.com/wot/0.1/>
+Import(<http://www.w3.org/2000/01/rdf-schema>)
+Import(<http://www.w3.org/2002/07/owl>)
+Annotation(dc:date "2004-02-23")
+Annotation(dc:description "Web Of Trust (wot) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.")
+Annotation(dc:title "Web Of Trust vocabulary")
+Annotation(rdfs:seeAlso <http://xmlns.com/foaf/0.1/>)
+
+Declaration(Class(rdf:List))
+Declaration(Class(rdf:Property))
+Declaration(Class(<http://www.w3.org/2002/12/cal/ical#Vevent>))
+Declaration(Class(<http://xmlns.com/foaf/0.1/Agent>))
+Declaration(Class(<http://xmlns.com/foaf/0.1/Document>))
+Declaration(Class(<http://xmlns.com/wordnet/1.6/Credential>))
+Declaration(Class(<http://xmlns.com/wordnet/1.6/Endorsement-4>))
+Declaration(Class(<http://xmlns.com/wordnet/1.6/Event>))
+Declaration(Class(:EncryptedDocument))
+Declaration(Class(:Endorsement))
+Declaration(Class(:PubKey))
+Declaration(Class(:SigEvent))
+Declaration(Class(:User))
+Declaration(ObjectProperty(rdfs:domain))
+Declaration(ObjectProperty(rdfs:member))
+Declaration(ObjectProperty(rdfs:range))
+Declaration(ObjectProperty(rdfs:subClassOf))
+Declaration(ObjectProperty(rdfs:subPropertyOf))
+Declaration(ObjectProperty(owl:allValuesFrom))
+Declaration(ObjectProperty(owl:annotatedProperty))
+Declaration(ObjectProperty(owl:annotatedSource))
+Declaration(ObjectProperty(owl:annotatedTarget))
+Declaration(ObjectProperty(owl:assertionProperty))
+Declaration(ObjectProperty(owl:complementOf))
+Declaration(ObjectProperty(owl:datatypeComplementOf))
+Declaration(ObjectProperty(owl:differentFrom))
+Declaration(ObjectProperty(owl:disjointUnionOf))
+Declaration(ObjectProperty(owl:disjointWith))
+Declaration(ObjectProperty(owl:distinctMembers))
+Declaration(ObjectProperty(owl:equivalentClass))
+Declaration(ObjectProperty(owl:equivalentProperty))
+Declaration(ObjectProperty(owl:hasKey))
+Declaration(ObjectProperty(owl:hasSelf))
+Declaration(ObjectProperty(owl:hasValue))
+Declaration(ObjectProperty(owl:intersectionOf))
+Declaration(ObjectProperty(owl:inverseOf))
+Declaration(ObjectProperty(owl:members))
+Declaration(ObjectProperty(owl:onClass))
+Declaration(ObjectProperty(owl:onDataRange))
+Declaration(ObjectProperty(owl:onDatatype))
+Declaration(ObjectProperty(owl:onProperties))
+Declaration(ObjectProperty(owl:onProperty))
+Declaration(ObjectProperty(owl:oneOf))
+Declaration(ObjectProperty(owl:propertyChainAxiom))
+Declaration(ObjectProperty(owl:propertyDisjointWith))
+Declaration(ObjectProperty(owl:sameAs))
+Declaration(ObjectProperty(owl:someValuesFrom))
+Declaration(ObjectProperty(owl:sourceIndividual))
+Declaration(ObjectProperty(owl:targetIndividual))
+Declaration(ObjectProperty(owl:targetValue))
+Declaration(ObjectProperty(owl:unionOf))
+Declaration(ObjectProperty(owl:withRestrictions))
+Declaration(ObjectProperty(:assurance))
+Declaration(ObjectProperty(:encryptedTo))
+Declaration(ObjectProperty(:encrypter))
+Declaration(ObjectProperty(:fingerprint))
+Declaration(ObjectProperty(:hasKey))
+Declaration(ObjectProperty(:identity))
+Declaration(ObjectProperty(:pubkeyAddress))
+Declaration(ObjectProperty(:signed))
+Declaration(ObjectProperty(:signer))
+Declaration(DataProperty(owl:cardinality))
+Declaration(DataProperty(owl:maxCardinality))
+Declaration(DataProperty(owl:maxQualifiedCardinality))
+Declaration(DataProperty(owl:minCardinality))
+Declaration(DataProperty(owl:minQualifiedCardinality))
+Declaration(DataProperty(owl:qualifiedCardinality))
+Declaration(DataProperty(:fingerprint))
+Declaration(DataProperty(:hex_id))
+Declaration(DataProperty(:length))
+Declaration(DataProperty(:sigdate))
+Declaration(DataProperty(:sigtime))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(vs:term_status))
+Declaration(AnnotationProperty(<http://www.w3.org/2003/g/data-view#namespaceTransformation>))
+Declaration(Datatype(xsd:date))
+Declaration(Datatype(xsd:time))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :assurance (Assurance)
+
+AnnotationAssertion(rdfs:comment :assurance "A property linking a document to an endorsement resource containing a detached ascii signature.")
+AnnotationAssertion(rdfs:isDefinedBy :assurance <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :assurance "Assurance")
+AnnotationAssertion(vs:term_status :assurance "stable")
+ObjectPropertyDomain(:assurance <http://xmlns.com/foaf/0.1/Document>)
+ObjectPropertyRange(:assurance :Endorsement)
+
+# Object Property: :encryptedTo (Encrypted to)
+
+AnnotationAssertion(rdfs:comment :encryptedTo "A property linking an encrypted document to a recipient.")
+AnnotationAssertion(rdfs:isDefinedBy :encryptedTo <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :encryptedTo "Encrypted to")
+AnnotationAssertion(vs:term_status :encryptedTo "unstable")
+ObjectPropertyDomain(:encryptedTo :EncryptedDocument)
+ObjectPropertyRange(:encryptedTo :PubKey)
+
+# Object Property: :encrypter (Encrypted by)
+
+AnnotationAssertion(rdfs:comment :encrypter "A property linking an encrypted document to the public key that was used to encrypt it.")
+AnnotationAssertion(rdfs:isDefinedBy :encrypter <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :encrypter "Encrypted by")
+AnnotationAssertion(vs:term_status :encrypter "unstable")
+FunctionalObjectProperty(:encrypter)
+ObjectPropertyDomain(:encrypter :EncryptedDocument)
+ObjectPropertyRange(:encrypter :PubKey)
+
+# Object Property: :fingerprint (Fingerprint)
+
+AnnotationAssertion(rdfs:comment :fingerprint "A public key hex fingerprint string (40 digits, white space insignificant).")
+AnnotationAssertion(rdfs:isDefinedBy :fingerprint <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :fingerprint "Fingerprint")
+AnnotationAssertion(vs:term_status :fingerprint "testing")
+InverseFunctionalObjectProperty(:fingerprint)
+ObjectPropertyDomain(:fingerprint :PubKey)
+
+# Object Property: :hasKey (has Key)
+
+AnnotationAssertion(rdfs:comment :hasKey "A property to link a PubKey from a User")
+AnnotationAssertion(rdfs:isDefinedBy :hasKey <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :hasKey "has Key")
+AnnotationAssertion(vs:term_status :hasKey "testing")
+InverseObjectProperties(:hasKey :identity)
+ObjectPropertyDomain(:hasKey :User)
+ObjectPropertyRange(:hasKey :PubKey)
+
+# Object Property: :identity (Identity)
+
+AnnotationAssertion(rdfs:comment :identity "A property linking a public key to the user of the key.")
+AnnotationAssertion(rdfs:isDefinedBy :identity <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :identity "Identity")
+AnnotationAssertion(vs:term_status :identity "testing")
+FunctionalObjectProperty(:identity)
+ObjectPropertyDomain(:identity :PubKey)
+ObjectPropertyRange(:identity :User)
+
+# Object Property: :pubkeyAddress (Address)
+
+AnnotationAssertion(rdfs:comment :pubkeyAddress "The location of an ascii version of a public key.")
+AnnotationAssertion(rdfs:isDefinedBy :pubkeyAddress <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :pubkeyAddress "Address")
+AnnotationAssertion(vs:term_status :pubkeyAddress "testing")
+ObjectPropertyDomain(:pubkeyAddress :PubKey)
+ObjectPropertyRange(:pubkeyAddress <http://xmlns.com/foaf/0.1/Document>)
+
+# Object Property: :signed (Signed)
+
+AnnotationAssertion(rdfs:comment :signed "A property linking a public key to a public key signature event.")
+AnnotationAssertion(rdfs:isDefinedBy :signed <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :signed "Signed")
+AnnotationAssertion(vs:term_status :signed "testing")
+ObjectPropertyDomain(:signed :PubKey)
+ObjectPropertyRange(:signed :SigEvent)
+
+# Object Property: :signer (Signer)
+
+AnnotationAssertion(rdfs:comment :signer "A property linking a public key signature event to the public key that was used to sign.")
+AnnotationAssertion(rdfs:isDefinedBy :signer <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :signer "Signer")
+AnnotationAssertion(vs:term_status :signer "unstable")
+FunctionalObjectProperty(:signer)
+ObjectPropertyDomain(:signer :SigEvent)
+ObjectPropertyRange(:signer :PubKey)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :fingerprint (Fingerprint)
+
+DataPropertyRange(:fingerprint xsd:string)
+
+# Data Property: :hex_id (Hex identifier)
+
+AnnotationAssertion(rdfs:comment :hex_id "A public key hex identifier string (8 digits).")
+AnnotationAssertion(rdfs:isDefinedBy :hex_id <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :hex_id "Hex identifier")
+AnnotationAssertion(vs:term_status :hex_id "stable")
+DataPropertyDomain(:hex_id :PubKey)
+DataPropertyRange(:hex_id xsd:string)
+
+# Data Property: :length (Length)
+
+AnnotationAssertion(rdfs:comment :length "A numeric string representing the length, in bytes, of a public key.")
+AnnotationAssertion(rdfs:isDefinedBy :length <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :length "Length")
+AnnotationAssertion(vs:term_status :length "stable")
+DataPropertyDomain(:length :PubKey)
+DataPropertyRange(:length xsd:integer)
+
+# Data Property: :sigdate (Signature date)
+
+AnnotationAssertion(rdfs:comment :sigdate "The date of a public key signature event.")
+AnnotationAssertion(rdfs:isDefinedBy :sigdate <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :sigdate "Signature date")
+AnnotationAssertion(vs:term_status :sigdate "testing")
+DataPropertyDomain(:sigdate :SigEvent)
+DataPropertyRange(:sigdate xsd:date)
+
+# Data Property: :sigtime (Signature time)
+
+AnnotationAssertion(rdfs:comment :sigtime "The time (of day) of a public key signature event.")
+AnnotationAssertion(rdfs:isDefinedBy :sigtime <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :sigtime "Signature time")
+AnnotationAssertion(vs:term_status :sigtime "unstable")
+DataPropertyDomain(:sigtime :SigEvent)
+DataPropertyRange(:sigtime xsd:time)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :EncryptedDocument (Encrypted Document)
+
+AnnotationAssertion(rdfs:comment :EncryptedDocument "An encrypted document intended for a set of recipients.")
+AnnotationAssertion(rdfs:isDefinedBy :EncryptedDocument <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :EncryptedDocument "Encrypted Document")
+AnnotationAssertion(vs:term_status :EncryptedDocument "unstable")
+SubClassOf(:EncryptedDocument <http://xmlns.com/foaf/0.1/Document>)
+SubClassOf(:EncryptedDocument <http://xmlns.com/wordnet/1.6/Endorsement-4>)
+DisjointClasses(:EncryptedDocument :Endorsement)
+DisjointClasses(:EncryptedDocument :PubKey)
+DisjointClasses(:EncryptedDocument :SigEvent)
+DisjointClasses(:EncryptedDocument :User)
+
+# Class: :Endorsement (Endorsement)
+
+AnnotationAssertion(rdfs:comment :Endorsement "An endorsement resource containing a detached ascii signature.")
+AnnotationAssertion(rdfs:isDefinedBy :Endorsement <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :Endorsement "Endorsement")
+AnnotationAssertion(vs:term_status :Endorsement "unstable")
+SubClassOf(:Endorsement <http://xmlns.com/foaf/0.1/Document>)
+SubClassOf(:Endorsement <http://xmlns.com/wordnet/1.6/Endorsement-4>)
+DisjointClasses(:Endorsement :PubKey)
+DisjointClasses(:Endorsement :SigEvent)
+DisjointClasses(:Endorsement :User)
+
+# Class: :PubKey (Public Key)
+
+AnnotationAssertion(rdfs:comment :PubKey "A class used to represent a PGP/GPG public key for a user (an agent, person, group or organization).")
+AnnotationAssertion(rdfs:isDefinedBy :PubKey <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :PubKey "Public Key")
+AnnotationAssertion(vs:term_status :PubKey "stable")
+SubClassOf(:PubKey <http://xmlns.com/wordnet/1.6/Credential>)
+DisjointClasses(:PubKey :SigEvent)
+DisjointClasses(:PubKey :User)
+
+# Class: :SigEvent (Key Signing Event)
+
+AnnotationAssertion(rdfs:comment :SigEvent "An event describing the action of a public key being signed by some other public key.")
+AnnotationAssertion(rdfs:isDefinedBy :SigEvent <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :SigEvent "Key Signing Event")
+AnnotationAssertion(vs:term_status :SigEvent "testing")
+SubClassOf(:SigEvent <http://www.w3.org/2002/12/cal/ical#Vevent>)
+SubClassOf(:SigEvent <http://xmlns.com/wordnet/1.6/Event>)
+DisjointClasses(:SigEvent :User)
+
+# Class: :User (Key User)
+
+AnnotationAssertion(rdfs:comment :User "A user (agent, person, group or organization) of a PGP/GPG public key.")
+AnnotationAssertion(rdfs:isDefinedBy :User <http://xmlns.com/wot/0.1/>)
+AnnotationAssertion(rdfs:label :User "Key User")
+AnnotationAssertion(vs:term_status :User "stable")
+SubClassOf(:User <http://xmlns.com/foaf/0.1/Agent>)
+
+
+)

@@ -1,0 +1,283 @@
+Prefix(:=<http://purl.org/spar/c4o#>)
+Prefix(co:=<http://purl.org/co/>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(biro:=<http://purl.org/spar/biro/>)
+Prefix(frbr:=<http://purl.org/vocab/frbr/core#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(swrl:=<http://www.w3.org/2003/11/swrl#>)
+Prefix(vann:=<http://purl.org/vocab/vann/>)
+Prefix(skos1:=<http://www.w3.org/2008/05/skos#>)
+Prefix(swrlb:=<http://www.w3.org/2003/11/swrlb#>)
+Prefix(owlapi:=<http://www.semanticweb.org/owlapi#>)
+Prefix(collections:=<http://swan.mindinformatics.org/ontologies/1.2/collections/>)
+
+
+Ontology(<http://purl.org/spar/c4o>
+<http://purl.org/spar/c4o/2018-06-22>
+Import(<http://purl.org/spar/biro>)
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2018-06-22")
+Annotation(dc:description <http://purl.org/spar/c4o/CitationCounting%20module.png>)
+Annotation(dc:description "C4O, the Citation Counting and Context Characterization Ontology (C4O) allows the characterization of bibliographic citations in terms of their number and their context.
+
+It provides the ontological structures to permit the number of in-text citations of a cited source (i.e. the number of in-text reference pointers to a single reference in the citing article's reference list) to be recorded, and also the number of citations a cited entity has received globally, as determined by a bibliographic information resource such as Google Scholar, Scopus or Web of Knowledge on a particular date.
+
+Moreover, it enables ontological descriptions of the context within the citing document in which an in-text reference pointer appears, and permits that context to be related to relevant textual passages in the cited document.
+"@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution 4.0 International license (https://creativecommons.org/licenses/by/4.0/legalcode)."@en)
+Annotation(dc:title "C4O, the Citation Counting and Context Characterization Ontology"@en)
+Annotation(rdfs:comment "The Citation Counting and Context Characterisation Ontology (C4O) is an ontology that permits the number of in-text citations of a cited source to be recorded, together with their textual citation contexts, along with the number of citations a cited entity has received globally on a particular date.
+
+**URL:** http://purl.org/spar/c4o
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/c4o
+
+**Cite as:** Di Iorio, A., Nuzzolese, A. G., Peroni, S., Shotton, D., Vitali, F. (2014). Describing bibliographic references in RDF. In Proceedings of 4th Workshop on Semantic Publishing (SePublica 2014). http://ceur-ws.org/Vol-1155/paper-05.pdf"@en)
+Annotation(owl:priorVersion <http://purl.org/spar/c4o/2013-05-11>)
+Annotation(owl:versionInfo "1.2"@en)
+
+Declaration(Class(co:List))
+Declaration(Class(co:ListItem))
+Declaration(Class(biro:BibliographicReference))
+Declaration(Class(<http://purl.org/spar/c4o/BibliographicInformationSource>))
+Declaration(Class(<http://purl.org/spar/c4o/GlobalCitationCount>))
+Declaration(Class(<http://purl.org/spar/c4o/InTextReferencePointer>))
+Declaration(Class(<http://purl.org/spar/c4o/InTextReferencePointerList>))
+Declaration(Class(<http://purl.org/spar/c4o/InTextReferencePointerListItem>))
+Declaration(Class(<http://purl.org/spar/c4o/SingleLocationPointerList>))
+Declaration(Class(<http://purl.org/spar/c4o/SingleReferencePointerList>))
+Declaration(Class(frbr:Endeavour))
+Declaration(Class(frbr:Expression))
+Declaration(Class(owl:Thing))
+Declaration(ObjectProperty(co:element))
+Declaration(ObjectProperty(co:item))
+Declaration(ObjectProperty(co:itemContent))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/denotes>))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/hasContext>))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/hasGlobalCitationFrequency>))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/hasGlobalCountSource>))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/isDenotedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/isRelevantTo>))
+Declaration(ObjectProperty(<http://purl.org/spar/c4o/pertainsTo>))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(DataProperty(<http://purl.org/spar/c4o/hasContent>))
+Declaration(DataProperty(<http://purl.org/spar/c4o/hasGlobalCountDate>))
+Declaration(DataProperty(<http://purl.org/spar/c4o/hasGlobalCountValue>))
+Declaration(DataProperty(<http://purl.org/spar/c4o/hasInTextCitationFrequency>))
+Declaration(DataProperty(owl:topDataProperty))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(vann:preferredNamespaceURI))
+Declaration(AnnotationProperty(owlapi:nodeID))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(Datatype(xsd:date))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: vann:preferredNamespaceURI (http://purl.org/vocab/vann/preferredNamespaceURI)
+
+AnnotationAssertion(rdfs:label vann:preferredNamespaceURI "http://purl.org/vocab/vann/preferredNamespaceURI")
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/c4o/denotes> (denotes)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/denotes> "A property used to assert the connection between an in-text reference pointer and the bibliographic reference it points to."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/denotes> "denotes"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/denotes> owl:topObjectProperty)
+InverseObjectProperties(<http://purl.org/spar/c4o/denotes> <http://purl.org/spar/c4o/isDenotedBy>)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/denotes> <http://purl.org/spar/c4o/InTextReferencePointer>)
+ObjectPropertyRange(<http://purl.org/spar/c4o/denotes> biro:BibliographicReference)
+
+# Object Property: <http://purl.org/spar/c4o/hasContext> (has context)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/hasContext> "Any FRBR expression that constitutes the range of this property can have at most one particular literal textual content specified through the property c4o:hasContent."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasContext> "This property is used to indicate the textual context (e.g. a sentence or a paragraph) of a particular in-text reference pointer, this context providing the rhetorical motivation for the existence of that citation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasContext> "has context"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/hasContext> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/hasContext> <http://purl.org/spar/c4o/InTextReferencePointer>)
+ObjectPropertyRange(<http://purl.org/spar/c4o/hasContext> ObjectIntersectionOf(frbr:Expression DataMaxCardinality(1 <http://purl.org/spar/c4o/hasContent>)))
+
+# Object Property: <http://purl.org/spar/c4o/hasGlobalCitationFrequency> (has global citation frequency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasGlobalCitationFrequency> "A property linking a publication entity to the property c40:GlobalCitationCount that specify how many times a work has been cited by others, according to a particular information source on a particular date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasGlobalCitationFrequency> "has global citation frequency"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/hasGlobalCitationFrequency> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/hasGlobalCitationFrequency> frbr:Endeavour)
+ObjectPropertyRange(<http://purl.org/spar/c4o/hasGlobalCitationFrequency> <http://purl.org/spar/c4o/GlobalCitationCount>)
+
+# Object Property: <http://purl.org/spar/c4o/hasGlobalCountSource> (has global count source)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasGlobalCountSource> "A property linking the property c40:GlobalCitationCount to the bibliographic information source providing the global citation count information for a particular publication on a particular date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasGlobalCountSource> "has global count source"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/hasGlobalCountSource> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/hasGlobalCountSource> <http://purl.org/spar/c4o/GlobalCitationCount>)
+ObjectPropertyRange(<http://purl.org/spar/c4o/hasGlobalCountSource> <http://purl.org/spar/c4o/BibliographicInformationSource>)
+
+# Object Property: <http://purl.org/spar/c4o/isDenotedBy> (is denoted by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/isDenotedBy> "A property used to assert the connection between a bibliographic reference and the in-text reference pointer that points to it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/isDenotedBy> "is denoted by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/isDenotedBy> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/isDenotedBy> biro:BibliographicReference)
+ObjectPropertyRange(<http://purl.org/spar/c4o/isDenotedBy> <http://purl.org/spar/c4o/InTextReferencePointer>)
+
+# Object Property: <http://purl.org/spar/c4o/isRelevantTo> (is relevant to)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/isRelevantTo> "A property allowing one FRBR expression to be declared to be of rhetorical relevance to another, for instance that the textual context of a particular in-text reference pointer in one document is relevant to a section of text within the published document that is referenced by the bibliographic reference denoted by the in-text reference pointer, and vice versa that the converse relevance also exists."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/isRelevantTo> "is relevant to"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/isRelevantTo> owl:topObjectProperty)
+SymmetricObjectProperty(<http://purl.org/spar/c4o/isRelevantTo>)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/isRelevantTo> frbr:Expression)
+ObjectPropertyRange(<http://purl.org/spar/c4o/isRelevantTo> frbr:Expression)
+
+# Object Property: <http://purl.org/spar/c4o/pertainsTo> (pertains to)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/pertainsTo> "The property linking an in-text reference pointer list to the bibliographic reference or references denoted by the in-text reference pointers within that list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/pertainsTo> "pertains to"@en)
+SubObjectPropertyOf(<http://purl.org/spar/c4o/pertainsTo> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/spar/c4o/pertainsTo> <http://purl.org/spar/c4o/InTextReferencePointerList>)
+ObjectPropertyRange(<http://purl.org/spar/c4o/pertainsTo> biro:BibliographicReference)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/spar/c4o/hasContent> (has content)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasContent> "It is used to specify the textual content of a particular FRBR expression."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasContent> "has content"@en)
+SubDataPropertyOf(<http://purl.org/spar/c4o/hasContent> owl:topDataProperty)
+DataPropertyDomain(<http://purl.org/spar/c4o/hasContent> frbr:Expression)
+DataPropertyRange(<http://purl.org/spar/c4o/hasContent> rdfs:Literal)
+
+# Data Property: <http://purl.org/spar/c4o/hasGlobalCountDate> (has global count date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasGlobalCountDate> "The date on which the global citation count of the cited entity was recorded from a named bibliographic information source."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasGlobalCountDate> "has global count date"@en)
+DataPropertyDomain(<http://purl.org/spar/c4o/hasGlobalCountDate> <http://purl.org/spar/c4o/GlobalCitationCount>)
+DataPropertyRange(<http://purl.org/spar/c4o/hasGlobalCountDate> xsd:date)
+
+# Data Property: <http://purl.org/spar/c4o/hasGlobalCountValue> (has global count value)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasGlobalCountValue> "An integer defining the value of the global citation count of a cited entity recorded from a named bibliographic information source on a particular date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasGlobalCountValue> "has global count value"@en)
+DataPropertyDomain(<http://purl.org/spar/c4o/hasGlobalCountValue> <http://purl.org/spar/c4o/GlobalCitationCount>)
+DataPropertyRange(<http://purl.org/spar/c4o/hasGlobalCountValue> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/c4o/hasInTextCitationFrequency> (has in text citation frequency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/hasInTextCitationFrequency> "This property allows one to specify how many separate in-text reference pointers exist within the text of a citing document that all denote the same single bibliographic reference to a cited document (i.e how many distinct textual contexts exist within the citing document from which a citation is made to a particular document). "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/hasInTextCitationFrequency> "has in text citation frequency"@en)
+FunctionalDataProperty(<http://purl.org/spar/c4o/hasInTextCitationFrequency>)
+DataPropertyDomain(<http://purl.org/spar/c4o/hasInTextCitationFrequency> biro:BibliographicReference)
+DataPropertyRange(<http://purl.org/spar/c4o/hasInTextCitationFrequency> xsd:nonNegativeInteger)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/spar/c4o/BibliographicInformationSource> (bibliographic information source)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/BibliographicInformationSource> "A source of information about bibliographic citations, such as Google Scholar, Web of Science or Scopus."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/BibliographicInformationSource> "bibliographic information source"@en)
+DisjointClasses(<http://purl.org/spar/c4o/BibliographicInformationSource> <http://purl.org/spar/c4o/GlobalCitationCount>)
+DisjointClasses(<http://purl.org/spar/c4o/BibliographicInformationSource> <http://purl.org/spar/c4o/InTextReferencePointer>)
+DisjointClasses(<http://purl.org/spar/c4o/BibliographicInformationSource> <http://purl.org/spar/c4o/SingleLocationPointerList>)
+
+# Class: <http://purl.org/spar/c4o/GlobalCitationCount> (global citation count)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/GlobalCitationCount> "The number of times a work has been cited globally, as determined from a particular bibliographic information source on a particular date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/GlobalCitationCount> "global citation count"@en)
+DisjointClasses(<http://purl.org/spar/c4o/GlobalCitationCount> <http://purl.org/spar/c4o/InTextReferencePointer>)
+DisjointClasses(<http://purl.org/spar/c4o/GlobalCitationCount> <http://purl.org/spar/c4o/SingleLocationPointerList>)
+
+# Class: <http://purl.org/spar/c4o/InTextReferencePointer> (in-text reference pointer)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/InTextReferencePointer> <http://purl.org/spar/c4o/InTextReferencePointer%20module.png>)
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/InTextReferencePointer> "An in-text reference pointer is a textual device denoting a single bibliographic reference that is embedded in the text of a document within the context of a particular sentence."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/InTextReferencePointer> "The in-text reference pointer is a textual element, usually embedded at the end of a phrase or sentence within the text of a document, that denotes a specific bibliographic reference present in the reference list of that document. For example, if the item in the reference list is:
+
+4.  Ko AI, Reis MG, Ribeiro Dourado CM, Johnson WD Jr, Riley LW (1999). Urban epidemic of severe leptospirosis in Brazil. Salvador Leptospirosis Study Group. Lancet 354: 820-825.
+
+the in-text reference pointer to this paper in a journal article may be manifested in a number of ways:
+
+Numerically, for example by using the numeral 4 in superscript or between square brackets, thus: \"[4]\".
+
+Or by use of the author names (or the first author's name plus et al.) and the publication year in parentheses, thus: \"(Ko et al., 1999)\".
+
+Or, less commonly, by the use of a code, e.g. by specifying the first surname letter of the first three author of the cited work followed by the last two digits of the year of publication, this string of characters being enclosed within square brackets, thus: \"[KRR99]\".
+
+If reference pointers are aggregated, e.g. \"[4, 5, 6-9]\", they may be described by means of the class c4o:SingleLocationPointerList."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/InTextReferencePointer> "in-text reference pointer"@en)
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointer> frbr:Expression)
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointer> ObjectExactCardinality(1 <http://purl.org/spar/c4o/denotes> biro:BibliographicReference))
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointer> ObjectExactCardinality(1 <http://purl.org/spar/c4o/hasContext>))
+DisjointClasses(<http://purl.org/spar/c4o/InTextReferencePointer> <http://purl.org/spar/c4o/SingleLocationPointerList>)
+
+# Class: <http://purl.org/spar/c4o/InTextReferencePointerList> (in-text reference pointer list)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/InTextReferencePointerList> "An in-text reference pointer list can only contain in-text reference pointer list items, and it always pertains to one or more bibliographic references."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/InTextReferencePointerList> "A list containing only in-text reference pointers denoting the specific bibliographic references to which the list pertains."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/InTextReferencePointerList> "in-text reference pointer list"@en)
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointerList> co:List)
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointerList> ObjectSomeValuesFrom(<http://purl.org/spar/c4o/pertainsTo> biro:BibliographicReference))
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointerList> ObjectAllValuesFrom(co:item <http://purl.org/spar/c4o/InTextReferencePointerListItem>))
+
+# Class: <http://purl.org/spar/c4o/InTextReferencePointerListItem> (in-text reference pointer list item)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/InTextReferencePointerListItem> "An in-text reference pointer list item can contain only a single in-text reference pointer.
+
+Note that, as specified through the hasKey assertion, such a list cannot contain more than one item containing the same in-text reference pointer entity."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/InTextReferencePointerListItem> "This class describes all the list items that must be used in the context of an in-text reference pointer list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/InTextReferencePointerListItem> "in-text reference pointer list item"@en)
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointerListItem> co:ListItem)
+SubClassOf(<http://purl.org/spar/c4o/InTextReferencePointerListItem> ObjectAllValuesFrom(co:itemContent <http://purl.org/spar/c4o/InTextReferencePointer>))
+
+# Class: <http://purl.org/spar/c4o/SingleLocationPointerList> (single location pointer list)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/SingleLocationPointerList> "A single location pointer list pertains to two or more references occurring at a single location in the text of the citing work - e.g. \"[3,4,9]\" or \"[7-12]\"."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/SingleLocationPointerList> "An in-text reference pointer list that pertains to all the in-text reference pointers to two or more references occurring at a single location in the text of the citing work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/SingleLocationPointerList> "single location pointer list"@en)
+SubClassOf(<http://purl.org/spar/c4o/SingleLocationPointerList> <http://purl.org/spar/c4o/InTextReferencePointerList>)
+SubClassOf(<http://purl.org/spar/c4o/SingleLocationPointerList> frbr:Expression)
+SubClassOf(<http://purl.org/spar/c4o/SingleLocationPointerList> ObjectMinCardinality(2 <http://purl.org/spar/c4o/pertainsTo>))
+SubClassOf(<http://purl.org/spar/c4o/SingleLocationPointerList> ObjectExactCardinality(1 <http://purl.org/spar/c4o/hasContext>))
+DisjointClasses(<http://purl.org/spar/c4o/SingleLocationPointerList> <http://purl.org/spar/c4o/SingleReferencePointerList>)
+
+# Class: <http://purl.org/spar/c4o/SingleReferencePointerList> (single reference pointer list)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/c4o/SingleReferencePointerList> "A single reference pointer list pertains only to one bibliographic reference, being a list of all the in-text reference pointers to that single reference to be found in the citing work.
+
+Note that this semantic constraint is handled by the combined use of a particular restriction of this class, i.e. that the list pertains to exactly one owl:Thing, and that the following SWRL rule applies:
+
+c4o:InTextReferencePointerList(?l), c4o:denotes(?p, ?r), swan:item(?l, ?i), swan:itemContent(?i, ?p) -> c4o:pertainsTo(?l, ?r)"@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/c4o/SingleReferencePointerList> "An in-text reference pointer list that pertains to exactly one bibliographic reference."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/c4o/SingleReferencePointerList> "single reference pointer list"@en)
+SubClassOf(<http://purl.org/spar/c4o/SingleReferencePointerList> <http://purl.org/spar/c4o/InTextReferencePointerList>)
+SubClassOf(<http://purl.org/spar/c4o/SingleReferencePointerList> ObjectExactCardinality(1 <http://purl.org/spar/c4o/pertainsTo>))
+
+
+DLSafeRule(Body(ClassAtom(<http://purl.org/spar/c4o/InTextReferencePointerList> Variable(<urn:swrl#l>)) ObjectPropertyAtom(co:element Variable(<urn:swrl#l>) Variable(<urn:swrl#p>)) ObjectPropertyAtom(<http://purl.org/spar/c4o/denotes> Variable(<urn:swrl#p>) Variable(<urn:swrl#r>)))Head(ObjectPropertyAtom(<http://purl.org/spar/c4o/pertainsTo> Variable(<urn:swrl#l>) Variable(<urn:swrl#r>))))
+)

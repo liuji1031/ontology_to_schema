@@ -1,0 +1,198 @@
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sao:=<http://salt.semanticauthoring.org/ontologies/sao#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/Publication>))
+Declaration(Class(sao:Annotation))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Figure>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Publication>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Revision>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Section>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Sentence>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#Table>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sdo#TextChunk>))
+Declaration(Class(rdfs:Resource))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasFigure>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasParagraph>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasRevision>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasSection>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasSentence>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasSubSection>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasTable>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasTextChunk>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasCaption>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasSALTVersion>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasSectionTitle>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer>))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> (hasAnnotation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> "hasAnnotation")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasAnnotation> sao:Annotation)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasFigure> (hasFigure)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasFigure> "hasFigure")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasFigure> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasFigure> <http://salt.semanticauthoring.org/ontologies/sdo#Figure>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasParagraph> (hasParagraph)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasParagraph> "hasParagraph")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasParagraph> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasParagraph> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasRevision> (hasRevision)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasRevision> "hasRevision")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasRevision> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasRevision> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasRevision> <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasRevision> <http://salt.semanticauthoring.org/ontologies/sdo#Revision>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasSection> (hasSection)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasSection> "hasSection")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasSection> <http://salt.semanticauthoring.org/ontologies/Publication>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasSection> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasSentence> (hasSentence)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasSentence> "hasSentence")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasSentence> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasSentence> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasSubSection> (hasSubSection)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasSubSection> "hasSubSection")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasSubSection> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasSubSection> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasTable> (hasTable)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasTable> "hasTable")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasTable> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasTable> <http://salt.semanticauthoring.org/ontologies/sdo#Table>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasTextChunk> (hasTextChunk)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasTextChunk> "hasTextChunk")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasTextChunk> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasTextChunk> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasTextChunk> <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasCaption> (hasCaption)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasCaption> "hasCaption")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasCaption> <http://salt.semanticauthoring.org/ontologies/sdo#Figure>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasCaption> <http://salt.semanticauthoring.org/ontologies/sdo#Table>)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasCaption> rdfs:Literal)
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> (hasEndPointer)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> "hasEndPointer")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> <http://salt.semanticauthoring.org/ontologies/sdo#Revision>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk>)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasEndPointer> rdfs:Literal)
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber> (hasOrderNumber)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber> "hasOrderNumber")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasOrderNumber> rdfs:Literal)
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasSALTVersion> (hasSALTVersion)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasSALTVersion> "hasSALTVersion")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasSALTVersion> <http://salt.semanticauthoring.org/ontologies/sdo#Publication>)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasSALTVersion> rdfs:Literal)
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasSectionTitle> (hasSectionTitle)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasSectionTitle> "hasSectionTitle")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasSectionTitle> <http://salt.semanticauthoring.org/ontologies/sdo#Section>)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasSectionTitle> rdfs:Literal)
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> (hasStartPointer)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> "hasStartPointer")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> <http://salt.semanticauthoring.org/ontologies/sdo#Revision>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> <http://salt.semanticauthoring.org/ontologies/sdo#Sentence>)
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk>)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sdo#hasStartPointer> rdfs:Literal)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Figure> (Figure)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Figure> "Figure")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Figure> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph> (Paragraph)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Paragraph> "Paragraph")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Paragraph> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Publication> (Publication)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Publication> "Publication")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Publication> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Revision> (Revision)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Revision> "Revision")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Revision> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Section> (Section)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Section> "Section")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Section> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Sentence> (Sentence)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Sentence> "Sentence")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Sentence> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#Table> (Table)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#Table> "Table")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#Table> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk> (TextChunk)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sdo#TextChunk> "TextChunk")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sdo#TextChunk> rdfs:Resource)
+
+
+)

@@ -1,0 +1,1890 @@
+Prefix(:=<http://purl.org/cerif/frapo#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(tz:=<http://www.w3.org/2006/timezone#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(pro:=<http://purl.org/spar/pro/>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(owl2:=<http://purl.org/cerif/frapo/owl:>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(spec:=<http://xmlns.com/foaf/spec/#>)
+Prefix(cerro:=<http://purl.org/cerif/cerro/>)
+Prefix(fabio:=<http://purl.org/spar/fabio/>)
+Prefix(prism:=<http://prismstandard.org/namespaces/basic/2.0/>)
+Prefix(dcterms:=<http://purl.org/dc/terms/>)
+
+
+Ontology(<http://purl.org/cerif/frapo>
+<http://purl.org/cerif/frapo/2017-09-04>
+Import(<https://w3id.org/spar/foaf>)
+Annotation(dc:contributor "Silvio Peroni")
+Annotation(dc:creator "David Shotton")
+Annotation(dc:date "2017-09-04")
+Annotation(dc:description "FRAPO is an ontology for use to describe research project administrative information and to work with CRIS (Current Research Information Systems). It can be used for the characterization of grant applications, funding bodies, projects, project partners, etc.  It can also be used to describe other types of projects, for example building projects and educational projects.
+
+FRAPO imports FOAF and is designed to work with SCoRO, the Scholarly Contributions and Roles Ontology (http://purl.org/spar/scoro), which is used to characterize the contributions and time-limited roles that may exist between agents such as people and organizations and entities such as projects, research investigations or research outputs.
+
+FaBiO, the FRBR-alightned bibliographic ontology (http://purl.org/spar/fabio), provides terms for documents of relevance, such as grant applications, project plans, project reports, datasets and journal articles, which are therefore not included within FRAPO.
+
+FRAPO is not intended to describe the details of research investigations enabled by funded research projects, nor their component studies and assays, which are the domain of a complementary ontology, ISA-RDF (under development - add URL).")
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "FRAPO, the Funding, Research Administration and Projects Ontology")
+Annotation(rdfs:comment "The Funding, Research Administration and Projects Ontology (FRAPO) is an ontology for describing the administrative information of research projects, e.g., grant applications, funding bodies, project partners, etc.
+
+**URL:** http://purl.org/cerif/frapo
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X)
+
+**Contributors**: [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/frapo")
+Annotation(owl:priorVersion <http://svn.code.sf.net/p/cerif/code/trunk/FRAPO/2014-01-31-FRAPO-1_1.owl>)
+Annotation(owl:versionInfo "1.1.1")
+
+Declaration(Class(<http://purl.org/cerif/frapo/Account>))
+Declaration(Class(<http://purl.org/cerif/frapo/AccountStatement>))
+Declaration(Class(<http://purl.org/cerif/frapo/AdmissionApplication>))
+Declaration(Class(<http://purl.org/cerif/frapo/AnnualTurnover>))
+Declaration(Class(<http://purl.org/cerif/frapo/Application>))
+Declaration(Class(<http://purl.org/cerif/frapo/ArticleProcessingCharge>))
+Declaration(Class(<http://purl.org/cerif/frapo/AvailableFunds>))
+Declaration(Class(<http://purl.org/cerif/frapo/Budget>))
+Declaration(Class(<http://purl.org/cerif/frapo/BudgetCategory>))
+Declaration(Class(<http://purl.org/cerif/frapo/BudgetInformation>))
+Declaration(Class(<http://purl.org/cerif/frapo/BudgetedAmount>))
+Declaration(Class(<http://purl.org/cerif/frapo/Bursary>))
+Declaration(Class(<http://purl.org/cerif/frapo/College>))
+Declaration(Class(<http://purl.org/cerif/frapo/Commitments>))
+Declaration(Class(<http://purl.org/cerif/frapo/Company>))
+Declaration(Class(<http://purl.org/cerif/frapo/ComputationalAgent>))
+Declaration(Class(<http://purl.org/cerif/frapo/ComputationalService>))
+Declaration(Class(<http://purl.org/cerif/frapo/ConferenceFee>))
+Declaration(Class(<http://purl.org/cerif/frapo/ConsortiumAgreement>))
+Declaration(Class(<http://purl.org/cerif/frapo/ConsultancyAgreement>))
+Declaration(Class(<http://purl.org/cerif/frapo/Contract>))
+Declaration(Class(<http://purl.org/cerif/frapo/DataRepository>))
+Declaration(Class(<http://purl.org/cerif/frapo/Deliverable>))
+Declaration(Class(<http://purl.org/cerif/frapo/Department>))
+Declaration(Class(<http://purl.org/cerif/frapo/Division>))
+Declaration(Class(<http://purl.org/cerif/frapo/DocumentRepository>))
+Declaration(Class(<http://purl.org/cerif/frapo/EmploymentApplication>))
+Declaration(Class(<http://purl.org/cerif/frapo/EmploymentContract>))
+Declaration(Class(<http://purl.org/cerif/frapo/Endeavour>))
+Declaration(Class(<http://purl.org/cerif/frapo/Endowment>))
+Declaration(Class(<http://purl.org/cerif/frapo/Equipment>))
+Declaration(Class(<http://purl.org/cerif/frapo/Expenditure>))
+Declaration(Class(<http://purl.org/cerif/frapo/ExpenditureToDate>))
+Declaration(Class(<http://purl.org/cerif/frapo/Facility>))
+Declaration(Class(<http://purl.org/cerif/frapo/Faculty>))
+Declaration(Class(<http://purl.org/cerif/frapo/Fee>))
+Declaration(Class(<http://purl.org/cerif/frapo/Fellowship>))
+Declaration(Class(<http://purl.org/cerif/frapo/FinancialControlSystem>))
+Declaration(Class(<http://purl.org/cerif/frapo/FinancialEntity>))
+Declaration(Class(<http://purl.org/cerif/frapo/Funding>))
+Declaration(Class(<http://purl.org/cerif/frapo/FundingAgency>))
+Declaration(Class(<http://purl.org/cerif/frapo/FundingApplication>))
+Declaration(Class(<http://purl.org/cerif/frapo/FundingProgramme>))
+Declaration(Class(<http://purl.org/cerif/frapo/Gift>))
+Declaration(Class(<http://purl.org/cerif/frapo/GovernmentOrganization>))
+Declaration(Class(<http://purl.org/cerif/frapo/Grant>))
+Declaration(Class(<http://purl.org/cerif/frapo/HostInstitution>))
+Declaration(Class(<http://purl.org/cerif/frapo/Income>))
+Declaration(Class(<http://purl.org/cerif/frapo/InfrastructureEntity>))
+Declaration(Class(<http://purl.org/cerif/frapo/Investigation>))
+Declaration(Class(<http://purl.org/cerif/frapo/Investment>))
+Declaration(Class(<http://purl.org/cerif/frapo/Invoice>))
+Declaration(Class(<http://purl.org/cerif/frapo/Laboratory>))
+Declaration(Class(<http://purl.org/cerif/frapo/Legacy>))
+Declaration(Class(<http://purl.org/cerif/frapo/Library>))
+Declaration(Class(<http://purl.org/cerif/frapo/Manufacturer>))
+Declaration(Class(<http://purl.org/cerif/frapo/MaterialOutput>))
+Declaration(Class(<http://purl.org/cerif/frapo/NotForProfitOrganization>))
+Declaration(Class(<http://purl.org/cerif/frapo/Output>))
+Declaration(Class(<http://purl.org/cerif/frapo/Owner>))
+Declaration(Class(<http://purl.org/cerif/frapo/Payment>))
+Declaration(Class(<http://purl.org/cerif/frapo/PostalAddress>))
+Declaration(Class(<http://purl.org/cerif/frapo/ProjectBudget>))
+Declaration(Class(<http://purl.org/cerif/frapo/Purchase>))
+Declaration(Class(<http://purl.org/cerif/frapo/PurchaseOrder>))
+Declaration(Class(<http://purl.org/cerif/frapo/Purchaser>))
+Declaration(Class(<http://purl.org/cerif/frapo/Quotation>))
+Declaration(Class(<http://purl.org/cerif/frapo/RegistrationAgency>))
+Declaration(Class(<http://purl.org/cerif/frapo/RegistrationAuthority>))
+Declaration(Class(<http://purl.org/cerif/frapo/Repository>))
+Declaration(Class(<http://purl.org/cerif/frapo/ResearchGroup>))
+Declaration(Class(<http://purl.org/cerif/frapo/ResearchInformationSystem>))
+Declaration(Class(<http://purl.org/cerif/frapo/ResearchInstitute>))
+Declaration(Class(<http://purl.org/cerif/frapo/SME>))
+Declaration(Class(<http://purl.org/cerif/frapo/Scholarship>))
+Declaration(Class(<http://purl.org/cerif/frapo/ScholarshipApplication>))
+Declaration(Class(<http://purl.org/cerif/frapo/Service>))
+Declaration(Class(<http://purl.org/cerif/frapo/ServiceContract>))
+Declaration(Class(<http://purl.org/cerif/frapo/ServiceContractFee>))
+Declaration(Class(<http://purl.org/cerif/frapo/SpinOffCompany>))
+Declaration(Class(<http://purl.org/cerif/frapo/Status>))
+Declaration(Class(<http://purl.org/cerif/frapo/Stipend>))
+Declaration(Class(<http://purl.org/cerif/frapo/Studentship>))
+Declaration(Class(<http://purl.org/cerif/frapo/Subscription>))
+Declaration(Class(<http://purl.org/cerif/frapo/Supplier>))
+Declaration(Class(<http://purl.org/cerif/frapo/Tender>))
+Declaration(Class(<http://purl.org/cerif/frapo/University>))
+Declaration(Class(<http://purl.org/cerif/frapo/Vendor>))
+Declaration(Class(foaf:Agent))
+Declaration(Class(foaf:Document))
+Declaration(Class(foaf:Group))
+Declaration(Class(foaf:Organization))
+Declaration(Class(foaf:Person))
+Declaration(Class(foaf:Project))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/appliesFor>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/awards>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/collaboratesWith>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/donates>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/employs>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/enables>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/evaluates>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/funds>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/hasCurriculumVitae>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/hasFundingAgency>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/hasIPROwner>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/hasOutput>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isAppliedForBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isAwardedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isDonatedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isEmployedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isEnabledBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isEvaluatedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isFundedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isFundingAgencyFor>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isManufacturedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isOutputOf>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isOwnedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isPurchasedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isSubmittedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isSuppliedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/isSupportedBy>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/manufactures>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/owns>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/ownsIRPOf>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/providesFractionOfTotalFunding>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/providesService>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/purchases>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/purchasesFrom>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/sellsTo>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/specifiesExpediture>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/submits>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/supplies>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/supports>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/usesEquipment>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/usesFacility>))
+Declaration(ObjectProperty(<http://purl.org/cerif/frapo/usesService>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/familyNameInitial>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/feeOrFree>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/givenNameInitial>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasAccountNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasAcronym>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasAgentInformation>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasApplicationDeadline>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasApplicationOutcome>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasAwardDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasBatchNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasBirthDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCallIdentifier>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCatalogNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCityOrTown>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCode>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCompletionDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCost>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCountry>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCountryCode>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCurrency>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCurrencyCode>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasCustomerNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasDecisionDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasDegreeSuffix>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasDeliverable>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasDeliveryDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasDispatchDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasDomainName>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasEndDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasExchangeRate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasExpertise>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasExpiryDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasFamilialSuffix>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasFaxNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasFunderIdentifier>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasGrantNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasHeadcount>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasHonorificSuffix>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasInvoiceDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasJobTitle>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasKeyword>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasLanguageCode>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasLocation>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasManufactureDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasMilestone>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasModelNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasMonetaryValue>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasNameSuffix>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasORCID>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasOrganizationalInformation>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPersonalIdentifier>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPersonalInformation>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPhoneNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPostCode>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPostalAddress>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPostalAddressLine>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasProfessionalName>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasProjectIdentifier>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasProvenance>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPurchaseDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasPurchaseOrderNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasQualification>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasQuotationDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasReferenceNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasRegistrationDeadline>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasSerialNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasStartDate>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasSupplierNumber>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/hasTemporalDuration>))
+Declaration(DataProperty(<http://purl.org/cerif/frapo/initial>))
+Declaration(DataProperty(dcterms:created))
+Declaration(DataProperty(dcterms:date))
+Declaration(DataProperty(dcterms:identifier))
+Declaration(DataProperty(tz:TimeZone))
+Declaration(DataProperty(foaf:birthday))
+Declaration(DataProperty(foaf:family_name))
+Declaration(DataProperty(foaf:firstName))
+Declaration(DataProperty(foaf:gender))
+Declaration(DataProperty(foaf:givenname))
+Declaration(DataProperty(foaf:name))
+Declaration(DataProperty(foaf:nick))
+Declaration(DataProperty(foaf:surname))
+Declaration(DataProperty(foaf:title))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/academic>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/accepted>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/benefactor>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/building-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/business-angel>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/consultancy-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/consumables-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/contributions-in-kind>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/directly-allocated-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/directly-incurred-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/entrepreneur>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/estates-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/facilities-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/full-economic-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/funded>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/indirect-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/non-staff-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/other-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/overhead-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/publishing-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/rejected>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/service-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/software-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/travel-and-subsistence-costs>))
+Declaration(NamedIndividual(<http://purl.org/cerif/frapo/unfunded>))
+Declaration(AnnotationProperty(cerro:results_in_beginning))
+Declaration(AnnotationProperty(<http://purl.org/cerif/frapo/Business_angel>))
+Declaration(AnnotationProperty(<http://purl.org/cerif/frapo/hasApplicationDeadline>))
+Declaration(AnnotationProperty(<http://purl.org/cerif/frapo/hasInvoiceDate>))
+Declaration(AnnotationProperty(<http://purl.org/cerif/frapo/hasProjectIdentifier>))
+Declaration(AnnotationProperty(owl2:sameAs))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(rdfs:seeAlso))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(AnnotationProperty(foaf:family_name))
+Declaration(AnnotationProperty(foaf:firstName))
+Declaration(AnnotationProperty(foaf:gender))
+Declaration(AnnotationProperty(foaf:givenname))
+Declaration(AnnotationProperty(foaf:name))
+Declaration(AnnotationProperty(foaf:nick))
+Declaration(AnnotationProperty(foaf:surname))
+Declaration(AnnotationProperty(foaf:title))
+Declaration(Datatype(xsd:date))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: cerro:results_in_beginning (cerro:results_in_beginning)
+
+SubAnnotationPropertyOf(cerro:results_in_beginning rdfs:label)
+
+# Annotation Property: <http://purl.org/cerif/frapo/Business_angel> (<http://purl.org/cerif/frapo/Business_angel>)
+
+SubAnnotationPropertyOf(<http://purl.org/cerif/frapo/Business_angel> rdfs:label)
+
+# Annotation Property: <http://purl.org/cerif/frapo/hasApplicationDeadline> (has application deadline)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/hasApplicationDeadline> "owl:equivalentProperty fabio:hasApplicationDeadline ."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasApplicationDeadline> "The date by which an application, for example a job application, a fellowship application or a grant application, has to be submitted if it is to be considered for acceptance or funding."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasApplicationDeadline> "has application deadline"@en)
+AnnotationPropertyRange(<http://purl.org/cerif/frapo/hasApplicationDeadline> xsd:dateTime)
+
+# Annotation Property: <http://purl.org/cerif/frapo/hasInvoiceDate> (has invoice date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasInvoiceDate> "A data property linking an invoice to its date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasInvoiceDate> "has invoice date"@en)
+AnnotationPropertyRange(<http://purl.org/cerif/frapo/hasInvoiceDate> xsd:date)
+
+# Annotation Property: <http://purl.org/cerif/frapo/hasProjectIdentifier> (has project identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasProjectIdentifier> "A data property linking a project to an identifier for that project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasProjectIdentifier> "has project identifier"@en)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/cerif/frapo/appliesFor> (applies for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/appliesFor> "An object property linking an agent to something for which that agent applies, for example a job, membership of an organization, or a grant from a funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/appliesFor> "applies for"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/appliesFor> <http://purl.org/cerif/frapo/isAppliedForBy>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/appliesFor> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/awards> (awards)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/awards> "An object property linking an agent to something the agent awards, for example linking a funding agency to a grant, a university to a degree, or an organization to a prize."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/awards> "awards"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/awards> <http://purl.org/cerif/frapo/isAwardedBy>)
+InverseFunctionalObjectProperty(<http://purl.org/cerif/frapo/awards>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/awards> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/collaboratesWith> (collaborates with)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/collaboratesWith> "An object property linking agents, for example different organizations, or people typically from different groups or organizations, that work together on a common task, project or endeavour, or towards a common goal."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/collaboratesWith> "collaborates with"@en)
+SymmetricObjectProperty(<http://purl.org/cerif/frapo/collaboratesWith>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/collaboratesWith> foaf:Agent)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/collaboratesWith> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/donates> (donates)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/donates> "Range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/donates> "An object property linking a benefactor to a gift."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/donates> "donates"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/donates> <http://purl.org/cerif/frapo/isDonatedBy>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/donates> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/employs> (employs)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/employs> "This property should not be used for the other meaning of 'employ', meaning to use something, e.g. 'He employed great skill . . .'/"@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/employs> "An object property relating an employing agent to an employed agent, for example a person or an organization, who is typically employed to undertaking specified work in exchange for payment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/employs> "employs"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/employs> <http://purl.org/cerif/frapo/isEmployedBy>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/employs> foaf:Agent)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/employs> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/enables> (enables)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/enables> "Domain and range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/enables> "An object property relating an entity to another entity that it enables, e.g. linking a project to an endeavour that the project enables."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/enables> "enables"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/enables> <http://purl.org/cerif/frapo/isEnabledBy>)
+
+# Object Property: <http://purl.org/cerif/frapo/evaluates> (evaluates)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/evaluates> "An object property linking an agent to an entity which that agent evaluates, for example a funding agency that is evaluating a grant application to determine whether the proposed project is worthy of funding, or a publisher evaluating a manuscript to determine whether it is suitable for publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/evaluates> "evaluates"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/evaluates> <http://purl.org/cerif/frapo/isEvaluatedBy>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/evaluates> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/funds> (funds)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/funds> "An object property that links a grant to something that it funds (i.e. that it finances or pays for), or that links an agent providing funding to something that it funds.  This flexibility is given because of alternative usages of the English word 'funds'.  [See also frapo:awards and frapo:supports.]"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/funds> "funds"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/funds> <http://purl.org/cerif/frapo/supports>)
+InverseObjectProperties(<http://purl.org/cerif/frapo/funds> <http://purl.org/cerif/frapo/isFundedBy>)
+
+# Object Property: <http://purl.org/cerif/frapo/hasCurriculumVitae> (has curriculum vitae)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCurriculumVitae> "An object property linking a person to an on-line version of that person's curriculum vitae."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCurriculumVitae> "has curriculum vitae"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/hasCurriculumVitae> foaf:Person)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/hasCurriculumVitae> foaf:Document)
+
+# Object Property: <http://purl.org/cerif/frapo/hasFundingAgency> (has funding agency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasFundingAgency> "An object property linking something to a funding agency that provides funding for it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasFundingAgency> "has funding agency"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/hasFundingAgency> <http://purl.org/cerif/frapo/isSupportedBy>)
+InverseObjectProperties(<http://purl.org/cerif/frapo/hasFundingAgency> <http://purl.org/cerif/frapo/isFundingAgencyFor>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/hasFundingAgency> <http://purl.org/cerif/frapo/FundingAgency>)
+
+# Object Property: <http://purl.org/cerif/frapo/hasIPROwner> (has IPR owner)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasIPROwner> "An object property linking an entity such as a project, an endeavour or an output to an agent who owns the IPR arising from or related to that entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasIPROwner> "has IPR owner"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/hasIPROwner> <http://purl.org/cerif/frapo/isOwnedBy>)
+InverseObjectProperties(<http://purl.org/cerif/frapo/hasIPROwner> <http://purl.org/cerif/frapo/ownsIRPOf>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/hasIPROwner> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/hasOutput> (has output)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/hasOutput> "Domain and range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasOutput> "An object property linking an activity such as a project or endeavour to something that is created or produced as a result of that activity.  Examples include a building created as a result of a building project, and a journal article published to describe the results of a research investigation.  "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasOutput> "has output"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/hasOutput> <http://purl.org/cerif/frapo/isOutputOf>)
+
+# Object Property: <http://purl.org/cerif/frapo/isAppliedForBy> (is applied for by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isAppliedForBy> "An object property linking something applied for to the agent making the application."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isAppliedForBy> "is applied for by"@en)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isAppliedForBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isAwardedBy> (is awarded by)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isAwardedBy> "Domain constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isAwardedBy> "An object property linking something awarded to the agent making the award, for example linking a grant to a funding agency, a degree to a university, or a prize to the awarding organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isAwardedBy> "is awarded by"@en)
+FunctionalObjectProperty(<http://purl.org/cerif/frapo/isAwardedBy>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isAwardedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isDonatedBy> (is donated by)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isDonatedBy> "Domain constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isDonatedBy> "An object property linking a gift to the benefactor who provided it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isDonatedBy> "is donated by"@en)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isDonatedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isEmployedBy> (is employed by)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isEmployedBy> "This property should not be used for the other meaning of 'employ', meaning to use something, e.g. 'Great skill is employed by master craftsmen . . .'/"@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isEmployedBy> "An object property relating an employed agent, typically a person or an organization, to an employing agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isEmployedBy> "is employed by"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/isEmployedBy> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/isEmployedBy> foaf:Agent)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isEmployedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isEnabledBy> (is enabled by)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isEnabledBy> "Domain and range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isEnabledBy> "An object property relating an entity to another entity that enables it, e.g. linking an investigation to a project that enables it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isEnabledBy> "is enabled by"@en)
+
+# Object Property: <http://purl.org/cerif/frapo/isEvaluatedBy> (is evaluated by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isEvaluatedBy> "An object property linking an entity to an agent that evaluates it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isEvaluatedBy> "is evaluated by"@en)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isEvaluatedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isFundedBy> (is funded by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isFundedBy> "An object property linking something to the funding that funds it (i.e. that finances or pays for it), or to the funding agency providing that funding.  This flexibility is given because of alternative usages of the English word 'funds'.  [See also frapo:isAwardedBy and frapo:hasFundingAgency and frapo:isSupportedBy.]"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isFundedBy> "is funded by"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/isFundedBy> <http://purl.org/cerif/frapo/isSupportedBy>)
+
+# Object Property: <http://purl.org/cerif/frapo/isFundingAgencyFor> (is funding agency for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isFundingAgencyFor> "An object property linking a funding agency to an entity for which it provides funding."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isFundingAgencyFor> "is funding agency for"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/isFundingAgencyFor> <http://purl.org/cerif/frapo/supports>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/isFundingAgencyFor> <http://purl.org/cerif/frapo/FundingAgency>)
+
+# Object Property: <http://purl.org/cerif/frapo/isManufacturedBy> (is manufactured by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isManufacturedBy> "An object property relating a manufactured entity to its manufacturer."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isManufacturedBy> "is manufactured by"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/isManufacturedBy> <http://purl.org/cerif/frapo/manufactures>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isManufacturedBy> <http://purl.org/cerif/frapo/Manufacturer>)
+
+# Object Property: <http://purl.org/cerif/frapo/isOutputOf> (is output of)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isOutputOf> "Domain and range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isOutputOf> "An object property linking something that is created or produced to the activity that created or produced it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isOutputOf> "is output of"@en)
+
+# Object Property: <http://purl.org/cerif/frapo/isOwnedBy> (is owned by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isOwnedBy> "An object property linking an entity to the agent that owns it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isOwnedBy> "is owned by"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/isOwnedBy> <http://purl.org/cerif/frapo/owns>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isOwnedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isPurchasedBy> (was purchased by)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isPurchasedBy> "Domain constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isPurchasedBy> "An object property relating a purchased entity to its purchaser."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isPurchasedBy> "was purchased by"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/isPurchasedBy> <http://purl.org/cerif/frapo/purchases>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isPurchasedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isSubmittedBy> (is submitted by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isSubmittedBy> "An object property linking an entity that is submitted (to some third party) to the agent who submits it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isSubmittedBy> "is submitted by"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/isSubmittedBy> <http://purl.org/cerif/frapo/submits>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isSubmittedBy> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/isSuppliedBy> (is supplied by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isSuppliedBy> "An object property relating an entity that is supplied, or an agent to whom an entity is supplied, to the supplier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isSuppliedBy> "is supplied by"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/isSuppliedBy> <http://purl.org/cerif/frapo/supplies>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isSuppliedBy> <http://purl.org/cerif/frapo/Supplier>)
+
+# Object Property: <http://purl.org/cerif/frapo/isSupportedBy> (is supported by)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/isSupportedBy> "This property is not intended for use to describe mechanical or physical support, as in 'The statue is supported by the plinth'. "@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/isSupportedBy> "An object property linking something to an agent that provides funding or other support for it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/isSupportedBy> "is supported by"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/isSupportedBy> <http://purl.org/cerif/frapo/supports>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/isSupportedBy> ObjectUnionOf(<http://purl.org/cerif/frapo/Funding> foaf:Agent))
+
+# Object Property: <http://purl.org/cerif/frapo/manufactures> (manufactures)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/manufactures> "An object property relating a manufacturer to a manufactured entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/manufactures> "manufactures"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/manufactures> <http://purl.org/cerif/frapo/Manufacturer>)
+
+# Object Property: <http://purl.org/cerif/frapo/owns> (owns)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/owns> "An object property linking an agent to an entity owned by that agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/owns> "owns"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/owns> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/ownsIRPOf> (owns IPR of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ownsIRPOf> "An object property linking an agent who owns IPR arising from or relating to an entity to that entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ownsIRPOf> "owns IPR of"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/ownsIRPOf> <http://purl.org/cerif/frapo/owns>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/ownsIRPOf> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/providesFractionOfTotalFunding> (percentage of total funding)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/providesFractionOfTotalFunding> "An object property linking funding to a budget, specifying what fraction of the total budget is provided by that source of funding."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/providesFractionOfTotalFunding> "percentage of total funding"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/providesFractionOfTotalFunding> <http://purl.org/cerif/frapo/Funding>)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/providesFractionOfTotalFunding> <http://purl.org/cerif/frapo/Budget>)
+
+# Object Property: <http://purl.org/cerif/frapo/providesService> (provides service)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/providesService> "Range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/providesService> "An agent that provides a service."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/providesService> "provides service"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/providesService> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/purchases> (purchases)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/purchases> "Range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/purchases> "An object property relating a purchaser to a purchased entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/purchases> "purchases"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/purchases> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/purchasesFrom> (purchases from)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/purchasesFrom> "Domain and range constraints on this object property have been relaxed to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/purchasesFrom> "An object property relating a purchaser to a supplier from whom the purchase is made."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/purchasesFrom> "purchases from"@en)
+InverseObjectProperties(<http://purl.org/cerif/frapo/purchasesFrom> <http://purl.org/cerif/frapo/sellsTo>)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/purchasesFrom> foaf:Agent)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/purchasesFrom> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/sellsTo> (sells to)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/sellsTo> "Domain and range constraints on this object property have been relaxed to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/sellsTo> "An object property relating a supplier to a purchaser to whom an entity is sold."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/sellsTo> "sells to"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/sellsTo> foaf:Agent)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/sellsTo> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/specifiesExpediture> (specifies expenditure)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/specifiesExpediture> "Range constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/specifiesExpediture> "An object property relating an agent or a budget to the expenditure specified by that agent or budget."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/specifiesExpediture> "specifies expenditure"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/specifiesExpediture> ObjectUnionOf(<http://purl.org/cerif/frapo/Budget> foaf:Agent))
+
+# Object Property: <http://purl.org/cerif/frapo/submits> (submits)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/submits> "An object property linking an agent to an entity that is submitted to some third party, for example a grant application submitted to a funding agency, a manuscript submitted to a publisher, a quotation submitted by a vendor, or a dataset submitted by a researcher to a data repository."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/submits> "submits"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/submits> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/supplies> (supplies)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/supplies> "Domain constraints on this object property have been relaxed to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/supplies> "An object property relating a supplier to a supplied entity, or to an agent to whom the entity is supplied."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/supplies> "supplies"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/supplies> foaf:Agent)
+
+# Object Property: <http://purl.org/cerif/frapo/supports> (supports)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/supports> "This property is not intended for use to describe mechanical or physical support, as in 'The plinth supports the statue'. "@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/supports> "An object property linking an agent to something that the agent supports by financial or other means."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/supports> "supports"@en)
+ObjectPropertyDomain(<http://purl.org/cerif/frapo/supports> ObjectUnionOf(<http://purl.org/cerif/frapo/Funding> foaf:Agent))
+
+# Object Property: <http://purl.org/cerif/frapo/usesEquipment> (uses equipment)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/usesEquipment> "Domain constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/usesEquipment> "An object property linking an activity such as an expedition, a research project or an investigation, to an item of equipment employed in that activity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/usesEquipment> "uses equipment"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/usesEquipment> owl:topObjectProperty)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/usesEquipment> <http://purl.org/cerif/frapo/Equipment>)
+
+# Object Property: <http://purl.org/cerif/frapo/usesFacility> (uses facility)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/usesFacility> "Domain constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/usesFacility> "An object property linking an activity such as an expedition, a research project or an investigation, to a facility employed in that activity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/usesFacility> "uses facility"@en)
+SubObjectPropertyOf(<http://purl.org/cerif/frapo/usesFacility> owl:topObjectProperty)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/usesFacility> <http://purl.org/cerif/frapo/Facility>)
+
+# Object Property: <http://purl.org/cerif/frapo/usesService> (uses service)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/usesService> "Domain constraints have been removed from this object property to permit it to be used in unforeseen ways."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/usesService> "An object property linking an activity such as an expedition, a research project or an investigation, to a service employed in that activity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/usesService> "uses service"@en)
+ObjectPropertyRange(<http://purl.org/cerif/frapo/usesService> <http://purl.org/cerif/frapo/Service>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/cerif/frapo/familyNameInitial> (family name initial)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/familyNameInitial> "A data property permitting specification of the initial(s) of a person's family name."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/familyNameInitial> "family name initial"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/familyNameInitial> <http://purl.org/cerif/frapo/initial>)
+
+# Data Property: <http://purl.org/cerif/frapo/feeOrFree> (fee or free)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/feeOrFree> "A data property defining whether participation in an event is free, or requires payment of a fee."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/feeOrFree> "fee or free"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/givenNameInitial> (given name initial)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/givenNameInitial> "A data property permitting specification of the initial(s) of a person's given name(s)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/givenNameInitial> "given name initial"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/givenNameInitial> <http://purl.org/cerif/frapo/initial>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasAccountNumber> (has account number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasAccountNumber> "A data property linking a financial account to an identifying number for that account."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasAccountNumber> "has account number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasAccountNumber> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasAccountNumber> <http://purl.org/cerif/frapo/Account>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasAcronym> (has acronym)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasAcronym> "A data property linking an entity to an acronym used to identify it, based on its full name or title.  For example, this ontology has the full name 'Funding, Research Administration and Projects Ontology' and the acronym 'FRAPO'."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasAcronym> "has acronym"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasAgentInformation> (has information)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasAgentInformation> "A data property linking an agent to information about that agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasAgentInformation> "has information"@en)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasAgentInformation> foaf:Agent)
+
+# Data Property: <http://purl.org/cerif/frapo/hasApplicationDeadline> (has application deadline)
+
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasApplicationDeadline> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasApplicationDeadline>)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasApplicationDeadline> <http://purl.org/cerif/frapo/Application>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasApplicationOutcome> (has application outcome)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasApplicationOutcome> "A data property that permits the outcome of an application to be described, for example that a job has been offered or that a grant has been awarded."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasApplicationOutcome> "has application outcome"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasApplicationOutcome> owl:topDataProperty)
+
+# Data Property: <http://purl.org/cerif/frapo/hasAwardDate> (has award date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasAwardDate> "The date on which notification is given or received that something, for example a scholarship or a grant, has been awarded.  [See also frapo:hasDecisionDate.]"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasAwardDate> "has award date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasAwardDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasAwardDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasAwardDate> xsd:date)
+
+# Data Property: <http://purl.org/cerif/frapo/hasBatchNumber> (has batch number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasBatchNumber> "A data property linking something, for example a chemical or drug, to its manufacturing batch number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasBatchNumber> "has batch number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasBatchNumber> dcterms:identifier)
+
+# Data Property: <http://purl.org/cerif/frapo/hasBirthDate> (has birth date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasBirthDate> "A data property permitting specification of the birth date of a person."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasBirthDate> "has birth date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasBirthDate> foaf:birthday)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasBirthDate> foaf:Person)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasBirthDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCallIdentifier> (has call identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCallIdentifier> "A data property specifying the identifying number of a call for applications issued by a funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCallIdentifier> "has call identifier"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasCallIdentifier> dcterms:identifier)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCatalogNumber> (has catalog number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCatalogNumber> "A data property linking something to its catalog number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCatalogNumber> "has catalog number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasCatalogNumber> dcterms:identifier)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCityOrTown> (has city or town)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCityOrTown> "A data property specifying a city or town, for example as the location of an event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCityOrTown> "has city or town"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCode> (has code)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCode> "A data property defining a code."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCode> "has code"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCompletionDate> (has completion date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCompletionDate> "A data property linking something such as a building or a contract to its date of completion."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCompletionDate> "has completion date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasCompletionDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasCompletionDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasCompletionDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCost> (has cost)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCost> "A data property enabling the cost of something that can be paid for to be defined."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCost> "has cost"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCountry> (has country)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCountry> "A data property specifying a country, for example as the location of an event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCountry> "has country"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCountryCode> (has country code)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCountryCode> "A data property specifying the two-letter or three-letter upper-case country code used to identify a country (e.g. FR/FRA for France, DE/DEU for Germany) (see http://countrycode.org/)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCountryCode> "has country code"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasCountryCode> <http://purl.org/cerif/frapo/hasCode>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCurrency> (has currency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCurrency> "A data property defining the currency used to specify a financial entity.  Use in conjection with frapo:hasMonetaryValue."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCurrency> "has currency"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCurrencyCode> (has currency code)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCurrencyCode> "A data property specifying the three-letter currency code used to identify a currency, as defined by ISO 4217 (e.g. EUR or GBP) (see http://en.wikipedia.org/wiki/ISO_4217).
+
+Not to be confused with the symbol used with numbers to denote an amount of money in a particular currency (e.g.€500; £3.40)"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCurrencyCode> "has currency code"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasCurrencyCode> <http://purl.org/cerif/frapo/hasCode>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasCustomerNumber> (has customer number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasCustomerNumber> "A data property linking an agent to an identifying number for that agent, typically used by the accounting system of the supplier when issuing quotations, fulfilling orders and submitting invoices."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasCustomerNumber> "has customer number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasCustomerNumber> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasCustomerNumber> <http://purl.org/cerif/frapo/Purchaser>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasDecisionDate> (has decision date)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/hasDecisionDate> "This same data property appears in FaBiO, the FRBR-aligned Bibliographic Ontology (http://purl.org/spar/fabio/)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasDecisionDate> "The date on which a particular action is or will be decided upon, or when an application, such as a grant application, is or will be approved or rejected. [See also frapo:hasAwardDate.]"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasDecisionDate> "has decision date"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/cerif/frapo/hasDecisionDate> fabio:hasDecisionDate)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasDecisionDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasDecisionDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasDecisionDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasDegreeSuffix> (has degrees)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasDegreeSuffix> "The letters that should be displayed after a person's name to indicate an academic degree, e.g. BA, BVSc, PhD, DSc."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasDegreeSuffix> "has degrees"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasDegreeSuffix> <http://purl.org/cerif/frapo/hasNameSuffix>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasDeliverable> (has deliverable)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasDeliverable> "A data property that permits one to define a deliverable of a project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasDeliverable> "has deliverable"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasDeliveryDate> (has delivery date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasDeliveryDate> "The date on which something is delivered, or is due to be delivered."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasDeliveryDate> "has delivery date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasDeliveryDate> dcterms:date)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasDeliveryDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasDispatchDate> (has dispatch date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasDispatchDate> "The date on which something, for example an item of equipment, is dispatched by the supplier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasDispatchDate> "has dispatch date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasDispatchDate> dcterms:date)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasDispatchDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasDomainName> (has domain name)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasDomainName> "A data property linking an entity to an internet domain name that has been registered for that entity, for example http://www.miidi.org for MIIDI, the Minimal Information standard for reporting an Infectious Disease Investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasDomainName> "has domain name"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasEndDate> (has end date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasEndDate> "A data property linking something such as a project to its end date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasEndDate> "has end date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasEndDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasEndDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasEndDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasExchangeRate> (has exchange rate)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasExchangeRate> "A data property specifying the currency exchange rate between two specified currencies."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasExchangeRate> "has exchange rate"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasExpertise> (has expertise)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasExpertise> "A data property identifying the area(s) of expertise and skills posessed by an individual or an organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasExpertise> "has expertise"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasExpertise> <http://purl.org/cerif/frapo/hasAgentInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasExpiryDate> (has expiry date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasExpiryDate> "A data property linking something, for example a drug, to its expiry date, beyond which the manufacture recommends that it should not be used."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasExpiryDate> "has expiry date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasExpiryDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasExpiryDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasExpiryDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasFamilialSuffix> (has familiar suffix)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasFamilialSuffix> "The letters that may be displayed after a person's name to indicate familial status, e.g. Sn., Jn., III, 3rd."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasFamilialSuffix> "has familiar suffix"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasFamilialSuffix> <http://purl.org/cerif/frapo/hasNameSuffix>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasFaxNumber> (has fax number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasFaxNumber> "A data property identifying a Fax number for an agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasFaxNumber> "has fax number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasFaxNumber> <http://purl.org/cerif/frapo/hasAgentInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasFunderIdentifier> (has funder identifer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasFunderIdentifier> "A data property linking a funding agency to an identifier for that funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasFunderIdentifier> "has funder identifer"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasFunderIdentifier> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasFunderIdentifier> <http://purl.org/cerif/frapo/FundingAgency>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasGrantNumber> (has grant number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasGrantNumber> "A data property specifying the grant number of a grant provided by a funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasGrantNumber> "has grant number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasGrantNumber> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasGrantNumber> <http://purl.org/cerif/frapo/Grant>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasHeadcount> (has headcount)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasHeadcount> "A data property specifying the number of people employed by an organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasHeadcount> "has headcount"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasHeadcount> <http://purl.org/cerif/frapo/hasOrganizationalInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasHonorificSuffix> (post-nominals)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasHonorificSuffix> "The letters that should be displayed after a person's name to indicate qualification, membership or fellowship in a professional society, honours or elite status, e.g. MRCVS, FRCS, FRS, OBE, Kt."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasHonorificSuffix> "post-nominals"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasHonorificSuffix> <http://purl.org/cerif/frapo/hasNameSuffix>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasInvoiceDate> (has invoice date)
+
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasInvoiceDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasInvoiceDate>)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasInvoiceDate> <http://purl.org/cerif/frapo/Invoice>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasJobTitle> (has job title)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasJobTitle> "A data property permitting specification of the job title held by a person, such as might appear next to the name in a directory or on a conference name badge.  For example, the person's specific Job Title might be 'Linacre Professor of Zoology' or 'Regius Professor of Moral Philosophy'.
+
+This job title properly refers to the **role** held by that person (e.g. 'Head of Department'), which can be separately defined using SCoRO, the Scholarly Contributions and Roles Ontology (http://purl.org/spar/scoro/). [see scoro:withJobTitle].
+
+"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasJobTitle> "has job title"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasJobTitle> <http://purl.org/cerif/frapo/hasPersonalInformation>)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasJobTitle> foaf:Person)
+
+# Data Property: <http://purl.org/cerif/frapo/hasKeyword> (has keyword)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasKeyword> "A data property permitting specification of a keyword relating to an entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasKeyword> "has keyword"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasLanguageCode> (has language code)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasLanguageCode> "A data property specifying the two-letter or three-letter lower-case code used to identify a language (e.g. fr/fra for French, de/deu for Germany) (see http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasLanguageCode> "has language code"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasLanguageCode> <http://purl.org/cerif/frapo/hasCode>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasLocation> (has location)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasLocation> "A data property link an entity to a relevant location, which might be geographical (e.g. New York City) or local (e.g. Freezer B, second shelf)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasLocation> "has location"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasManufactureDate> (has data of manufacture)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasManufactureDate> "A data property linking something to its date of manufacture."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasManufactureDate> "has data of manufacture"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasManufactureDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasManufactureDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasManufactureDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasMilestone> (has milestone)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasMilestone> "A data property that permits one to define a significant event (a 'milestone') in the progress of a project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasMilestone> "has milestone"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasModelNumber> (has model number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasModelNumber> "A data property linking something, for example a piece of equipment, to its model number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasModelNumber> "has model number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasModelNumber> dcterms:identifier)
+
+# Data Property: <http://purl.org/cerif/frapo/hasMonetaryValue> (has value)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasMonetaryValue> "A data property enabling one to specify the monetary value of a financial entity such as a grant, a gift or a budget category.  Use in conjuction with frapo:hasCurrency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasMonetaryValue> "has value"@en)
+
+# Data Property: <http://purl.org/cerif/frapo/hasNameSuffix> (has name suffix)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasNameSuffix> "The letters that should be displayed after a person's name."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasNameSuffix> "has name suffix"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasNameSuffix> <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasORCID> (has ORCID)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/hasORCID> "owl:equivalentProperty <http://purl.org/spar/scoro/hasORCID> ."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasORCID> "A data property relating an individual to his/her Open Researcher and Contributor ID (ORCID), an alphanumeric identifier for individual scholars described at http://about.orcid.org/."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasORCID> "has ORCID"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasORCID> <http://purl.org/cerif/frapo/hasPersonalIdentifier>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasOrganizationalInformation> (has organizational information)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasOrganizationalInformation> "It describes information about the organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasOrganizationalInformation> "has organizational information"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasOrganizationalInformation> <http://purl.org/cerif/frapo/hasAgentInformation>)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasOrganizationalInformation> foaf:Organization)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPersonalIdentifier> (has personal identifier)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/hasPersonalIdentifier> "owl:equivalentProperty <http://purl.org/spar/scoro/hasPersonalIdentifier> ."@en)
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/hasPersonalIdentifier> "owl:equivalentProperty <http://purl.org/spar/datacite/hasPersonalIdentifier> .")
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPersonalIdentifier> "A unique and unambiguous identifier for an individual person within a given context."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPersonalIdentifier> "has personal identifier"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPersonalIdentifier> <http://purl.org/cerif/frapo/hasPersonalInformation>)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPersonalIdentifier> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasPersonalIdentifier> foaf:Person)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPersonalInformation> (has contact information)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPersonalInformation> "A data property linking a person to information about that person."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPersonalInformation> "has contact information"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPersonalInformation> <http://purl.org/cerif/frapo/hasAgentInformation>)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasPersonalInformation> foaf:Person)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPhoneNumber> (has phone number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPhoneNumber> "A data property identifying a telephone number for an agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPhoneNumber> "has phone number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPhoneNumber> <http://purl.org/cerif/frapo/hasAgentInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPostCode> (has post code)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPostCode> "A data property defining the postal code of an address."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPostCode> "has post code"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPostCode> <http://purl.org/cerif/frapo/hasCode>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPostalAddress> (has postal address)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPostalAddress> "A data property identifying a postal address for an agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPostalAddress> "has postal address"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPostalAddress> <http://purl.org/cerif/frapo/hasAgentInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPostalAddressLine> (has postal address line)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPostalAddressLine> "A data property permitting specification of a single line of a postal address."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPostalAddressLine> "has postal address line"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPostalAddressLine> <http://purl.org/cerif/frapo/hasAgentInformation>)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasPostalAddressLine> <http://purl.org/cerif/frapo/PostalAddress>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasProfessionalName> (has alternate name)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasProfessionalName> "An alternative name that a person uses for professional purposes, for example the pen name of an author, or a married woman's maiden name used as her professional name. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasProfessionalName> "has alternate name"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasProfessionalName> <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasProjectIdentifier> (has project identifier)
+
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasProjectIdentifier> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasProjectIdentifier> foaf:Project)
+
+# Data Property: <http://purl.org/cerif/frapo/hasProvenance> (has provenance)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasProvenance> "A data property that permits the provenance of an entity to be described."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasProvenance> "has provenance"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasProvenance> owl:topDataProperty)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPurchaseDate> (has purchase date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPurchaseDate> "A data property linking something to its purchase date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPurchaseDate> "has purchase date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPurchaseDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasPurchaseDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasPurchaseDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasPurchaseOrderNumber> (has purchase order number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasPurchaseOrderNumber> "A data property identifying an official purchase order issued by a purchasing agent to a supplier of goods or services, and used by the supplier to identify the order when delivering goods or submitting an invoice."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasPurchaseOrderNumber> "has purchase order number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasPurchaseOrderNumber> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasPurchaseOrderNumber> <http://purl.org/cerif/frapo/PurchaseOrder>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasQualification> (has qualification)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasQualification> "A data property permitting specification of the qualification held by a person."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasQualification> "has qualification"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasQualification> <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasQuotationDate> (has quotation date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasQuotationDate> "A data property linking a quotation to its date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasQuotationDate> "has quotation date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasQuotationDate> dcterms:date)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasQuotationDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasReferenceNumber> (has reference number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasReferenceNumber> "A data property linking something to a reference number for that item."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasReferenceNumber> "has reference number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasReferenceNumber> dcterms:identifier)
+
+# Data Property: <http://purl.org/cerif/frapo/hasRegistrationDeadline> (has registration deadline)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasRegistrationDeadline> "The date by which registration must be made, for example renewal of an internet domain name."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasRegistrationDeadline> "has registration deadline"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasRegistrationDeadline> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasRegistrationDeadline>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasRegistrationDeadline> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasSerialNumber> (has serial number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasSerialNumber> "A data property linking something, for example a piece of equipment, to its serial number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasSerialNumber> "has serial number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasSerialNumber> dcterms:identifier)
+
+# Data Property: <http://purl.org/cerif/frapo/hasStartDate> (has start date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasStartDate> "A data property linking something such as a project to its start date."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasStartDate> "has start date"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasStartDate> dcterms:date)
+FunctionalDataProperty(<http://purl.org/cerif/frapo/hasStartDate>)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasStartDate> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/hasSupplierNumber> (has supplier number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasSupplierNumber> "A data property linking a supplier to an identifying number for that supplier, typically used by the accounting system of the purchasing institution when placing and tracking orders."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasSupplierNumber> "has supplier number"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/hasSupplierNumber> dcterms:identifier)
+DataPropertyDomain(<http://purl.org/cerif/frapo/hasSupplierNumber> <http://purl.org/cerif/frapo/Supplier>)
+
+# Data Property: <http://purl.org/cerif/frapo/hasTemporalDuration> (has temporal duration)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/hasTemporalDuration> "A data property enabling one to define the temporal duration of some entity such as an event or a project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/hasTemporalDuration> "has temporal duration"@en)
+DataPropertyRange(<http://purl.org/cerif/frapo/hasTemporalDuration> xsd:dateTime)
+
+# Data Property: <http://purl.org/cerif/frapo/initial> (initials)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/initial> "A data property permitting specification of the initial(s) of a person's name."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/initial> "initials"@en)
+SubDataPropertyOf(<http://purl.org/cerif/frapo/initial> <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: dcterms:created (has creation date)
+
+AnnotationAssertion(rdfs:comment dcterms:created "A data property linking something to its date of creation."@en)
+AnnotationAssertion(rdfs:label dcterms:created "has creation date"@en)
+SubDataPropertyOf(dcterms:created dcterms:date)
+FunctionalDataProperty(dcterms:created)
+DataPropertyRange(dcterms:created xsd:dateTime)
+
+# Data Property: dcterms:identifier (identifier)
+
+AnnotationAssertion(rdfs:comment dcterms:identifier "A unique and unambiguous reference to the resource within a given context.
+
+Recommended best practice is to identify the resource by means of a string conforming to a formal identification system."@en)
+AnnotationAssertion(rdfs:label dcterms:identifier "identifier"@en)
+
+# Data Property: tz:TimeZone (has time zone)
+
+AnnotationAssertion(rdfs:comment tz:TimeZone "A data property that permits the time zone relating to an entity to be specified."@en)
+AnnotationAssertion(rdfs:label tz:TimeZone "has time zone"@en)
+FunctionalDataProperty(tz:TimeZone)
+
+# Data Property: foaf:birthday (foaf:birthday)
+
+SubDataPropertyOf(foaf:birthday dcterms:date)
+DataPropertyRange(foaf:birthday xsd:date)
+
+# Data Property: foaf:family_name (foaf:family_name)
+
+SubDataPropertyOf(foaf:family_name <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:firstName (foaf:firstName)
+
+SubDataPropertyOf(foaf:firstName <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:gender (foaf:gender)
+
+SubDataPropertyOf(foaf:gender <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:givenname (foaf:givenname)
+
+SubDataPropertyOf(foaf:givenname <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:name (foaf:name)
+
+SubDataPropertyOf(foaf:name <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:nick (foaf:nick)
+
+SubDataPropertyOf(foaf:nick <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:surname (foaf:surname)
+
+SubDataPropertyOf(foaf:surname <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+# Data Property: foaf:title (foaf:title)
+
+SubDataPropertyOf(foaf:title <http://purl.org/cerif/frapo/hasPersonalInformation>)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/cerif/frapo/Account> (account)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Account> "A mechanism for administering money, typically owned by an agent and dedicated to a particular purpose, for example the equipment account of a university department, to be used only for the purchase or maintenance of items of equipment. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Account> "account"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Account> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/AccountStatement> (account statement)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/AccountStatement> "A statement of income and expenditure for an account, typically presented as dated income receipts and outgoings against categories in a budget for that account."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/AccountStatement> "account statement"@en)
+SubClassOf(<http://purl.org/cerif/frapo/AccountStatement> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/AdmissionApplication> (admission application)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/AdmissionApplication> "The activity of applying for admission to some group or institution, for example a learned society or a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/AdmissionApplication> "admission application"@en)
+SubClassOf(<http://purl.org/cerif/frapo/AdmissionApplication> <http://purl.org/cerif/frapo/Application>)
+
+# Class: <http://purl.org/cerif/frapo/AnnualTurnover> (annual turnover)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/AnnualTurnover> "The anual financial turnover of an organization (in a specified currency)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/AnnualTurnover> "annual turnover"@en)
+SubClassOf(<http://purl.org/cerif/frapo/AnnualTurnover> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Application> (application)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Application> "The activity of making an application, for example for a job, or for funding."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Application> "application"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Application> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/ArticleProcessingCharge> (article processing charge)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ArticleProcessingCharge> "A fee levied by a publisher on an author or an institution to cover the cost of publishing an Open Access journal article.  Also knows as Article Processing Fee, Article Publication Charge, Author Processing Charge or Author Publishing Charge."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ArticleProcessingCharge> "article processing charge"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ArticleProcessingCharge> <http://purl.org/cerif/frapo/Fee>)
+
+# Class: <http://purl.org/cerif/frapo/AvailableFunds> (available funds)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/AvailableFunds> "The amount available to spend in a budget category, equalling the income minus the expenditure to date plus future expenditure commitments. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/AvailableFunds> "available funds"@en)
+SubClassOf(<http://purl.org/cerif/frapo/AvailableFunds> <http://purl.org/cerif/frapo/BudgetInformation>)
+
+# Class: <http://purl.org/cerif/frapo/Budget> (budget)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Budget> "A structured statement of how funds are to be used for expenditure in defined budget categories.  A budget is created, for example, when applying for funding for a project, and is subsequently used to manage the expenditure from the awarded grant for that project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Budget> "budget"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Budget> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/BudgetCategory> (budget category)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/BudgetCategory> "A category of expenditure within a budget, determining what the allocated money can be spent on, for example salaries, equipment, travel."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/BudgetCategory> "budget category"@en)
+SubClassOf(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/BudgetInformation> (budget information)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/BudgetInformation> "Information about an aspect of a budget."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/BudgetInformation> "budget information"@en)
+SubClassOf(<http://purl.org/cerif/frapo/BudgetInformation> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/BudgetedAmount> (budgeted amount)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/BudgetedAmount> "The amount of money originally available to spend in a particular budget category."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/BudgetedAmount> "budgeted amount"@en)
+SubClassOf(<http://purl.org/cerif/frapo/BudgetedAmount> <http://purl.org/cerif/frapo/BudgetInformation>)
+
+# Class: <http://purl.org/cerif/frapo/Bursary> (bursary)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Bursary> "An amount of money given to a person by an organization, for example by a university to a university student in need to enable that student to continue his/her studies."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Bursary> "bursary"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Bursary> <http://purl.org/cerif/frapo/Funding>)
+
+# Class: <http://purl.org/cerif/frapo/College> (college)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/College> "An academic organization that is either a small degree-giving university, or (in the OxBridge sense) an independent corporation of scholars within a larger university, providing undergraduate tuition and a social environment for its students and fellows."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/College> "college"@en)
+SubClassOf(<http://purl.org/cerif/frapo/College> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Commitments> (commitments)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Commitments> "Money set aside to honour expenditures already made but for which no invoices have yet been received, or expenditures planned for the future, for example for salaries."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Commitments> "commitments"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Commitments> <http://purl.org/cerif/frapo/BudgetInformation>)
+
+# Class: <http://purl.org/cerif/frapo/Company> (company)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Company> "A commercial company or business run for profit."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Company> "company"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Company> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/ComputationalAgent> (computational agent)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ComputationalAgent> "A computer system or software program whose action has an effect on external events, for example a laboratory robot that undertakes your experiments, or the financial control system that controls an institution's payrole, or that, following programmed business rules, prevents the principal investigator from placing an order for research equipment because there is insufficient money left in the project budget."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ComputationalAgent> "computational agent"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ComputationalAgent> foaf:Agent)
+
+# Class: <http://purl.org/cerif/frapo/ComputationalService> (computational service)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ComputationalService> "A service provided by a computer system."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ComputationalService> "computational service"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ComputationalService> <http://purl.org/cerif/frapo/Service>)
+
+# Class: <http://purl.org/cerif/frapo/ConferenceFee> (conference fee)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ConferenceFee> "A fee paid to attend a conference."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ConferenceFee> "conference fee"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ConferenceFee> <http://purl.org/cerif/frapo/Fee>)
+
+# Class: <http://purl.org/cerif/frapo/ConsortiumAgreement> (consortium agreement)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ConsortiumAgreement> "A formal agreement between members of a consortium, for example between research groups at different universities engaged in a multi-partner research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ConsortiumAgreement> "consortium agreement"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ConsortiumAgreement> <http://purl.org/cerif/frapo/Contract>)
+
+# Class: <http://purl.org/cerif/frapo/ConsultancyAgreement> (consultancy agreement)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ConsultancyAgreement> "A contract between an employer and a consultant, detailing the terms of the consultancy."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ConsultancyAgreement> "consultancy agreement"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ConsultancyAgreement> <http://purl.org/cerif/frapo/Contract>)
+
+# Class: <http://purl.org/cerif/frapo/Contract> (contract)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Contract> "A legally binding agreement between parties."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Contract> "contract"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Contract> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/DataRepository> (data repository)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/DataRepository> "May also be described as a data archive, or as a database."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/DataRepository> "A facility in which digital data are deposited for long-term preservation and (optional) publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/DataRepository> "data repository"@en)
+SubClassOf(<http://purl.org/cerif/frapo/DataRepository> <http://purl.org/cerif/frapo/Repository>)
+
+# Class: <http://purl.org/cerif/frapo/Deliverable> (deliverable)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Deliverable> "A class defining a 'deliverable' of a project, i.e. something that the project set out to deliver, or succeeds in delivering."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Deliverable> "deliverable"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Deliverable> <http://purl.org/cerif/frapo/Output>)
+
+# Class: <http://purl.org/cerif/frapo/Department> (department)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Department> "A department or sub-section within a larger organization, for example a university academic department."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Department> "department"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Department> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Division> (division)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Division> "A grouping of similar departments within a larger organization.  In the university context, also known as a school or a faculty, for example the Humanities Division, the Mathematics Faculty, or the School of Medicine."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Division> "division"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Division> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/DocumentRepository> (document repository)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/DocumentRepository> "May also be described as a document archive, or a digital library."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/DocumentRepository> "A facility in which digital documents are deposited for long-term preservation and (optional) publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/DocumentRepository> "document repository"@en)
+SubClassOf(<http://purl.org/cerif/frapo/DocumentRepository> <http://purl.org/cerif/frapo/Repository>)
+
+# Class: <http://purl.org/cerif/frapo/EmploymentApplication> (employment application)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/EmploymentApplication> "The activity of applying for a job."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/EmploymentApplication> "employment application"@en)
+SubClassOf(<http://purl.org/cerif/frapo/EmploymentApplication> <http://purl.org/cerif/frapo/Application>)
+
+# Class: <http://purl.org/cerif/frapo/EmploymentContract> (employment contract)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/EmploymentContract> "A contract of employment between a person and an organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/EmploymentContract> "employment contract"@en)
+SubClassOf(<http://purl.org/cerif/frapo/EmploymentContract> <http://purl.org/cerif/frapo/Contract>)
+
+# Class: <http://purl.org/cerif/frapo/Endeavour> (endeavour)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Endeavour> "In FRAPO, an endeavour is an activity such as a research investigation that is enabled by a project.  An endeavour relate to the academic and practical aspects of undertaking that endeavour - thus for a research investigation the research itself, including the hypotheses being investigated, the experiments being undertaken, the data being gathered and analysed, the interpretations being drawn from the data, and the results obtained.  In contrast, the project relates to the administrative aspects of undertaking an endeavour, including the funding obtained, the people employed, and the management of the project in terms of deadlines and deliverables."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Endeavour> "endeavour"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Endeavour> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/Endowment> (endowment)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Endowment> "A transfer, generally as a gift, of money or property to an institution to provide a permanent fund, the income from which is to be used for a particular purpose.  (Abbreviated from http://legal-dictionary.thefreedictionary.com/endowment)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Endowment> "endowment"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Endowment> <http://purl.org/cerif/frapo/Gift>)
+
+# Class: <http://purl.org/cerif/frapo/Equipment> (equipment)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Equipment> "An item of equipment or apparatus, or a laboratory instrument, for example a refrigerated centrifuge."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Equipment> "equipment"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Equipment> <http://purl.org/cerif/frapo/InfrastructureEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Expenditure> (expenditure)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Expenditure> "Money going out of an account, because of expenditure on various entities. May be associated with a particular budget category."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Expenditure> "expenditure"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Expenditure> <http://purl.org/cerif/frapo/BudgetInformation>)
+
+# Class: <http://purl.org/cerif/frapo/ExpenditureToDate> (expenditure to date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ExpenditureToDate> "Total money expended to date from an an account, or from a particular budget category."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ExpenditureToDate> "expenditure to date"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ExpenditureToDate> <http://purl.org/cerif/frapo/Expenditure>)
+
+# Class: <http://purl.org/cerif/frapo/Facility> (facility)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Facility> "A place or installation built or designed to serve a specific function or provide a specific service, for example an animal breeding centre, a DNA sequencing facility or a confocal imaging laboratory."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Facility> "facility"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Facility> <http://purl.org/cerif/frapo/InfrastructureEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Faculty> (faculty)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Faculty> "A grouping of similar departments within a university context, also known as a school or a division, for example the Humanities Division, the Mathematics Faculty, or the School of Medicine."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Faculty> "faculty"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Faculty> <http://purl.org/cerif/frapo/Division>)
+
+# Class: <http://purl.org/cerif/frapo/Fee> (fee)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Fee> "An amount of money paid for something that is not purchased."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Fee> "fee"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Fee> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Fellowship> (fellowship)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Fellowship> "The stipend paid to a fellow in a college or university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Fellowship> "fellowship"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Fellowship> <http://purl.org/cerif/frapo/Stipend>)
+
+# Class: <http://purl.org/cerif/frapo/FinancialControlSystem> (financial control system)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/FinancialControlSystem> "A software system controlling the financial activities of an organization, for example determining full economic cost budgets for grant applications, and managing the funding of funded projects."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/FinancialControlSystem> "financial control system"@en)
+SubClassOf(<http://purl.org/cerif/frapo/FinancialControlSystem> <http://purl.org/cerif/frapo/ComputationalService>)
+
+# Class: <http://purl.org/cerif/frapo/FinancialEntity> (financial entity)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/FinancialEntity> "An entity primarily to do with money."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/FinancialEntity> "financial entity"@en)
+SubClassOf(<http://purl.org/cerif/frapo/FinancialEntity> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/Funding> (funding)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Funding> "An amount of money available to finance some project or activity. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Funding> "funding"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Funding> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/FundingAgency> (funding agency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/FundingAgency> "An organization that provides funding for projects or resources, often in the form of grants awarded on the basis of competitive application."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/FundingAgency> "funding agency"@en)
+SubClassOf(<http://purl.org/cerif/frapo/FundingAgency> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/FundingApplication> (funding application)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/FundingApplication> "For the documents supporting a funding application, use fabio:GrantApplicationDocument and fabio:CaseForSupportDocument."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/FundingApplication> "The activity of applying for funding."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/FundingApplication> "funding application"@en)
+SubClassOf(<http://purl.org/cerif/frapo/FundingApplication> <http://purl.org/cerif/frapo/Application>)
+
+# Class: <http://purl.org/cerif/frapo/FundingProgramme> (funding programme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/FundingProgramme> "A programme of related funded activities or projects, typically established by a funding agency.  Often associated with publication of a call for applications (fabio:CallForApplications)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/FundingProgramme> "funding programme"@en)
+SubClassOf(<http://purl.org/cerif/frapo/FundingProgramme> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/Gift> (gift)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Gift> "A gift, donation, benefaction or legacy, typically of money."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Gift> "gift"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Gift> <http://purl.org/cerif/frapo/Funding>)
+
+# Class: <http://purl.org/cerif/frapo/GovernmentOrganization> (government organization)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/GovernmentOrganization> "An organization that is part of, or funded by, central or local goverment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/GovernmentOrganization> "government organization"@en)
+SubClassOf(<http://purl.org/cerif/frapo/GovernmentOrganization> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Grant> (grant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Grant> "A financial award by a funding agency for a particular project or purpose, usually awarded on the basis of a competitive application."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Grant> "grant"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Grant> <http://purl.org/cerif/frapo/Funding>)
+
+# Class: <http://purl.org/cerif/frapo/HostInstitution> (host institution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/HostInstitution> "An institution that acts as a host, for example of a project, a resource or a person, for example by providing accommodation, services, operational support and/or funding."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/HostInstitution> "host institution"@en)
+SubClassOf(<http://purl.org/cerif/frapo/HostInstitution> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Income> (income)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Income> "Money coming into an account.  May be associated with a particular budget category."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Income> "income"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Income> <http://purl.org/cerif/frapo/BudgetInformation>)
+
+# Class: <http://purl.org/cerif/frapo/InfrastructureEntity> (infrastructure entity)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/InfrastructureEntity> "owl:equivalentClass cerif:InfrastructureEntity ."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/InfrastructureEntity> "An entity that facilitates work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/InfrastructureEntity> "infrastructure entity"@en)
+SubClassOf(<http://purl.org/cerif/frapo/InfrastructureEntity> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/Investigation> (investigation)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/Investigation> "Equivalent class in ISA-RDF: 'Investigation'."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Investigation> "An investigation is an endeavour that involves research, enabled by a project.
+
+The investigation relate to the scholarly and practical aspects of conducting the research itself, including the hypotheses being investigated, the experiments being undertaken, the data being gathered and analysed, the interpretations being drawn from the data, and the results obtained.
+
+In contrast, the project that enables it encompasses the administrative aspects of undertaking the endeavour, including the funding obtained, the people employed, and the management of the project in terms of deadlines and deliverables."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Investigation> "investigation"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Investigation> <http://purl.org/cerif/frapo/Endeavour>)
+
+# Class: <http://purl.org/cerif/frapo/Investment> (investment)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Investment> "An investment of money, generally in stocks and shares, or in property, for the purpose of safeguarding the capital and yielding an income."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Investment> "investment"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Investment> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Invoice> (invoice)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Invoice> "An invoice for payment of goods or services."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Invoice> "invoice"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Invoice> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Laboratory> (laboratory)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Laboratory> "A facility in which research can be conducted."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Laboratory> "laboratory"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Laboratory> <http://purl.org/cerif/frapo/Facility>)
+
+# Class: <http://purl.org/cerif/frapo/Legacy> (legacy)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Legacy> "A gift of money or property specified in the will of a person, that is made after that person's death."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Legacy> "legacy"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Legacy> <http://purl.org/cerif/frapo/Gift>)
+
+# Class: <http://purl.org/cerif/frapo/Library> (library)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Library> "A facility in which printed documents (for example books and journals) are deposited for long-term preservation and access."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Library> "library"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Library> <http://purl.org/cerif/frapo/Repository>)
+
+# Class: <http://purl.org/cerif/frapo/Manufacturer> (manufacturer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Manufacturer> "An agent who manufactures goods or equipment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Manufacturer> "manufacturer"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Manufacturer> foaf:Agent)
+
+# Class: <http://purl.org/cerif/frapo/MaterialOutput> (material output)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/MaterialOutput> "A material or physical output created or produced as a result of a project or an endeavour such as a research investigation. Examples include a building constructed as a result of a building project, and research outputs such as a cell line, a mouse mutant or a new form of microscope."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/MaterialOutput> "material output"@en)
+SubClassOf(<http://purl.org/cerif/frapo/MaterialOutput> <http://purl.org/cerif/frapo/Output>)
+
+# Class: <http://purl.org/cerif/frapo/NotForProfitOrganization> (not-for-profit organization)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/NotForProfitOrganization> "An organization that does not primarily exist to make profit, for example a charity or charitable foundation, a learned society, or a standards body such as the World Wide Web Consortium."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/NotForProfitOrganization> "not-for-profit organization"@en)
+SubClassOf(<http://purl.org/cerif/frapo/NotForProfitOrganization> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Output> (output)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/Output> "Ontology terms and definitions for most publishable project outputs are given as 'Expression' classes in FaBiO, the FRBR-aligned Bibliographic Ontology, e.g. fabio:JournalArticle, fabio:DataSet.  For 'deliverables', use frapo:Deliverable.  For material outputs, use frapo:MaterialOutput."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Output> "Something that is created or produced as a result of a project or an endeavour. Examples include a building resulting from a building project, educated students graduating from an educational programme, and a journal article published as a result of a research project.  Research outputs can also include reports, datasets, experimental protocols, workflows and mathematical models, and material outputs such as a cell line, a mouse mutant or a new form of microscope."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Output> "output"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Output> <http://purl.org/cerif/frapo/Equipment>)
+SubClassOf(<http://purl.org/cerif/frapo/Output> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/Owner> (owner)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Owner> "The agent who owns an entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Owner> "owner"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Owner> foaf:Agent)
+
+# Class: <http://purl.org/cerif/frapo/Payment> (payment)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Payment> "A financial payment made, for example in exchange for something purchased such as property, goods or services, or to refund expenses incurred."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Payment> "payment"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Payment> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/PostalAddress> (postal address)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/PostalAddress> "A postal address."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/PostalAddress> "postal address"@en)
+SubClassOf(<http://purl.org/cerif/frapo/PostalAddress> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/ProjectBudget> (project budget)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ProjectBudget> "A budget for a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ProjectBudget> "project budget"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ProjectBudget> <http://purl.org/cerif/frapo/Budget>)
+
+# Class: <http://purl.org/cerif/frapo/Purchase> (purchase)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Purchase> "The payment for obtaining something, for example property, goods or services."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Purchase> "purchase"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Purchase> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/PurchaseOrder> (purchase order)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/PurchaseOrder> "An official order from a purchasing institution to a supplier for the purchase of goods or services, often issued in response to the receipt of a quotation from the supplier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/PurchaseOrder> "purchase order"@en)
+SubClassOf(<http://purl.org/cerif/frapo/PurchaseOrder> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/Purchaser> (purchaser)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Purchaser> "An agent who purchases something from a supplier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Purchaser> "purchaser"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Purchaser> foaf:Agent)
+
+# Class: <http://purl.org/cerif/frapo/Quotation> (quotation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Quotation> "A formal statement of promise (usually provided in response to a request for quotation) by potential supplier to supply goods or services at specified prices and within a specified period. Acceptance of the quotation by the buyer constitutes an agreement binding on both parties.  (Shortened from http://www.businessdictionary.com/definition/quotation.html).
+"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Quotation> "quotation"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Quotation> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/RegistrationAgency> (registration agency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/RegistrationAgency> "An institution or organization officially appointed by a Registration Authority that acts to register things. For example, CrossRef is a registration agency for DOIs relating to documents, while DataCite is a registration agency for DOIs relating to datasets, acting for the Registration Authority for DOIs, namely the International DOI Foundation (IDF)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/RegistrationAgency> "registration agency"@en)
+SubClassOf(<http://purl.org/cerif/frapo/RegistrationAgency> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/RegistrationAuthority> (registration authority)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/RegistrationAuthority> "An agent with responsibility for registering and maintaining international standards, internet domain names, patents, controlled vocabularies and other similar entities required for reliable international cooperatative activities. For example, the International DOI Foundation (IDF) is the Registration Authority for DOIs."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/RegistrationAuthority> "registration authority"@en)
+SubClassOf(<http://purl.org/cerif/frapo/RegistrationAuthority> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Repository> (repository)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/Repository> "May also be described as an archive, or as a database."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Repository> "A facility in which entities can be deposited for long-term preservation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Repository> "repository"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Repository> <http://purl.org/cerif/frapo/Facility>)
+
+# Class: <http://purl.org/cerif/frapo/ResearchGroup> (research group)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ResearchGroup> "A group of people, usually within a university department or a research institute, and typically under a single group leader, dedicated to working together to undertake research on one or more topics. May also be called a research unit."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ResearchGroup> "research group"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ResearchGroup> foaf:Group)
+
+# Class: <http://purl.org/cerif/frapo/ResearchInformationSystem> (research information system)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ResearchInformationSystem> "A database containing administrative information about the research undertaken in an institution, and the publications and other outputs from such research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ResearchInformationSystem> "research information system"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ResearchInformationSystem> <http://purl.org/cerif/frapo/ComputationalService>)
+
+# Class: <http://purl.org/cerif/frapo/ResearchInstitute> (research institute)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ResearchInstitute> "An organization primarily dedicated to undertaking research, that might be part of a university or of a commercial company, or might be independently funded by a research funding agency.  "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ResearchInstitute> "research institute"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ResearchInstitute> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/SME> (sme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/SME> "A small to medium enterprise, having up to 250 employees."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/SME> "small to medium enterprise"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/SME> "sme"@en)
+SubClassOf(<http://purl.org/cerif/frapo/SME> <http://purl.org/cerif/frapo/Company>)
+
+# Class: <http://purl.org/cerif/frapo/Scholarship> (scholarship)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Scholarship> "A financial grant to a scholar to enable him/her to undertake advanced academic study."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Scholarship> "scholarship"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Scholarship> <http://purl.org/cerif/frapo/Stipend>)
+
+# Class: <http://purl.org/cerif/frapo/ScholarshipApplication> (scholarship application)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ScholarshipApplication> "The activity of applying for an educational scholarship."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ScholarshipApplication> "scholarship application"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ScholarshipApplication> <http://purl.org/cerif/frapo/Application>)
+
+# Class: <http://purl.org/cerif/frapo/Service> (service)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Service> "A service of help to others, often requiring funding, employees, equipment and/or facilities for its provision, for example a library service, a transportation service, a DNA sequencing service."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Service> "service"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Service> <http://purl.org/cerif/frapo/InfrastructureEntity>)
+
+# Class: <http://purl.org/cerif/frapo/ServiceContract> (service contract)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ServiceContract> "A contract for the provision of a service such as a cleaning service, or for the regular servicing, maintenance and repair of some item of equipment or infrastructure."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ServiceContract> "service contract"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ServiceContract> <http://purl.org/cerif/frapo/Contract>)
+
+# Class: <http://purl.org/cerif/frapo/ServiceContractFee> (service contract fee)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/ServiceContractFee> "A fee paid periodically, typically annually, to obtain access when required to a service such as an equipment maintenance contract.\""@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/ServiceContractFee> "service contract fee"@en)
+SubClassOf(<http://purl.org/cerif/frapo/ServiceContractFee> <http://purl.org/cerif/frapo/Fee>)
+
+# Class: <http://purl.org/cerif/frapo/SpinOffCompany> (spin-off company)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/SpinOffCompany> "A company that has been established by a university or research institute to mature and market the results of research conducted at that research institution."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/SpinOffCompany> "spin-off company"@en)
+SubClassOf(<http://purl.org/cerif/frapo/SpinOffCompany> <http://purl.org/cerif/frapo/Company>)
+
+# Class: <http://purl.org/cerif/frapo/Status> (status)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Status> "The status of something such as an application, an investigation or a project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Status> "status"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Status> owl:Thing)
+
+# Class: <http://purl.org/cerif/frapo/Stipend> (stipend)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Stipend> "A sum of money allotted on a regular basis, usually for some specific purpose."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Stipend> "stipend"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Stipend> <http://purl.org/cerif/frapo/Funding>)
+
+# Class: <http://purl.org/cerif/frapo/Studentship> (studentship)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Studentship> "A financial grant to a student to enable him/her to undertake advanced academic study."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Studentship> "studentship"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Studentship> <http://purl.org/cerif/frapo/Stipend>)
+
+# Class: <http://purl.org/cerif/frapo/Subscription> (subscription)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Subscription> "Payment, commonly made annually, to obtain access to something on a periodic or continuing basis, such as a journal."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Subscription> "subscription"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Subscription> <http://purl.org/cerif/frapo/Fee>)
+
+# Class: <http://purl.org/cerif/frapo/Supplier> (supplier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Supplier> "An agent who supplies something, such as goods or services."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Supplier> "supplier"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Supplier> foaf:Agent)
+
+# Class: <http://purl.org/cerif/frapo/Tender> (tender)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Tender> "Sealed bid or offer document submitted in response to a request for tenders, containing detailed information on costs, requirements and terms associated with a potential contract.  (Adapted from http://www.businessdictionary.com/definition/tender.html)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Tender> "tender"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Tender> <http://purl.org/cerif/frapo/FinancialEntity>)
+
+# Class: <http://purl.org/cerif/frapo/University> (university)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/University> "A university at which higher education and research is conducted."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/University> "university"@en)
+SubClassOf(<http://purl.org/cerif/frapo/University> foaf:Organization)
+
+# Class: <http://purl.org/cerif/frapo/Vendor> (vendor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/Vendor> "An agent who supplies goods or services in exchange for payment, in response to receipt of payment or of an official purchase order from a purchaser that is responded to by submission of an invoice for what is supplied."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/Vendor> "vendor"@en)
+SubClassOf(<http://purl.org/cerif/frapo/Vendor> <http://purl.org/cerif/frapo/Supplier>)
+
+# Class: foaf:Document ((foaf) Document)
+
+AnnotationAssertion(dc:description foaf:Document "Ontology terms and definitions for many documents relevant to FRAPO are given as 'Expression' classes in FaBiO, the FRBR-aligned Bibliographic Ontology, e.g. fabio:CallForApplications, fabio:DataManagementPlan, fabio:GrantApplicationDocument, fabio:ProjectPlan.  Others are given as sub-classes of this class."@en)
+
+# Class: foaf:Organization ((foaf) Organization)
+
+AnnotationAssertion(dc:description foaf:Organization "owl:equivalentClass cerf:OrganizationalUnit ."@en)
+
+# Class: foaf:Project ((foaf) Project)
+
+AnnotationAssertion(dc:description foaf:Project "Super-class of cerif:Project."@en)
+AnnotationAssertion(rdfs:comment foaf:Project "In FRAPO, a project is an administrative entity that enables an endeavour such as a research investigation.  A project relates to the administrative aspects of undertaking an endeavour, including the funding obtained, the people employed, and the management of the project in terms of deadlines and deliverables.  In contrast, an endeavour such as a research investigation relate to the academic and practical aspects of undertaking that endeavour - thus for a research investigation: the research itself, including the hypotheses being investigated, the experiments being undertaken, the data being gathered and analysed, the interpretations being drawn from the data, and the results obtained."@en)
+AnnotationAssertion(rdfs:label foaf:Project "project"@en)
+SubClassOf(foaf:Project owl:Thing)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://purl.org/cerif/frapo/academic> (academic)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/academic> "A member of the academic staff of an academic institution such as a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/academic> "academic"@en)
+ClassAssertion(foaf:Person <http://purl.org/cerif/frapo/academic>)
+
+# Individual: <http://purl.org/cerif/frapo/accepted> (accepted)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/accepted> "The status of something such as an application as having been accepted."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/accepted> "accepted"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/Status> <http://purl.org/cerif/frapo/accepted>)
+
+# Individual: <http://purl.org/cerif/frapo/benefactor> (benefactor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/benefactor> "A person who gives a gift."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/benefactor> "benefactor"@en)
+ClassAssertion(foaf:Person <http://purl.org/cerif/frapo/benefactor>)
+
+# Individual: <http://purl.org/cerif/frapo/building-costs> (building costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/building-costs> "A budget category to cover the costs of constructing, renovating or modifying a physical building."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/building-costs> "building costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/building-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/business-angel> (business angel)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/business-angel> "A person willing to invest in start-up companies."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/business-angel> "business angel"@en)
+ClassAssertion(foaf:Person <http://purl.org/cerif/frapo/business-angel>)
+
+# Individual: <http://purl.org/cerif/frapo/consultancy-costs> (consultancy costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/consultancy-costs> "A budget category to cover the costs of consultancy fees."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/consultancy-costs> "consultancy costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/consultancy-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/consumables-costs> (consumables costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/consumables-costs> "A budget category to cover the costs of purchasing consumables."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/consumables-costs> "consumables costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/consumables-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/contributions-in-kind> (contributions in kind)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/contributions-in-kind> "A budget category to categorize the financial worth of contributions in kind (e.g. staff effort, access to facilities, sharing of know-how) given to a project by an agent, for example by the host institution or by a commerical partner in an academic project. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/contributions-in-kind> "contributions in kind"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/contributions-in-kind>)
+
+# Individual: <http://purl.org/cerif/frapo/directly-allocated-costs> (directly allocated costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/directly-allocated-costs> "A budget category to cover those costs normally borne by an institution, that are assigned to the budget of an externally funded project to cover the value of contributions to that project, for example to pay for the salary of a permanent member of staff seconded to work on the project, to compensate the employing organization for the loss of that person's efforts on other activities that he or she would otherwise be undertaking were it not for that secondment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/directly-allocated-costs> "directly allocated costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/directly-allocated-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/directly-incurred-costs> (directly incurred costs)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/directly-incurred-costs> "Also known as the 'direct costs' of the project."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/directly-incurred-costs> "A budget category to cover all costs directly incurred because of a legitimate expenditure on a project, for example the purchase of reagents or the employment of a post-doctoral researcher."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/directly-incurred-costs> "directly incurred costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/directly-incurred-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/entrepreneur> (entrepreneur)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/entrepreneur> "A person who invests in novel enterprises."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/entrepreneur> "entrepreneur"@en)
+ClassAssertion(foaf:Person <http://purl.org/cerif/frapo/entrepreneur>)
+
+# Individual: <http://purl.org/cerif/frapo/estates-costs> (estates costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/estates-costs> "A budget category to cover the 'overhead' costs of maintaining the premises in which work is undertaken."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/estates-costs> "estates costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/estates-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/facilities-costs> (facilities costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/facilities-costs> "A budget category to cover the costs of maintaining facilities used by a project, for example an electron microscopy facility."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/facilities-costs> "facilities costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/facilities-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/full-economic-costs> (full economic costs)
+
+AnnotationAssertion(dc:description <http://purl.org/cerif/frapo/full-economic-costs> "Frequently abbreviated 'FEC'."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/full-economic-costs> "A budget category to cover all the direct and indirect costs of a project. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/full-economic-costs> "full economic costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/full-economic-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/funded> (funded)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/funded> "The status of something such as an investigation or a project as being funded."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/funded> "funded"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/Status> <http://purl.org/cerif/frapo/funded>)
+
+# Individual: <http://purl.org/cerif/frapo/indirect-costs> (indirect costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/indirect-costs> "A budget category to cover the indirect costs of running a project, for example heating and lighting, and the employment of non-project staff including administrators, accountants and cleaners."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/indirect-costs> "indirect costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/indirect-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/non-staff-costs> (non-staff costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/non-staff-costs> "A budget category to cover all the costs associated with a project that do not involve the employment of staff by the institution, thus, for example, including consumables purchase, travel costs and consultancy fees, but excluding the salary, estates and indirect costs associated with the allocation of the PI's time to the project and the direct employment of a project manager."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/non-staff-costs> "non-staff costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/non-staff-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/other-costs> (other costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/other-costs> "A budget category to cover costs not covered in other budget categories."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/other-costs> "other costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/other-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/overhead-costs> (overhead costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/overhead-costs> "A budget category to cover all the non-directly incurred costs of a project, including estates costs and indirect costs, that enable an institution to host an externally-funded project. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/overhead-costs> "overhead costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/overhead-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/publishing-costs> (publishing costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/publishing-costs> "A budget category to cover the cost of publishing outpots from a project, for example author fees for journal articles in an open access journal."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/publishing-costs> "publishing costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/publishing-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/rejected> (rejected)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/rejected> "The status of something such as an application as having been rejected."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/rejected> "rejected"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/Status> <http://purl.org/cerif/frapo/rejected>)
+
+# Individual: <http://purl.org/cerif/frapo/service-costs> (service costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/service-costs> "A budget category to cover the costs of services used by a project, for example a DNA sequencing service, or an equipment maintenance service."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/service-costs> "service costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/service-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/software-costs> (software costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/software-costs> "A budget category to cover the costs of software licenses required by a project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/software-costs> "software costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/software-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/travel-and-subsistence-costs> (travel and subsistence costs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/travel-and-subsistence-costs> "A budget category to cover the costs of travel and subsistence incurred on behalf of the project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/travel-and-subsistence-costs> "travel and subsistence costs"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/BudgetCategory> <http://purl.org/cerif/frapo/travel-and-subsistence-costs>)
+
+# Individual: <http://purl.org/cerif/frapo/unfunded> (unfunded)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/cerif/frapo/unfunded> "The status of something such as an investigation or a project as being unfunded."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/cerif/frapo/unfunded> "unfunded"@en)
+ClassAssertion(<http://purl.org/cerif/frapo/Status> <http://purl.org/cerif/frapo/unfunded>)
+
+
+)

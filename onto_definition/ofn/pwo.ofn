@@ -1,0 +1,301 @@
+Prefix(:=<http://purl.org/spar/pwo#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sit:=<http://www.ontologydesignpatterns.org/cp/owl/situation.owl#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(owl2:=<http://www.w3.org/2006/12/owl2#>)
+Prefix(part:=<http://www.ontologydesignpatterns.org/cp/owl/participation.owl#>)
+Prefix(plan:=<http://www.ontologydesignpatterns.org/cp/owl/basicplan.owl#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(swrl:=<http://www.w3.org/2003/11/swrl#>)
+Prefix(time:=<http://www.w3.org/2006/time#>)
+Prefix(cflow:=<http://www.ontologydesignpatterns.org/cp/owl/controlflow.owl#>)
+Prefix(error:=<http://www.essepuntato.it/2009/10/error/>)
+Prefix(swrlb:=<http://www.w3.org/2003/11/swrlb#>)
+Prefix(swrlx:=<http://www.w3.org/2003/11/swrlx#>)
+Prefix(tisit:=<http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#>)
+Prefix(owlapi:=<http://www.semanticweb.org/owlapi#>)
+Prefix(planex:=<http://www.ontologydesignpatterns.org/cp/owl/basicplanexecution.owl#>)
+Prefix(taskex:=<http://www.ontologydesignpatterns.org/cp/owl/taskexecution.owl#>)
+Prefix(timeint:=<http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#>)
+Prefix(plandesc:=<http://www.ontologydesignpatterns.org/cp/owl/basicplandescription.owl#>)
+Prefix(sequence:=<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#>)
+Prefix(parameter:=<http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#>)
+Prefix(cpannotationschema:=<http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#>)
+
+
+Ontology(<http://purl.org/spar/pwo>
+<http://purl.org/spar/pwo/2017-06-01>
+Import(<http://purl.org/spar/error>)
+Import(<http://www.ontologydesignpatterns.org/cp/owl/basicplan.owl>)
+Import(<http://www.ontologydesignpatterns.org/cp/owl/controlflow.owl>)
+Import(<http://www.ontologydesignpatterns.org/cp/owl/participation.owl>)
+Import(<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl>)
+Import(<http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl>)
+Import(<http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl>)
+Import(<http://www.w3.org/2006/time>)
+Annotation(dc:creator "Aldo Gangemi")
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2017-06-01")
+Annotation(dc:description <http://purl.org/spar/pwo/pwo.png>)
+Annotation(dc:description "The Publishing Workflow Ontology (PWO) is a simple ontology written in OWL 2 DL for the characterization of the main stages in the workflow associated with the publication of a document (e.g. being written, under review, XML capture, page design, publication to the Web)."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/)."@en)
+Annotation(dc:title "The Publishing Workflow Ontology (PWO)")
+Annotation(rdfs:comment "The Publishing Workflow Ontology (PWO) is a simple ontology for describing the steps in the workflow associated with the publication of a document or other publication entity.
+
+**URL:** http://purl.org/spar/pwo
+
+**Creators**: [Aldo Gangemi](https://orcid.org/0000-0001-5568-2684), [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/pwo
+
+**Cite as:** Gangemi, A., Peroni, S., Shotton, D., Vitali, F. (2014). The Publishing Workflow Ontology (PWO). In Semantic Web, 8 (5): 703-718. DOI: https://doi.org/10.3233/SW-160230. Open Access at: http://www.semantic-web-journal.net/system/files/swj1301.pdf"@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/PWO/2016-03-14_pwo-2_3.owl>)
+Annotation(owl:versionInfo "2.4")
+
+Declaration(Class(<http://purl.org/spar/pwo/Action>))
+Declaration(Class(<http://purl.org/spar/pwo/Step>))
+Declaration(Class(<http://purl.org/spar/pwo/Workflow>))
+Declaration(Class(<http://purl.org/spar/pwo/WorkflowExecution>))
+Declaration(Class(planex:PlanExecution))
+Declaration(Class(part:Event))
+Declaration(Class(part:Object))
+Declaration(Class(sit:Situation))
+Declaration(Class(taskex:Action))
+Declaration(Class(<http://www.ontologydesignpatterns.org/cp/owl/taskrole.owl#Task>))
+Declaration(Class(tisit:TimeIndexedSituation))
+Declaration(Class(timeint:TimeInterval))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/executes>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/happened>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/hasFirstStep>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/hasNextStep>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/hasPreviousStep>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/hasStep>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/involvesAction>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/isActionInvolvedIn>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/isExecutedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/isIntervalFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/isNeededBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/isProducedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/isStepOf>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/needs>))
+Declaration(ObjectProperty(<http://purl.org/spar/pwo/produces>))
+Declaration(ObjectProperty(plandesc:definesTask))
+Declaration(ObjectProperty(plandesc:isTaskDefinedIn))
+Declaration(ObjectProperty(part:hasParticipant))
+Declaration(ObjectProperty(part:isParticipantIn))
+Declaration(ObjectProperty(sequence:directlyFollows))
+Declaration(ObjectProperty(sequence:directlyPrecedes))
+Declaration(ObjectProperty(sequence:precedes))
+Declaration(ObjectProperty(sit:isSettingFor))
+Declaration(ObjectProperty(taskex:executesTask))
+Declaration(ObjectProperty(taskex:isExecutedIn))
+Declaration(ObjectProperty(tisit:atTime))
+Declaration(ObjectProperty(tisit:forEntity))
+Declaration(ObjectProperty(tisit:hasTimeIndexedSetting))
+Declaration(DataProperty(error:hasError))
+Declaration(DataProperty(timeint:hasIntervalDate))
+Declaration(NamedIndividual(<http://www.opengis.net/def/uom/ISO-8601/0/Gregorian>))
+Declaration(NamedIndividual(time:Friday))
+Declaration(NamedIndividual(time:Monday))
+Declaration(NamedIndividual(time:Saturday))
+Declaration(NamedIndividual(time:Sunday))
+Declaration(NamedIndividual(time:Thursday))
+Declaration(NamedIndividual(time:Tuesday))
+Declaration(NamedIndividual(time:Wednesday))
+Declaration(NamedIndividual(time:unitDay))
+Declaration(NamedIndividual(time:unitHour))
+Declaration(NamedIndividual(time:unitMinute))
+Declaration(NamedIndividual(time:unitMonth))
+Declaration(NamedIndividual(time:unitSecond))
+Declaration(NamedIndividual(time:unitWeek))
+Declaration(NamedIndividual(time:unitYear))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/contributor>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/created>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/creator>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/isVersionOf>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/modified>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/rights>))
+Declaration(AnnotationProperty(owlapi:nodeID))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(xsd:pattern))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#changeNote>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#editorialNote>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#historyNote>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#note>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#prefLabel>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#scopeNote>))
+Declaration(Datatype(xsd:date))
+Declaration(Datatype(xsd:duration))
+Declaration(Datatype(xsd:gDay))
+Declaration(Datatype(xsd:gMonth))
+Declaration(Datatype(xsd:gYear))
+Declaration(Datatype(xsd:gYearMonth))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/pwo/executes> (executes)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/executes> "This property allows to link a workflow execution to the related workflow description."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/executes> "executes"@en)
+SubObjectPropertyOf(<http://purl.org/spar/pwo/executes> plan:satisfies)
+InverseObjectProperties(<http://purl.org/spar/pwo/executes> <http://purl.org/spar/pwo/isExecutedBy>)
+
+# Object Property: <http://purl.org/spar/pwo/happened> (happened)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/happened> "It allows one to link an event to the interval when it happened."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/happened> "happened"@en)
+InverseObjectProperties(<http://purl.org/spar/pwo/happened> <http://purl.org/spar/pwo/isIntervalFor>)
+ObjectPropertyDomain(<http://purl.org/spar/pwo/happened> part:Event)
+ObjectPropertyRange(<http://purl.org/spar/pwo/happened> timeint:TimeInterval)
+
+# Object Property: <http://purl.org/spar/pwo/hasFirstStep> (has first step)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/hasFirstStep> "A workflow that starts with a particular step."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/hasFirstStep> "has first step"@en)
+SubObjectPropertyOf(<http://purl.org/spar/pwo/hasFirstStep> <http://purl.org/spar/pwo/hasStep>)
+ObjectPropertyRange(<http://purl.org/spar/pwo/hasFirstStep> ObjectComplementOf(ObjectSomeValuesFrom(<http://purl.org/spar/pwo/hasPreviousStep> <http://purl.org/spar/pwo/Step>)))
+
+# Object Property: <http://purl.org/spar/pwo/hasNextStep> (has next step)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/hasNextStep> "A property linking a step in a workflow with the step that directly follows it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/hasNextStep> "has next step"@en)
+SubObjectPropertyOf(<http://purl.org/spar/pwo/hasNextStep> sequence:directlyPrecedes)
+InverseObjectProperties(<http://purl.org/spar/pwo/hasNextStep> <http://purl.org/spar/pwo/hasPreviousStep>)
+ObjectPropertyDomain(<http://purl.org/spar/pwo/hasNextStep> <http://purl.org/spar/pwo/Step>)
+ObjectPropertyRange(<http://purl.org/spar/pwo/hasNextStep> <http://purl.org/spar/pwo/Step>)
+
+# Object Property: <http://purl.org/spar/pwo/hasPreviousStep> (has previous step)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/hasPreviousStep> "A property linking a step in a workflow with the step that directly precedes it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/hasPreviousStep> "has previous step"@en)
+SubObjectPropertyOf(<http://purl.org/spar/pwo/hasPreviousStep> sequence:directlyFollows)
+
+# Object Property: <http://purl.org/spar/pwo/hasStep> (has step)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/hasStep> "The property linking a workflow to a component step."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/hasStep> "has step"@en)
+SubObjectPropertyOf(<http://purl.org/spar/pwo/hasStep> plandesc:definesTask)
+InverseObjectProperties(<http://purl.org/spar/pwo/hasStep> <http://purl.org/spar/pwo/isStepOf>)
+ObjectPropertyDomain(<http://purl.org/spar/pwo/hasStep> <http://purl.org/spar/pwo/Workflow>)
+ObjectPropertyRange(<http://purl.org/spar/pwo/hasStep> <http://purl.org/spar/pwo/Step>)
+
+# Object Property: <http://purl.org/spar/pwo/involvesAction> (involves action)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/involvesAction> "The property linking a particular execution of a workflow to an action."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/involvesAction> "involves action"@en)
+InverseObjectProperties(<http://purl.org/spar/pwo/involvesAction> <http://purl.org/spar/pwo/isActionInvolvedIn>)
+ObjectPropertyDomain(<http://purl.org/spar/pwo/involvesAction> <http://purl.org/spar/pwo/WorkflowExecution>)
+ObjectPropertyRange(<http://purl.org/spar/pwo/involvesAction> <http://purl.org/spar/pwo/Action>)
+
+# Object Property: <http://purl.org/spar/pwo/isActionInvolvedIn> (is action involved in)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/isActionInvolvedIn> "The property linking an event to a particular execution of a workflow description."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/isActionInvolvedIn> "is action involved in"@en)
+
+# Object Property: <http://purl.org/spar/pwo/isExecutedBy> (is executed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/isExecutedBy> "This property allows to link a workflow description to the related workflow execution.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/isExecutedBy> "is executed by")
+SubObjectPropertyOf(<http://purl.org/spar/pwo/isExecutedBy> plan:isSatisfiedBy)
+
+# Object Property: <http://purl.org/spar/pwo/isIntervalFor> (is interval for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/isIntervalFor> "It allows one to link an interval describing when an event happened to the related event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/isIntervalFor> "is interval for"@en)
+
+# Object Property: <http://purl.org/spar/pwo/isNeededBy> (is needed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/isNeededBy> "The property linking a thing required to undertake a workflow step or an event (e.g. an action executing a workflow step) to the step/event itself."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/isNeededBy> "is needed by"@en)
+InverseObjectProperties(<http://purl.org/spar/pwo/isNeededBy> <http://purl.org/spar/pwo/needs>)
+
+# Object Property: <http://purl.org/spar/pwo/isProducedBy> (is produced by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/isProducedBy> "The property linking something to the workflow step or an event (e.g. an action executing a workflow step) that produces, creates or results in that thing."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/isProducedBy> "is produced by"@en)
+InverseObjectProperties(<http://purl.org/spar/pwo/isProducedBy> <http://purl.org/spar/pwo/produces>)
+
+# Object Property: <http://purl.org/spar/pwo/isStepOf> (is step of)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/isStepOf> "The property linking a step in a workflow to the workflow of which it is a component."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/isStepOf> "is step of"@en)
+SubObjectPropertyOf(<http://purl.org/spar/pwo/isStepOf> plandesc:isTaskDefinedIn)
+FunctionalObjectProperty(<http://purl.org/spar/pwo/isStepOf>)
+
+# Object Property: <http://purl.org/spar/pwo/needs> (needs)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/needs> "The property linking a workflow step or an event (e.g. an action executing a workflow step) to anything required to undertake that step/event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/needs> "needs"@en)
+ObjectPropertyDomain(<http://purl.org/spar/pwo/needs> ObjectUnionOf(<http://purl.org/spar/pwo/Step> part:Event))
+
+# Object Property: <http://purl.org/spar/pwo/produces> (produces)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/produces> "The property linking a workflow step or an event (e.g. an action executing a workflow step) to the thing that the step/event produces, creates or results in."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/produces> "produces"@en)
+ObjectPropertyDomain(<http://purl.org/spar/pwo/produces> ObjectUnionOf(<http://purl.org/spar/pwo/Step> part:Event))
+
+# Object Property: tisit:atTime (at time)
+
+AnnotationAssertion(rdfs:comment tisit:atTime "A step is performed within a time interval."@en)
+AnnotationAssertion(rdfs:label tisit:atTime "at time"@en)
+
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/spar/pwo/Action> (action)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/Action> "An event with at least one agent that is participant in it and that is linked to a workflow execution and to a step of the related workflow description.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/Action> "action")
+SubClassOf(<http://purl.org/spar/pwo/Action> ObjectIntersectionOf(planex:Action taskex:Action))
+SubClassOf(<http://purl.org/spar/pwo/Action> ObjectSomeValuesFrom(<http://purl.org/spar/pwo/happened> timeint:TimeInterval))
+
+# Class: <http://purl.org/spar/pwo/Step> (step)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/Step> "An atomic unit of a workflow, that may be characterized by a starting time and an ending time, and may be associated with one or more events.  A workflow step usually involves some input information, material or energy needed to complete the step, and some output information, material or energy produced by that step.  In the case of a publishing workflow, a step typically results in the creation of a publication entity, usually by the modification of another pre-existing publication entity, e.g. the creation of an edited paper from a rough draft, or of an HTML representation from an XML mark-up."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/Step> "step"@en)
+SubClassOf(<http://purl.org/spar/pwo/Step> <http://www.ontologydesignpatterns.org/cp/owl/taskrole.owl#Task>)
+SubClassOf(<http://purl.org/spar/pwo/Step> ObjectAllValuesFrom(plandesc:isTaskDefinedIn <http://purl.org/spar/pwo/Workflow>))
+SubClassOf(<http://purl.org/spar/pwo/Step> ObjectAllValuesFrom(taskex:isExecutedIn <http://purl.org/spar/pwo/Action>))
+SubClassOf(<http://purl.org/spar/pwo/Step> ObjectExactCardinality(1 parameter:hasParameter time:DurationDescription))
+
+# Class: <http://purl.org/spar/pwo/Workflow> (workflow)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/pwo/Workflow> "A sequence of connected steps, representing a sequence of publishing operations undertaken by agents. A workflow may be seen as an abstract model of real work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/pwo/Workflow> "workflow"@en)
+SubClassOf(<http://purl.org/spar/pwo/Workflow> plandesc:Plan)
+SubClassOf(<http://purl.org/spar/pwo/Workflow> ObjectSomeValuesFrom(<http://purl.org/spar/pwo/hasFirstStep> <http://purl.org/spar/pwo/Step>))
+
+# Class: <http://purl.org/spar/pwo/WorkflowExecution> (<http://purl.org/spar/pwo/WorkflowExecution>)
+
+SubClassOf(<http://purl.org/spar/pwo/WorkflowExecution> planex:PlanExecution)
+SubClassOf(<http://purl.org/spar/pwo/WorkflowExecution> tisit:TimeIndexedSituation)
+SubClassOf(<http://purl.org/spar/pwo/WorkflowExecution> ObjectSomeValuesFrom(<http://purl.org/spar/pwo/executes> <http://purl.org/spar/pwo/Workflow>))
+SubClassOf(<http://purl.org/spar/pwo/WorkflowExecution> ObjectSomeValuesFrom(<http://purl.org/spar/pwo/involvesAction> ObjectIntersectionOf(<http://purl.org/spar/pwo/Action> ObjectSomeValuesFrom(taskex:executesTask <http://purl.org/spar/pwo/Step>))))
+
+
+SubObjectPropertyOf(ObjectPropertyChain(<http://purl.org/spar/pwo/executes> <http://purl.org/spar/pwo/hasStep> taskex:isExecutedIn) <http://purl.org/spar/pwo/involvesAction>)
+SubObjectPropertyOf(ObjectPropertyChain(taskex:executesTask <http://purl.org/spar/pwo/isStepOf> <http://purl.org/spar/pwo/isExecutedBy>) <http://purl.org/spar/pwo/isActionInvolvedIn>)
+DLSafeRule(Body(ClassAtom(<http://purl.org/spar/pwo/Step> Variable(<urn:swrl#si>)) ClassAtom(<http://purl.org/spar/pwo/Step> Variable(<urn:swrl#sj>)) ObjectPropertyAtom(<http://purl.org/spar/pwo/needs> Variable(<urn:swrl#si>) Variable(<urn:swrl#r>)) ObjectPropertyAtom(<http://purl.org/spar/pwo/produces> Variable(<urn:swrl#sj>) Variable(<urn:swrl#r>)) ObjectPropertyAtom(sequence:precedes Variable(<urn:swrl#si>) Variable(<urn:swrl#sj>)))Head(DataPropertyAtom(error:hasError Variable(<urn:swrl#si>) "A step cannot need a resource that will be produced by a following step")))
+)

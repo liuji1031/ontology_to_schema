@@ -1,0 +1,1503 @@
+Prefix(:=<http://purl.org/vocab/bio/0.1/>)
+Prefix(cc:=<http://web.resource.org/cc/>)
+Prefix(dc:=<http://purl.org/dc/terms/>)
+Prefix(ov:=<http://open.vocab.org/terms/>)
+Prefix(st:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(bio:=<http://purl.org/vocab/bio/0.1/>)
+Prefix(dct:=<http://purl.org/dc/terms/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2004/02/skos/core#>)
+Prefix(vann:=<http://purl.org/vocab/vann/>)
+Prefix(label:=<http://purl.org/net/vocab/2004/03/label#>)
+
+
+Ontology(<http://purl.org/vocab/bio/0.1/>
+Annotation(ov:discussionList <http://lists.foaf-project.org/mailman/listinfo/foaf-dev>)
+Annotation(dct:abstract "This document describes a vocabulary for describing biographical information about people, both living and dead. "@en)
+Annotation(dct:creator <http://iandavis.com/id/me>)
+Annotation(dct:creator "David Galbraith")
+Annotation(dct:date "2010-05-10"^^xsd:date)
+Annotation(dct:description "<div>
+
+        <p>The BIO vocabulary contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information.
+        The approach taken is to describe a person&apos;s life as a series of interconnected key events, around which other information can be woven.
+        This vocabulary defines the event framework and supplies a set of core event types that cover many use cases, but it is expected that it
+        will be extended in other vocabularies to suit their needs. The intention of this vocabulary is to describe biographical events of people
+        and this intention carries through to the definitions of the properties and classes which are person-centric rather than neutral. For example
+        the Employment event puts the person being employed as the principal agent in the event rather than the employer.</p>
+        <p>The BIO vocabulary defines a number of core classes and properties for describing biographical information: </p>
+        <p><figure><img src=\"/bio/core-classes.png\"></img><br></br>Figure: Biography Vocabulary Core Classes (<a href=\"http://vocab.org/bio/core-classes.png\">PNG version</a>, <a href=\"http://vocab.org/bio/core-classes.svg\">SVG version</a>)</figure></p>
+        <p>At its heart the BIO vocabulary is concerned with people, their relationships and the events in their lives. Together these can be
+        used to build up a narrative of a person&apos;s life and their interactions with other people, organizations and the world around them. Events bound intervals
+        of time that may be associated with particular relationships between people and groups or organisations. Many different types of life event are
+        defined in this vocabulary including the obvious Birth, Marriage and Death but also Coronation, Performance and even Murder. These events are not intended
+        to be fully comprehensive but are representative of the types of events associated with biographical material. Currently the relationship segment of the
+        vocabulary is underspecified with only a generic Relationship class available. It is envisaged that many types of relationship such as families, employments
+        and ownerships will be specified in the future.</p>
+        <p>The sequence of events and intervals build a timeline of history against which people and their relationships can be placed. The aim is
+        to enable simple forms of genealogical reasoning such as determining whether a child was born out of wedlock or the location of a family
+        given the fact one of their children was attending a particular school. Events are ordered in time by relating them to one another and to abstract
+        intervals of time:</p>
+        <p><figure><img src=\"/bio/timelines.png\"></img><br></br>Figure: Biography Vocabulary Timelines(<a href=\"http://vocab.org/bio/timelines.png\">PNG version</a>, <a href=\"http://vocab.org/bio/timelines.svg\">SVG version</a>)</figure></p>
+        <p>Please see <a href=\"https://github.com/iand/vocab-bio\">https://github.com/iand/vocab-bio</a> for the master version of this vocabulary.</p>
+      </div>"^^rdf:XMLLiteral)
+Annotation(dct:identifier "http://purl.org/vocab/bio/0.1/schema")
+Annotation(dct:issued "2003-03-07"^^xsd:date)
+Annotation(dct:rights "Copyright © 2002-2010 Ian Davis and David Galbraith")
+Annotation(dct:title "BIO: A vocabulary for biographical information"@en)
+Annotation(vann:example <http://purl.org/vocab/bio/examples/1>)
+Annotation(vann:preferredNamespacePrefix "bio")
+Annotation(vann:preferredNamespaceUri "http://purl.org/vocab/bio/0.1/")
+Annotation(vann:termGroup bio:termgroup1)
+Annotation(vann:termGroup bio:termgroup2)
+Annotation(vann:termGroup bio:termgroup3)
+Annotation(vann:termGroup bio:termgroup4)
+Annotation(vann:termGroup bio:termgroup5)
+Annotation(skos:changeNote "")
+Annotation(skos:historyNote "")
+
+Declaration(Class(<http://linkedevents.org/ontology/Event>))
+Declaration(Class(ov:SchemaExample))
+Declaration(Class(<http://purl.org/NET/c4dm/event.owl#Event>))
+Declaration(Class(<http://purl.org/dc/dcmitype/Event>))
+Declaration(Class(<http://purl.org/ontology/mo/Performance>))
+Declaration(Class(bio:Accession))
+Declaration(Class(bio:Adoption))
+Declaration(Class(bio:Annulment))
+Declaration(Class(bio:Assassination))
+Declaration(Class(bio:Baptism))
+Declaration(Class(bio:BarMitzvah))
+Declaration(Class(bio:BasMitzvah))
+Declaration(Class(bio:Birth))
+Declaration(Class(bio:Burial))
+Declaration(Class(bio:Coronation))
+Declaration(Class(bio:Cremation))
+Declaration(Class(bio:Death))
+Declaration(Class(bio:Demotion))
+Declaration(Class(bio:Disbanding))
+Declaration(Class(bio:Dismissal))
+Declaration(Class(bio:Divorce))
+Declaration(Class(bio:Emigration))
+Declaration(Class(bio:Employment))
+Declaration(Class(bio:Enrolment))
+Declaration(Class(bio:Event))
+Declaration(Class(bio:Execution))
+Declaration(Class(bio:Formation))
+Declaration(Class(bio:Funeral))
+Declaration(Class(bio:Graduation))
+Declaration(Class(bio:GroupEvent))
+Declaration(Class(bio:Imprisonment))
+Declaration(Class(bio:Inauguration))
+Declaration(Class(bio:IndividualEvent))
+Declaration(Class(bio:Interval))
+Declaration(Class(bio:Investiture))
+Declaration(Class(bio:Marriage))
+Declaration(Class(bio:Murder))
+Declaration(Class(bio:NameChange))
+Declaration(Class(bio:Naturalization))
+Declaration(Class(bio:Ordination))
+Declaration(Class(bio:Performance))
+Declaration(Class(bio:PositionChange))
+Declaration(Class(bio:Promotion))
+Declaration(Class(bio:Redundancy))
+Declaration(Class(bio:Relationship))
+Declaration(Class(bio:Resignation))
+Declaration(Class(bio:Retirement))
+Declaration(Class(<http://purl.org/vocab/relationship/Relationship>))
+Declaration(Class(<http://sw.opencyc.org/2009/04/07/concept/en/Event>))
+Declaration(Class(<http://sw.opencyc.org/2009/04/07/concept/en/WeddingEvent_Generic>))
+Declaration(Class(cc:License))
+Declaration(Class(cc:Work))
+Declaration(Class(rdf:Bag))
+Declaration(Class(<http://www.w3.org/2006/time#ProperInterval>))
+Declaration(Class(foaf:Agent))
+Declaration(Class(foaf:Person))
+Declaration(ObjectProperty(bio:agent))
+Declaration(ObjectProperty(bio:birth))
+Declaration(ObjectProperty(bio:child))
+Declaration(ObjectProperty(bio:concludingEvent))
+Declaration(ObjectProperty(bio:concurrentEvent))
+Declaration(ObjectProperty(bio:death))
+Declaration(ObjectProperty(bio:employer))
+Declaration(ObjectProperty(bio:event))
+Declaration(ObjectProperty(bio:eventInterval))
+Declaration(ObjectProperty(bio:father))
+Declaration(ObjectProperty(bio:followingEvent))
+Declaration(ObjectProperty(bio:immediatelyFollowingEvent))
+Declaration(ObjectProperty(bio:immediatelyPrecedingEvent))
+Declaration(ObjectProperty(bio:initiatingEvent))
+Declaration(ObjectProperty(bio:interval))
+Declaration(ObjectProperty(bio:mother))
+Declaration(ObjectProperty(bio:officiator))
+Declaration(ObjectProperty(bio:organization))
+Declaration(ObjectProperty(bio:parent))
+Declaration(ObjectProperty(bio:participant))
+Declaration(ObjectProperty(bio:partner))
+Declaration(ObjectProperty(bio:position))
+Declaration(ObjectProperty(bio:precedingEvent))
+Declaration(ObjectProperty(bio:principal))
+Declaration(ObjectProperty(bio:relationship))
+Declaration(ObjectProperty(bio:spectator))
+Declaration(ObjectProperty(bio:state))
+Declaration(ObjectProperty(bio:witness))
+Declaration(ObjectProperty(<http://purl.org/vocab/relationship/childOf>))
+Declaration(ObjectProperty(owl:differentFrom))
+Declaration(DataProperty(<http://purl.org/dc/elements/1.1/subject>))
+Declaration(DataProperty(bio:keywords))
+Declaration(DataProperty(bio:olb))
+Declaration(NamedIndividual(<file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/bio.rdf>))
+Declaration(NamedIndividual(<http://creativecommons.org/licenses/by/1.0/>))
+Declaration(NamedIndividual(<http://iandavis.com/id/me>))
+Declaration(NamedIndividual(bio:termgroup1))
+Declaration(NamedIndividual(bio:termgroup2))
+Declaration(NamedIndividual(bio:termgroup3))
+Declaration(NamedIndividual(bio:termgroup4))
+Declaration(NamedIndividual(bio:termgroup5))
+Declaration(NamedIndividual(<http://purl.org/vocab/bio/examples/1>))
+Declaration(AnnotationProperty(ov:discussionList))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/date>))
+Declaration(AnnotationProperty(dct:abstract))
+Declaration(AnnotationProperty(dct:creator))
+Declaration(AnnotationProperty(dct:date))
+Declaration(AnnotationProperty(dct:description))
+Declaration(AnnotationProperty(dct:identifier))
+Declaration(AnnotationProperty(dct:issued))
+Declaration(AnnotationProperty(dct:rights))
+Declaration(AnnotationProperty(dct:title))
+Declaration(AnnotationProperty(dct:type))
+Declaration(AnnotationProperty(label:plural))
+Declaration(AnnotationProperty(bio:biography))
+Declaration(AnnotationProperty(bio:date))
+Declaration(AnnotationProperty(bio:place))
+Declaration(AnnotationProperty(vann:example))
+Declaration(AnnotationProperty(vann:preferredNamespacePrefix))
+Declaration(AnnotationProperty(vann:preferredNamespaceUri))
+Declaration(AnnotationProperty(vann:termGroup))
+Declaration(AnnotationProperty(vann:usageNote))
+Declaration(AnnotationProperty(cc:license))
+Declaration(AnnotationProperty(cc:permits))
+Declaration(AnnotationProperty(cc:requires))
+Declaration(AnnotationProperty(st:term_status))
+Declaration(AnnotationProperty(skos:changeNote))
+Declaration(AnnotationProperty(skos:historyNote))
+Declaration(AnnotationProperty(foaf:name))
+Declaration(Datatype(xsd:date))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: bio:biography (Biography)
+
+AnnotationAssertion(dct:issued bio:biography "2010-06-05")
+AnnotationAssertion(vann:usageNote bio:biography "<p>It is expected that the value of this property is either a literal formatted with HTML markup or a pointer to an HTML document.</p>"^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:comment bio:biography "An extended description or account of someone's life."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:biography <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:biography "Biography"@en)
+AnnotationAssertion(st:term_status bio:biography "unstable")
+AnnotationPropertyDomain(bio:biography foaf:Person)
+
+# Annotation Property: bio:date (Date)
+
+AnnotationAssertion(label:plural bio:date "Dates"@en)
+AnnotationAssertion(vann:usageNote bio:date "<p>The date should be formatted as specified in <a href=\"http://www.w3.org/TR/NOTE-datetime\">ISO8601</a>.
+    For example: 2003-03-15 corresponds to the 15th March 2003, and 2003-03-15T13:21-05:00 corresponds to 15th March 2003, 8:21 am, US Eastern Standard Time.</p>"^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:comment bio:date "The date at which an event occurred."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:date <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:date "Date"@en)
+AnnotationAssertion(st:term_status bio:date "stable")
+AnnotationAssertion(skos:changeNote bio:date "")
+SubAnnotationPropertyOf(bio:date <http://purl.org/dc/elements/1.1/date>)
+AnnotationPropertyDomain(bio:date bio:Event)
+
+# Annotation Property: bio:place (Place)
+
+AnnotationAssertion(label:plural bio:place "Places"@en)
+AnnotationAssertion(rdfs:comment bio:place "The place at which an event occurred."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:place <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:place "Place"@en)
+AnnotationAssertion(st:term_status bio:place "stable")
+AnnotationAssertion(skos:changeNote bio:place "")
+AnnotationPropertyDomain(bio:place bio:Event)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: bio:agent (Agent)
+
+AnnotationAssertion(dct:issued bio:agent "2010-05-05")
+AnnotationAssertion(label:plural bio:agent "Agents"@en)
+AnnotationAssertion(rdfs:comment bio:agent "A person, organization or group that plays a role in an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:agent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:agent "Agent"@en)
+SubObjectPropertyOf(bio:agent owl:differentFrom)
+InverseObjectProperties(bio:agent bio:event)
+ObjectPropertyDomain(bio:agent bio:Event)
+ObjectPropertyRange(bio:agent foaf:Agent)
+
+# Object Property: bio:birth (Birth Event)
+
+AnnotationAssertion(label:plural bio:birth "Birth Events"@en)
+AnnotationAssertion(rdfs:comment bio:birth "An birth event associated with a person, group or organization."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:birth <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:birth "Birth Event"@en)
+AnnotationAssertion(skos:historyNote bio:birth "")
+SubObjectPropertyOf(bio:birth bio:event)
+SubObjectPropertyOf(bio:birth owl:differentFrom)
+ObjectPropertyDomain(bio:birth foaf:Agent)
+ObjectPropertyRange(bio:birth bio:Birth)
+
+# Object Property: bio:child (Child)
+
+AnnotationAssertion(dct:issued bio:child "2010-05-03")
+AnnotationAssertion(label:plural bio:child "Children"@en)
+AnnotationAssertion(vann:usageNote bio:child "Note that this is a strict definition of child that does not include adopted children, step-children or similar non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation."^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:comment bio:child "A biological child of a person. "@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:child <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:child "Child"@en)
+AnnotationAssertion(st:term_status bio:child "unstable")
+AnnotationAssertion(skos:historyNote bio:child "")
+SubObjectPropertyOf(bio:child owl:differentFrom)
+ObjectPropertyDomain(bio:child foaf:Person)
+ObjectPropertyRange(bio:child foaf:Person)
+
+# Object Property: bio:concludingEvent (Concluding Event)
+
+AnnotationAssertion(dct:issued bio:concludingEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:concludingEvent "Concluding Event"@en)
+AnnotationAssertion(rdfs:comment bio:concludingEvent "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:concludingEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:concludingEvent "Concluding Event"@en)
+SubObjectPropertyOf(bio:concludingEvent owl:differentFrom)
+ObjectPropertyRange(bio:concludingEvent bio:Event)
+
+# Object Property: bio:concurrentEvent (Concurrent Event)
+
+AnnotationAssertion(dct:issued bio:concurrentEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:concurrentEvent "Concurrent Events"@en)
+AnnotationAssertion(rdfs:comment bio:concurrentEvent "An event that occurs while this event is occurring. The events need not start or conclude at the same times."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:concurrentEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:concurrentEvent "Concurrent Event"@en)
+SubObjectPropertyOf(bio:concurrentEvent owl:differentFrom)
+SymmetricObjectProperty(bio:concurrentEvent)
+ObjectPropertyDomain(bio:concurrentEvent bio:Event)
+ObjectPropertyRange(bio:concurrentEvent bio:Event)
+
+# Object Property: bio:death (Death Event)
+
+AnnotationAssertion(label:plural bio:death "Death Events"@en)
+AnnotationAssertion(rdfs:comment bio:death "An death event associated with a person, group or organization."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:death <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:death "Death Event"@en)
+AnnotationAssertion(skos:historyNote bio:death "")
+SubObjectPropertyOf(bio:death bio:event)
+SubObjectPropertyOf(bio:death owl:differentFrom)
+ObjectPropertyDomain(bio:death foaf:Agent)
+ObjectPropertyRange(bio:death bio:Death)
+
+# Object Property: bio:employer (Employer)
+
+AnnotationAssertion(dct:issued bio:employer "2010-05-05")
+AnnotationAssertion(label:plural bio:employer "Employers"@en)
+AnnotationAssertion(rdfs:comment bio:employer "An agent that is involved in an event as an employer."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:employer <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:employer "Employer"@en)
+SubObjectPropertyOf(bio:employer bio:agent)
+ObjectPropertyDomain(bio:employer bio:Event)
+ObjectPropertyRange(bio:employer foaf:Agent)
+
+# Object Property: bio:event (Life Event)
+
+AnnotationAssertion(label:plural bio:event "Life Events"@en)
+AnnotationAssertion(rdfs:comment bio:event "An event associated with a person, group or organization."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:event <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:event "Life Event"@en)
+AnnotationAssertion(skos:changeNote bio:event "")
+AnnotationAssertion(skos:historyNote bio:event "")
+SubObjectPropertyOf(bio:event owl:differentFrom)
+ObjectPropertyDomain(bio:event foaf:Agent)
+ObjectPropertyRange(bio:event bio:Event)
+
+# Object Property: bio:eventInterval (Event Interval)
+
+AnnotationAssertion(dct:issued bio:eventInterval "2010-06-05")
+AnnotationAssertion(rdfs:comment bio:eventInterval "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:eventInterval <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:eventInterval "Event Interval"@en)
+AnnotationAssertion(st:term_status bio:eventInterval "unstable")
+ObjectPropertyDomain(bio:eventInterval bio:Event)
+ObjectPropertyRange(bio:eventInterval bio:Interval)
+
+# Object Property: bio:father (Father)
+
+AnnotationAssertion(dct:issued bio:father "2010-05-03")
+AnnotationAssertion(vann:usageNote bio:father "Note that this is a strict definition of father that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation."^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:comment bio:father "The biological father of a person, also known as the genitor."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:father <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:father "Father"@en)
+AnnotationAssertion(st:term_status bio:father "unstable")
+AnnotationAssertion(skos:historyNote bio:father "")
+SubObjectPropertyOf(bio:father <http://purl.org/vocab/relationship/childOf>)
+SubObjectPropertyOf(bio:father owl:differentFrom)
+FunctionalObjectProperty(bio:father)
+ObjectPropertyDomain(bio:father foaf:Person)
+ObjectPropertyRange(bio:father foaf:Person)
+
+# Object Property: bio:followingEvent (Following Event)
+
+AnnotationAssertion(dct:issued bio:followingEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:followingEvent "Following Events"@en)
+AnnotationAssertion(rdfs:comment bio:followingEvent "An event that starts at some time after this event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:followingEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:followingEvent "Following Event"@en)
+SubObjectPropertyOf(bio:followingEvent owl:differentFrom)
+TransitiveObjectProperty(bio:followingEvent)
+ObjectPropertyDomain(bio:followingEvent bio:Event)
+ObjectPropertyRange(bio:followingEvent bio:Event)
+
+# Object Property: bio:immediatelyFollowingEvent (Immediately Following Event)
+
+AnnotationAssertion(dct:issued bio:immediatelyFollowingEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:immediatelyFollowingEvent "Immediately Following Events"@en)
+AnnotationAssertion(rdfs:comment bio:immediatelyFollowingEvent "An event that starts immediately after this event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:immediatelyFollowingEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:immediatelyFollowingEvent "Immediately Following Event"@en)
+SubObjectPropertyOf(bio:immediatelyFollowingEvent bio:followingEvent)
+SubObjectPropertyOf(bio:immediatelyFollowingEvent owl:differentFrom)
+ObjectPropertyDomain(bio:immediatelyFollowingEvent bio:Event)
+ObjectPropertyRange(bio:immediatelyFollowingEvent bio:Event)
+
+# Object Property: bio:immediatelyPrecedingEvent (Immediately Preceding Event)
+
+AnnotationAssertion(dct:issued bio:immediatelyPrecedingEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:immediatelyPrecedingEvent "Immediately Preceding Events"@en)
+AnnotationAssertion(rdfs:comment bio:immediatelyPrecedingEvent "An event that occurs and concludes immediately before this event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:immediatelyPrecedingEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:immediatelyPrecedingEvent "Immediately Preceding Event"@en)
+SubObjectPropertyOf(bio:immediatelyPrecedingEvent bio:precedingEvent)
+SubObjectPropertyOf(bio:immediatelyPrecedingEvent owl:differentFrom)
+ObjectPropertyDomain(bio:immediatelyPrecedingEvent bio:Event)
+ObjectPropertyRange(bio:immediatelyPrecedingEvent bio:Event)
+
+# Object Property: bio:initiatingEvent (Initiating Event)
+
+AnnotationAssertion(dct:issued bio:initiatingEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:initiatingEvent "Initiating Event"@en)
+AnnotationAssertion(rdfs:comment bio:initiatingEvent "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:initiatingEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:initiatingEvent "Initiating Event"@en)
+SubObjectPropertyOf(bio:initiatingEvent owl:differentFrom)
+ObjectPropertyRange(bio:initiatingEvent bio:Event)
+
+# Object Property: bio:interval (Relationship Interval)
+
+AnnotationAssertion(dct:issued bio:interval "2010-06-05")
+AnnotationAssertion(rdfs:comment bio:interval "The interval during which the relationship persists."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:interval <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:interval "Relationship Interval"@en)
+AnnotationAssertion(st:term_status bio:interval "unstable")
+ObjectPropertyDomain(bio:interval bio:Relationship)
+ObjectPropertyRange(bio:interval bio:Interval)
+
+# Object Property: bio:mother (Mother)
+
+AnnotationAssertion(dct:issued bio:mother "2010-05-03")
+AnnotationAssertion(vann:usageNote bio:mother "Note that this is a strict definition of mother that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation."^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:comment bio:mother "The biological mother of a person, also known as the genetrix."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:mother <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:mother "Mother"@en)
+AnnotationAssertion(st:term_status bio:mother "unstable")
+AnnotationAssertion(skos:historyNote bio:mother "")
+SubObjectPropertyOf(bio:mother <http://purl.org/vocab/relationship/childOf>)
+SubObjectPropertyOf(bio:mother owl:differentFrom)
+FunctionalObjectProperty(bio:mother)
+ObjectPropertyDomain(bio:mother foaf:Person)
+ObjectPropertyRange(bio:mother foaf:Person)
+
+# Object Property: bio:officiator (Officiator)
+
+AnnotationAssertion(dct:issued bio:officiator "2010-05-05")
+AnnotationAssertion(label:plural bio:officiator "Officiators"@en)
+AnnotationAssertion(rdfs:comment bio:officiator "A person that officiates at a ceremonial event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:officiator <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:officiator "Officiator"@en)
+SubObjectPropertyOf(bio:officiator bio:agent)
+ObjectPropertyDomain(bio:officiator bio:Event)
+ObjectPropertyRange(bio:officiator foaf:Person)
+
+# Object Property: bio:organization (Organization)
+
+AnnotationAssertion(dct:issued bio:organization "2010-05-05")
+AnnotationAssertion(label:plural bio:organization "Organizations"@en)
+AnnotationAssertion(rdfs:comment bio:organization "An organization that plays a role in an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:organization <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:organization "Organization"@en)
+SubObjectPropertyOf(bio:organization bio:agent)
+ObjectPropertyDomain(bio:organization bio:Event)
+ObjectPropertyRange(bio:organization foaf:Person)
+
+# Object Property: bio:parent (Parent)
+
+AnnotationAssertion(dct:issued bio:parent "2010-05-05")
+AnnotationAssertion(label:plural bio:parent "Parents"@en)
+AnnotationAssertion(rdfs:comment bio:parent "A person that takes the parent role in an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:parent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:parent "Parent"@en)
+SubObjectPropertyOf(bio:parent bio:agent)
+ObjectPropertyDomain(bio:parent bio:Event)
+ObjectPropertyRange(bio:parent foaf:Person)
+
+# Object Property: bio:participant (Participant)
+
+AnnotationAssertion(dct:issued bio:participant "2011-06-14")
+AnnotationAssertion(label:plural bio:participant "Participants"@en)
+AnnotationAssertion(rdfs:comment bio:participant "A person, group or organization that participates in a relationship for some time."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:participant <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:participant "Participant"@en)
+SubObjectPropertyOf(bio:participant owl:differentFrom)
+InverseObjectProperties(bio:participant bio:relationship)
+ObjectPropertyDomain(bio:participant bio:Relationship)
+ObjectPropertyRange(bio:participant foaf:Agent)
+
+# Object Property: bio:partner (Partner)
+
+AnnotationAssertion(dct:issued bio:partner "2010-05-05")
+AnnotationAssertion(label:plural bio:partner "Partners"@en)
+AnnotationAssertion(rdfs:comment bio:partner "A person that is involved in a event as a partner in a relationship."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:partner <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:partner "Partner"@en)
+SubObjectPropertyOf(bio:partner bio:agent)
+ObjectPropertyDomain(bio:partner bio:Event)
+ObjectPropertyRange(bio:partner foaf:Person)
+
+# Object Property: bio:position (Position)
+
+AnnotationAssertion(dct:issued bio:position "2010-05-05")
+AnnotationAssertion(label:plural bio:position "Positions"@en)
+AnnotationAssertion(rdfs:comment bio:position "The employment position or public office involved in an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:position <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:position "Position"@en)
+AnnotationAssertion(st:term_status bio:position "unstable")
+SubObjectPropertyOf(bio:position bio:agent)
+ObjectPropertyDomain(bio:position bio:Event)
+ObjectPropertyRange(bio:position foaf:Person)
+
+# Object Property: bio:precedingEvent (Preceding Event)
+
+AnnotationAssertion(dct:issued bio:precedingEvent "2010-05-06")
+AnnotationAssertion(label:plural bio:precedingEvent "Preceding Events"@en)
+AnnotationAssertion(rdfs:comment bio:precedingEvent "An event that occurs and concludes at some time before this event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:precedingEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:precedingEvent "Preceding Event"@en)
+SubObjectPropertyOf(bio:precedingEvent owl:differentFrom)
+TransitiveObjectProperty(bio:precedingEvent)
+ObjectPropertyDomain(bio:precedingEvent bio:Event)
+ObjectPropertyRange(bio:precedingEvent bio:Event)
+
+# Object Property: bio:principal (Principal)
+
+AnnotationAssertion(dct:issued bio:principal "2010-05-05")
+AnnotationAssertion(label:plural bio:principal "Principals"@en)
+AnnotationAssertion(rdfs:comment bio:principal "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:principal <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:principal "Principal"@en)
+SubObjectPropertyOf(bio:principal bio:agent)
+ObjectPropertyDomain(bio:principal bio:Event)
+ObjectPropertyRange(bio:principal foaf:Person)
+
+# Object Property: bio:relationship (Relationship)
+
+AnnotationAssertion(dct:issued bio:relationship "2011-06-14")
+AnnotationAssertion(label:plural bio:relationship "Relationships"@en)
+AnnotationAssertion(rdfs:comment bio:relationship "A relationship that a person, group or organization participates in for some time."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:relationship <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:relationship "Relationship"@en)
+SubObjectPropertyOf(bio:relationship owl:differentFrom)
+ObjectPropertyDomain(bio:relationship foaf:Agent)
+ObjectPropertyRange(bio:relationship bio:Relationship)
+
+# Object Property: bio:spectator (Spectator)
+
+AnnotationAssertion(dct:issued bio:spectator "2010-05-05")
+AnnotationAssertion(label:plural bio:spectator "Spectators"@en)
+AnnotationAssertion(rdfs:comment bio:spectator "A person that is present at and observes the occurrence of at least part of an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:spectator <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:spectator "Spectator"@en)
+SubObjectPropertyOf(bio:spectator bio:agent)
+ObjectPropertyDomain(bio:spectator bio:Event)
+ObjectPropertyRange(bio:spectator foaf:Person)
+
+# Object Property: bio:state (State)
+
+AnnotationAssertion(dct:issued bio:state "2010-05-05")
+AnnotationAssertion(label:plural bio:state "States"@en)
+AnnotationAssertion(rdfs:comment bio:state "A country or independent territory that is involved in an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:state <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:state "State"@en)
+SubObjectPropertyOf(bio:state bio:agent)
+ObjectPropertyDomain(bio:state bio:Event)
+
+# Object Property: bio:witness (Witness)
+
+AnnotationAssertion(dct:issued bio:witness "2010-05-05")
+AnnotationAssertion(label:plural bio:witness "Witnesses"@en)
+AnnotationAssertion(rdfs:comment bio:witness "A person that witnesses and can bear testimony to the occurrence of an event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:witness <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:witness "Witness"@en)
+SubObjectPropertyOf(bio:witness bio:spectator)
+ObjectPropertyDomain(bio:witness bio:Event)
+ObjectPropertyRange(bio:witness foaf:Person)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: bio:keywords (Key Words)
+
+AnnotationAssertion(dct:issued bio:keywords "2003-07-28")
+AnnotationAssertion(rdfs:comment bio:keywords "A comma delimited list of key words that describe a person."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:keywords <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:keywords "Key Words"@en)
+AnnotationAssertion(st:term_status bio:keywords "stable")
+AnnotationAssertion(skos:changeNote bio:keywords "")
+AnnotationAssertion(skos:historyNote bio:keywords "")
+SubDataPropertyOf(bio:keywords <http://purl.org/dc/elements/1.1/subject>)
+DataPropertyDomain(bio:keywords foaf:Person)
+DataPropertyRange(bio:keywords rdfs:Literal)
+
+# Data Property: bio:olb (One-line bio)
+
+AnnotationAssertion(rdfs:comment bio:olb "A one-line biography of the person."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:olb <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:olb "One-line bio"@en)
+AnnotationAssertion(st:term_status bio:olb "stable")
+AnnotationAssertion(skos:changeNote bio:olb "")
+AnnotationAssertion(skos:historyNote bio:olb "")
+DataPropertyDomain(bio:olb foaf:Person)
+DataPropertyRange(bio:olb rdfs:Literal)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/ontology/mo/Performance> (<http://purl.org/ontology/mo/Performance>)
+
+EquivalentClasses(<http://purl.org/ontology/mo/Performance> bio:Performance)
+
+# Class: bio:Accession (Accession)
+
+AnnotationAssertion(dct:issued bio:Accession "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Accession "The event of a person succeeding to the right to hold regal power. This event is often automatic on the death of the previous monarch and is usually followed by a coronation event."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Accession <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Accession "Accession"@en)
+AnnotationAssertion(st:term_status bio:Accession "unstable")
+SubClassOf(bio:Accession bio:IndividualEvent)
+
+# Class: bio:Adoption (Adoption)
+
+AnnotationAssertion(dct:issued bio:Adoption "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Adoption "The event of creating of a legal parent/child relationship that does not exist biologically."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Adoption <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Adoption "Adoption"@en)
+AnnotationAssertion(st:term_status bio:Adoption "unstable")
+SubClassOf(bio:Adoption bio:IndividualEvent)
+
+# Class: bio:Annulment (Annulment)
+
+AnnotationAssertion(dct:issued bio:Annulment "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Annulment "The event of declaring a marriage void from the beginning as though it never existed."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Annulment <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Annulment "Annulment"@en)
+AnnotationAssertion(st:term_status bio:Annulment "unstable")
+SubClassOf(bio:Annulment bio:GroupEvent)
+
+# Class: bio:Assassination (Assassination)
+
+AnnotationAssertion(dct:issued bio:Assassination "2010-05-05")
+AnnotationAssertion(rdfs:comment bio:Assassination "The event of a person being deliberately targeted and killed."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Assassination <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Assassination "Assassination"@en)
+AnnotationAssertion(st:term_status bio:Assassination "unstable")
+SubClassOf(bio:Assassination bio:Murder)
+
+# Class: bio:Baptism (Baptism)
+
+AnnotationAssertion(dct:issued bio:Baptism "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Baptism "The ceremonial event held to admit a person to membership of a Christian church."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Baptism <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Baptism "Baptism"@en)
+AnnotationAssertion(st:term_status bio:Baptism "unstable")
+AnnotationAssertion(skos:changeNote bio:Baptism "")
+SubClassOf(bio:Baptism bio:IndividualEvent)
+
+# Class: bio:BarMitzvah (BarMitzvah)
+
+AnnotationAssertion(dct:issued bio:BarMitzvah "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:BarMitzvah "The ceremonial event held when a Jewish boy reaches age 13."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:BarMitzvah <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:BarMitzvah "BarMitzvah"@en)
+AnnotationAssertion(st:term_status bio:BarMitzvah "unstable")
+SubClassOf(bio:BarMitzvah bio:IndividualEvent)
+
+# Class: bio:BasMitzvah (BasMitzvah)
+
+AnnotationAssertion(dct:issued bio:BasMitzvah "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:BasMitzvah "The ceremonial event held when a Jewish girl reaching age 13, also known as \"Bat Mitzvah.\""@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:BasMitzvah <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:BasMitzvah "BasMitzvah"@en)
+AnnotationAssertion(st:term_status bio:BasMitzvah "unstable")
+SubClassOf(bio:BasMitzvah bio:IndividualEvent)
+
+# Class: bio:Birth (Birth)
+
+AnnotationAssertion(vann:example bio:Birth _:genid2147483656)
+AnnotationAssertion(rdfs:comment bio:Birth "The event of a person entering into life."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Birth <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Birth "Birth"@en)
+AnnotationAssertion(st:term_status bio:Birth "testing")
+AnnotationAssertion(skos:changeNote bio:Birth "")
+SubClassOf(bio:Birth bio:IndividualEvent)
+
+# Class: bio:Burial (Burial)
+
+AnnotationAssertion(dct:issued bio:Burial "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Burial "The event of interring the remains of a person's body into the ground."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Burial <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Burial "Burial"@en)
+AnnotationAssertion(st:term_status bio:Burial "unstable")
+SubClassOf(bio:Burial bio:IndividualEvent)
+
+# Class: bio:Coronation (Coronation)
+
+AnnotationAssertion(dct:issued bio:Coronation "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Coronation "The ceremonial event of a person being invested with regal power to become a monarch."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Coronation <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Coronation "Coronation"@en)
+AnnotationAssertion(st:term_status bio:Coronation "unstable")
+SubClassOf(bio:Coronation bio:IndividualEvent)
+
+# Class: bio:Cremation (Cremation)
+
+AnnotationAssertion(dct:issued bio:Cremation "2010-05-03")
+AnnotationAssertion(vann:example bio:Cremation _:genid2147483664)
+AnnotationAssertion(rdfs:comment bio:Cremation "The event of disposing of the remains of a person's body by fire."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Cremation <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Cremation "Cremation"@en)
+AnnotationAssertion(st:term_status bio:Cremation "unstable")
+SubClassOf(bio:Cremation bio:IndividualEvent)
+
+# Class: bio:Death (Death)
+
+AnnotationAssertion(vann:example bio:Death _:genid2147483660)
+AnnotationAssertion(rdfs:comment bio:Death "The event of a person's life ending."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Death <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Death "Death"@en)
+AnnotationAssertion(st:term_status bio:Death "stable")
+AnnotationAssertion(skos:changeNote bio:Death "")
+SubClassOf(bio:Death bio:IndividualEvent)
+
+# Class: bio:Demotion (Demotion)
+
+AnnotationAssertion(dct:issued bio:Demotion "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Demotion "The event of a person changing the position they hold with an employer to one with less importance or responsibility."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Demotion <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Demotion "Demotion"@en)
+AnnotationAssertion(st:term_status bio:Demotion "unstable")
+SubClassOf(bio:Demotion bio:PositionChange)
+
+# Class: bio:Disbanding (Disbanding)
+
+AnnotationAssertion(dct:issued bio:Disbanding "2011-06-10")
+AnnotationAssertion(rdfs:comment bio:Disbanding "The event of a group or organization being disbanded."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Disbanding <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Disbanding "Disbanding"@en)
+AnnotationAssertion(st:term_status bio:Disbanding "unstable")
+SubClassOf(bio:Disbanding bio:IndividualEvent)
+
+# Class: bio:Dismissal (Dismissal)
+
+AnnotationAssertion(dct:issued bio:Dismissal "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Dismissal "The event of a person involuntarily giving up their office or position. Dismissal is often perceived to be the employee's fault and may be considered disgraceful."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Dismissal <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Dismissal "Dismissal"@en)
+AnnotationAssertion(st:term_status bio:Dismissal "unstable")
+SubClassOf(bio:Dismissal bio:IndividualEvent)
+
+# Class: bio:Divorce (Divorce)
+
+AnnotationAssertion(dct:issued bio:Divorce "2010-05-03")
+AnnotationAssertion(vann:example bio:Divorce _:genid2147483662)
+AnnotationAssertion(rdfs:comment bio:Divorce "The event of legally dissolving a marriage."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Divorce <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Divorce "Divorce"@en)
+AnnotationAssertion(st:term_status bio:Divorce "unstable")
+SubClassOf(bio:Divorce bio:GroupEvent)
+
+# Class: bio:Emigration (Emigration)
+
+AnnotationAssertion(dct:issued bio:Emigration "2010-05-03")
+AnnotationAssertion(vann:example bio:Emigration _:genid2147483668)
+AnnotationAssertion(rdfs:comment bio:Emigration "The event of a person leaving their homeland with the intent of residing elsewhere."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Emigration <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Emigration "Emigration"@en)
+AnnotationAssertion(st:term_status bio:Emigration "unstable")
+SubClassOf(bio:Emigration bio:IndividualEvent)
+
+# Class: bio:Employment (Employment)
+
+AnnotationAssertion(dct:issued bio:Employment "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Employment "The event of a person entering an occupational relationship with an employer."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Employment <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Employment "Employment"@en)
+AnnotationAssertion(st:term_status bio:Employment "unstable")
+SubClassOf(bio:Employment bio:IndividualEvent)
+
+# Class: bio:Enrolment (Enrolment)
+
+AnnotationAssertion(dct:issued bio:Enrolment "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Enrolment "The event of a person initiating attendence to a school or other place of learning."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Enrolment <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Enrolment "Enrolment"@en)
+AnnotationAssertion(st:term_status bio:Enrolment "unstable")
+SubClassOf(bio:Enrolment bio:IndividualEvent)
+
+# Class: bio:Event (Event)
+
+AnnotationAssertion(vann:usageNote bio:Event "This class is intended to describe biographical events, i.e. events in the life of a person."@en)
+AnnotationAssertion(rdfs:comment bio:Event "An event is an occurrence that brings about a change in the state of affairs for one or more people and/or other agents. Events are assumed to occur over a period of time and may not have precise start and end points."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Event <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Event "Event"@en)
+AnnotationAssertion(st:term_status bio:Event "testing")
+AnnotationAssertion(skos:changeNote bio:Event "")
+AnnotationAssertion(skos:historyNote bio:Event "")
+SubClassOf(bio:Event <http://linkedevents.org/ontology/Event>)
+SubClassOf(bio:Event <http://purl.org/NET/c4dm/event.owl#Event>)
+SubClassOf(bio:Event <http://purl.org/dc/dcmitype/Event>)
+SubClassOf(bio:Event <http://sw.opencyc.org/2009/04/07/concept/en/Event>)
+
+# Class: bio:Execution (Execution)
+
+AnnotationAssertion(dct:issued bio:Execution "2010-05-05")
+AnnotationAssertion(rdfs:comment bio:Execution "The event of a person being deliberately killed as punishment."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Execution <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Execution "Execution"@en)
+AnnotationAssertion(st:term_status bio:Execution "unstable")
+SubClassOf(bio:Execution bio:Death)
+
+# Class: bio:Formation (Formation)
+
+AnnotationAssertion(dct:issued bio:Formation "2011-06-10")
+AnnotationAssertion(rdfs:comment bio:Formation "The event of a group or organization coming into being."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Formation <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Formation "Formation"@en)
+AnnotationAssertion(st:term_status bio:Formation "unstable")
+SubClassOf(bio:Formation bio:IndividualEvent)
+
+# Class: bio:Funeral (Funeral)
+
+AnnotationAssertion(dct:issued bio:Funeral "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Funeral "The event of marking a person's death with a ceremony."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Funeral <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Funeral "Funeral"@en)
+AnnotationAssertion(st:term_status bio:Funeral "unstable")
+SubClassOf(bio:Funeral bio:IndividualEvent)
+
+# Class: bio:Graduation (Graduation)
+
+AnnotationAssertion(dct:issued bio:Graduation "2010-05-03")
+AnnotationAssertion(vann:example bio:Graduation _:genid2147483670)
+AnnotationAssertion(rdfs:comment bio:Graduation "The event of a person being awarded educational diplomas or degrees."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Graduation <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Graduation "Graduation"@en)
+AnnotationAssertion(st:term_status bio:Graduation "unstable")
+SubClassOf(bio:Graduation bio:IndividualEvent)
+
+# Class: bio:GroupEvent (Group Event)
+
+AnnotationAssertion(rdfs:comment bio:GroupEvent "A type of event that is principally about one or more agents and their partnership. Other agents may be involved but the event is most significant for the partner agent."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:GroupEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:GroupEvent "Group Event"@en)
+AnnotationAssertion(st:term_status bio:GroupEvent "unstable")
+SubClassOf(bio:GroupEvent bio:Event)
+SubClassOf(bio:GroupEvent ObjectMinCardinality(2 bio:partner))
+
+# Class: bio:Imprisonment (Imprisonment)
+
+AnnotationAssertion(dct:issued bio:Imprisonment "2010-05-04")
+AnnotationAssertion(rdfs:comment bio:Imprisonment "The event of a person being detained in a jail or prison."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Imprisonment <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Imprisonment "Imprisonment"@en)
+AnnotationAssertion(st:term_status bio:Imprisonment "unstable")
+SubClassOf(bio:Imprisonment bio:IndividualEvent)
+
+# Class: bio:Inauguration (Inauguration)
+
+AnnotationAssertion(dct:issued bio:Inauguration "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Inauguration "The ceremonial event marking the beginning of a person's term of office as a leader."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Inauguration <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Inauguration "Inauguration"@en)
+AnnotationAssertion(st:term_status bio:Inauguration "unstable")
+SubClassOf(bio:Inauguration bio:IndividualEvent)
+
+# Class: bio:IndividualEvent (Individual Event)
+
+AnnotationAssertion(rdfs:comment bio:IndividualEvent "A type of event that is principally about a single person, group or organization. Other agents may be involved but the event is most significant for the principal agent."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:IndividualEvent <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:IndividualEvent "Individual Event"@en)
+AnnotationAssertion(st:term_status bio:IndividualEvent "unstable")
+SubClassOf(bio:IndividualEvent bio:Event)
+SubClassOf(bio:IndividualEvent ObjectExactCardinality(1 bio:principal))
+
+# Class: bio:Interval (Interval)
+
+AnnotationAssertion(dct:issued bio:Interval "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Interval "A extended interval of time related to a particular state of affairs, such as the lifespan of a person or a period of employment."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Interval <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Interval "Interval"@en)
+AnnotationAssertion(st:term_status bio:Interval "unstable")
+SubClassOf(bio:Interval <http://www.w3.org/2006/time#ProperInterval>)
+
+# Class: bio:Investiture (Investiture)
+
+AnnotationAssertion(dct:issued bio:Investiture "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Investiture "The ceremonial event of a person taking a public office or honour."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Investiture <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Investiture "Investiture"@en)
+AnnotationAssertion(st:term_status bio:Investiture "unstable")
+SubClassOf(bio:Investiture bio:IndividualEvent)
+
+# Class: bio:Marriage (Marriage)
+
+AnnotationAssertion(vann:example bio:Marriage _:genid2147483658)
+AnnotationAssertion(rdfs:comment bio:Marriage "The event of creating uniting the participants into a new family unit, sometimes accompanied by a formal wedding ceremony. This is intended to cover a broad range of marriages including those given formal legal standing, common-law, or by convention. It is not restricted to marriages of two people of the opposite gender, but also includes polygamous and same-sex unions."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Marriage <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Marriage "Marriage"@en)
+AnnotationAssertion(st:term_status bio:Marriage "stable")
+AnnotationAssertion(skos:changeNote bio:Marriage "")
+AnnotationAssertion(skos:historyNote bio:Marriage "")
+EquivalentClasses(bio:Marriage <http://sw.opencyc.org/2009/04/07/concept/en/WeddingEvent_Generic>)
+SubClassOf(bio:Marriage bio:GroupEvent)
+
+# Class: bio:Murder (Murder)
+
+AnnotationAssertion(dct:issued bio:Murder "2010-05-05")
+AnnotationAssertion(rdfs:comment bio:Murder "The event of a person being killed unlawfully with intent by the killer."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Murder <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Murder "Murder"@en)
+AnnotationAssertion(st:term_status bio:Murder "unstable")
+SubClassOf(bio:Murder bio:Death)
+
+# Class: bio:NameChange (Change of Name)
+
+AnnotationAssertion(dct:issued bio:NameChange "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:NameChange "The event of a person changing their name."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:NameChange <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:NameChange "Change of Name"@en)
+AnnotationAssertion(st:term_status bio:NameChange "unstable")
+SubClassOf(bio:NameChange bio:IndividualEvent)
+
+# Class: bio:Naturalization (Naturalization)
+
+AnnotationAssertion(dct:issued bio:Naturalization "2010-05-03")
+AnnotationAssertion(vann:example bio:Naturalization _:genid2147483666)
+AnnotationAssertion(rdfs:comment bio:Naturalization "The event of a person obtaining citizenship. Note that the place the naturalization event occurs at may be different from the state the person is obtaining citizenship of. "@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Naturalization <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Naturalization "Naturalization"@en)
+AnnotationAssertion(st:term_status bio:Naturalization "unstable")
+SubClassOf(bio:Naturalization bio:IndividualEvent)
+
+# Class: bio:Ordination (Ordination)
+
+AnnotationAssertion(dct:issued bio:Ordination "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Ordination "The ceremonial event held when a person receives authority to act in religious matters."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Ordination <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Ordination "Ordination"@en)
+AnnotationAssertion(st:term_status bio:Ordination "unstable")
+SubClassOf(bio:Ordination bio:IndividualEvent)
+
+# Class: bio:Performance (Performance)
+
+AnnotationAssertion(dct:issued bio:Performance "2011-06-12")
+AnnotationAssertion(rdfs:comment bio:Performance "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Performance <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Performance "Performance"@en)
+AnnotationAssertion(st:term_status bio:Performance "unstable")
+SubClassOf(bio:Performance bio:GroupEvent)
+
+# Class: bio:PositionChange (Change of Position)
+
+AnnotationAssertion(dct:issued bio:PositionChange "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:PositionChange "The event of a person changing the position they hold with an employer."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:PositionChange <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:PositionChange "Change of Position"@en)
+AnnotationAssertion(st:term_status bio:PositionChange "unstable")
+SubClassOf(bio:PositionChange bio:IndividualEvent)
+
+# Class: bio:Promotion (Promotion)
+
+AnnotationAssertion(dct:issued bio:Promotion "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Promotion "The event of a person changing the position they hold with an employer to one with more importance or responsibility."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Promotion <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Promotion "Promotion"@en)
+AnnotationAssertion(st:term_status bio:Promotion "unstable")
+SubClassOf(bio:Promotion bio:PositionChange)
+
+# Class: bio:Redundancy (Redundancy)
+
+AnnotationAssertion(dct:issued bio:Redundancy "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Redundancy "The event of a person involuntarily giving up an office or position that is no longer needed. Redundancy is usually perceived to be the employer's fault and is usually due to conditions outside of the employee's control."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Redundancy <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Redundancy "Redundancy"@en)
+AnnotationAssertion(st:term_status bio:Redundancy "unstable")
+SubClassOf(bio:Redundancy bio:IndividualEvent)
+
+# Class: bio:Relationship (Agent Relationship)
+
+AnnotationAssertion(dct:issued bio:Relationship "2011-06-14")
+AnnotationAssertion(rdfs:comment bio:Relationship "A particular type of connection existing between people, groups or organizations related to or having dealings with each other."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Relationship <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Relationship "Agent Relationship"@en)
+AnnotationAssertion(st:term_status bio:Relationship "unstable")
+EquivalentClasses(bio:Relationship <http://purl.org/vocab/relationship/Relationship>)
+
+# Class: bio:Resignation (Resignation)
+
+AnnotationAssertion(dct:issued bio:Resignation "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Resignation "The event of a person voluntarily giving up or quitting their office or position."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Resignation <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Resignation "Resignation"@en)
+AnnotationAssertion(st:term_status bio:Resignation "unstable")
+SubClassOf(bio:Resignation bio:IndividualEvent)
+
+# Class: bio:Retirement (Retirement)
+
+AnnotationAssertion(dct:issued bio:Retirement "2010-05-03")
+AnnotationAssertion(rdfs:comment bio:Retirement "The event of a person exiting an occupational relationship with an employer after a qualifying time period. In many cultures retirement is expected and even required once the person reaches a particular age."@en)
+AnnotationAssertion(rdfs:isDefinedBy bio:Retirement <http://purl.org/vocab/bio/0.1/>)
+AnnotationAssertion(rdfs:label bio:Retirement "Retirement"@en)
+AnnotationAssertion(st:term_status bio:Retirement "unstable")
+SubClassOf(bio:Retirement bio:IndividualEvent)
+
+# Class: foaf:Person (foaf:Person)
+
+EquivalentClasses(foaf:Person ObjectIntersectionOf(ObjectExactCardinality(1 bio:father) ObjectExactCardinality(1 bio:mother)))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/bio.rdf> (<file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/bio.rdf>)
+
+AnnotationAssertion(dct:type <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/bio.rdf> <http://purl.org/dc/dcmitype/Text>)
+AnnotationAssertion(cc:license <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/bio.rdf> <http://creativecommons.org/licenses/by/1.0/>)
+ClassAssertion(cc:Work <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/bio.rdf>)
+
+# Individual: <http://creativecommons.org/licenses/by/1.0/> (<http://creativecommons.org/licenses/by/1.0/>)
+
+AnnotationAssertion(cc:permits <http://creativecommons.org/licenses/by/1.0/> cc:DerivativeWorks)
+AnnotationAssertion(cc:permits <http://creativecommons.org/licenses/by/1.0/> cc:Distribution)
+AnnotationAssertion(cc:permits <http://creativecommons.org/licenses/by/1.0/> cc:Reproduction)
+AnnotationAssertion(cc:requires <http://creativecommons.org/licenses/by/1.0/> cc:Attribution)
+AnnotationAssertion(cc:requires <http://creativecommons.org/licenses/by/1.0/> cc:Notice)
+ClassAssertion(cc:License <http://creativecommons.org/licenses/by/1.0/>)
+
+# Individual: <http://iandavis.com/id/me> (<http://iandavis.com/id/me>)
+
+AnnotationAssertion(foaf:name <http://iandavis.com/id/me> "Ian Davis")
+ClassAssertion(foaf:Person <http://iandavis.com/id/me>)
+
+# Individual: bio:termgroup1 (Properties of a person)
+
+AnnotationAssertion(rdfs:label bio:termgroup1 "Properties of a person"@en)
+ClassAssertion(rdf:Bag bio:termgroup1)
+
+# Individual: bio:termgroup2 (Types of event)
+
+AnnotationAssertion(rdfs:label bio:termgroup2 "Types of event"@en)
+ClassAssertion(rdf:Bag bio:termgroup2)
+
+# Individual: bio:termgroup3 (Properties of an event)
+
+AnnotationAssertion(rdfs:label bio:termgroup3 "Properties of an event"@en)
+ClassAssertion(rdf:Bag bio:termgroup3)
+
+# Individual: bio:termgroup4 (Properties that relate an event to an agent)
+
+AnnotationAssertion(rdfs:label bio:termgroup4 "Properties that relate an event to an agent"@en)
+ClassAssertion(rdf:Bag bio:termgroup4)
+
+# Individual: bio:termgroup5 (Properties that relate an event to another event)
+
+AnnotationAssertion(rdfs:label bio:termgroup5 "Properties that relate an event to another event"@en)
+ClassAssertion(rdf:Bag bio:termgroup5)
+
+# Individual: <http://purl.org/vocab/bio/examples/1> (A Biography of Henry VIII, King of England)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/vocab/bio/examples/1> "<p>Based on information at <a href=\"http://en.wikipedia.org/wiki/Henry_VIII_of_England\">Wikipedia</a> and <a href=\"http://www3.dcs.hull.ac.uk/cgi-bin/gedlkup/n=royal?royal00828\">Hull University</a></p>
+<pre><code>@prefix bio: &lt;http://purl.org/vocab/bio/0.1/&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+_:henryviii
+  a foaf:Person
+  ; foaf:name &quot;Henry VIII, King of England&quot;
+  ; bio:father _:henryvii
+  ; bio:mother _:elizplantagenet
+  ; bio:child _:child1, _:child2, _:child3, _:child4, _:child5, _:child6, _:child7, _:child8
+  ; bio:birth _:birth
+  ; bio:death _:death
+  ; bio:event _:burial, _:accession, _:coronation, _:marriage1
+            , _:marriage2, _:marriage3, _:marriage4, _:marriage5, _:marriage6
+  .
+
+_:henryvii
+  a foaf:Person
+  ; foaf:name &quot;Henry VII Tudor, King of England&quot;
+  ; bio:child _:henryviii
+  .
+
+_:elizplantagenet
+  a foaf:Person
+  ; foaf:name &quot;Elizabeth of York&quot;
+  ; bio:child _:henryviii
+  .
+
+_:birth
+  a bio:Birth
+  ; rdfs:label &quot;The birth of Henry VIII to Henry VII and Elizabeth Plantagenet on 28 June 1491&quot;
+  ; bio:date &quot;1491-06-28&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/Palace_of_Placentia&gt;
+  ; bio:parent _:henryvii, _:elizplantagenet
+  ; bio:principal _:henryviii
+  .
+
+_:death
+  a bio:Death
+  ; rdfs:label &quot;The death of Henry VIII on 28 January 1547&quot;
+  ; bio:date &quot;1547-01-28&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/Palace_of_Whitehall&gt;
+  ; bio:principal _:henryviii
+  .
+
+
+_:accession
+  a bio:Accession
+  ; rdfs:label &quot;The accession of Henry VIII to the throne of England on 21 April 1509&quot;
+  ; bio:date &quot;1509-06-24&quot;
+  ; bio:principal _:henryviii
+  ; bio:state &lt;http://dbpedia.org/resource/Kingdom_of_England&gt;
+  ; bio:immediatelyPrecedingEvent [ a bio:Death
+                                    ; rdfs:label &quot;The death of Henry VII on 9 May 1509&quot;
+                                    ; bio:date &quot;1509-05-09&quot;
+                                    ; bio:place &lt;http://dbpedia.org/resource/Richmond_Palace&gt;
+                                    ; bio:principal _:henryvii
+                                  ]
+  .
+
+_:coronation
+  a bio:Coronation
+  ; rdfs:label &quot;The coronation of Henry VIII as King of England on 24 June 1509&quot;
+  ; bio:date &quot;1509-06-24&quot;
+  ; bio:place &lt;http://dbpedia.org/page/Westminster_Abbey&gt;
+  ; bio:principal _:henryviii
+  ; bio:precedingEvent _:accession
+  .
+
+_:burial
+  a bio:Burial
+  ; rdfs:label &quot;The burial of Henry VII at St.George&apos;s Chapel, Windsor Castle,England&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/St_George%E2%80%99s_Chapel%2C_Windsor&gt;
+  ; bio:principal _:henryviii
+  ; bio:precedingEvent _:death
+  .
+
+_:marriage1
+  a bio:Marriage
+  ; rdfs:label &quot;The marriage of Henry VIII and Catherine of Aragon&quot;
+  ; bio:date &quot;1509-06-11&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/Palace_of_Placentia&gt;
+  ; bio:partner _:henryvii, _:catharagon
+  .
+
+_:annulment1
+  a bio:Annulment
+  ; rdfs:label &quot;The annulment of the marriage between Henry VIII and Catherine of Aragon&quot;
+  ; bio:date &quot;1533-05-23&quot;
+  ; bio:partner _:henryvii, _:catharagon
+  ; bio:officiator &lt;http://dbpedia.org/resource/Thomas_Cranmer&gt;
+  .
+
+_:catharagon
+  a foaf:Person
+  ; foaf:name &quot;Anne Boleyn&quot;
+  ; bio:child _:child1, _:child2, _:child3, _:child4, _:child5
+  ; bio:event _:marriage1, _:annulment1
+  .
+
+_:child1
+  a foaf:Person
+  ; rdfs:label &quot;Unnamed daughter of Henry VIII and Catherine of Aragon&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1510-01-31&quot;
+                ; bio:principal _:child1
+                ; bio:parent _:henryviii, _:catharagon
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:date &quot;1510-02-02&quot;
+                ; bio:principal _:child1
+              ]
+  .
+
+_:child2
+  a foaf:Person
+  ; foaf:name &quot;Henry&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1511-01-01&quot;
+                ; bio:principal _:child2
+                ; bio:parent _:henryviii, _:catharagon
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:date &quot;1511-02-22&quot;
+                ; bio:principal _:child2
+              ]
+  .
+
+_:child3
+  a foaf:Person
+  ; foaf:name &quot;Henry&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1514-12&quot;
+                ; bio:principal _:child3
+                ; bio:parent _:henryviii, _:catharagon
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:principal _:child3
+              ]
+  .
+
+_:child4
+  a foaf:Person
+  ; foaf:name &quot;Mary&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1516-02-18&quot;
+                ; bio:principal _:child4
+                ; bio:parent _:henryviii, _:catharagon
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:date &quot;1558-11-17&quot;
+                ; bio:principal _:child4
+              ]
+  .
+
+
+_:child5
+  a foaf:Person
+  ; rdfs:label &quot;Unnamed daughter of Henry VIII and Catherine of Aragon&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1518-11&quot;
+                ; bio:principal _:child5
+                ; bio:parent _:henryviii, _:catharagon
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:principal _:child5
+              ]
+  .
+
+
+_:marriage2
+  a bio:Marriage
+  ; rdfs:label &quot;The marriage of Henry VIII and Anne Boleyn&quot;
+  ; bio:date &quot;1533-01-25&quot;
+  ; bio:partner _:henryvii, _:anneboleyn
+  ; bio:place &lt;http://dbpedia.org/resource/Westminster_Abbey&gt;
+  .
+
+_:anneboleyn
+  a foaf:Person
+  ; foaf:name &quot;Anne Boleyn&quot;
+  ; bio:child _:child6
+  ; bio:event _:marriage2, _:annulment2, _:anneboleyn-death
+  .
+
+_:annulment2
+  a bio:Annulment
+  ; rdfs:label &quot;The annulment of the marriage between Henry VIII and Anne Boleyn&quot;
+  ; bio:date &quot;1536-05-17&quot;
+  ; bio:partner _:henryvii, _:anneboleyn
+  .
+
+_:anneboleyn-death
+  a bio:Execution
+  ; rdfs:label &quot;The beheading of Anne Boleyn&quot;
+  ; bio:date &quot;1536-05-19&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/Tower_of_London&gt;
+  ; bio:principal _:anneboleyn
+  .
+
+_:child6
+  a foaf:Person
+  ; foaf:name &quot;Elizabeth&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1533-09-07&quot;
+                ; bio:principal _:child6
+                ; bio:parent _:henryviii, _:anneboleyn
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:date &quot;1603-03-24&quot;
+                ; bio:principal _:child6
+              ]
+  .
+
+_:marriage3
+  a bio:Marriage
+  ; bio:date &quot;1536-05-20&quot;
+  ; bio:partner _:henryviii, _:janeseymour
+  ; bio:place &lt;http://dbpedia.org/resource/York_Place&gt;
+  .
+
+_:janeseymour
+  a foaf:Person
+  ; foaf:name &quot;Jane Seymour&quot;
+  ; bio:event _:marriage3, _:janeseymour-death
+  ; bio:child _:child7
+  .
+
+_:janeseymour-death
+  a bio:Death
+  ; rdfs:label &quot;The death of Jane Seymour on 24 October 1537&quot;
+  ; bio:date &quot;1537-10-24&quot;
+  ; bio:principal _:janeseymour
+  ; bio:place &lt;http://dbpedia.org/resource/Hampton_Court_Palace&gt;
+  .
+
+
+_:child7
+  a foaf:Person
+  ; foaf:name &quot;Edward&quot;
+  ; bio:event [ a bio:Birth
+                ; bio:date &quot;1537-10-12&quot;
+                ; bio:principal _:child7
+                ; bio:parent _:henryviii, _:janeseymour
+                ; bio:place &lt;http://dbpedia.org/resource/Hampton_Court_Palace&gt;
+              ]
+  ; bio:event [ a bio:Accession
+                ; bio:immediatelyPrecedingEvent _:death
+              ]
+  ; bio:event [ a bio:Death
+                ; bio:date &quot;1553-07-06&quot;
+                ; bio:principal _:child7
+                ; bio:place &lt;http://dbpedia.org/resource/Palace_of_Placentia&gt;
+              ]
+  .
+
+_:marriage4
+  a bio:Marriage
+  ; bio:date &quot;1540-01-06&quot;
+  ; bio:partner _:henryvii, _:annecleves
+  ; bio:place &lt;http://dbpedia.org/resource/Palace_of_Placentia&gt;
+  ; bio:officiator &lt;http://dbpedia.org/resource/Thomas_Cranmer&gt;
+  .
+
+_:annulment3
+  a bio:Annulment
+  ; rdfs:label &quot;The annulment of the marriage between Henry VIII and Anne of Cleves&quot;
+  ; bio:date &quot;1540-07-09&quot;
+  ; bio:partner _:henryviii, _:annecleves
+  .
+
+_:annecleves
+  a foaf:Person
+  ; foaf:name &quot;Anne of Cleves&quot;
+  ; bio:event _:marriage4, _:annulment3
+  .
+
+_:marriage5
+  a bio:Marriage
+  ; bio:date &quot;1540-07-28&quot;
+  ; bio:partner _:henryviii, _:cathhoward
+  ; bio:place &lt;http://dbpedia.org/resource/Oatlands_Palace&gt;
+  .
+
+_:cathhoward
+  a foaf:Person
+  ; foaf:name &quot;Catherine Howard&quot;
+  ; bio:event _:marriage5, _:cathhoward-death
+  .
+
+_:cathhoward-death
+  a bio:Execution
+  ; rdfs:label &quot;The beheading of Catherine Howard&quot;
+  ; bio:date &quot;1542-02-13&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/Tower_of_London&gt;
+  ; bio:principal _:cathhoward
+  .
+
+_:marriage6
+  a bio:Marriage
+  ; rdfs:label &quot;The marriage between Henry VIII and Catherine Parr&quot;
+  ; bio:date &quot;1543-07-12&quot;
+  ; bio:place &lt;http://dbpedia.org/resource/Hampton_Court_Palace&gt;
+  ; bio:partner _:henryviii, _:cathparr
+  .
+
+_:cathparr
+  a foaf:Person
+  ; foaf:name &quot;Catherine Parr&quot;
+  ; bio:event _:marriage6
+  .
+
+
+_:elizblount
+  a foaf:Person
+  ; foaf:name &quot;Elizabeth Blount&quot;
+  ; bio:child _:child8
+  .
+
+_:child8
+  a foaf:Person
+  ; foaf:name &quot;Henry FitzRoy&quot;
+  ; foaf:mother _:elizblount
+  ; foaf:father _:henryviii
+  ; bio:event [ a bio:Birth
+                ; bio:principal _:child8
+                ; bio:date &quot;1519-06-15&quot;
+                ; bio:parent _:henryviii, _:elizblount
+                ; bio:place &lt;http://dbpedia.org/resource/Blackmore&gt;
+                ]
+  .
+
+_:marriage1-interval
+  a bio:Interval
+  ; rdfs:label &quot;The period of time during which Henry VIII and Catherine of Aragon were married&quot;
+  ; bio:initiatingEvent _:marriage1
+  ; bio:concludingEvent _:annulment1
+  .
+
+_:marriage2-interval
+  a bio:Interval
+  ; rdfs:label &quot;The period of time during which Henry VIII and Anne Boleyn were married&quot;
+  ; bio:initiatingEvent _:marriage2
+  ; bio:concludingEvent _:annulment2
+  .
+
+_:marriage3-interval
+  a bio:Interval
+  ; rdfs:label &quot;The period of time during which Henry VIII and Jane Seymour were married&quot;
+  ; bio:initiatingEvent _:marriage3
+  ; bio:concludingEvent _:janeseymour-death
+  .
+
+_:marriage4-interval
+  a bio:Interval
+  ; rdfs:label &quot;The period of time during which Henry VIII and Anne of Cleves were married&quot;
+  ; bio:initiatingEvent _:marriage4
+  ; bio:concludingEvent _:annulment3
+  .
+
+_:marriage5-interval
+  a bio:Interval
+  ; rdfs:label &quot;The period of time during which Henry VIII and Catherine Howard were married&quot;
+  ; bio:initiatingEvent _:marriage5
+  ; bio:terminatingEvent _:cathhoward-death
+  .
+
+_:marriage6-interval
+  a bio:Interval
+  ; rdfs:label &quot;The period of time during which Henry VIII and Catherine Parr were married&quot;
+  ; bio:initiatingEvent _:marriage6
+  ; bio:terminatingEvent _:henryviii-death
+  .
+</code></pre>
+       "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label <http://purl.org/vocab/bio/examples/1> "A Biography of Henry VIII, King of England")
+ClassAssertion(ov:SchemaExample <http://purl.org/vocab/bio/examples/1>)
+
+
+ClassAssertion(ov:SchemaExample _:genid2147483656)
+ClassAssertion(ov:SchemaExample _:genid2147483658)
+ClassAssertion(ov:SchemaExample _:genid2147483660)
+ClassAssertion(ov:SchemaExample _:genid2147483662)
+ClassAssertion(ov:SchemaExample _:genid2147483664)
+ClassAssertion(ov:SchemaExample _:genid2147483666)
+ClassAssertion(ov:SchemaExample _:genid2147483668)
+ClassAssertion(ov:SchemaExample _:genid2147483670)
+AnnotationAssertion(rdfs:label <http://lists.foaf-project.org/mailman/listinfo/foaf-dev> "FOAF-DEV mailing list")
+AnnotationAssertion(rdfs:comment _:genid2147483656 "
+        <pre><code>_:e a bio:Birth
+    ; dc:date &quot;1879-03-14&quot;
+    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:parent &lt;http://dbpedia.org/resource/Pauline_Koch&gt;
+    ; bio:parent &lt;http://dbpedia.org/resource/Hermann_Einstein&gt;
+    ; bio:place &lt;http://dbpedia.org/resource/Ulm&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483656 "The birth of Albert Einstein")
+AnnotationAssertion(rdfs:comment _:genid2147483658 "
+        <pre><code>_:e a bio:Marriage
+    ; dc:date &quot;1903&quot;
+    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;
+    ; bio:place &lt;http://dbpedia.org/resource/Bern&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483658 "The marriage of Albert Einstein and Mileva Marić")
+AnnotationAssertion(rdfs:comment _:genid2147483660 "
+        <pre><code>_:e a bio:Death
+    ; dc:date &quot;1955-04-18&quot;
+    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483660 "The death of Albert Einstein")
+AnnotationAssertion(rdfs:comment _:genid2147483662 "
+        <pre><code>_:e a bio:Divorce
+    ; dc:date &quot;1919-02-14&quot;
+    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;
+    ; bio:place &lt;http://dbpedia.org/resource/Zurich&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483662 "The divorce of Albert Einstein and Mileva Marić")
+AnnotationAssertion(rdfs:comment _:genid2147483664 "
+        <pre><code>_:e a bio:Cremation
+    ; dc:date &quot;1955-04-18&quot;
+    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483664 "The cremation of Albert Einstein")
+AnnotationAssertion(rdfs:comment _:genid2147483666 "
+        <pre><code>_:e a bio:Emigration
+    ; dc:date &quot;1940&quot;
+    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483666 "Albert Einstein becoming a citizen of the United States")
+AnnotationAssertion(rdfs:comment _:genid2147483668 "
+        <pre><code>_:e a bio:Emigration
+    ; dc:date &quot;1933&quot;^^xsd:gYear
+    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483668 "Albert Einstein emigrating to the United States")
+AnnotationAssertion(rdfs:comment _:genid2147483670 "
+        <pre><code>_:e a bio:Graduation
+    ; dc:date &quot;1905&quot;^^xsd:gYear
+    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;
+    ; bio:organization &lt;http://dbpedia.org/resource/University_of_Zurich&gt;
+    .</code></pre>
+        "^^rdf:XMLLiteral)
+AnnotationAssertion(rdfs:label _:genid2147483670 "Albert Einstein receiving his Doctorate from the University of Zurich")
+)

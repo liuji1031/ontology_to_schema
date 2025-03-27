@@ -1,0 +1,242 @@
+Prefix(:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Annotation(dc:date "2019-12-16")
+Annotation(dc:description "This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts.")
+Annotation(dc:title "The RDF Concepts Vocabulary (RDF)")
+
+Declaration(Class(rdf:Alt))
+Declaration(Class(rdf:Bag))
+Declaration(Class(rdf:CompoundLiteral))
+Declaration(Class(rdf:List))
+Declaration(Class(rdf:Property))
+Declaration(Class(rdf:Seq))
+Declaration(Class(rdf:Statement))
+Declaration(Class(rdfs:Class))
+Declaration(Class(rdfs:Container))
+Declaration(Class(rdfs:Literal))
+Declaration(Class(rdfs:Resource))
+Declaration(ObjectProperty(rdf:first))
+Declaration(ObjectProperty(rdf:object))
+Declaration(ObjectProperty(rdf:predicate))
+Declaration(ObjectProperty(rdf:rest))
+Declaration(ObjectProperty(rdf:subject))
+Declaration(ObjectProperty(rdf:type))
+Declaration(ObjectProperty(rdf:value))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdf:direction))
+Declaration(AnnotationProperty(rdf:language))
+Declaration(Datatype(rdf:HTML))
+Declaration(Datatype(rdf:JSON))
+Declaration(Datatype(rdf:PlainLiteral))
+Declaration(Datatype(rdf:XMLLiteral))
+Declaration(Datatype(rdf:langString))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: rdf:direction (direction)
+
+AnnotationAssertion(rdfs:comment rdf:direction "The base direction component of a CompoundLiteral.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:direction <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:direction "direction")
+AnnotationAssertion(rdfs:seeAlso rdf:direction <https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties>)
+AnnotationPropertyDomain(rdf:direction rdf:CompoundLiteral)
+
+# Annotation Property: rdf:language (language)
+
+AnnotationAssertion(rdfs:comment rdf:language "The language component of a CompoundLiteral.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:language <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:language "language")
+AnnotationAssertion(rdfs:seeAlso rdf:language <https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties>)
+AnnotationPropertyDomain(rdf:language rdf:CompoundLiteral)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: rdf:first (first)
+
+AnnotationAssertion(rdfs:comment rdf:first "The first item in the subject RDF list.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:first <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:first "first")
+ObjectPropertyDomain(rdf:first rdf:List)
+ObjectPropertyRange(rdf:first rdfs:Resource)
+
+# Object Property: rdf:object (object)
+
+AnnotationAssertion(rdfs:comment rdf:object "The object of the subject RDF statement.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:object <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:object "object")
+ObjectPropertyDomain(rdf:object rdf:Statement)
+ObjectPropertyRange(rdf:object rdfs:Resource)
+
+# Object Property: rdf:predicate (predicate)
+
+AnnotationAssertion(rdfs:comment rdf:predicate "The predicate of the subject RDF statement.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:predicate <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:predicate "predicate")
+ObjectPropertyDomain(rdf:predicate rdf:Statement)
+ObjectPropertyRange(rdf:predicate rdfs:Resource)
+
+# Object Property: rdf:rest (rest)
+
+AnnotationAssertion(rdfs:comment rdf:rest "The rest of the subject RDF list after the first item.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:rest <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:rest "rest")
+ObjectPropertyDomain(rdf:rest rdf:List)
+ObjectPropertyRange(rdf:rest rdf:List)
+
+# Object Property: rdf:subject (subject)
+
+AnnotationAssertion(rdfs:comment rdf:subject "The subject of the subject RDF statement.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:subject "subject")
+ObjectPropertyDomain(rdf:subject rdf:Statement)
+ObjectPropertyRange(rdf:subject rdfs:Resource)
+
+# Object Property: rdf:type (type)
+
+AnnotationAssertion(rdfs:comment rdf:type "The subject is an instance of a class.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:type <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:type "type")
+ObjectPropertyDomain(rdf:type rdfs:Resource)
+ObjectPropertyRange(rdf:type rdfs:Class)
+
+# Object Property: rdf:value (value)
+
+AnnotationAssertion(rdfs:comment rdf:value "Idiomatic property used for structured values.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:value <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:value "value")
+ObjectPropertyDomain(rdf:value rdfs:Resource)
+ObjectPropertyRange(rdf:value rdfs:Resource)
+
+
+############################
+#   Datatypes
+############################
+
+# Datatype: rdf:HTML (HTML)
+
+AnnotationAssertion(rdfs:comment rdf:HTML "The datatype of RDF literals storing fragments of HTML content")
+AnnotationAssertion(rdfs:isDefinedBy rdf:HTML <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:HTML "HTML")
+AnnotationAssertion(rdfs:seeAlso rdf:HTML <http://www.w3.org/TR/rdf11-concepts/#section-html>)
+
+# Datatype: rdf:JSON (JSON)
+
+AnnotationAssertion(rdfs:comment rdf:JSON "The datatype of RDF literals storing JSON content.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:JSON <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:JSON "JSON")
+AnnotationAssertion(rdfs:seeAlso rdf:JSON <https://www.w3.org/TR/json-ld11/#the-rdf-json-datatype>)
+
+# Datatype: rdf:PlainLiteral (PlainLiteral)
+
+AnnotationAssertion(rdfs:comment rdf:PlainLiteral "The class of plain (i.e. untyped) literal values, as used in RIF and OWL 2")
+AnnotationAssertion(rdfs:isDefinedBy rdf:PlainLiteral <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:PlainLiteral "PlainLiteral")
+AnnotationAssertion(rdfs:seeAlso rdf:PlainLiteral <http://www.w3.org/TR/rdf-plain-literal/>)
+
+# Datatype: rdf:XMLLiteral (XMLLiteral)
+
+AnnotationAssertion(rdfs:comment rdf:XMLLiteral "The datatype of XML literal values.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:XMLLiteral <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:XMLLiteral "XMLLiteral")
+
+# Datatype: rdf:langString (langString)
+
+AnnotationAssertion(rdfs:comment rdf:langString "The datatype of language-tagged string values")
+AnnotationAssertion(rdfs:isDefinedBy rdf:langString <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:langString "langString")
+AnnotationAssertion(rdfs:seeAlso rdf:langString <http://www.w3.org/TR/rdf11-concepts/#section-Graph-Literal>)
+
+
+############################
+#   Classes
+############################
+
+# Class: rdf:Alt (Alt)
+
+AnnotationAssertion(rdfs:comment rdf:Alt "The class of containers of alternatives.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:Alt <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:Alt "Alt")
+SubClassOf(rdf:Alt rdfs:Container)
+
+# Class: rdf:Bag (Bag)
+
+AnnotationAssertion(rdfs:comment rdf:Bag "The class of unordered containers.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:Bag <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:Bag "Bag")
+SubClassOf(rdf:Bag rdfs:Container)
+
+# Class: rdf:CompoundLiteral (CompoundLiteral)
+
+AnnotationAssertion(rdfs:comment rdf:CompoundLiteral "A class representing a compound literal.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:CompoundLiteral <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:CompoundLiteral "CompoundLiteral")
+AnnotationAssertion(rdfs:seeAlso rdf:CompoundLiteral <https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties>)
+SubClassOf(rdf:CompoundLiteral rdfs:Resource)
+
+# Class: rdf:HTML (HTML)
+
+SubClassOf(rdf:HTML rdfs:Literal)
+
+# Class: rdf:JSON (JSON)
+
+SubClassOf(rdf:JSON rdfs:Literal)
+
+# Class: rdf:List (List)
+
+AnnotationAssertion(rdfs:comment rdf:List "The class of RDF Lists.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:List <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:List "List")
+SubClassOf(rdf:List rdfs:Resource)
+
+# Class: rdf:PlainLiteral (PlainLiteral)
+
+SubClassOf(rdf:PlainLiteral rdfs:Literal)
+
+# Class: rdf:Property (Property)
+
+AnnotationAssertion(rdfs:comment rdf:Property "The class of RDF properties.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:Property <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:Property "Property")
+SubClassOf(rdf:Property rdfs:Resource)
+
+# Class: rdf:Seq (Seq)
+
+AnnotationAssertion(rdfs:comment rdf:Seq "The class of ordered containers.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:Seq <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:Seq "Seq")
+SubClassOf(rdf:Seq rdfs:Container)
+
+# Class: rdf:Statement (Statement)
+
+AnnotationAssertion(rdfs:comment rdf:Statement "The class of RDF statements.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:Statement <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:Statement "Statement")
+SubClassOf(rdf:Statement rdfs:Resource)
+
+# Class: rdf:XMLLiteral (XMLLiteral)
+
+SubClassOf(rdf:XMLLiteral rdfs:Literal)
+
+# Class: rdf:langString (langString)
+
+SubClassOf(rdf:langString rdfs:Literal)
+
+
+AnnotationAssertion(rdfs:comment rdf:nil "The empty list, with no items in it. If the rest of a list is nil then the list has no more items in it.")
+AnnotationAssertion(rdfs:isDefinedBy rdf:nil <http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+AnnotationAssertion(rdfs:label rdf:nil "nil")
+)

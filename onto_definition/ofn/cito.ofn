@@ -1,0 +1,1079 @@
+Prefix(:=<http://purl.org/spar/cito#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sit:=<http://www.ontologydesignpatterns.org/cp/owl/situation.owl#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(cito:=<http://purl.org/spar/cito/cito:>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(schema:=<http://schema.org/>)
+Prefix(cpannotationschema:=<http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#>)
+Prefix(discourse-relationships:=<http://purl.org/swan/2.0/discourse-relationships/>)
+
+
+Ontology(<http://purl.org/spar/cito>
+<http://purl.org/spar/cito/2018-02-16>
+Import(<http://www.ontologydesignpatterns.org/cp/owl/situation.owl>)
+Annotation(dc:contributor "Paolo Ciccarese")
+Annotation(dc:contributor "Tim Clark")
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2018-02-16")
+Annotation(dc:description "CiTO, the Citation Typing Ontology, is an ontology written in OWL 2 DL to enable characterization of the nature or type of citations, both factually and rhetorically, and to permit these descriptions to be published on the Web.
+
+The citations characterized may be either direct and explicit (as in the reference list of a journal article), indirect (e.g. a citation to a more recent paper by the same research group on the same topic), or implicit (e.g. as in artistic quotations or parodies, or in cases of plagiarism).
+
+CiTO contains the object property cito:cites and its sub-properties, and its inverse property cito:isCitedBy, from the original Citation Typing Ontology, CiTO v1.6.  Upon the creation of version 2.0 of CiTO, a number of new sub-properties of cito:cites were added, and the inverse properties of all the sub-properties of cito:cites were created, all of which are sub-properties of cito:isCitedBy.  The ontology has also been integrated with the SWAN Discourse Relationships Ontology by making cito:cites a sub-property of http://purl.org/swan/2.0/discourse-relationships/refersTo.
+
+Restrictions of domain and range present in the previous version of CiTO were removed from the object properties when creating CiTO v 2.0, permitting its independent use in other contexts, in addition to conventional bibliographic citations.
+
+So that they can be used independently, other entities that were previously included in CiTO v1.6 have now been made components of other SPAR ontologies: FaBiO, the FRBR-aligned Bibliographic Ontology; C4O, the Citation Counting and Context Characterization Ontology; and PSO, the Publication Status Ontology.
+
+The addition of two new properties:cito:usesConclusionsFrom and its inverse cito:providesConclusionsFor on 09Dec2011 led to a version number increment from v2.0 to v2.1.
+
+The addition of two additional properties, cito:compiles and cito:isCompiledBy, previously in the deprecated CiTO4Data ontology, on 03 July 2012 led to a version increment from v2.1 to v2.2.
+
+Subsequent expansions include:
+
+in versions 2.3 and 2.4 the addition of the object properties cito:citesAsPotentialSolution, cito:citesAsRecommendedReading, cito:repliesTo, cito:retracts, cito:speculates on, and their inverse properties;
+
+in v2.5 the addition of cito:CitationAct, cito:hasCitationEvent, cito:hasCitedEntity and cito:hasCitingEntity;
+
+in v 2.6:
+renaming cito:hasCitationEvent to become cito:hasCitationCharacterization;
+improving definitions of cito:CitationAct, cito:hasCitationCharacterization, cito:hasCitedEntity and cito:hasCitingEntity;
+revising the definition of cito:isCompiledBy to correct it and bring it into line with the DataCite Metadata Kernel v2.2 definition;
+changing the definition of cito:sharesAuthorsWith from 'An object property indicating that the citing entity has at least one author in common with the cited entity.' to 'An object property between two entities indicating that they have at least one author in common.' so that it can be used when one entity does not actually cite the other;
+adding the object properties cito:hasRelatedEntity, cito:sharesFundingAgencyWith and cito:sharesAuthorInstitutionWith;
+and adding the text 'An object property indicating that . . .' at the beginning of the textual definition (rdfs:comment) for each CiTO object property.
+
+in v 2.6.1:
+Removed text 'An object property indicating that . . .' added in v 2.6 at the beginning of the textual definition (rdfs:comment) for each CiTO object property, so that each definition is just a direct statement of the relationship.
+Removed the property cito:hasRelatedEntity (in favour of using dcterms:relation).
+Renamed cito:hasReply to become cito:hasReplyFrom.
+Improved the textual definitions of cito:derides and its inverse property.
+
+in v 2.6.2:
+Improved definitions of of cito:CitationAct, cito:hasCitationCharacterization, cito:hasCitedEntity and cito:hasCitingEntity.
+
+in v 2.6.3:
+Added examples for each citation type (i.e., all the subproperties of cito:cites).
+
+in v 2.6.4:
+Added alignment with schema:citation.
+
+in v 2.7.0:
+Added new property cito:linksTo, and corrected some property URL.
+
+in v 2.7.1
+Corrected some typos in property comments.
+
+in v 2.7.2
+The name of the class cito:CitationAct has been changed to cito:Citation, and its definition has been modified. The property cito:hasCitationTimeSpan has been added.
+
+in v 2.7.3
+Added the class cito:SelfCitation, i.e. citation in which the citing and the cited entities have at least one author in common.
+
+in v 2.8
+Renamed the class cito:SelfCitation in cito:AuthorSelfCitation. Created a new class cito:SelfCitation with a more general definition (citation in which the citing and the cited entities have something significant in common with one another), which now includes five subclasses: cito:AuthorSelfCitation, cito:JournalSelfCitation, cito:FunderSelfCitation, cito:AffiliationSelfCitation, cito:AuthorNetworkSelfCitation. The latter class is also accompanied by the new data property cito:hasCoAuthorCitationLevel, which specifies the minimal distance that one of the authors of a citing entity has with regards to one of the authors of a cited entity according to their co-author network. Added the object properties cito:sharesPublicationVenueWith and its subproperty cito:sharesJournalWith. Added the data property cito:hasCitationCreationDate, and changed the domain of cito:hasCitationTimeSpan with xsd:duration.
+
+in v 2.8.1
+Renamed the property cito:hasCoAuthorCitationLevel in cito:hasCoAuthorshipCitationLevel.")
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "CiTO, the Citation Typing Ontology"@en)
+Annotation(rdfs:comment "The Citation Typing Ontology (CiTO) is an ontology that enables characterization of the nature or type of citations, both factually and rhetorically.
+
+**URL:** http://purl.org/spar/cito
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**Contributors:** [Paolo Ciccarese](https://orcid.org/0000-0002-5156-2703), [Tim Clark](https://orcid.org/0000-0003-4060-7360)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/cito
+
+**Cite as:** Peroni, S., Shotton, D. (2012). FaBiO and CiTO: ontologies for describing bibliographic resources and citations. In Journal of Web Semantics, 17: 33-43. https://doi.org/10.1016/j.websem.2012.08.001. Open Access at: http://speroni.web.cs.unibo.it/publications/peroni-2012-fabio-cito-ontologies.pdf"@en)
+Annotation(owl:priorVersion <http://purl.org/spar/cito/2018-02-12>)
+Annotation(owl:versionInfo "2.8.1")
+
+Declaration(Class(<http://purl.org/spar/cito/AffilationSelfCitation>))
+Declaration(Class(<http://purl.org/spar/cito/AuthorNetworkSelfCitation>))
+Declaration(Class(<http://purl.org/spar/cito/AuthorSelfCitation>))
+Declaration(Class(<http://purl.org/spar/cito/Citation>))
+Declaration(Class(<http://purl.org/spar/cito/DistantCitation>))
+Declaration(Class(<http://purl.org/spar/cito/FunderSelfCitation>))
+Declaration(Class(<http://purl.org/spar/cito/JournalCartelCitation>))
+Declaration(Class(<http://purl.org/spar/cito/JournalSelfCitation>))
+Declaration(Class(<http://purl.org/spar/cito/SelfCitation>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/agreesWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/cites>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsAuthority>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsDataSource>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsEvidence>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsMetadataDocument>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsPotentialSolution>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsRecommendedReading>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsRelated>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesAsSourceDocument>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/citesForInformation>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/compiles>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/confirms>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/containsAssertionFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/corrects>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/credits>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/critiques>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/derides>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/describes>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/disagreesWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/discusses>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/disputes>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/documents>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/extends>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/givesBackgroundTo>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/givesSupportTo>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/hasCitationCharacterization>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/hasCitedEntity>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/hasCitingEntity>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/hasReplyFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/includesExcerptFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/includesQuotationFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isAgreedWithBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsAuthorityBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsDataSourceBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsEvidenceBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsMetadataDocumentBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsPontentialSolutionBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsRecommendedReadingBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsRelatedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedAsSourceDocumentBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCitedForInformationBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCompiledBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isConfirmedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCorrectedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCreditedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isCritiquedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isDeridedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isDescribedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isDisagreedWithBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isDiscussedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isDisputedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isDocumentedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isExtendedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isLinkedToBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isParodiedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isPlagiarizedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isQualifiedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isRefutedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isRetractedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isReviewedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isRidiculedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isSpeculatedOnBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isSupportedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/isUpdatedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/likes>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/linksTo>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/obtainsBackgroundFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/obtainsSupportFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/parodies>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/plagiarizes>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/providesAssertionFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/providesConclusionsFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/providesDataFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/providesExcerptFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/providesMethodFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/providesQuotationFor>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/qualifies>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/refutes>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/repliesTo>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/retracts>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/reviews>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/ridicules>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/sharesAuthorInstitutionWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/sharesAuthorWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/sharesFundingAgencyWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/sharesJournalWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/sharesPublicationVenueWith>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/speculatesOn>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/supports>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/updates>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/usesConclusionsFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/usesDataFrom>))
+Declaration(ObjectProperty(<http://purl.org/spar/cito/usesMethodIn>))
+Declaration(ObjectProperty(discourse-relationships:refersTo))
+Declaration(ObjectProperty(schema:citation))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(DataProperty(<http://purl.org/spar/cito/hasCitationCreationDate>))
+Declaration(DataProperty(<http://purl.org/spar/cito/hasCitationTimeSpan>))
+Declaration(DataProperty(<http://purl.org/spar/cito/hasCoAuthorshipCitationLevel>))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(owl:priorVersion))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(Datatype(xsd:duration))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/cito/agreesWith> (agrees with)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/agreesWith> "Example: We share Galileo's opinion: the Earth moves [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/agreesWith> "The citing entity agrees with statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/agreesWith> "agrees with"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/agreesWith> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/agreesWith> <http://purl.org/spar/cito/isAgreedWithBy>)
+
+# Object Property: <http://purl.org/spar/cito/cites> (cites)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/cites> "The citing entity cites the cited entity, either directly and explicitly (as in the reference list of a journal article), indirectly (e.g. by citing a more recent paper by the same group on the same topic), or implicitly (e.g. as in artistic quotations or parodies, or in cases of plagiarism)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/cites> "cites"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/cites> discourse-relationships:refersTo)
+InverseObjectProperties(<http://purl.org/spar/cito/cites> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsAuthority> (cites as authority)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsAuthority> "Example: Newton asserted that we are like dwarfs standing on the shoulders of giants [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsAuthority> "The citing entity cites the cited entity as one that provides an authoritative description or definition of the subject under discussion."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsAuthority> "cites as authority"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsAuthority> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsAuthority> <http://purl.org/spar/cito/isCitedAsAuthorityBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsDataSource> (cites as data source)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsDataSource> "Example: Italy has more than ten thousand kilometers of shoreline: see [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsDataSource> "The citing entity cites the cited entity as source of data."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsDataSource> "cites as data source"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsDataSource> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsDataSource> <http://purl.org/spar/cito/isCitedAsDataSourceBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsEvidence> (cites as evidence)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsEvidence> "Example: We found an unquestionable demonstration of our hypothesis in [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsEvidence> "The citing entity cites the cited entity as source of factual evidence for statements it contains."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsEvidence> "cites as evidence"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsEvidence> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsEvidence> <http://purl.org/spar/cito/isCitedAsEvidenceBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsMetadataDocument> (cites as metadata document)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsMetadataDocument> "Example: Basic bibliographic, entity and project metadata relating to this article, recorded in a structured machine-readable form, is available as an additional file [X] accompanying this paper."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsMetadataDocument> "The citing entity cites the cited entity as being the container of metadata describing the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsMetadataDocument> "cites as metadata document"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsMetadataDocument> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsMetadataDocument> <http://purl.org/spar/cito/isCitedAsMetadataDocumentBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsPotentialSolution> (cites as potential solution)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsPotentialSolution> "Example: This risk could be avoided using the approach shown in [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsPotentialSolution> "The citing entity cites the cited entity as providing or containing a possible solution to the issues being discussed."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsPotentialSolution> "cites as potential solution"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsPotentialSolution> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsPotentialSolution> <http://purl.org/spar/cito/isCitedAsPontentialSolutionBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsRecommendedReading> (cites as recommended reading)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsRecommendedReading> "Example: To our knowledge, [X] is the best source of exercises about UML, making it a valuable proposal for beginners."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsRecommendedReading> "The citing entity cites the cited entity as an item of recommended reading.  This property can be used, for example, to describe references in a lecture reading list, where the cited references are relevant to the general topic of the lecture, but might not be individually cited within the text of the lecture.  Similarly, it could be used to describe items in a 'Suggested further reading' list at the end of a book chapter."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsRecommendedReading> "cites as recommended reading"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsRecommendedReading> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsRecommendedReading> <http://purl.org/spar/cito/isCitedAsRecommendedReadingBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsRelated> (cites as related)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsRelated> "Example: An analysis similar to what we proposed here is presented in [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsRelated> "The citing entity cites the cited entity as one that is related."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsRelated> "cites as related"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsRelated> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsRelated> <http://purl.org/spar/cito/isCitedAsRelatedBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesAsSourceDocument> (cites as source document)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesAsSourceDocument> "Example: Several sections of this work are based on our literature review of the topic published as journal article [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesAsSourceDocument> "The citing entity cites the cited entity as being the entity from which the citing entity is derived, or about which the citing entity contains metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesAsSourceDocument> "cites as source document"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesAsSourceDocument> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesAsSourceDocument> <http://purl.org/spar/cito/isCitedAsSourceDocumentBy>)
+
+# Object Property: <http://purl.org/spar/cito/citesForInformation> (cites for information)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/citesForInformation> "Example: The grammar of Pascal was introduced in [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/citesForInformation> "The citing entity cites the cited entity as a source of information on the subject under discussion."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/citesForInformation> "cites for information"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/citesForInformation> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/citesForInformation> <http://purl.org/spar/cito/isCitedForInformationBy>)
+
+# Object Property: <http://purl.org/spar/cito/compiles> (compiles)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/compiles> "Example: This book gathers interviews with academic researchers of several disciplines [X]."@en)
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/compiles> "Note: This property has been imported from the CiTO4Data ontology, usage of which has been deprecated."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/compiles> "The citing entity is used to create or compile the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/compiles> "compiles"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/compiles> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/compiles> <http://purl.org/spar/cito/isCompiledBy>)
+
+# Object Property: <http://purl.org/spar/cito/confirms> (confirms)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/confirms> "Example: Our findings are similar to those published in [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/confirms> "The citing entity confirms facts, ideas or statements presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/confirms> "confirms"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/confirms> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/confirms> <http://purl.org/spar/cito/isConfirmedBy>)
+
+# Object Property: <http://purl.org/spar/cito/containsAssertionFrom> (contains assertion from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/containsAssertionFrom> "Example: We think that to stand on the top of giants [X] is a valuable principle to follow for our own research."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/containsAssertionFrom> "The citing entity contains a statement of fact or a logical assertion (or a collection of such facts and/or assertions) originally present in the cited entity.   This object property is designed to be used to relate a separate abstract, summary or nanopublication to the cited entity upon which it is based."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/containsAssertionFrom> "contains assertion from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/containsAssertionFrom> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/containsAssertionFrom> <http://purl.org/spar/cito/providesAssertionFor>)
+
+# Object Property: <http://purl.org/spar/cito/corrects> (corrects)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/corrects> "Example: The result published in [X] is partially wrong, the correct result is 42."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/corrects> "The citing entity corrects statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/corrects> "corrects"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/corrects> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/corrects> <http://purl.org/spar/cito/isCorrectedBy>)
+
+# Object Property: <http://purl.org/spar/cito/credits> (credits)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/credits> "Example: Galileo was the first to observe Jupiter's satellites [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/credits> "The citing entity acknowledges contributions made by the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/credits> "credits"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/credits> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/credits> <http://purl.org/spar/cito/isCreditedBy>)
+
+# Object Property: <http://purl.org/spar/cito/critiques> (critiques)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/critiques> "Example: The ideas presented in [X] are badly substantantiated."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/critiques> "The citing entity critiques statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/critiques> "critiques"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/critiques> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/critiques> <http://purl.org/spar/cito/isCritiquedBy>)
+
+# Object Property: <http://purl.org/spar/cito/derides> (derides)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/derides> "Example: The ideas published in [X] are incredibly stupid."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/derides> "The citing entity express derision for the cited entity, or for ideas or conclusions contained within it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/derides> "derides"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/derides> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/derides> <http://purl.org/spar/cito/isDeridedBy>)
+
+# Object Property: <http://purl.org/spar/cito/describes> (describes)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/describes> "Example: Galileo's book [X] is a dialog among three scientists about Copernicus' eliocentric theory."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/describes> "The citing entity describes the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/describes> "describes"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/describes> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/describes> <http://purl.org/spar/cito/isDescribedBy>)
+
+# Object Property: <http://purl.org/spar/cito/disagreesWith> (disagrees with)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/disagreesWith> "Example: We do not share Galileo's opinion [X]: the Earth does not move."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/disagreesWith> "The citing entity disagrees with statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/disagreesWith> "disagrees with"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/disagreesWith> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/disagreesWith> <http://purl.org/spar/cito/isDisagreedWithBy>)
+
+# Object Property: <http://purl.org/spar/cito/discusses> (discusses)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/discusses> "Example: We now examine if Galileo is right when he writes [X] that the Earth moves."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/discusses> "The citing entity discusses statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/discusses> "discusses"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/discusses> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/discusses> <http://purl.org/spar/cito/isDiscussedBy>)
+
+# Object Property: <http://purl.org/spar/cito/disputes> (disputes)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/disputes> "Example: We doubt that Galileo is right when he writes [X] that the Earth moves."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/disputes> "The citing entity disputes statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/disputes> "disputes"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/disputes> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/disputes> <http://purl.org/spar/cito/isDisputedBy>)
+
+# Object Property: <http://purl.org/spar/cito/documents> (documents)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/documents> "Example: Herein we report in detail the complete set of ontological rules defined in the Overlapping Ontology [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/documents> "The citing entity documents information about the cited entity.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/documents> "documents"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/documents> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/documents> <http://purl.org/spar/cito/isDocumentedBy>)
+
+# Object Property: <http://purl.org/spar/cito/extends> (extends)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/extends> "Example: We add to Galileo's findings concerning the Earth [X] that also the Moon moves."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/extends> "The citing entity extends facts, ideas or understandings presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/extends> "extends"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/extends> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/extends> <http://purl.org/spar/cito/isExtendedBy>)
+
+# Object Property: <http://purl.org/spar/cito/givesBackgroundTo> (gives background to)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/givesBackgroundTo> "The cited entity provides background information for the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/givesBackgroundTo> "gives background to"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/givesBackgroundTo> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/givesBackgroundTo> <http://purl.org/spar/cito/obtainsBackgroundFrom>)
+
+# Object Property: <http://purl.org/spar/cito/givesSupportTo> (gives support to)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/givesSupportTo> "The cited entity provides intellectual or factual support for the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/givesSupportTo> "gives support to"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/givesSupportTo> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/givesSupportTo> <http://purl.org/spar/cito/obtainsSupportFrom>)
+
+# Object Property: <http://purl.org/spar/cito/hasCitationCharacterization> (has citation characterization)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasCitationCharacterization> "A property that links a citation to its characterization made by using a CiTO citation characterization property such as cito:extends. This usage involved OWL2 punning, whenby a CiTO object property, such as the aforementioned cito:extends, is used as the object of an OWL assertion:
+
+     :thisCitation cito:hasCitationCharacterization cito:extends .
+
+In such cases of OWL punning, the CiTO object properties are simultaneously considered both as normal object properties and also as proper named individuals of the class owl:Thing."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasCitationCharacterization> "has citation characterization"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/hasCitationCharacterization> sit:isSettingFor)
+
+# Object Property: <http://purl.org/spar/cito/hasCitedEntity> (has cited entity)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasCitedEntity> "A property that relates a citation to the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasCitedEntity> "has cited entity"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/hasCitedEntity> sit:isSettingFor)
+
+# Object Property: <http://purl.org/spar/cito/hasCitingEntity> (has citing entity)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasCitingEntity> "A property that relates a citation to the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasCitingEntity> "has citing entity"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/hasCitingEntity> sit:isSettingFor)
+
+# Object Property: <http://purl.org/spar/cito/hasReplyFrom> (has reply from)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasReplyFrom> "The cited entity evokes a reply from the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasReplyFrom> "has reply from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/hasReplyFrom> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/hasReplyFrom> <http://purl.org/spar/cito/repliesTo>)
+
+# Object Property: <http://purl.org/spar/cito/includesExcerptFrom> (includes excerpt from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/includesExcerptFrom> "An excerpt is more general than a quotation. It is generally used to indicate a re-published extract from a book, instruction manual, film, radio programme, etc, that need not be what someone said.  For example:
+
+Oxford 01865
+Oxshott 01372
+Oxted 01883
+Oxton 01578
+
+is an excerpt from the UK Dialling Codes section of the Oxford Telephone Directory."@en)
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/includesExcerptFrom> "Example: In her work, the author states that even though most Human Information Behaviour researchers are familiar with the literature related to their studies, it is not uncommon for investigators to fail to see the benefits they may gain from previous mistakes [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/includesExcerptFrom> "The citing entity includes one or more excerpts from the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/includesExcerptFrom> "includes excerpt from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/includesExcerptFrom> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/includesExcerptFrom> <http://purl.org/spar/cito/providesExcerptFor>)
+
+# Object Property: <http://purl.org/spar/cito/includesQuotationFrom> (includes quotation from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/includesQuotationFrom> "A quotation is a repetition of what someone has said, and is presented \"within quotation marks\", for example:
+
+On June 4th 1940, Winston Churchill made a speech on the radio that has since become famous, that included the words: \" . . . we shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields and in the streets, we shall fight in the hills; we shall never surrender . . .\""@en)
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/includesQuotationFrom> "Example: As Newton wrote in [X]: \"We are like dwarfs standing on the shoulders of giants\"."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/includesQuotationFrom> "The citing entity includes one or more quotations from the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/includesQuotationFrom> "includes quotation from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/includesQuotationFrom> <http://purl.org/spar/cito/cites>)
+InverseObjectProperties(<http://purl.org/spar/cito/includesQuotationFrom> <http://purl.org/spar/cito/providesQuotationFor>)
+
+# Object Property: <http://purl.org/spar/cito/isAgreedWithBy> (is agreed with by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isAgreedWithBy> "The cited entity contains statements, ideas or conclusions with which the citing entity agrees."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isAgreedWithBy> "is agreed with by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isAgreedWithBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsAuthorityBy> (is cited as authority by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsAuthorityBy> "The cited entity is cited as providing an authoritative description or definition of the subject under discussion in the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsAuthorityBy> "is cited as authority by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsAuthorityBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsDataSourceBy> (is cited as data source by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsDataSourceBy> "The cited entity is cited as a data source by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsDataSourceBy> "is cited as data source by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsDataSourceBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsEvidenceBy> (is cited as evidence by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsEvidenceBy> "The cited entity is cited for providing factual evidence to the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsEvidenceBy> "is cited as evidence by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsEvidenceBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsMetadataDocumentBy> (is cited as metadata document by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsMetadataDocumentBy> "The cited entity is cited as being the container of metadata relating to the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsMetadataDocumentBy> "is cited as metadata document by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsMetadataDocumentBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsPontentialSolutionBy> (is cited as potential solution by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsPontentialSolutionBy> "The cited entity is cited as providing or containing a possible solution to the issues being discussed in the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsPontentialSolutionBy> "is cited as potential solution by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsPontentialSolutionBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsRecommendedReadingBy> (is cited as recommended reading by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsRecommendedReadingBy> "The cited entity is cited by the citing entity as an item of recommended reading.  This property can be used, for example, to describe references in a lecture reading list, where the cited references are relevant to the general topic of the lecture, but might not be individually cited within the text of the lecture.  Similarly, it could be used to describe items in a 'Suggested further reading' list at the end of a book chapter."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsRecommendedReadingBy> "is cited as recommended reading by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsRecommendedReadingBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsRelatedBy> (is cited as related by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsRelatedBy> "The cited entity is cited as being related to the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsRelatedBy> "is cited as related by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsRelatedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedAsSourceDocumentBy> (is cited as source document by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedAsSourceDocumentBy> "The cited entity is cited as being the entity from which the citing entity is derived, or about which the citing entity contains metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedAsSourceDocumentBy> "is cited as source document by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedAsSourceDocumentBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCitedBy> (is cited by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedBy> "The cited entity (the subject of the RDF triple) is cited by the citing entity (the object of the triple)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedBy> "is cited by"@en)
+
+# Object Property: <http://purl.org/spar/cito/isCitedForInformationBy> (is cited for information by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCitedForInformationBy> "The cited entity is cited as a source of information on the subject under discussion in the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCitedForInformationBy> "is cited for information by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCitedForInformationBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCompiledBy> (is compiled by)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/isCompiledBy> "Note: This property has been imported from the CiTO4Data ontology, usage of which has been deprecated."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCompiledBy> "The cited entity is the result of a compile or creation event using the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCompiledBy> "is compiled by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCompiledBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isConfirmedBy> (is confirmed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isConfirmedBy> "The cited entity presents facts, ideas or statements that are confirmed by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isConfirmedBy> "is confirmed by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isConfirmedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCorrectedBy> (is corrected by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCorrectedBy> "The cited entity presents statements, ideas or conclusions that are corrected by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCorrectedBy> "is corrected by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCorrectedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCreditedBy> (is credited by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCreditedBy> "The cited entity makes contributions that are acknowledged by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCreditedBy> "is credited by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCreditedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isCritiquedBy> (is critiqued by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isCritiquedBy> "The cited entity presents statements, ideas or conclusions that are critiqued by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isCritiquedBy> "is critiqued by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isCritiquedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isDeridedBy> (is derided by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isDeridedBy> "The cited entity contains ideas or conclusions for which the citing entity express derision."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isDeridedBy> "is derided by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isDeridedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isDescribedBy> (is described by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isDescribedBy> "The cited entity is described by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isDescribedBy> "is described by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isDescribedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isDisagreedWithBy> (is disagreed with by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isDisagreedWithBy> "The cited entity presents statements, ideas or conclusions that are disagreed with by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isDisagreedWithBy> "is disagreed with by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isDisagreedWithBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isDiscussedBy> (is discussed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isDiscussedBy> "The cited entity presents statements, ideas or conclusions that are discussed by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isDiscussedBy> "is discussed by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isDiscussedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isDisputedBy> (is disputed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isDisputedBy> "The cited entity presents statements, ideas or conclusions that are disputed by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isDisputedBy> "is disputed by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isDisputedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isDocumentedBy> (is documented by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isDocumentedBy> "Information about the cited entity is documented by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isDocumentedBy> "is documented by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isDocumentedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isExtendedBy> (is extended by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isExtendedBy> "The cited entity presents facts, ideas or understandings that are extended by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isExtendedBy> "is extended by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isExtendedBy> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/isLinkedToBy> (is linked to by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isLinkedToBy> "The cited entity is the target for an HTTP Uniform Resource Locator (URL) link within the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isLinkedToBy> "is linked to by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isLinkedToBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isLinkedToBy> <http://purl.org/spar/cito/linksTo>)
+
+# Object Property: <http://purl.org/spar/cito/isParodiedBy> (is parodied by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isParodiedBy> "The characteristic style or content of the cited entity is imitated by the citing entity for comic effect, usually without explicit citation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isParodiedBy> "is parodied by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isParodiedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isParodiedBy> <http://purl.org/spar/cito/parodies>)
+
+# Object Property: <http://purl.org/spar/cito/isPlagiarizedBy> (is plagiarized by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isPlagiarizedBy> "The cited entity is plagiarized by the author of the citing entity, who includes within the citing entity textual or other elements from the cited entity without formal acknowledgement of their source. The cited entity is thus not explicitly cited from within the citing entity, according to the norms of scholarly practice, but is cited implicitly."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isPlagiarizedBy> "is plagiarized by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isPlagiarizedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isPlagiarizedBy> <http://purl.org/spar/cito/plagiarizes>)
+
+# Object Property: <http://purl.org/spar/cito/isQualifiedBy> (is qualified by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isQualifiedBy> "The cited entity presents statements, ideas or conclusions that are qualified or have conditions placed upon them by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isQualifiedBy> "is qualified by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isQualifiedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isQualifiedBy> <http://purl.org/spar/cito/qualifies>)
+
+# Object Property: <http://purl.org/spar/cito/isRefutedBy> (is refuted by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isRefutedBy> "The cited entity presents statements, ideas or conclusions that are refuted by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isRefutedBy> "is refuted by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isRefutedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isRefutedBy> <http://purl.org/spar/cito/refutes>)
+
+# Object Property: <http://purl.org/spar/cito/isRetractedBy> (is retracted by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isRetractedBy> "The cited entity is formally retracted by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isRetractedBy> "is retracted by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isRetractedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isRetractedBy> <http://purl.org/spar/cito/retracts>)
+
+# Object Property: <http://purl.org/spar/cito/isReviewedBy> (is reviewed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isReviewedBy> "The cited entity presents statements, ideas or conclusions that are reviewed by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isReviewedBy> "is reviewed by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isReviewedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isReviewedBy> <http://purl.org/spar/cito/reviews>)
+
+# Object Property: <http://purl.org/spar/cito/isRidiculedBy> (is ridiculed by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isRidiculedBy> "The cited entity or aspects of its contents are ridiculed by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isRidiculedBy> "is ridiculed by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isRidiculedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isRidiculedBy> <http://purl.org/spar/cito/ridicules>)
+
+# Object Property: <http://purl.org/spar/cito/isSpeculatedOnBy> (is speculated on by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isSpeculatedOnBy> "The cited entity is cited because the citing article contains speculations on its content or ideas."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isSpeculatedOnBy> "is speculated on by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isSpeculatedOnBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isSpeculatedOnBy> <http://purl.org/spar/cito/speculatesOn>)
+
+# Object Property: <http://purl.org/spar/cito/isSupportedBy> (is supported by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isSupportedBy> "The cited entity receives intellectual or factual support from the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isSupportedBy> "is supported by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isSupportedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isSupportedBy> <http://purl.org/spar/cito/supports>)
+
+# Object Property: <http://purl.org/spar/cito/isUpdatedBy> (is updated by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/isUpdatedBy> "The cited entity presents statements, ideas, hypotheses or understanding that are updated by the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/isUpdatedBy> "is updated by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/isUpdatedBy> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/isUpdatedBy> <http://purl.org/spar/cito/updates>)
+
+# Object Property: <http://purl.org/spar/cito/likes> (likes)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/likes> "A property that permits you to express appreciation of or interest in something that is the object of the RDF triple, or to express that it is worth thinking about even if you do not agree with its content, enabling social media 'likes' statements to be encoded in RDF.  Use of this property does NOT imply the existence of a formal citation of the entity that is 'liked'."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/likes> "likes"@en)
+
+# Object Property: <http://purl.org/spar/cito/linksTo> (links to)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/linksTo> "Example: The BioSharing registry (https://biosharing.org) can be of use as it describes the standards in detail, including versions where applicable."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/linksTo> "The citing entity provides a link, in the form of an HTTP Uniform Resource Locator (URL), to the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/linksTo> "links to"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/linksTo> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/obtainsBackgroundFrom> (obtains background from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/obtainsBackgroundFrom> "Example: There is a need for more observational studies and studies using narrative causation to describe the potential contribution of information in problem-solving and decision-making [X]; our work addresses these needs."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/obtainsBackgroundFrom> "The citing entity obtains background information from the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/obtainsBackgroundFrom> "obtains background from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/obtainsBackgroundFrom> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/obtainsSupportFrom> (obtains support from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/obtainsSupportFrom> "Example: Our ideas were also shared by Doe et al. [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/obtainsSupportFrom> "The citing entity obtains intellectual or factual support from the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/obtainsSupportFrom> "obtains support from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/obtainsSupportFrom> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/parodies> (parodies)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/parodies> "Example: We act as giants on the shoulders of dwarfs [X]!"@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/parodies> "The citing entity imitates the characteristic style or content of the cited entity for comic effect, usually without explicit citation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/parodies> "parodies"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/parodies> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/plagiarizes> (plagiarizes)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/plagiarizes> "Example: The conclusion of our dissertation can be summarised by the following motto, we created specifically for this purpose: we are like dwarfs standing on the shoulders of giants."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/plagiarizes> "A property indicating that the author of the citing entity plagiarizes the cited entity, by including textual or other elements from the cited entity without formal acknowledgement of their source.  The citing entity thus contains no explicit citation of the cited entity, according to the norms of scholarly practice, but cites it implicitly."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/plagiarizes> "plagiarizes"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/plagiarizes> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/providesAssertionFor> (provides assertion for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/providesAssertionFor> "The cited entity contains and is the original source of a statement of fact or a logical assertion (or a collection of such facts and/or assertions) that is to be found in the citing entity.   This inverse object property is designed to be used to relate a cited entity to a separate abstract, summary or nanopublication based upon it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/providesAssertionFor> "provides assertion for"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/providesAssertionFor> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/providesConclusionsFor> (provides conclusions for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/providesConclusionsFor> "The cited entity presents conclusions that are used in work described in the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/providesConclusionsFor> "provides conclusions for"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/providesConclusionsFor> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/providesConclusionsFor> <http://purl.org/spar/cito/usesConclusionsFrom>)
+
+# Object Property: <http://purl.org/spar/cito/providesDataFor> (provides data for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/providesDataFor> "The cited entity presents data that are used in work described in the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/providesDataFor> "provides data for"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/providesDataFor> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/providesDataFor> <http://purl.org/spar/cito/usesDataFrom>)
+
+# Object Property: <http://purl.org/spar/cito/providesExcerptFor> (provides excerpt for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/providesExcerptFor> "The cited entity contains information, usually of a textual nature, that is excerpted by (used as an excerpt within) the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/providesExcerptFor> "provides excerpt for"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/providesExcerptFor> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/providesMethodFor> (provides method for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/providesMethodFor> "The cited entity details a method that is used in work described by the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/providesMethodFor> "provides method for"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/providesMethodFor> <http://purl.org/spar/cito/isCitedBy>)
+InverseObjectProperties(<http://purl.org/spar/cito/providesMethodFor> <http://purl.org/spar/cito/usesMethodIn>)
+
+# Object Property: <http://purl.org/spar/cito/providesQuotationFor> (provides quotation for)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/providesQuotationFor> "The cited entity contains information, usually of a textual nature, that is quoted by (used as a quotation within) the citing entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/providesQuotationFor> "provides quotation for"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/providesQuotationFor> <http://purl.org/spar/cito/isCitedBy>)
+
+# Object Property: <http://purl.org/spar/cito/qualifies> (qualifies)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/qualifies> "Example: Galileo's masterpiece 'Dialogo sopra i due massimi sistemi del mondo' [X] is formally a dialog and substantially a scientific pamphlet."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/qualifies> "The citing entity qualifies or places conditions or restrictions upon statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/qualifies> "qualifies"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/qualifies> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/refutes> (refutes)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/refutes> "Example: We do not think that all their arguments in favour of their own and against the other strategies are equally convincing [X]."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/refutes> "The citing entity refutes statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/refutes> "refutes"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/refutes> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/repliesTo> (replies to)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/repliesTo> "Example: We will not investigate the issues of the approach proposed in [X] here, but rather we introduce yet another alternative."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/repliesTo> "The citing entity replies to statements, ideas or criticisms presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/repliesTo> "replies to"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/repliesTo> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/retracts> (retracts)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/retracts> "Example: We wrote that the Earth moves in [X]; we now retire such statement."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/retracts> "The citing entity constitutes a formal retraction of the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/retracts> "retracts"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/retracts> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/reviews> (reviews)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/reviews> "Example: This paper discusses Toulmin's methodology in modelling argumentation [X], focussing on highlighting advantages and drawbacks of the application of such a methodology in the Social Web."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/reviews> "The citing entity reviews statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/reviews> "reviews"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/reviews> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/ridicules> (ridicules)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/ridicules> "Example: Galileo said that the Earth \"moves\" [X]; really? And where is it going?"@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/ridicules> "The citing entity ridicules the cited entity or aspects of its contents."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/ridicules> "ridicules"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/ridicules> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/sharesAuthorInstitutionWith> (shares author institution with)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/sharesAuthorInstitutionWith> "Each entity has at least one author that shares a common institutional affiliation with an author of the other entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/sharesAuthorInstitutionWith> "shares author institution with"@en)
+SymmetricObjectProperty(<http://purl.org/spar/cito/sharesAuthorInstitutionWith>)
+
+# Object Property: <http://purl.org/spar/cito/sharesAuthorWith> (shares author with)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/sharesAuthorWith> "Each entity has at least one author in common with the other entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/sharesAuthorWith> "shares author with"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/sharesAuthorWith> owl:topObjectProperty)
+SymmetricObjectProperty(<http://purl.org/spar/cito/sharesAuthorWith>)
+
+# Object Property: <http://purl.org/spar/cito/sharesFundingAgencyWith> (shares funding agency with)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/sharesFundingAgencyWith> "The two entities result from activities that have been funded by the same funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/sharesFundingAgencyWith> "shares funding agency with"@en)
+SymmetricObjectProperty(<http://purl.org/spar/cito/sharesFundingAgencyWith>)
+
+# Object Property: <http://purl.org/spar/cito/sharesJournalWith> (shares journal with)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/sharesJournalWith> "The citing and cited bibliographic resources are published in the same journal."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/sharesJournalWith> "shares journal with"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/sharesJournalWith> <http://purl.org/spar/cito/sharesPublicationVenueWith>)
+
+# Object Property: <http://purl.org/spar/cito/sharesPublicationVenueWith> (shares publication venue with)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/sharesPublicationVenueWith> "The citing and cited bibliographic resources are published in same publication venue."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/sharesPublicationVenueWith> "shares publication venue with"@en)
+
+# Object Property: <http://purl.org/spar/cito/speculatesOn> (speculates on)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/speculatesOn> "Example: We believe that if Galileo believed that Earth goes around the Sun [X], he also should believe that Moon goes around Earth."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/speculatesOn> "The citing entity speculates on something within or related to the cited entity, without firm evidence."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/speculatesOn> "speculates on"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/speculatesOn> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/supports> (supports)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/supports> "Example: We support Galileo's statement [X], that Earth moves."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/supports> "The citing entity provides intellectual or factual support for statements, ideas or conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/supports> "supports"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/supports> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/updates> (updates)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/updates> "Example: Earth moves, said Galileo [X]; in addition, we can say now it moves very fast."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/updates> "The citing entity updates statements, ideas, hypotheses or understanding presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/updates> "updates"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/updates> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/usesConclusionsFrom> (uses conclusions from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/usesConclusionsFrom> "Example: Building upon Galileo's findings [X], we discovered that all the planets move."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/usesConclusionsFrom> "The citing entity describes work that uses conclusions presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/usesConclusionsFrom> "uses conclusions from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/usesConclusionsFrom> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/usesDataFrom> (uses data from)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/usesDataFrom> "Example: Using the information collected from our recent study [X], we can estimate that there are tens of millions of HTML forms with potentially useful deep-web content."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/usesDataFrom> "The citing entity describes work that uses data presented in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/usesDataFrom> "uses data from"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/usesDataFrom> <http://purl.org/spar/cito/cites>)
+
+# Object Property: <http://purl.org/spar/cito/usesMethodIn> (uses method in)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/usesMethodIn> "Example: We follow [X] in using design patterns for testing."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/usesMethodIn> "The citing entity describes work that uses a method detailed in the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/usesMethodIn> "uses method in"@en)
+SubObjectPropertyOf(<http://purl.org/spar/cito/usesMethodIn> <http://purl.org/spar/cito/cites>)
+
+# Object Property: schema:citation (citation)
+
+AnnotationAssertion(rdfs:comment schema:citation "This property is defined in schema.org and has been added here to align schema.org with CiTO. The object property schema:citation expresses similar semantics to cito:cites except for the explicit definition of domain and range classes, that are schema:CreativeWork according to schema.org. For that reason, it is here defined as a subproperty of cito:cites."@en)
+AnnotationAssertion(rdfs:label schema:citation "citation")
+SubObjectPropertyOf(schema:citation <http://purl.org/spar/cito/cites>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/spar/cito/hasCitationCreationDate> (has citation creation date)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasCitationCreationDate> "The date on which the citation was created. This has the same numerical value as the publication date of the citing bibliographic resource, but is a property of the citation itself.  When combined with the citation time span, it permits that citation to be located in history."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasCitationCreationDate> "has citation creation date"@en)
+
+# Data Property: <http://purl.org/spar/cito/hasCitationTimeSpan> (has citation time span)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasCitationTimeSpan> "The temporal characteristic of a citation, namely the interval between the publication date of the cited entity and the publication date of the citing entity. Note that when one or both of the publication dates is given as just 'year', then the citation time span is rounded to the nearest year, and when one or both of the publication dates is given as just 'year and month', then the citation time span is rounded to the nearest month, with the inherent inaccuracies that such rounding involves."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasCitationTimeSpan> "has citation time span"@en)
+DataPropertyDomain(<http://purl.org/spar/cito/hasCitationTimeSpan> <http://purl.org/spar/cito/Citation>)
+DataPropertyRange(<http://purl.org/spar/cito/hasCitationTimeSpan> xsd:duration)
+
+# Data Property: <http://purl.org/spar/cito/hasCoAuthorshipCitationLevel> (has co-authorship citation level)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/hasCoAuthorshipCitationLevel> "This property specifies the minimal distance that one of the authors of the citing entity has with regards to one of the authors of the cited entity, according to their co-authorship network.
+
+For instance, a citation has a co-authorship citation level equal to 1 if at least one author of the citing entity has previously published as co-author with one of the authors of the cited entity. Similarly, we say that a citation has a co-authorship citation level equal to 2 if at least one author of the citing entity has previously published as co-author with someone who him/herself has previously published as co-author with one of the authors of the cited entity. And so on."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/hasCoAuthorshipCitationLevel> "has co-authorship citation level"@en)
+FunctionalDataProperty(<http://purl.org/spar/cito/hasCoAuthorshipCitationLevel>)
+DataPropertyDomain(<http://purl.org/spar/cito/hasCoAuthorshipCitationLevel> <http://purl.org/spar/cito/AuthorNetworkSelfCitation>)
+DataPropertyRange(<http://purl.org/spar/cito/hasCoAuthorshipCitationLevel> xsd:positiveInteger)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/spar/cito/AffilationSelfCitation> (affilation self citation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/AffilationSelfCitation> "A citation in which at least one author from each of the citing and the cited entities is affiliated with the same academic institution.
+
+In particular, like the ancestor class cito:Citation, cito:AffiliationSelfCitation and its accompanying object properties cito:hasCitingEntity, cito:hasCitedEntity and cito:hasCitationCharacterization can be employed to reify direct citation statements made using the CiTO citation object property cito:cites or one of its sub-properties, accompanied by an additional statement using cito:sharesAuthorInstitutionWith for linking the citing paper and the cited paper.
+
+For example, the following cito:AffiliationSelfCitation resource
+
+     :thisCitation a cito:AffiliationSelfCitation ;
+          cito:hasCitingEntity :paperA ;
+          cito:hasCitationCharacterization cito:extends ;
+          cito:hasCitedEntity :paperB .
+
+can be alternatively described as follows
+
+     :paperA cito:extends :paperB .
+     :paperA cito:sharesAuthorInstitutionWith :paperB ."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/AffilationSelfCitation> "affilation self citation"@en)
+SubClassOf(<http://purl.org/spar/cito/AffilationSelfCitation> <http://purl.org/spar/cito/SelfCitation>)
+
+# Class: <http://purl.org/spar/cito/AuthorNetworkSelfCitation> (author network self citation)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/AuthorNetworkSelfCitation> "Derived from the article 'A Small World of Citations? The Influence of Collaboration Networks on Citation Practices' by Matthew L. Wallace, Vincent Larivière and Yves Gingras, published in PLOS One (https://doi.org/10.1371/journal.pone.0033339)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/AuthorNetworkSelfCitation> "A citation in which at least one author of the citing entity has direct or indirect co-authorship links with one of the authors of the cited entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/AuthorNetworkSelfCitation> "author network self citation"@en)
+SubClassOf(<http://purl.org/spar/cito/AuthorNetworkSelfCitation> <http://purl.org/spar/cito/SelfCitation>)
+SubClassOf(<http://purl.org/spar/cito/AuthorNetworkSelfCitation> DataExactCardinality(1 <http://purl.org/spar/cito/hasCoAuthorshipCitationLevel> xsd:positiveInteger))
+
+# Class: <http://purl.org/spar/cito/AuthorSelfCitation> (author self citation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/AuthorSelfCitation> "A citation in which the citing and the cited entities have at least one author in common.
+
+In particular, like the ancestor class cito:Citation, cito:AuthorSelfCitation and its accompanying object properties cito:hasCitingEntity, cito:hasCitedEntity and cito:hasCitationCharacterization can be employed to reify direct citation statements made using the CiTO citation object property cito:cites or one of its sub-properties, accompanied by an additional statement using cito:sharesAuthorWith for linking the citing paper and the cited paper.
+
+For example, the following cito:AuthorSelfCitation resource
+
+     :thisCitation a cito:AuthorSelfCitation ;
+          cito:hasCitingEntity :paperA ;
+          cito:hasCitationCharacterization cito:extends ;
+          cito:hasCitedEntity :paperB .
+
+can be alternatively described as follows
+
+     :paperA cito:extends :paperB .
+     :paperA cito:sharesAuthorWith :paperB ."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/AuthorSelfCitation> "author self citation"@en)
+SubClassOf(<http://purl.org/spar/cito/AuthorSelfCitation> <http://purl.org/spar/cito/SelfCitation>)
+
+# Class: <http://purl.org/spar/cito/Citation> (citation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/Citation> "A citation is a conceptual directional link from a citing entity to a cited entity, created by a human performative act of making a citation, typically instantiated by the inclusion of a bibliographic reference (biro:BibliographicReference) in the reference list of the citing entity, or by the inclusion within the citing entity of a link, in the form of an HTTP Uniform Resource Locator (URL), to a resource on the World Wide Web.
+
+The time span of a citation, i.e. the interval between the publication year of the citing entity and the publication year of the cited entity, can be recorded using the data property cito:hasCitationTimeSpan.
+
+The nature or type of a citation can be characterized by using CiTO object properties, e.g. http://purl.org/spar/cito/citesAsDataSource (definition: “The citing entity cites the cited entity as a source of data”).
+
+This CiTO class cito:Citation and its accompanying object properties cito:hasCitingEntity, cito:hasCitedEntity and cito:hasCitationCharacterization can be employed to reify direct citation statements made using the CiTO citation object property cito:cites or one of its sub-properties.
+
+For example, the following RDF statement
+
+     :paperA cito:extends :paperB .
+
+can be alternatively described as follows
+
+     :thisCitation a cito:Citation ;
+          cito:hasCitingEntity :paperA ;
+          cito:hasCitationCharacterization cito:extends ;
+          cito:hasCitedEntity :paperB .
+
+This usage involved OWL2 punning, whereby a CiTO object property, such as the aforementioned cito:extends, is used as the object of the OWL assertion.
+
+     :thisCitation cito:hasCitationCharacterization cito:extends .
+
+Using such OWL2 punning (described at http://www.w3.org/TR/2009/WD-owl2-new-features-20090611/#F12:_Punning), the CiTO object property is considered as a proper named individual of the class owl:Thing.
+
+Such reification of citation acts can be very useful, since it permits one to combine these CiTO properties with other vocabularies, or to handle situations in which none of the citation characterizations available in CiTO are applicable.
+
+Such situations can be resolved by the creation of a user-defined citation characterization, for example by using the Open Annotation Data Model, as explained at http://semanticpublishing.wordpress.com/2013/07/03/extending-cito-for-open-annotations/."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/Citation> "citation"@en)
+EquivalentClasses(<http://purl.org/spar/cito/Citation> ObjectIntersectionOf(sit:Situation ObjectExactCardinality(1 <http://purl.org/spar/cito/hasCitationCharacterization>) ObjectExactCardinality(1 <http://purl.org/spar/cito/hasCitedEntity>) ObjectExactCardinality(1 <http://purl.org/spar/cito/hasCitingEntity>)))
+
+# Class: <http://purl.org/spar/cito/DistantCitation> (distant citation)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/DistantCitation> "Derived from the article 'A Small World of Citations? The Influence of Collaboration Networks on Citation Practices' by Matthew L. Wallace, Vincent Larivière and Yves Gingras, published in PLOS One (https://doi.org/10.1371/journal.pone.0033339)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/DistantCitation> "A citation in which the citing and the cited entities have nothing significant in common with one another (for example authors, journal, institutional affiliation, or funding agency) over and beyond their subject matter."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/DistantCitation> "distant citation"@en)
+SubClassOf(<http://purl.org/spar/cito/DistantCitation> <http://purl.org/spar/cito/Citation>)
+
+# Class: <http://purl.org/spar/cito/FunderSelfCitation> (funder self citation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/FunderSelfCitation> "A citation in which the works reported in the citing and the cited entities were funded by the same funding agency.
+
+In particular, like the ancestor class cito:Citation, cito:FunderSelfCitation and its accompanying object properties cito:hasCitingEntity, cito:hasCitedEntity and cito:hasCitationCharacterization can be employed to reify direct citation statements made using the CiTO citation object property cito:cites or one of its sub-properties, accompanied by an additional statement using cito:sharesFundingAgencyWith for linking the citing paper and the cited paper.
+
+For example, the following cito:FundingSelfCitation resource
+
+     :thisCitation a cito:FundingSelfCitation ;
+          cito:hasCitingEntity :paperA ;
+          cito:hasCitationCharacterization cito:extends ;
+          cito:hasCitedEntity :paperB .
+
+can be alternatively described as follows
+
+     :paperA cito:extends :paperB .
+     :paperA cito:sharesFundingAgencyWith :paperB ."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/FunderSelfCitation> "funder self citation"@en)
+SubClassOf(<http://purl.org/spar/cito/FunderSelfCitation> <http://purl.org/spar/cito/SelfCitation>)
+
+# Class: <http://purl.org/spar/cito/JournalCartelCitation> (journal cartel citation)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/JournalCartelCitation> "Derived from the blog post 'What do we know about journal citation cartels? A call for information' by Philippe Mongeon, Ludo Waltman and Sarah de Rijcke (https://www.cwts.nl/blog?article=n-q2w2b4)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/JournalCartelCitation> "A citation from one journal to another journal which forms one of a very large number of citations from the citing journal to recent articles in the cited journal, possibly undertaken as part of a citation cartel for the purpose of gaming the impact factor of the cited journal."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/JournalCartelCitation> "journal cartel citation"@en)
+SubClassOf(<http://purl.org/spar/cito/JournalCartelCitation> <http://purl.org/spar/cito/Citation>)
+
+# Class: <http://purl.org/spar/cito/JournalSelfCitation> (journal self citation)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/cito/JournalSelfCitation> "Derived from the blog post 'Journal self-citations are increasingly biased toward impact factor years' by Ludo Waltman and Caspar Chorus (https://www.cwts.nl/blog?article=n-q2x264)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/JournalSelfCitation> "A citation in which the citing and the cited entities are published in the same journal.
+
+In particular, like the ancestor class cito:Citation, cito:JournalSelfCitation and its accompanying object properties cito:hasCitingEntity, cito:hasCitedEntity and cito:hasCitationCharacterization can be employed to reify direct citation statements made using the CiTO citation object property cito:cites or one of its sub-properties, accompanied by an additional statement using cito:sharesJournalWith for linking the citing paper and the cited paper.
+
+For example, the following cito:JournalSelfCitation resource
+
+     :thisCitation a cito:JournalSelfCitation ;
+          cito:hasCitingEntity :paperA ;
+          cito:hasCitationCharacterization cito:extends ;
+          cito:hasCitedEntity :paperB .
+
+can be alternatively described as follows
+
+     :paperA cito:extends :paperB .
+     :paperA cito:sharesJournalWith :paperB ."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/JournalSelfCitation> "journal self citation"@en)
+SubClassOf(<http://purl.org/spar/cito/JournalSelfCitation> <http://purl.org/spar/cito/SelfCitation>)
+
+# Class: <http://purl.org/spar/cito/SelfCitation> (self citation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/cito/SelfCitation> "A citation in which the citing and the cited entities have something significant in common with one another, over and beyond their subject matter, for example authors, journal, institutional affiliation, or funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/cito/SelfCitation> "self citation"@en)
+SubClassOf(<http://purl.org/spar/cito/SelfCitation> <http://purl.org/spar/cito/Citation>)
+
+
+)

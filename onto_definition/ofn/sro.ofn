@@ -1,0 +1,339 @@
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sao:=<http://salt.semanticauthoring.org/ontologies/sao#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(
+Declaration(Class(sao:Annotation))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Abstract>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Agreement>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Antithesis>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Argument>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Background>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Cause>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Challenge>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Circumstance>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Claim>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Concession>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Conclusion>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Condition>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Consequence>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Contribution>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Disagreement>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Discussion>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Elaboration>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Entities>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Evaluation>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Evidence>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Issue>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Justification>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Means>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Motivation>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#NeutralPosition>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Nucleus>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Position>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Preparation>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Purpose>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Request>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Restatement>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Satellite>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Scenario>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Statement>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sro#Support>))
+Declaration(Class(rdfs:Resource))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#arguments>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#containsRhetoricalElement>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#hasNucleus>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#hasPosition>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#hasSatellite>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#isArgumentedBy>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#partOfRhetoricalBlock>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#raises>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#represents>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sro#statedAbout>))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#arguments> (arguments)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#arguments> "arguments")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#arguments> <http://salt.semanticauthoring.org/ontologies/sro#Argument>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#arguments> <http://salt.semanticauthoring.org/ontologies/sro#Issue>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#arguments> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#containsRhetoricalElement> (containsRhetoricalElement)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#containsRhetoricalElement> "containsRhetoricalElement")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#containsRhetoricalElement> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#containsRhetoricalElement> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> (hasAnnotation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> "hasAnnotation")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>)
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> <http://salt.semanticauthoring.org/ontologies/sro#Statement>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#hasAnnotation> sao:Annotation)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#hasNucleus> (hasNucleus)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#hasNucleus> "hasNucleus")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasNucleus> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#hasNucleus> <http://salt.semanticauthoring.org/ontologies/sro#Nucleus>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#hasNucleus> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#hasPosition> (hasPosition)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#hasPosition> "hasPosition")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasPosition> <http://salt.semanticauthoring.org/ontologies/sro#Issue>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#hasPosition> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#hasSatellite> (hasSatellite)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#hasSatellite> "hasSatellite")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#hasSatellite> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#hasSatellite> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#hasSatellite> <http://salt.semanticauthoring.org/ontologies/sro#Satellite>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#isArgumentedBy> (isArgumentedBy)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#isArgumentedBy> "isArgumentedBy")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#isArgumentedBy> <http://salt.semanticauthoring.org/ontologies/sro#Issue>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#isArgumentedBy> <http://salt.semanticauthoring.org/ontologies/sro#Argument>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#partOfRhetoricalBlock> (partOfRhetoricalBlock)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#partOfRhetoricalBlock> "partOfRhetoricalBlock")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#partOfRhetoricalBlock> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#partOfRhetoricalBlock> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#raises> (raises)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#raises> "raises")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#raises> <http://salt.semanticauthoring.org/ontologies/sro#Statement>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#raises> <http://salt.semanticauthoring.org/ontologies/sro#Issue>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#represents> (represents)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#represents> "represents")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#represents> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#represents> <http://salt.semanticauthoring.org/ontologies/sro#Argument>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#represents> <http://salt.semanticauthoring.org/ontologies/sro#Issue>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#represents> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sro#statedAbout> (statedAbout)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#statedAbout> "statedAbout")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sro#statedAbout> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#statedAbout> <http://salt.semanticauthoring.org/ontologies/sro#Argument>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#statedAbout> <http://salt.semanticauthoring.org/ontologies/sro#Issue>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sro#statedAbout> <http://salt.semanticauthoring.org/ontologies/sro#Statement>)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Abstract> (Abstract)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Abstract> "Abstract")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Abstract> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Agreement> (Agreement)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Agreement> "Agreement")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Agreement> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Antithesis> (Antithesis)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Antithesis> "Antithesis")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Antithesis> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Argument> (Argument)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Argument> "Argument")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Argument> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Background> (Background)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Background> "Background")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Background> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Cause> (Cause)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Cause> "Cause")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Cause> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Challenge> (Challenge)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Challenge> "Challenge")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Challenge> <http://salt.semanticauthoring.org/ontologies/sro#Argument>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Circumstance> (Circumstance)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Circumstance> "Circumstance")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Circumstance> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Claim> (Claim)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Claim> "Claim")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Claim> <http://salt.semanticauthoring.org/ontologies/sro#Nucleus>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Concession> (Concession)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Concession> "Concession")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Concession> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Conclusion> (Conclusion)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Conclusion> "Conclusion")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Conclusion> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Condition> (Condition)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Condition> "Condition")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Condition> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Consequence> (Consequence)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Consequence> "Consequence")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Consequence> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Contribution> (Contribution)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Contribution> "Contribution")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Contribution> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Disagreement> (Agreement)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Disagreement> "Agreement")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Disagreement> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Discussion> (Discussion)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Discussion> "Discussion")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Discussion> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Elaboration> (Elaboration)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Elaboration> "Elaboration")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Elaboration> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Entities> (Entities)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Entities> "Entities")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Entities> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Evaluation> (Evaluation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Evaluation> "Evaluation")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Evaluation> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Evidence> (Evidence)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Evidence> "Evidence")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Evidence> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Issue> (Issue)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Issue> "Issue")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Issue> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Justification> (Justification)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Justification> "Justification")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Justification> <http://salt.semanticauthoring.org/ontologies/sro#Argument>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Means> (Means)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Means> "Means")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Means> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Motivation> (Motivation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Motivation> "Motivation")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Motivation> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#NeutralPosition> (NeutralPosition)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#NeutralPosition> "NeutralPosition")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#NeutralPosition> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Nucleus> (Nucleus)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Nucleus> "Nucleus")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Nucleus> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Position> (Position)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Position> "Position")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Position> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Preparation> (Preparation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Preparation> "Preparation")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Preparation> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Purpose> (Purpose)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Purpose> "Purpose")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Purpose> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Request> (Request)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Request> "Request")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Request> <http://salt.semanticauthoring.org/ontologies/sro#Position>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Restatement> (Restatement)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Restatement> "Restatement")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Restatement> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock> (RhetoricalBlock)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock> "RhetoricalBlock")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement> (RhetoricalElement)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement> "RhetoricalElement")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation> (RhetoricalRelation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation> "RhetoricalRelation")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#RhetoricalRelation> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Satellite> (Satellite)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Satellite> "Satellite")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Satellite> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalElement>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Scenario> (Scenario)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Scenario> "Scenario")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Scenario> <http://salt.semanticauthoring.org/ontologies/sro#RhetoricalBlock>)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Statement> (Statement)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Statement> "Statement")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Statement> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sro#Support> (Support)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sro#Support> "Support")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sro#Support> <http://salt.semanticauthoring.org/ontologies/sro#Satellite>)
+
+
+)

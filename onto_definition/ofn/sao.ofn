@@ -1,0 +1,97 @@
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sdo:=<http://salt.semanticauthoring.org/ontologies/sdo#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sao#Annotation>))
+Declaration(Class(<http://salt.semanticauthoring.org/ontologies/sao#CitationContext>))
+Declaration(Class(sdo:Paragraph))
+Declaration(Class(sdo:Publication))
+Declaration(Class(sdo:Section))
+Declaration(Class(sdo:Sentence))
+Declaration(Class(sdo:TextChunk))
+Declaration(Class(rdfs:Resource))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sao#annotates>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sao#cites>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sao#hasCitationContext>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sao#hasTopic>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sao#isCitedBy>))
+Declaration(ObjectProperty(<http://salt.semanticauthoring.org/ontologies/sao#pointsTo>))
+Declaration(DataProperty(<http://salt.semanticauthoring.org/ontologies/sao#hasCitationKey>))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sao#annotates> (annotates)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#annotates> "annotates")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#annotates> <http://salt.semanticauthoring.org/ontologies/sao#Annotation>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#annotates> sdo:Paragraph)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#annotates> sdo:Section)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#annotates> sdo:Sentence)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#annotates> sdo:TextChunk)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sao#cites> (cites)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#cites> "cites")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#cites> sdo:Publication)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#cites> sdo:Publication)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sao#hasCitationContext> (hasCitationContext)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#hasCitationContext> "hasCitationContext")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#hasCitationContext> sdo:Publication)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#hasCitationContext> <http://salt.semanticauthoring.org/ontologies/sao#CitationContext>)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sao#hasTopic> (hasTopic)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#hasTopic> "hasTopic")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#hasTopic> <http://salt.semanticauthoring.org/ontologies/sao#Annotation>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#hasTopic> rdfs:Resource)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sao#isCitedBy> (isCitedBy)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#isCitedBy> "isCitedBy")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#isCitedBy> sdo:Publication)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#isCitedBy> sdo:Publication)
+
+# Object Property: <http://salt.semanticauthoring.org/ontologies/sao#pointsTo> (pointsTo)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#pointsTo> "pointsTo")
+ObjectPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#pointsTo> <http://salt.semanticauthoring.org/ontologies/sao#CitationContext>)
+ObjectPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#pointsTo> sdo:Publication)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://salt.semanticauthoring.org/ontologies/sao#hasCitationKey> (hasCitationKey)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#hasCitationKey> "hasCitationKey")
+DataPropertyDomain(<http://salt.semanticauthoring.org/ontologies/sao#hasCitationKey> sdo:Publication)
+DataPropertyRange(<http://salt.semanticauthoring.org/ontologies/sao#hasCitationKey> rdfs:Literal)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sao#Annotation> (Annotation)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#Annotation> "Annotation")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sao#Annotation> rdfs:Resource)
+
+# Class: <http://salt.semanticauthoring.org/ontologies/sao#CitationContext> (CitationContext)
+
+AnnotationAssertion(rdfs:label <http://salt.semanticauthoring.org/ontologies/sao#CitationContext> "CitationContext")
+SubClassOf(<http://salt.semanticauthoring.org/ontologies/sao#CitationContext> <http://salt.semanticauthoring.org/ontologies/sao#Annotation>)
+
+
+)

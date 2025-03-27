@@ -1,0 +1,120 @@
+Prefix(:=<http://purl.org/spar/fivestars#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://purl.org/spar/fivestars>
+<http://purl.org/spar/fivestars/2012-01-16>
+Annotation(dc:creator "David Shotton")
+Annotation(dc:date "2012-01-16")
+Annotation(dc:description "The Five Stars of Online Research Articles Ontology, is an ontology written in OWL 2 DL to enable characterization of the five attributes of an online journal article - peer review, open access, enriched content, available datasets and machine-readable metadata - using the criteria discussed in the paper by David Shotton entitled The Five Stars of Online Journal Articles — a Framework for Article Evaluation, published in D-Lib Magazine 18 (1/2) (January/February 2012 issue).  doi: https://doi.org/10.1045/january2012-shotton.
+
+The ontology is simple, consisting only of those data properties required to permit a rating for each of the five stars, and for the paper as a whole, to be recorded as an integer, together with an associated comment.  It is intended for use by publishers and others wishing to encode Five Stars ratings for individual papers in machine-readable form.
+
+Other ontologies, for example DCMI Metadata Terms (http://dublincore.org/documents/dcmi-terms/) and FaBiO, the FRBR-aligned Bibliographic Ontology (http://purl.org/spar/fabio), may be used to describe other aspects of a journal article, e.g. authors, journal name, and publication year.
+"@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/)."@en)
+Annotation(dc:title "The Five Stars of Online Research Articles Ontology (FiveStars)"@en)
+Annotation(rdfs:comment "The Five Stars of Online Research Articles Ontology (FiveStars) is an ontology written in OWL 2 DL to enable characterization of the five attributes of an online journal article - peer review, open access, enriched content, available datasets and machine-readable metadata.
+
+**URL:** http://purl.org/spar/fivestars
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/fivestars
+
+**Cite as:** Shotton, D. (2012). The Five Stars of Online Journal Articles - a Framework for Article Evaluation. In D-Lib Magazine, 18 (1/2). DOI: https://doi.org/10.1045/january2012-shotton  "@en)
+Annotation(owl:versionInfo "1.0")
+
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/availableDatasetsRatingComment>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/enhancedContentRatingComment>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/hasAvailableDatasetsRating>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/hasEnhancedContentRating>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/hasMachine-readableMetadataRating>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/hasOpenAccessRating>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/hasOverallFiveStarsRating>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/hasPeerReviewRating>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/machine-readableMetadataRatingComment>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/openAccessRatingComment>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/overallFiveStarsRatingComment>))
+Declaration(DataProperty(<http://purl.org/spar/fivestars/peerReviewRatingComment>))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(owl:priorVersion))
+Declaration(AnnotationProperty(owl:versionInfo))
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/spar/fivestars/availableDatasetsRatingComment> (<http://purl.org/spar/fivestars/availableDatasetsRatingComment>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/availableDatasetsRatingComment> "Comment explaining Five Stars ratings given to journal artice relating to available datasets."@en)
+
+# Data Property: <http://purl.org/spar/fivestars/enhancedContentRatingComment> (<http://purl.org/spar/fivestars/enhancedContentRatingComment>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/enhancedContentRatingComment> "Comment explaining Five Stars ratings given to journal artice relating to enhanced content."@en)
+
+# Data Property: <http://purl.org/spar/fivestars/hasAvailableDatasetsRating> (<http://purl.org/spar/fivestars/hasAvailableDatasetsRating>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/hasAvailableDatasetsRating> "Integer rating (from 0 to 4) given to journal artice for available datasets."@en)
+DataPropertyRange(<http://purl.org/spar/fivestars/hasAvailableDatasetsRating> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/fivestars/hasEnhancedContentRating> (<http://purl.org/spar/fivestars/hasEnhancedContentRating>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/hasEnhancedContentRating> "Integer rating (from 0 to 4) given to journal artice for enhanced content."@en)
+DataPropertyRange(<http://purl.org/spar/fivestars/hasEnhancedContentRating> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/fivestars/hasMachine-readableMetadataRating> (<http://purl.org/spar/fivestars/hasMachine-readableMetadataRating>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/hasMachine-readableMetadataRating> "Integer rating (from 0 to 4) given to journal artice for machine-readable metadata."@en)
+DataPropertyRange(<http://purl.org/spar/fivestars/hasMachine-readableMetadataRating> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/fivestars/hasOpenAccessRating> (<http://purl.org/spar/fivestars/hasOpenAccessRating>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/hasOpenAccessRating> "Integer rating (from 0 to 4) given to journal artice for open access."@en)
+DataPropertyRange(<http://purl.org/spar/fivestars/hasOpenAccessRating> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/fivestars/hasOverallFiveStarsRating> (<http://purl.org/spar/fivestars/hasOverallFiveStarsRating>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/hasOverallFiveStarsRating> "Overall Five stars rating (on integer scale from from 0 to 20) given to journal artice, obtained by summing the individual ratings given for each of the Five Stars of Online Journal Articles."@en)
+DataPropertyRange(<http://purl.org/spar/fivestars/hasOverallFiveStarsRating> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/fivestars/hasPeerReviewRating> (<http://purl.org/spar/fivestars/hasPeerReviewRating>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/hasPeerReviewRating> "Integer rating (from 0 to 4) given to journal artice for peer review."@en)
+DataPropertyRange(<http://purl.org/spar/fivestars/hasPeerReviewRating> xsd:nonNegativeInteger)
+
+# Data Property: <http://purl.org/spar/fivestars/machine-readableMetadataRatingComment> (<http://purl.org/spar/fivestars/machine-readableMetadataRatingComment>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/machine-readableMetadataRatingComment> "Comment explaining Five Stars ratings given to journal artice relating to machine-readable metadata."@en)
+
+# Data Property: <http://purl.org/spar/fivestars/openAccessRatingComment> (<http://purl.org/spar/fivestars/openAccessRatingComment>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/openAccessRatingComment> "Comment explaining Five Stars ratings given to journal artice relating to open access."@en)
+
+# Data Property: <http://purl.org/spar/fivestars/overallFiveStarsRatingComment> (<http://purl.org/spar/fivestars/overallFiveStarsRatingComment>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/overallFiveStarsRatingComment> "Comment on overall Five Stars rating given to journal artice."@en)
+
+# Data Property: <http://purl.org/spar/fivestars/peerReviewRatingComment> (<http://purl.org/spar/fivestars/peerReviewRatingComment>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/fivestars/peerReviewRatingComment> "Comment explaining Five Stars ratings given to journal artice relating to peer review."@en)
+
+
+
+)

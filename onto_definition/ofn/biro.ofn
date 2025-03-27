@@ -1,0 +1,152 @@
+Prefix(:=<http://purl.org/spar/biro#>)
+Prefix(co:=<http://purl.org/co/>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(core:=<http://purl.org/vocab/frbr/core#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(collections:=<http://swan.mindinformatics.org/ontologies/1.2/collections/>)
+
+
+Ontology(<http://purl.org/spar/biro>
+<http://purl.org/spar/biro/2013-05-11>
+Import(<http://purl.org/co>)
+Import(<http://purl.org/spar/frbr>)
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2013-05-11")
+Annotation(dc:description <http://purl.org/spar/biro/biro.png>)
+Annotation(dc:description "BiRO, the Bibliographic Reference Ontology, is an ontology structured according to the FRBR model to define bibliographic records (as subclasses of frbr:Work) and bibliographic references (as subclasses of frbr:Expression), and their compilations into bibliographic collections such as library catalogues, and into bibliographic lists such as reference lists in journal articles, respectively.
+
+It provides a logical system for relating an individual bibliographic reference, such as appears in the reference list of a published article (which may lack the title of the cited article, the full names of the listed authors, or indeed the full list of authors):
+- to the full bibliographic record for that cited article, which in addition to missing reference fields may also include the name of the publisher, and the ISSN or ISBN of the publication;
+- to collections of bibliographic records such as library catatlogues; and
+- to bibliographic lists, such as reference lists.")
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "BiRO, the Bibliographic Reference Ontology"@en)
+Annotation(rdfs:comment "The Bibliographic Reference Ontology (BiRO) is an ontology meant to define bibliographic records, bibliographic references, and their compilation into bibliographic collections and bibliographic lists, respectively.
+
+**URL:** http://purl.org/spar/biro
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/biro
+
+**Cite as:** Di Iorio, A., Nuzzolese, A. G., Peroni, S., Shotton, D., Vitali, F. (2014). Describing bibliographic references in RDF. In Proceedings of 4th Workshop on Semantic Publishing (SePublica 2014). http://ceur-ws.org/Vol-1155/paper-05.pdf"@en)
+Annotation(rdfs:comment "This ontology is available at http://purl.org/spar/biro, and uses the namespace prefix biro."@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/BiRO/2012-07-03-biro-1_1.owl>)
+Annotation(owl:versionInfo "1.1.1")
+
+Declaration(Class(co:List))
+Declaration(Class(co:Set))
+Declaration(Class(<http://purl.org/spar/biro/BibliographicCollection>))
+Declaration(Class(<http://purl.org/spar/biro/BibliographicList>))
+Declaration(Class(<http://purl.org/spar/biro/BibliographicRecord>))
+Declaration(Class(<http://purl.org/spar/biro/BibliographicReference>))
+Declaration(Class(<http://purl.org/spar/biro/LibraryCatalogue>))
+Declaration(Class(<http://purl.org/spar/biro/ReferenceList>))
+Declaration(Class(core:Endeavour))
+Declaration(Class(core:Expression))
+Declaration(Class(core:Work))
+Declaration(ObjectProperty(co:element))
+Declaration(ObjectProperty(co:elementOf))
+Declaration(ObjectProperty(<http://purl.org/spar/biro/isReferencedBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/biro/references>))
+Declaration(ObjectProperty(core:part))
+Declaration(ObjectProperty(core:realization))
+Declaration(ObjectProperty(core:realizationOf))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(owl:versionInfo))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/biro/isReferencedBy> (is referenced by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/isReferencedBy> "The relation between a publication and the bibliographic record or bibliographic reference describing it."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/isReferencedBy> "is referenced by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/biro/isReferencedBy> owl:topObjectProperty)
+InverseObjectProperties(<http://purl.org/spar/biro/isReferencedBy> <http://purl.org/spar/biro/references>)
+ObjectPropertyDomain(<http://purl.org/spar/biro/isReferencedBy> core:Endeavour)
+ObjectPropertyRange(<http://purl.org/spar/biro/isReferencedBy> ObjectUnionOf(<http://purl.org/spar/biro/BibliographicRecord> <http://purl.org/spar/biro/BibliographicReference>))
+
+# Object Property: <http://purl.org/spar/biro/references> (references)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/references> "The relation between a bibliographic record or a bibliographic reference and the publication being referenced."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/references> "references"@en)
+SubObjectPropertyOf(<http://purl.org/spar/biro/references> owl:topObjectProperty)
+ObjectPropertyDomain(<http://purl.org/spar/biro/references> ObjectUnionOf(<http://purl.org/spar/biro/BibliographicRecord> <http://purl.org/spar/biro/BibliographicReference>))
+ObjectPropertyRange(<http://purl.org/spar/biro/references> core:Endeavour)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/spar/biro/BibliographicCollection> (bibliographic collection)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/biro/BibliographicCollection> "A bibliographic collection is composed only of items containing bibliographic records.  Moreover, it cannot be part of other bibliographic collections, and it is realized only by bibliographic lists. "@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/BibliographicCollection> "A collection of bibliographic records, each of which references a publication (or a work in preparation for publication). Examples of bibliographic collections include a collection of the bibliographic records of all the publications that a single individual has authored, or a collection of those bibliographic records to be included in a research paper, where they are expressed as a reference list."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/BibliographicCollection> "bibliographic collection"@en)
+SubClassOf(<http://purl.org/spar/biro/BibliographicCollection> co:Set)
+SubClassOf(<http://purl.org/spar/biro/BibliographicCollection> core:Work)
+SubClassOf(<http://purl.org/spar/biro/BibliographicCollection> ObjectAllValuesFrom(co:element <http://purl.org/spar/biro/BibliographicRecord>))
+SubClassOf(<http://purl.org/spar/biro/BibliographicCollection> ObjectAllValuesFrom(core:part ObjectComplementOf(<http://purl.org/spar/biro/BibliographicCollection>)))
+SubClassOf(<http://purl.org/spar/biro/BibliographicCollection> ObjectAllValuesFrom(core:realization <http://purl.org/spar/biro/BibliographicList>))
+
+# Class: <http://purl.org/spar/biro/BibliographicList> (bibliographic list)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/biro/BibliographicList> "A bibliographic list is composed only of items containing bibliographic references.  Moreover, it is always a realization of a bibliographic collection."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/BibliographicList> "An ordered list of bibliographic items, each of which contains a bibliographic reference."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/BibliographicList> "bibliographic list"@en)
+SubClassOf(<http://purl.org/spar/biro/BibliographicList> co:List)
+SubClassOf(<http://purl.org/spar/biro/BibliographicList> core:Expression)
+SubClassOf(<http://purl.org/spar/biro/BibliographicList> ObjectAllValuesFrom(co:element <http://purl.org/spar/biro/BibliographicReference>))
+SubClassOf(<http://purl.org/spar/biro/BibliographicList> ObjectAllValuesFrom(core:realizationOf <http://purl.org/spar/biro/BibliographicCollection>))
+
+# Class: <http://purl.org/spar/biro/BibliographicRecord> (bibliographic record)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/biro/BibliographicRecord> "A bibliographic record is realized only through bibliographic references."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/BibliographicRecord> "A record that uniquely describes a particular textual or data publication (or a work in preparation for publication). Each bibliographic record is a set of entities describing aspects of the referenced work, including, for example, but not restricted to: authors, title, journal, publication year, DOI, ISSN, publisher and copyright information, or, in the case of a data publication: creators, title, version, archive, publication year, DOI or other identifier). The FRBR expression of a bibliographic record is a bibliographic reference, which usually contains only a sub-set of these entities, ordered in a particular way that corresponds to the house style of the publication in which it occurs."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/BibliographicRecord> "bibliographic record"@en)
+SubClassOf(<http://purl.org/spar/biro/BibliographicRecord> co:Set)
+SubClassOf(<http://purl.org/spar/biro/BibliographicRecord> core:Work)
+SubClassOf(<http://purl.org/spar/biro/BibliographicRecord> ObjectAllValuesFrom(core:realization <http://purl.org/spar/biro/BibliographicReference>))
+
+# Class: <http://purl.org/spar/biro/BibliographicReference> (bibliographic reference)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/biro/BibliographicReference> "A bibliographic reference is a realization of a bibliographic record. Moreover, it can contain only items referring to elements contained by the bibliographic record it realizes."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/BibliographicReference> "An expression of a bibliographic record in a specific format, that references a particular textual or data publication (or a work in preparation for publication). Each bibliographic reference is a list of items containing entities that describe aspects of the referenced work - for example authors, title, journal, publication year - selected from the bibliographic record.  Note that because different journal styles may require omission of elements of the bibliographic record in references included in a paper's reference list (e.g. the title, the identifier, the names of the eighth and subsequent authors), and because errors can be introduced when an author creates a bibliographic reference, the bibliographic reference to a published work may not be a complete or fully accurate expression of the information contained within the authoritative bibliographic record for that work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/BibliographicReference> "bibliographic reference"@en)
+SubClassOf(<http://purl.org/spar/biro/BibliographicReference> co:List)
+SubClassOf(<http://purl.org/spar/biro/BibliographicReference> core:Expression)
+SubClassOf(<http://purl.org/spar/biro/BibliographicReference> ObjectAllValuesFrom(co:element ObjectAllValuesFrom(co:elementOf <http://purl.org/spar/biro/BibliographicRecord>)))
+SubClassOf(<http://purl.org/spar/biro/BibliographicReference> ObjectAllValuesFrom(core:realizationOf <http://purl.org/spar/biro/BibliographicRecord>))
+
+# Class: <http://purl.org/spar/biro/LibraryCatalogue> (library catalogue)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/LibraryCatalogue> "A catalogue of the bibliographic holdings of a library."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/LibraryCatalogue> "library catalogue"@en)
+SubClassOf(<http://purl.org/spar/biro/LibraryCatalogue> <http://purl.org/spar/biro/BibliographicCollection>)
+
+# Class: <http://purl.org/spar/biro/ReferenceList> (reference list)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/biro/ReferenceList> "A list used to describe the bibliography of a research paper, a journal article, a book, a book chapter or similar publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/biro/ReferenceList> "reference list"@en)
+SubClassOf(<http://purl.org/spar/biro/ReferenceList> <http://purl.org/spar/biro/BibliographicList>)
+
+
+)

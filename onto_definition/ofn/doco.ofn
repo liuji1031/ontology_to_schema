@@ -1,0 +1,511 @@
+Prefix(:=<http://purl.org/spar/doco#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(deo:=<http://purl.org/spar/deo/>)
+Prefix(orb:=<http://purl.org/orb/1.0/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sro:=<http://salt.semanticauthoring.org/ontologies/sro#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(terms:=<http://purl.org/dc/terms/>)
+Prefix(pattern:=<http://www.essepuntato.it/2008/12/pattern#>)
+
+
+Ontology(<http://purl.org/spar/doco>
+<http://purl.org/spar/doco/2015-07-03>
+Import(<http://purl.org/spar/deo>)
+Import(<http://purl.org/spar/po>)
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2015-07-03")
+Annotation(dc:description <http://purl.org/spar/doco/doco%20architecture.png>)
+Annotation(dc:description "DoCO, the Document Components Ontology, provides a structured vocabulary written in OWL 2 DL of document components, both structural (e.g. block, inline, paragraph, section, chapter) and rhetorical (e.g. introduction, discussion, acknowledgements, reference list, figure, appendix), enabling these components, and documents composed of them, to be described in RDF. It imports the Discourse Elements Ontology (http://purl.org/spar/deo) and the Document Structural Patterns Ontology (http://purl.org/spar/po), and uses seven rhetorical block elements abstracted from the SALT Rhetorical Ontology and the Ontology of Rhetorical Blocks (ORB)."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "DoCO, the Document Components Ontology"@en)
+Annotation(rdfs:comment "The Document Components Ontology (DoCO) in an ontology that provides a structured vocabulary written of document components, both structural (e.g., block, inline, paragraph, section, chapter) and rhetorical (e.g., introduction, discussion, acknowledgements, reference list, figure, appendix).
+
+**URL:** http://purl.org/spar/doco
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/doco
+
+**Cite as:** Constantin, A., Peroni, S., Pettifer, S., Shotton, D., Vitali, F. (2016). The Document Components Ontology (DoCO). In Semantic Web, 7 (2): 167-181. DOI: http://dx.doi.org/10.3233/SW-150177"@en)
+Annotation(rdfs:comment "This ontology is available at http://purl.org/spar/doco, and uses the namespace prefix doco."@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/DoCO/2014-05-14_doco-1_2.owl>)
+Annotation(owl:versionInfo "1.3")
+
+Declaration(Class(orb:Acknowledgements))
+Declaration(Class(orb:Header))
+Declaration(Class(deo:BibliographicReference))
+Declaration(Class(deo:Caption))
+Declaration(Class(deo:DiscourseElement))
+Declaration(Class(deo:Reference))
+Declaration(Class(<http://purl.org/spar/doco/Abstract>))
+Declaration(Class(<http://purl.org/spar/doco/Afterword>))
+Declaration(Class(<http://purl.org/spar/doco/Appendix>))
+Declaration(Class(<http://purl.org/spar/doco/BackMatter>))
+Declaration(Class(<http://purl.org/spar/doco/BibliographicReferenceList>))
+Declaration(Class(<http://purl.org/spar/doco/Bibliography>))
+Declaration(Class(<http://purl.org/spar/doco/BlockQuotation>))
+Declaration(Class(<http://purl.org/spar/doco/BodyMatter>))
+Declaration(Class(<http://purl.org/spar/doco/CaptionedBox>))
+Declaration(Class(<http://purl.org/spar/doco/Chapter>))
+Declaration(Class(<http://purl.org/spar/doco/ChapterLabel>))
+Declaration(Class(<http://purl.org/spar/doco/ChapterSubtitle>))
+Declaration(Class(<http://purl.org/spar/doco/ChapterTitle>))
+Declaration(Class(<http://purl.org/spar/doco/Colophon>))
+Declaration(Class(<http://purl.org/spar/doco/ComplexRunInQuotation>))
+Declaration(Class(<http://purl.org/spar/doco/Figure>))
+Declaration(Class(<http://purl.org/spar/doco/FigureBox>))
+Declaration(Class(<http://purl.org/spar/doco/FigureLabel>))
+Declaration(Class(<http://purl.org/spar/doco/Footnote>))
+Declaration(Class(<http://purl.org/spar/doco/Foreword>))
+Declaration(Class(<http://purl.org/spar/doco/Formula>))
+Declaration(Class(<http://purl.org/spar/doco/FormulaBox>))
+Declaration(Class(<http://purl.org/spar/doco/FrontMatter>))
+Declaration(Class(<http://purl.org/spar/doco/Glossary>))
+Declaration(Class(<http://purl.org/spar/doco/Index>))
+Declaration(Class(<http://purl.org/spar/doco/Label>))
+Declaration(Class(<http://purl.org/spar/doco/Line>))
+Declaration(Class(<http://purl.org/spar/doco/List>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfAgents>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfAuthors>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfContributors>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfFigures>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfOrganizations>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfReferences>))
+Declaration(Class(<http://purl.org/spar/doco/ListOfTables>))
+Declaration(Class(<http://purl.org/spar/doco/Paragraph>))
+Declaration(Class(<http://purl.org/spar/doco/Part>))
+Declaration(Class(<http://purl.org/spar/doco/Preface>))
+Declaration(Class(<http://purl.org/spar/doco/Section>))
+Declaration(Class(<http://purl.org/spar/doco/SectionLabel>))
+Declaration(Class(<http://purl.org/spar/doco/SectionSubtitle>))
+Declaration(Class(<http://purl.org/spar/doco/SectionTitle>))
+Declaration(Class(<http://purl.org/spar/doco/Sentence>))
+Declaration(Class(<http://purl.org/spar/doco/SimpleRunInQuotation>))
+Declaration(Class(<http://purl.org/spar/doco/Stanza>))
+Declaration(Class(<http://purl.org/spar/doco/Subtitle>))
+Declaration(Class(<http://purl.org/spar/doco/Table>))
+Declaration(Class(<http://purl.org/spar/doco/TableBox>))
+Declaration(Class(<http://purl.org/spar/doco/TableLabel>))
+Declaration(Class(<http://purl.org/spar/doco/TableOfContents>))
+Declaration(Class(<http://purl.org/spar/doco/TextBox>))
+Declaration(Class(<http://purl.org/spar/doco/TextChunk>))
+Declaration(Class(<http://purl.org/spar/doco/Title>))
+Declaration(Class(sro:Abstract))
+Declaration(Class(pattern:Block))
+Declaration(Class(pattern:Container))
+Declaration(Class(pattern:Field))
+Declaration(Class(pattern:HeadedContainer))
+Declaration(Class(pattern:Inline))
+Declaration(Class(pattern:Meta))
+Declaration(Class(pattern:Milestone))
+Declaration(Class(pattern:Pattern))
+Declaration(Class(pattern:Popup))
+Declaration(Class(pattern:Table))
+Declaration(ObjectProperty(terms:hasPart))
+Declaration(ObjectProperty(terms:isPartOf))
+Declaration(ObjectProperty(terms:relation))
+Declaration(ObjectProperty(pattern:contains))
+Declaration(ObjectProperty(pattern:isContainedBy))
+Declaration(ObjectProperty(pattern:isContainedByAsHeader))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: pattern:contains (contains)
+
+SubObjectPropertyOf(pattern:contains terms:hasPart)
+
+# Object Property: pattern:isContainedBy (is contained by)
+
+SubObjectPropertyOf(pattern:isContainedBy terms:isPartOf)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: orb:Header (orb:Header)
+
+EquivalentClasses(orb:Header <http://purl.org/spar/doco/FrontMatter>)
+
+# Class: <http://purl.org/spar/doco/Abstract> (abstract)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Abstract> "A brief summary of a book, a research article, thesis, review, conference proceeding or any in-depth analysis of a particular subject or discipline, the purpose of which is to help the reader quickly ascertain the publication's purpose.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Abstract> "abstract")
+EquivalentClasses(<http://purl.org/spar/doco/Abstract> sro:Abstract)
+SubClassOf(<http://purl.org/spar/doco/Abstract> ObjectIntersectionOf(ObjectUnionOf(<http://purl.org/spar/doco/Chapter> <http://purl.org/spar/doco/Section>) ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(<http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter>))))
+
+# Class: <http://purl.org/spar/doco/Afterword> (afterword)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Afterword> "A literary device that is often found at the end of a piece of literature. It generally covers the story of how the book came into being, or how the idea for the book was developed. Alternatively, it may be written by someone other than the author of the book, and may discuss the work's historical or cultural context, if the work is being reissued many years after its original publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Afterword> "afterword"@en)
+SubClassOf(<http://purl.org/spar/doco/Afterword> ObjectIntersectionOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/BackMatter>)))
+
+# Class: <http://purl.org/spar/doco/Appendix> (appendix)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Appendix> "A supplemental addition to the main work. It may contain data, more detailed information about methods and materials, or provide additional detail concerning the information found in the main work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Appendix> "appendix"@en)
+SubClassOf(<http://purl.org/spar/doco/Appendix> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.org/spar/doco/Section> pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/BackMatter>)))
+
+# Class: <http://purl.org/spar/doco/BackMatter> (back matter)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/BackMatter> "The final principle part of a document, in which is usually found the bibliography, index, appendixes, etc."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/BackMatter> "back matter"@en)
+SubClassOf(<http://purl.org/spar/doco/BackMatter> ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+SubClassOf(<http://purl.org/spar/doco/BackMatter> ObjectAllValuesFrom(pattern:isContainedBy ObjectComplementOf(ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter>))))
+
+# Class: <http://purl.org/spar/doco/BibliographicReferenceList> (bibliographic reference list)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/BibliographicReferenceList> "A list, usually within a bibliography, of all the references within the citing document that refer to  journal articles, books, book chapters, Web sites or similar publications."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/BibliographicReferenceList> "bibliographic reference list"@en)
+SubClassOf(<http://purl.org/spar/doco/BibliographicReferenceList> ObjectIntersectionOf(<http://purl.org/spar/doco/ListOfReferences> ObjectSomeValuesFrom(pattern:contains deo:BibliographicReference)))
+
+# Class: <http://purl.org/spar/doco/Bibliography> (bibliography)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Bibliography> "A document section containing a list of bibliographic references."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Bibliography> "bibliography"@en)
+SubClassOf(<http://purl.org/spar/doco/Bibliography> ObjectIntersectionOf(ObjectUnionOf(<http://purl.org/spar/doco/Chapter> <http://purl.org/spar/doco/Section>) ObjectSomeValuesFrom(terms:hasPart deo:BibliographicReference)))
+
+# Class: <http://purl.org/spar/doco/BlockQuotation> (block quotation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/BlockQuotation> "A block quotation (also known as a long quotation or extract) is a quotation in a written document which is set off from the main text as a container for distinct paragraphs, which is typically distinguished visually using indentation, a different font, or smaller size. Block quotations are used for longer passages than run-in quotations (which are set off with quotation marks)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/BlockQuotation> "block quotation"@en)
+SubClassOf(<http://purl.org/spar/doco/BlockQuotation> pattern:Container)
+
+# Class: <http://purl.org/spar/doco/BodyMatter> (body matter)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/BodyMatter> "The central principle part of a document, that contains the real content. It may be subdivided hierarchically by the use of chapters and sections."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/BodyMatter> "body matter"@en)
+SubClassOf(<http://purl.org/spar/doco/BodyMatter> ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+SubClassOf(<http://purl.org/spar/doco/BodyMatter> ObjectAllValuesFrom(pattern:isContainedBy ObjectComplementOf(ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter>))))
+
+# Class: <http://purl.org/spar/doco/CaptionedBox> (captioned box)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/CaptionedBox> "A rectangle space within a page that contains an object and its related caption."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/CaptionedBox> "captioned box"@en)
+SubClassOf(<http://purl.org/spar/doco/CaptionedBox> ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Container) ObjectSomeValuesFrom(terms:hasPart deo:Caption)))
+
+# Class: <http://purl.org/spar/doco/Chapter> (chapter)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Chapter> "A principle division of the body matter of a large document, such as a book, a report or a legislative document."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Chapter> "chapter"@en)
+SubClassOf(<http://purl.org/spar/doco/Chapter> ObjectIntersectionOf(deo:DiscourseElement pattern:HeadedContainer))
+SubClassOf(<http://purl.org/spar/doco/Chapter> ObjectSomeValuesFrom(pattern:contains ObjectUnionOf(<http://purl.org/spar/doco/Paragraph> <http://purl.org/spar/doco/Section>)))
+SubClassOf(<http://purl.org/spar/doco/Chapter> ObjectSomeValuesFrom(pattern:contains ObjectComplementOf(<http://purl.org/spar/doco/Chapter>)))
+
+# Class: <http://purl.org/spar/doco/ChapterLabel> (chapter label)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ChapterLabel> "A block containing a label for the chapter, that may include the chapter number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ChapterLabel> "chapter label"@en)
+SubClassOf(<http://purl.org/spar/doco/ChapterLabel> ObjectIntersectionOf(<http://purl.org/spar/doco/Label> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/Chapter>)))
+DisjointClasses(<http://purl.org/spar/doco/ChapterLabel> <http://purl.org/spar/doco/SectionLabel>)
+
+# Class: <http://purl.org/spar/doco/ChapterSubtitle> (chapter subtitle)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ChapterSubtitle> "The subtitle of a chapter."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ChapterSubtitle> "chapter subtitle"@en)
+SubClassOf(<http://purl.org/spar/doco/ChapterSubtitle> <http://purl.org/spar/doco/Subtitle>)
+SubClassOf(<http://purl.org/spar/doco/ChapterSubtitle> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/Chapter>))
+DisjointClasses(<http://purl.org/spar/doco/ChapterSubtitle> <http://purl.org/spar/doco/SectionSubtitle>)
+
+# Class: <http://purl.org/spar/doco/ChapterTitle> (chapter title)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ChapterTitle> "The title of a chapter."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ChapterTitle> "chapter title"@en)
+SubClassOf(<http://purl.org/spar/doco/ChapterTitle> <http://purl.org/spar/doco/Title>)
+SubClassOf(<http://purl.org/spar/doco/ChapterTitle> ObjectSomeValuesFrom(pattern:isContainedByAsHeader <http://purl.org/spar/doco/Chapter>))
+DisjointClasses(<http://purl.org/spar/doco/ChapterTitle> <http://purl.org/spar/doco/SectionTitle>)
+
+# Class: <http://purl.org/spar/doco/Colophon> (colophon)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Colophon> "A brief description of publication or production notes relevant to the document."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Colophon> "colophon"@en)
+SubClassOf(<http://purl.org/spar/doco/Colophon> ObjectIntersectionOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter>))))
+
+# Class: <http://purl.org/spar/doco/ComplexRunInQuotation> (complex run-in quotation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ComplexRunInQuotation> "A quotation with a complex structure, that is included inline and is usually enclosed within quotation marks."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ComplexRunInQuotation> "complex run-in quotation"@en)
+SubClassOf(<http://purl.org/spar/doco/ComplexRunInQuotation> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/ComplexRunInQuotation> pattern:Popup)
+
+# Class: <http://purl.org/spar/doco/Figure> (figure)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Figure> "A communication object comprising one or more graphics, drawings, images, or other visual representations.."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Figure> "figure"@en)
+SubClassOf(<http://purl.org/spar/doco/Figure> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Figure> ObjectUnionOf(pattern:Meta pattern:Milestone))
+
+# Class: <http://purl.org/spar/doco/FigureBox> (figure box)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/FigureBox> "A space within a document that contains a figure and its caption."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/FigureBox> "figure box"@en)
+SubClassOf(<http://purl.org/spar/doco/FigureBox> ObjectIntersectionOf(<http://purl.org/spar/doco/CaptionedBox> ObjectSomeValuesFrom(terms:hasPart <http://purl.org/spar/doco/Figure>)))
+DisjointClasses(<http://purl.org/spar/doco/FigureBox> <http://purl.org/spar/doco/TableBox>)
+
+# Class: <http://purl.org/spar/doco/FigureLabel> (figure label)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/FigureLabel> "A block containing a label for the figure box, that may include the figure number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/FigureLabel> "figure label"@en)
+SubClassOf(<http://purl.org/spar/doco/FigureLabel> ObjectIntersectionOf(<http://purl.org/spar/doco/Label> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/FigureBox>)))
+
+# Class: <http://purl.org/spar/doco/Footnote> (footnote)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Footnote> "A structure within a sentence that permits the author to make a comment or to cite another publication in support of the text, or both. A footnote is normally flagged by a superscript number immediately following that portion of the text to which it relates. For convenience of reading, the text of the footnote is usually printed at the bottom of the page or at the end of a text."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Footnote> "footnote"@en)
+SubClassOf(<http://purl.org/spar/doco/Footnote> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Footnote> ObjectUnionOf(pattern:Container pattern:Popup))
+
+# Class: <http://purl.org/spar/doco/Foreword> (foreword)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Foreword> "A section in a book or report, usually written by someone other than the author, that introduces or commends the document to the reader. It may include description of the interaction between the writer of the foreword and the author."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Foreword> "foreword"@en)
+SubClassOf(<http://purl.org/spar/doco/Foreword> ObjectIntersectionOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/FrontMatter>)))
+
+# Class: <http://purl.org/spar/doco/Formula> (formula)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Formula> "A unit of information expressed in mathematical, chemical or logical symbols and language."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Formula> "formula"@en)
+SubClassOf(<http://purl.org/spar/doco/Formula> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Formula> pattern:Popup)
+
+# Class: <http://purl.org/spar/doco/FormulaBox> (formula box)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/FormulaBox> "A space within a document that contains one or more formulae."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/FormulaBox> "formula box"@en)
+SubClassOf(<http://purl.org/spar/doco/FormulaBox> ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Container) ObjectSomeValuesFrom(terms:hasPart <http://purl.org/spar/doco/Formula>)))
+
+# Class: <http://purl.org/spar/doco/FrontMatter> (front matter)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/FrontMatter> "The initial principle part of a document, usually containing self-referential metadata. In a book, this typically includes its title, authors, publisher, publication date, ISBN and copyright declaration, together with the preface, foreword, table of content, etc. In a journal article, the front matter is normally restricted to the title, authors and the authors' affiliation details, although the latter may alternatively be included in a footnote or the back matter. In books, the front matter pages may be numbered in lowercase Roman numerals."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/FrontMatter> "front matter"@en)
+SubClassOf(<http://purl.org/spar/doco/FrontMatter> ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+SubClassOf(<http://purl.org/spar/doco/FrontMatter> ObjectAllValuesFrom(pattern:isContainedBy ObjectComplementOf(ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter>))))
+
+# Class: <http://purl.org/spar/doco/Glossary> (glossary)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Glossary> "A set of definitions of words or phrases of importance to the work, normally alphabetized. In longer works of fiction, the entries may contains places and characters."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Glossary> "glossary"@en)
+SubClassOf(<http://purl.org/spar/doco/Glossary> ObjectIntersectionOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter>))))
+
+# Class: <http://purl.org/spar/doco/Index> (index)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Index> "A section containing a list of references to information on the named topic of importance to the content of the document. The references may be to page numbers, paragraph numbers, section numbers or chapter numbers within the document."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Index> "index"@en)
+SubClassOf(<http://purl.org/spar/doco/Index> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.org/spar/doco/Section> pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/BackMatter>)))
+SubClassOf(<http://purl.org/spar/doco/Index> ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(<http://purl.org/spar/doco/ListOfReferences> ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation <http://purl.org/spar/doco/TextChunk>)))))
+
+# Class: <http://purl.org/spar/doco/Label> (label)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Label> "A block containing text, that may include a number (e.g., \"Chapter Three\", \"3.2\", \"Figure 1\", \"Table\"), used to identify an item within the document, for example a chapter, a figure, a section or a table."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Label> "label"@en)
+SubClassOf(<http://purl.org/spar/doco/Label> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Label> ObjectSomeValuesFrom(pattern:isContainedBy ObjectUnionOf(pattern:Block pattern:Container)))
+
+# Class: <http://purl.org/spar/doco/Line> (line)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Line> "A line in poetry is a unit of language into which a poem is divided which operates on principles which are distinct from and not necessarily coincident with grammatical structures, such as the sentence or clauses in sentences.
+
+A distinct numbered group of lines in verse is normally called a stanza."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Line> "line"@en)
+SubClassOf(<http://purl.org/spar/doco/Line> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Line> pattern:Block)
+
+# Class: <http://purl.org/spar/doco/List> (list)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/List> "An enumeration of items."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/List> "list"@en)
+SubClassOf(<http://purl.org/spar/doco/List> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/List> ObjectIntersectionOf(pattern:Table ObjectSomeValuesFrom(pattern:contains pattern:Pattern)))
+SubClassOf(<http://purl.org/spar/doco/List> ObjectAllValuesFrom(pattern:contains ObjectUnionOf(pattern:Block pattern:Field ObjectIntersectionOf(pattern:Container ObjectComplementOf(ObjectUnionOf(pattern:HeadedContainer pattern:Table))))))
+
+# Class: <http://purl.org/spar/doco/ListOfAgents> (list of agents)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfAgents> "A list of items each denoting an agent, such as an author, a contributor or an organization, related to a particular publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfAgents> "list of agents"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfAgents> <http://purl.org/spar/doco/List>)
+DisjointClasses(<http://purl.org/spar/doco/ListOfAgents> <http://purl.org/spar/doco/ListOfReferences>)
+
+# Class: <http://purl.org/spar/doco/ListOfAuthors> (list of authors)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfAuthors> "A list of items each denoting an author of a particular publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfAuthors> "list of authors"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfAuthors> <http://purl.org/spar/doco/ListOfAgents>)
+
+# Class: <http://purl.org/spar/doco/ListOfContributors> (list of contributors)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfContributors> "A list of items, each denoting a contributor to a publication such as an encyclopedia or a text book, where such contributions are insufficient to warrant classification as author."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfContributors> "list of contributors"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfContributors> <http://purl.org/spar/doco/ListOfAgents>)
+
+# Class: <http://purl.org/spar/doco/ListOfFigures> (list of figures)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfFigures> "A section of the document listing all the figures, identified by their titles and referenced to their locations in the document. May also be referred to as 'List of illustrations'."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfFigures> "list of figures"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfFigures> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.org/spar/doco/Section> pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter>))))
+SubClassOf(<http://purl.org/spar/doco/ListOfFigures> ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(<http://purl.org/spar/doco/ListOfReferences> ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation <http://purl.org/spar/doco/FigureBox>)))))
+
+# Class: <http://purl.org/spar/doco/ListOfOrganizations> (list of organizations)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfOrganizations> "A list of items, each denoting an organization or institution related to the publication, for example the authors' affiliations, or the suppliers of information, software, equipment or consumables used in the work described in the publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfOrganizations> "list of organizations"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfOrganizations> <http://purl.org/spar/doco/ListOfAgents>)
+
+# Class: <http://purl.org/spar/doco/ListOfReferences> (list of references)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfReferences> "A list of items each representing a reference to a specific part of the same document, or to another publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfReferences> "list of references"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfReferences> ObjectIntersectionOf(<http://purl.org/spar/doco/List> ObjectAllValuesFrom(pattern:contains deo:Reference)))
+
+# Class: <http://purl.org/spar/doco/ListOfTables> (list of tables)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/ListOfTables> "A section of the document listing all the tables, identified by their titles and referenced to their locations in the document."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/ListOfTables> "list of tables"@en)
+SubClassOf(<http://purl.org/spar/doco/ListOfTables> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.org/spar/doco/Section> pattern:HeadedContainer) ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter>))))
+SubClassOf(<http://purl.org/spar/doco/ListOfTables> ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(<http://purl.org/spar/doco/ListOfReferences> ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation <http://purl.org/spar/doco/TableBox>)))))
+
+# Class: <http://purl.org/spar/doco/Paragraph> (paragraph)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Paragraph> "A self-contained unit of discourse that deals with a particular point or idea. Paragraphs contains one or more sentences. The start of a paragraph is indicated by beginning on a new line, which may be indented or separated by a small vertical space by the preceding paragraph. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Paragraph> "paragraph"@en)
+SubClassOf(<http://purl.org/spar/doco/Paragraph> ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Block) ObjectSomeValuesFrom(pattern:contains <http://purl.org/spar/doco/Sentence>)))
+
+# Class: <http://purl.org/spar/doco/Part> (part)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Part> "A container of a semantic subdivision of a document. For example, chapters of a novel may be grouped into distinct parts that may be named 'Part 1', 'Part 2', etc., 'Book 1', 'Book 2', etc., or 'Genesis', 'Exodus', etc."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Part> "part"@en)
+SubClassOf(<http://purl.org/spar/doco/Part> ObjectIntersectionOf(deo:DiscourseElement pattern:Container))
+
+# Class: <http://purl.org/spar/doco/Preface> (preface)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Preface> "A section describing how the document came into being, or how the idea for it was developed. The preface may contains acknowledgements. The preface to a later edition of the work often explains in what respect that edition differs from previous ones."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Preface> "preface"@en)
+SubClassOf(<http://purl.org/spar/doco/Preface> ObjectIntersectionOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/FrontMatter>)))
+
+# Class: <http://purl.org/spar/doco/Section> (section)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Section> "A logical division of the text, usually numbered and/or titled, which may contain subsections."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Section> "section"@en)
+SubClassOf(<http://purl.org/spar/doco/Section> ObjectIntersectionOf(deo:DiscourseElement pattern:HeadedContainer))
+SubClassOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(pattern:contains ObjectUnionOf(<http://purl.org/spar/doco/Paragraph> <http://purl.org/spar/doco/Section>)))
+SubClassOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(pattern:contains ObjectComplementOf(<http://purl.org/spar/doco/Chapter>)))
+
+# Class: <http://purl.org/spar/doco/SectionLabel> (section label)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/SectionLabel> "A block containing a label for the section, that may include the section number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/SectionLabel> "section label"@en)
+SubClassOf(<http://purl.org/spar/doco/SectionLabel> <http://purl.org/spar/doco/Label>)
+SubClassOf(<http://purl.org/spar/doco/SectionLabel> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/Section>))
+
+# Class: <http://purl.org/spar/doco/SectionSubtitle> (section subtitle)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/SectionSubtitle> "The subtitle of a section."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/SectionSubtitle> "section subtitle"@en)
+SubClassOf(<http://purl.org/spar/doco/SectionSubtitle> <http://purl.org/spar/doco/Subtitle>)
+SubClassOf(<http://purl.org/spar/doco/SectionSubtitle> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/Section>))
+
+# Class: <http://purl.org/spar/doco/SectionTitle> (section title)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/SectionTitle> "The title of a section."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/SectionTitle> "section title"@en)
+SubClassOf(<http://purl.org/spar/doco/SectionTitle> <http://purl.org/spar/doco/Title>)
+SubClassOf(<http://purl.org/spar/doco/SectionTitle> ObjectSomeValuesFrom(pattern:isContainedByAsHeader <http://purl.org/spar/doco/Section>))
+
+# Class: <http://purl.org/spar/doco/Sentence> (sentence)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Sentence> "An expression in natural language forming a single grammatical unit. A sentence minimally consists of a subject and an intransitive verb, or a subject, a transitive verb and an object, and may include additional dependent clauses. In written text, a sentence is always terminated by a full stop. A sentence can include words grouped meaningfully to express a statement, a question, an exclamation, a request or a command."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Sentence> "sentence"@en)
+SubClassOf(<http://purl.org/spar/doco/Sentence> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Sentence> pattern:Inline)
+
+# Class: <http://purl.org/spar/doco/SimpleRunInQuotation> (simple run-in quotation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/SimpleRunInQuotation> "A textual quotation that is included inline and is usually enclosed within quotation marks."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/SimpleRunInQuotation> "simple run-in quotation"@en)
+SubClassOf(<http://purl.org/spar/doco/SimpleRunInQuotation> pattern:Inline)
+
+# Class: <http://purl.org/spar/doco/Stanza> (stanza)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Stanza> "A unit within a larger poem. A stanza consists of a grouping of lines, set off by a vertical space from other stanzas, that usually has a set pattern of meter and rhyme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Stanza> "stanza"@en)
+SubClassOf(<http://purl.org/spar/doco/Stanza> ObjectIntersectionOf(ObjectIntersectionOf(deo:DiscourseElement pattern:Container) ObjectAllValuesFrom(pattern:contains <http://purl.org/spar/doco/Line>)))
+
+# Class: <http://purl.org/spar/doco/Subtitle> (subtitle)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Subtitle> "An explanatory or alternative title of a publication. For example, Mary Shelley uses the alternative title 'The Modern Prometheus' to hint at the theme of her most famous novel 'Frankenstein'; Nick Efford uses the subtitle 'a practical introduction using Java' to qualify the title of his book 'Digital Image Processing'."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Subtitle> "subtitle"@en)
+SubClassOf(<http://purl.org/spar/doco/Subtitle> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Subtitle> pattern:Block)
+
+# Class: <http://purl.org/spar/doco/Table> (table)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Table> "A set of data arranged in cells within rows and columns."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Table> "table"@en)
+SubClassOf(<http://purl.org/spar/doco/Table> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Table> pattern:Table)
+SubClassOf(<http://purl.org/spar/doco/Table> ObjectSomeValuesFrom(pattern:contains pattern:Container))
+
+# Class: <http://purl.org/spar/doco/TableBox> (table box)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/TableBox> "A space within a document that contains a table and its caption."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/TableBox> "table box"@en)
+SubClassOf(<http://purl.org/spar/doco/TableBox> ObjectIntersectionOf(<http://purl.org/spar/doco/CaptionedBox> ObjectSomeValuesFrom(terms:hasPart <http://purl.org/spar/doco/Table>)))
+
+# Class: <http://purl.org/spar/doco/TableLabel> (table label)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/TableLabel> "A block containing a label for the table box, that may include the table number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/TableLabel> "table label"@en)
+SubClassOf(<http://purl.org/spar/doco/TableLabel> ObjectIntersectionOf(<http://purl.org/spar/doco/Label> ObjectSomeValuesFrom(terms:isPartOf <http://purl.org/spar/doco/TableBox>)))
+
+# Class: <http://purl.org/spar/doco/TableOfContents> (table of contents)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/TableOfContents> "A section of the document listing all the chapters and sections, identified by their titles and referenced to their locations in the document. The table of contents may include a list of the front-matter and back-matter items, in addition to the body-matter items.  Where the document is a journal or magazine issue, the table of content lists the constituent items contained in that issue, typically by title, authors and first page number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/TableOfContents> "table of contents"@en)
+SubClassOf(<http://purl.org/spar/doco/TableOfContents> ObjectIntersectionOf(<http://purl.org/spar/doco/Section> ObjectSomeValuesFrom(terms:isPartOf ObjectUnionOf(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter>))))
+SubClassOf(<http://purl.org/spar/doco/TableOfContents> ObjectSomeValuesFrom(terms:hasPart ObjectIntersectionOf(<http://purl.org/spar/doco/ListOfReferences> ObjectAllValuesFrom(pattern:contains ObjectSomeValuesFrom(terms:relation <http://purl.org/spar/doco/Section>)))))
+
+# Class: <http://purl.org/spar/doco/TextBox> (text box)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/TextBox> "A space within a document that contains textual content relating to, quoting from or expanding upon the main text. Usually a textbox is delimited by a border or use of a background colour distinct from that of the main text."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/TextBox> "text box"@en)
+SubClassOf(<http://purl.org/spar/doco/TextBox> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/TextBox> pattern:Container)
+
+# Class: <http://purl.org/spar/doco/TextChunk> (text chunk)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/TextChunk> "A piece of text defined by a start point and an end point."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/TextChunk> "text chunk"@en)
+SubClassOf(<http://purl.org/spar/doco/TextChunk> pattern:Inline)
+
+# Class: <http://purl.org/spar/doco/Title> (title)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/doco/Title> "A word, phrase or sentence that precedes and indicates the subject of a document or a document component - e.g., a book, a report, a news article, a chapter, a section or a table."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/doco/Title> "title"@en)
+SubClassOf(<http://purl.org/spar/doco/Title> deo:DiscourseElement)
+SubClassOf(<http://purl.org/spar/doco/Title> ObjectUnionOf(pattern:Block pattern:Field))
+SubClassOf(<http://purl.org/spar/doco/Title> ObjectSomeValuesFrom(pattern:isContainedByAsHeader pattern:HeadedContainer))
+
+
+DisjointClasses(<http://purl.org/spar/doco/Abstract> <http://purl.org/spar/doco/Afterword> <http://purl.org/spar/doco/Appendix> <http://purl.org/spar/doco/Colophon> <http://purl.org/spar/doco/Foreword> <http://purl.org/spar/doco/Glossary> <http://purl.org/spar/doco/Index> <http://purl.org/spar/doco/ListOfFigures> <http://purl.org/spar/doco/ListOfTables> <http://purl.org/spar/doco/Preface> <http://purl.org/spar/doco/TableOfContents>)
+DisjointClasses(<http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/CaptionedBox> <http://purl.org/spar/doco/Chapter> <http://purl.org/spar/doco/ComplexRunInQuotation> <http://purl.org/spar/doco/Footnote> <http://purl.org/spar/doco/Formula> <http://purl.org/spar/doco/FormulaBox> <http://purl.org/spar/doco/FrontMatter> <http://purl.org/spar/doco/List> <http://purl.org/spar/doco/Part> <http://purl.org/spar/doco/Section> <http://purl.org/spar/doco/Table>)
+DisjointClasses(<http://purl.org/spar/doco/Label> <http://purl.org/spar/doco/Paragraph> <http://purl.org/spar/doco/Subtitle> <http://purl.org/spar/doco/Title>)
+DisjointClasses(<http://purl.org/spar/doco/ListOfAuthors> <http://purl.org/spar/doco/ListOfContributors> <http://purl.org/spar/doco/ListOfOrganizations>)
+DisjointClasses(<http://purl.org/spar/doco/Sentence> <http://purl.org/spar/doco/SimpleRunInQuotation> <http://purl.org/spar/doco/TextChunk>)
+)

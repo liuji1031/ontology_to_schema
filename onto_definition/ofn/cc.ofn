@@ -1,0 +1,174 @@
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(
+Declaration(Class(<http://web.resource.org/cc/Agent>))
+Declaration(Class(<http://web.resource.org/cc/License>))
+Declaration(Class(<http://web.resource.org/cc/Permission>))
+Declaration(Class(<http://web.resource.org/cc/Prohibition>))
+Declaration(Class(<http://web.resource.org/cc/Requirement>))
+Declaration(Class(<http://web.resource.org/cc/Work>))
+Declaration(ObjectProperty(<http://web.resource.org/cc/derivativeWork>))
+Declaration(ObjectProperty(<http://web.resource.org/cc/permits>))
+Declaration(ObjectProperty(<http://web.resource.org/cc/prohibits>))
+Declaration(ObjectProperty(<http://web.resource.org/cc/requires>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/Attribution>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/CommercialUse>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/DerivativeWorks>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/Distribution>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/Notice>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/PublicDomain>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/Reproduction>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/ShareAlike>))
+Declaration(NamedIndividual(<http://web.resource.org/cc/SourceCode>))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: <http://web.resource.org/cc/license> (<http://web.resource.org/cc/license>)
+
+AnnotationAssertion(dc:title <http://web.resource.org/cc/license> "has license")
+AnnotationAssertion(rdfs:seeAlso <http://web.resource.org/cc/license> <http://www.w3.org/2000/10/swap/pim/doc#ipr>)
+SubAnnotationPropertyOf(<http://web.resource.org/cc/license> <http://purl.org/dc/terms/license>)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://web.resource.org/cc/derivativeWork> (<http://web.resource.org/cc/derivativeWork>)
+
+AnnotationAssertion(dc:title <http://web.resource.org/cc/derivativeWork> "has a derivative work")
+AnnotationAssertion(rdfs:seeAlso <http://web.resource.org/cc/derivativeWork> dc:source)
+ObjectPropertyDomain(<http://web.resource.org/cc/derivativeWork> <http://web.resource.org/cc/Work>)
+ObjectPropertyRange(<http://web.resource.org/cc/derivativeWork> <http://web.resource.org/cc/Work>)
+
+# Object Property: <http://web.resource.org/cc/license> (<http://web.resource.org/cc/license>)
+
+ObjectPropertyDomain(<http://web.resource.org/cc/license> <http://web.resource.org/cc/Work>)
+ObjectPropertyRange(<http://web.resource.org/cc/license> <http://web.resource.org/cc/License>)
+
+# Object Property: <http://web.resource.org/cc/permits> (<http://web.resource.org/cc/permits>)
+
+AnnotationAssertion(dc:title <http://web.resource.org/cc/permits> "permits")
+ObjectPropertyDomain(<http://web.resource.org/cc/permits> <http://web.resource.org/cc/License>)
+ObjectPropertyRange(<http://web.resource.org/cc/permits> <http://web.resource.org/cc/Permission>)
+
+# Object Property: <http://web.resource.org/cc/prohibits> (<http://web.resource.org/cc/prohibits>)
+
+AnnotationAssertion(dc:title <http://web.resource.org/cc/prohibits> "prohibits")
+ObjectPropertyDomain(<http://web.resource.org/cc/prohibits> <http://web.resource.org/cc/License>)
+ObjectPropertyRange(<http://web.resource.org/cc/prohibits> <http://web.resource.org/cc/Prohibition>)
+
+# Object Property: <http://web.resource.org/cc/requires> (<http://web.resource.org/cc/requires>)
+
+AnnotationAssertion(dc:title <http://web.resource.org/cc/requires> "requires")
+ObjectPropertyDomain(<http://web.resource.org/cc/requires> <http://web.resource.org/cc/License>)
+ObjectPropertyRange(<http://web.resource.org/cc/requires> <http://web.resource.org/cc/Requirement>)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://web.resource.org/cc/Agent> (<http://web.resource.org/cc/Agent>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Agent> "something (e.g. a person, corporation or computer) capable of creating things")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Agent> "agent")
+
+# Class: <http://web.resource.org/cc/License> (<http://web.resource.org/cc/License>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/License> "a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/License> "license")
+
+# Class: <http://web.resource.org/cc/Permission> (<http://web.resource.org/cc/Permission>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Permission> "an action that may or may not be allowed or desired")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Permission> "permission")
+
+# Class: <http://web.resource.org/cc/Prohibition> (<http://web.resource.org/cc/Prohibition>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Prohibition> "something you may be asked not to do")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Prohibition> "prohibition")
+
+# Class: <http://web.resource.org/cc/Requirement> (<http://web.resource.org/cc/Requirement>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Requirement> "an action that may or may not be requested of you")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Requirement> "requirement")
+
+# Class: <http://web.resource.org/cc/Work> (<http://web.resource.org/cc/Work>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Work> "a potentially copyrightable work")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Work> "work")
+AnnotationAssertion(rdfs:seeAlso <http://web.resource.org/cc/Work> <http://www.w3.org/2000/10/swap/pim/doc#Work>)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://web.resource.org/cc/Attribution> (<http://web.resource.org/cc/Attribution>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Attribution> "credit be given to copyright holder and/or author")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Attribution> "attribution")
+ClassAssertion(<http://web.resource.org/cc/Requirement> <http://web.resource.org/cc/Attribution>)
+
+# Individual: <http://web.resource.org/cc/CommercialUse> (<http://web.resource.org/cc/CommercialUse>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/CommercialUse> "exercising rights for commercial purposes")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/CommercialUse> "commercial use")
+ClassAssertion(<http://web.resource.org/cc/Prohibition> <http://web.resource.org/cc/CommercialUse>)
+
+# Individual: <http://web.resource.org/cc/DerivativeWorks> (<http://web.resource.org/cc/DerivativeWorks>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/DerivativeWorks> "creation and distribution of derivative works")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/DerivativeWorks> "derivative works")
+ClassAssertion(<http://web.resource.org/cc/Permission> <http://web.resource.org/cc/DerivativeWorks>)
+
+# Individual: <http://web.resource.org/cc/Distribution> (<http://web.resource.org/cc/Distribution>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Distribution> "distribution, public display, and publicly performance")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Distribution> "distribution")
+ClassAssertion(<http://web.resource.org/cc/Permission> <http://web.resource.org/cc/Distribution>)
+
+# Individual: <http://web.resource.org/cc/Notice> (<http://web.resource.org/cc/Notice>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Notice> "copyright and license notices be kept intact")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Notice> "copyright notices")
+ClassAssertion(<http://web.resource.org/cc/Requirement> <http://web.resource.org/cc/Notice>)
+
+# Individual: <http://web.resource.org/cc/PublicDomain> (<http://web.resource.org/cc/PublicDomain>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/PublicDomain> "no copyright; everything is permitted without restriction")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/PublicDomain> "public domain")
+ClassAssertion(<http://web.resource.org/cc/License> <http://web.resource.org/cc/PublicDomain>)
+
+# Individual: <http://web.resource.org/cc/Reproduction> (<http://web.resource.org/cc/Reproduction>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/Reproduction> "making multiple copies")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/Reproduction> "reproduction")
+ClassAssertion(<http://web.resource.org/cc/Permission> <http://web.resource.org/cc/Reproduction>)
+
+# Individual: <http://web.resource.org/cc/ShareAlike> (<http://web.resource.org/cc/ShareAlike>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/ShareAlike> "derivative works be licensed under the same terms as the original work")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/ShareAlike> "share alike")
+ClassAssertion(<http://web.resource.org/cc/Requirement> <http://web.resource.org/cc/ShareAlike>)
+
+# Individual: <http://web.resource.org/cc/SourceCode> (<http://web.resource.org/cc/SourceCode>)
+
+AnnotationAssertion(dc:description <http://web.resource.org/cc/SourceCode> "source code (the preferred form for making modifications) must be provided for all derivative works")
+AnnotationAssertion(dc:title <http://web.resource.org/cc/SourceCode> "source code")
+ClassAssertion(<http://web.resource.org/cc/Requirement> <http://web.resource.org/cc/SourceCode>)
+
+
+)

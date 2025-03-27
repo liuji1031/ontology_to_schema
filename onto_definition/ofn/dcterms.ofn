@@ -1,0 +1,1420 @@
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(dcam:=<http://purl.org/dc/dcam/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2004/02/skos/core#>)
+Prefix(dcterms:=<http://purl.org/dc/terms/>)
+
+
+Ontology(
+Declaration(Class(dcam:VocabularyEncodingScheme))
+Declaration(Class(dcterms:Agent))
+Declaration(Class(dcterms:AgentClass))
+Declaration(Class(dcterms:BibliographicResource))
+Declaration(Class(dcterms:FileFormat))
+Declaration(Class(dcterms:Frequency))
+Declaration(Class(dcterms:Jurisdiction))
+Declaration(Class(dcterms:LicenseDocument))
+Declaration(Class(dcterms:LinguisticSystem))
+Declaration(Class(dcterms:Location))
+Declaration(Class(dcterms:LocationPeriodOrJurisdiction))
+Declaration(Class(dcterms:MediaType))
+Declaration(Class(dcterms:MediaTypeOrExtent))
+Declaration(Class(dcterms:MethodOfAccrual))
+Declaration(Class(dcterms:MethodOfInstruction))
+Declaration(Class(dcterms:PeriodOfTime))
+Declaration(Class(dcterms:PhysicalMedium))
+Declaration(Class(dcterms:PhysicalResource))
+Declaration(Class(dcterms:Policy))
+Declaration(Class(dcterms:ProvenanceStatement))
+Declaration(Class(dcterms:RightsStatement))
+Declaration(Class(dcterms:SizeOrDuration))
+Declaration(Class(dcterms:Standard))
+Declaration(Class(rdfs:Class))
+Declaration(NamedIndividual(<http://purl.org/dc/terms/>))
+Declaration(NamedIndividual(dcterms:Agent))
+Declaration(NamedIndividual(dcterms:AgentClass))
+Declaration(NamedIndividual(dcterms:BibliographicResource))
+Declaration(NamedIndividual(dcterms:Box))
+Declaration(NamedIndividual(dcterms:DCMIType))
+Declaration(NamedIndividual(dcterms:DDC))
+Declaration(NamedIndividual(dcterms:FileFormat))
+Declaration(NamedIndividual(dcterms:Frequency))
+Declaration(NamedIndividual(dcterms:IMT))
+Declaration(NamedIndividual(dcterms:ISO3166))
+Declaration(NamedIndividual(dcterms:ISO639-2))
+Declaration(NamedIndividual(dcterms:ISO639-3))
+Declaration(NamedIndividual(dcterms:Jurisdiction))
+Declaration(NamedIndividual(dcterms:LCC))
+Declaration(NamedIndividual(dcterms:LCSH))
+Declaration(NamedIndividual(dcterms:LicenseDocument))
+Declaration(NamedIndividual(dcterms:LinguisticSystem))
+Declaration(NamedIndividual(dcterms:Location))
+Declaration(NamedIndividual(dcterms:LocationPeriodOrJurisdiction))
+Declaration(NamedIndividual(dcterms:MESH))
+Declaration(NamedIndividual(dcterms:MediaType))
+Declaration(NamedIndividual(dcterms:MediaTypeOrExtent))
+Declaration(NamedIndividual(dcterms:MethodOfAccrual))
+Declaration(NamedIndividual(dcterms:MethodOfInstruction))
+Declaration(NamedIndividual(dcterms:NLM))
+Declaration(NamedIndividual(dcterms:Period))
+Declaration(NamedIndividual(dcterms:PeriodOfTime))
+Declaration(NamedIndividual(dcterms:PhysicalMedium))
+Declaration(NamedIndividual(dcterms:PhysicalResource))
+Declaration(NamedIndividual(dcterms:Point))
+Declaration(NamedIndividual(dcterms:Policy))
+Declaration(NamedIndividual(dcterms:ProvenanceStatement))
+Declaration(NamedIndividual(dcterms:RFC1766))
+Declaration(NamedIndividual(dcterms:RFC3066))
+Declaration(NamedIndividual(dcterms:RFC4646))
+Declaration(NamedIndividual(dcterms:RFC5646))
+Declaration(NamedIndividual(dcterms:RightsStatement))
+Declaration(NamedIndividual(dcterms:SizeOrDuration))
+Declaration(NamedIndividual(dcterms:Standard))
+Declaration(NamedIndividual(dcterms:TGN))
+Declaration(NamedIndividual(dcterms:UDC))
+Declaration(NamedIndividual(dcterms:URI))
+Declaration(NamedIndividual(dcterms:W3CDTF))
+Declaration(NamedIndividual(dcterms:abstract))
+Declaration(NamedIndividual(dcterms:accessRights))
+Declaration(NamedIndividual(dcterms:accrualMethod))
+Declaration(NamedIndividual(dcterms:accrualPeriodicity))
+Declaration(NamedIndividual(dcterms:accrualPolicy))
+Declaration(NamedIndividual(dcterms:audience))
+Declaration(NamedIndividual(dcterms:conformsTo))
+Declaration(NamedIndividual(dcterms:contributor))
+Declaration(NamedIndividual(dcterms:coverage))
+Declaration(NamedIndividual(dcterms:creator))
+Declaration(NamedIndividual(dcterms:description))
+Declaration(NamedIndividual(dcterms:educationLevel))
+Declaration(NamedIndividual(dcterms:extent))
+Declaration(NamedIndividual(dcterms:format))
+Declaration(NamedIndividual(dcterms:hasFormat))
+Declaration(NamedIndividual(dcterms:hasPart))
+Declaration(NamedIndividual(dcterms:hasVersion))
+Declaration(NamedIndividual(dcterms:instructionalMethod))
+Declaration(NamedIndividual(dcterms:isFormatOf))
+Declaration(NamedIndividual(dcterms:isPartOf))
+Declaration(NamedIndividual(dcterms:isReferencedBy))
+Declaration(NamedIndividual(dcterms:isReplacedBy))
+Declaration(NamedIndividual(dcterms:isRequiredBy))
+Declaration(NamedIndividual(dcterms:isVersionOf))
+Declaration(NamedIndividual(dcterms:language))
+Declaration(NamedIndividual(dcterms:license))
+Declaration(NamedIndividual(dcterms:mediator))
+Declaration(NamedIndividual(dcterms:medium))
+Declaration(NamedIndividual(dcterms:provenance))
+Declaration(NamedIndividual(dcterms:publisher))
+Declaration(NamedIndividual(dcterms:references))
+Declaration(NamedIndividual(dcterms:relation))
+Declaration(NamedIndividual(dcterms:replaces))
+Declaration(NamedIndividual(dcterms:requires))
+Declaration(NamedIndividual(dcterms:rights))
+Declaration(NamedIndividual(dcterms:rightsHolder))
+Declaration(NamedIndividual(dcterms:source))
+Declaration(NamedIndividual(dcterms:spatial))
+Declaration(NamedIndividual(dcterms:subject))
+Declaration(NamedIndividual(dcterms:tableOfContents))
+Declaration(NamedIndividual(dcterms:temporal))
+Declaration(NamedIndividual(dcterms:type))
+Declaration(AnnotationProperty(dcam:domainIncludes))
+Declaration(AnnotationProperty(dcam:rangeIncludes))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/contributor>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/coverage>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/creator>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/date>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/description>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/format>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/identifier>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/language>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/publisher>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/relation>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/rights>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/source>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/subject>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/title>))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/type>))
+Declaration(AnnotationProperty(dcterms:abstract))
+Declaration(AnnotationProperty(dcterms:accessRights))
+Declaration(AnnotationProperty(dcterms:accrualMethod))
+Declaration(AnnotationProperty(dcterms:accrualPeriodicity))
+Declaration(AnnotationProperty(dcterms:accrualPolicy))
+Declaration(AnnotationProperty(dcterms:audience))
+Declaration(AnnotationProperty(dcterms:conformsTo))
+Declaration(AnnotationProperty(dcterms:contributor))
+Declaration(AnnotationProperty(dcterms:coverage))
+Declaration(AnnotationProperty(dcterms:creator))
+Declaration(AnnotationProperty(dcterms:description))
+Declaration(AnnotationProperty(dcterms:educationLevel))
+Declaration(AnnotationProperty(dcterms:extent))
+Declaration(AnnotationProperty(dcterms:format))
+Declaration(AnnotationProperty(dcterms:hasFormat))
+Declaration(AnnotationProperty(dcterms:hasPart))
+Declaration(AnnotationProperty(dcterms:hasVersion))
+Declaration(AnnotationProperty(dcterms:isFormatOf))
+Declaration(AnnotationProperty(dcterms:isPartOf))
+Declaration(AnnotationProperty(dcterms:isReferencedBy))
+Declaration(AnnotationProperty(dcterms:isReplacedBy))
+Declaration(AnnotationProperty(dcterms:isRequiredBy))
+Declaration(AnnotationProperty(dcterms:isVersionOf))
+Declaration(AnnotationProperty(dcterms:language))
+Declaration(AnnotationProperty(dcterms:license))
+Declaration(AnnotationProperty(dcterms:mediator))
+Declaration(AnnotationProperty(dcterms:medium))
+Declaration(AnnotationProperty(dcterms:publisher))
+Declaration(AnnotationProperty(dcterms:references))
+Declaration(AnnotationProperty(dcterms:relation))
+Declaration(AnnotationProperty(dcterms:replaces))
+Declaration(AnnotationProperty(dcterms:requires))
+Declaration(AnnotationProperty(dcterms:rights))
+Declaration(AnnotationProperty(dcterms:source))
+Declaration(AnnotationProperty(dcterms:spatial))
+Declaration(AnnotationProperty(dcterms:subject))
+Declaration(AnnotationProperty(dcterms:tableOfContents))
+Declaration(AnnotationProperty(dcterms:temporal))
+Declaration(AnnotationProperty(dcterms:type))
+Declaration(Datatype(dcterms:Box))
+Declaration(Datatype(dcterms:ISO3166))
+Declaration(Datatype(dcterms:ISO639-2))
+Declaration(Datatype(dcterms:ISO639-3))
+Declaration(Datatype(dcterms:Period))
+Declaration(Datatype(dcterms:Point))
+Declaration(Datatype(dcterms:RFC1766))
+Declaration(Datatype(dcterms:RFC3066))
+Declaration(Datatype(dcterms:RFC4646))
+Declaration(Datatype(dcterms:RFC5646))
+Declaration(Datatype(dcterms:URI))
+Declaration(Datatype(dcterms:W3CDTF))
+Declaration(Datatype(xsd:date))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: dcterms:abstract (Abstract)
+
+AnnotationAssertion(rdfs:comment dcterms:abstract "A summary of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:abstract <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:abstract "Abstract"@en)
+SubAnnotationPropertyOf(dcterms:abstract <http://purl.org/dc/elements/1.1/description>)
+SubAnnotationPropertyOf(dcterms:abstract dcterms:description)
+
+# Annotation Property: dcterms:accessRights (Access Rights)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:accessRights dcterms:RightsStatement)
+AnnotationAssertion(dcterms:description dcterms:accessRights "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en)
+AnnotationAssertion(rdfs:comment dcterms:accessRights "Information about who access the resource or an indication of its security status."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:accessRights <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:accessRights "Access Rights"@en)
+SubAnnotationPropertyOf(dcterms:accessRights <http://purl.org/dc/elements/1.1/rights>)
+SubAnnotationPropertyOf(dcterms:accessRights dcterms:rights)
+
+# Annotation Property: dcterms:accrualMethod (Accrual Method)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:accrualMethod dcterms:MethodOfAccrual)
+AnnotationAssertion(dcterms:description dcterms:accrualMethod "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."@en)
+AnnotationAssertion(rdfs:comment dcterms:accrualMethod "The method by which items are added to a collection."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:accrualMethod <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:accrualMethod "Accrual Method"@en)
+AnnotationPropertyDomain(dcterms:accrualMethod <http://purl.org/dc/dcmitype/Collection>)
+
+# Annotation Property: dcterms:accrualPeriodicity (Accrual Periodicity)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:accrualPeriodicity dcterms:Frequency)
+AnnotationAssertion(dcterms:description dcterms:accrualPeriodicity "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)]."@en)
+AnnotationAssertion(rdfs:comment dcterms:accrualPeriodicity "The frequency with which items are added to a collection."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:accrualPeriodicity <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:accrualPeriodicity "Accrual Periodicity"@en)
+AnnotationPropertyDomain(dcterms:accrualPeriodicity <http://purl.org/dc/dcmitype/Collection>)
+
+# Annotation Property: dcterms:accrualPolicy (Accrual Policy)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:accrualPolicy dcterms:Policy)
+AnnotationAssertion(dcterms:description dcterms:accrualPolicy "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)]."@en)
+AnnotationAssertion(rdfs:comment dcterms:accrualPolicy "The policy governing the addition of items to a collection."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:accrualPolicy <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:accrualPolicy "Accrual Policy"@en)
+AnnotationPropertyDomain(dcterms:accrualPolicy <http://purl.org/dc/dcmitype/Collection>)
+
+# Annotation Property: dcterms:alternative (Alternative Title)
+
+AnnotationAssertion(dcterms:description dcterms:alternative "The distinction between titles and alternative titles is application-specific."@en)
+AnnotationAssertion(rdfs:comment dcterms:alternative "An alternative name for the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:alternative <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:alternative "Alternative Title"@en)
+SubAnnotationPropertyOf(dcterms:alternative <http://purl.org/dc/elements/1.1/title>)
+
+# Annotation Property: dcterms:audience (Audience)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:audience dcterms:AgentClass)
+AnnotationAssertion(dcterms:description dcterms:audience "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."@en)
+AnnotationAssertion(rdfs:comment dcterms:audience "A class of agents for whom the resource is intended or useful."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:audience <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:audience "Audience"@en)
+
+# Annotation Property: dcterms:available (Date Available)
+
+AnnotationAssertion(dcterms:description dcterms:available "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en)
+AnnotationAssertion(rdfs:comment dcterms:available "Date that the resource became or will become available."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:available <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:available "Date Available"@en)
+SubAnnotationPropertyOf(dcterms:available <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:bibliographicCitation (Bibliographic Citation)
+
+AnnotationAssertion(dcterms:description dcterms:bibliographicCitation "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."@en)
+AnnotationAssertion(rdfs:comment dcterms:bibliographicCitation "A bibliographic reference for the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:bibliographicCitation <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:bibliographicCitation "Bibliographic Citation"@en)
+SubAnnotationPropertyOf(dcterms:bibliographicCitation <http://purl.org/dc/elements/1.1/identifier>)
+
+# Annotation Property: dcterms:conformsTo (Conforms To)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:conformsTo dcterms:Standard)
+AnnotationAssertion(rdfs:comment dcterms:conformsTo "An established standard to which the described resource conforms."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:conformsTo <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:conformsTo "Conforms To"@en)
+SubAnnotationPropertyOf(dcterms:conformsTo <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:conformsTo dcterms:relation)
+
+# Annotation Property: dcterms:contributor (Contributor)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:contributor dcterms:Agent)
+AnnotationAssertion(dcterms:description dcterms:contributor "The guidelines for using names of persons or organizations as creators apply to contributors."@en)
+AnnotationAssertion(rdfs:comment dcterms:contributor "An entity responsible for making contributions to the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:contributor <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:contributor "Contributor"@en)
+SubAnnotationPropertyOf(dcterms:contributor <http://purl.org/dc/elements/1.1/contributor>)
+
+# Annotation Property: dcterms:coverage (Coverage)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:coverage dcterms:Jurisdiction)
+AnnotationAssertion(dcam:rangeIncludes dcterms:coverage dcterms:Location)
+AnnotationAssertion(dcam:rangeIncludes dcterms:coverage dcterms:Period)
+AnnotationAssertion(dcterms:description dcterms:coverage "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage."@en)
+AnnotationAssertion(rdfs:comment dcterms:coverage "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:coverage <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:coverage "Coverage"@en)
+SubAnnotationPropertyOf(dcterms:coverage <http://purl.org/dc/elements/1.1/coverage>)
+
+# Annotation Property: dcterms:created (Date Created)
+
+AnnotationAssertion(dcterms:description dcterms:created "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en)
+AnnotationAssertion(rdfs:comment dcterms:created "Date of creation of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:created <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:created "Date Created"@en)
+SubAnnotationPropertyOf(dcterms:created <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:creator (Creator)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:creator dcterms:Agent)
+AnnotationAssertion(dcterms:description dcterms:creator "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en)
+AnnotationAssertion(rdfs:comment dcterms:creator "An entity responsible for making the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:creator <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:creator "Creator"@en)
+SubAnnotationPropertyOf(dcterms:creator <http://purl.org/dc/elements/1.1/creator>)
+SubAnnotationPropertyOf(dcterms:creator dcterms:contributor)
+
+# Annotation Property: dcterms:date (Date)
+
+AnnotationAssertion(dcterms:description dcterms:date "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing."@en)
+AnnotationAssertion(rdfs:comment dcterms:date "A point or period of time associated with an event in the lifecycle of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:date <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:date "Date"@en)
+SubAnnotationPropertyOf(dcterms:date <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:dateAccepted (Date Accepted)
+
+AnnotationAssertion(dcterms:description dcterms:dateAccepted "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."@en)
+AnnotationAssertion(rdfs:comment dcterms:dateAccepted "Date of acceptance of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:dateAccepted <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:dateAccepted "Date Accepted"@en)
+SubAnnotationPropertyOf(dcterms:dateAccepted <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:dateCopyrighted (Date Copyrighted)
+
+AnnotationAssertion(dcterms:description dcterms:dateCopyrighted "Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en)
+AnnotationAssertion(rdfs:comment dcterms:dateCopyrighted "Date of copyright of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:dateCopyrighted <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:dateCopyrighted "Date Copyrighted"@en)
+SubAnnotationPropertyOf(dcterms:dateCopyrighted <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:dateSubmitted (Date Submitted)
+
+AnnotationAssertion(dcterms:description dcterms:dateSubmitted "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal)."@en)
+AnnotationAssertion(rdfs:comment dcterms:dateSubmitted "Date of submission of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:dateSubmitted <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:dateSubmitted "Date Submitted"@en)
+SubAnnotationPropertyOf(dcterms:dateSubmitted <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:description (Description)
+
+AnnotationAssertion(dcterms:description dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en)
+AnnotationAssertion(rdfs:comment dcterms:description "An account of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:description <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:description "Description"@en)
+SubAnnotationPropertyOf(dcterms:description <http://purl.org/dc/elements/1.1/description>)
+
+# Annotation Property: dcterms:educationLevel (Audience Education Level)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:educationLevel dcterms:AgentClass)
+AnnotationAssertion(rdfs:comment dcterms:educationLevel "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:educationLevel <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:educationLevel "Audience Education Level"@en)
+SubAnnotationPropertyOf(dcterms:educationLevel dcterms:audience)
+
+# Annotation Property: dcterms:extent (Extent)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:extent dcterms:SizeOrDuration)
+AnnotationAssertion(dcterms:description dcterms:extent "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format."@en)
+AnnotationAssertion(rdfs:comment dcterms:extent "The size or duration of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:extent <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:extent "Extent"@en)
+SubAnnotationPropertyOf(dcterms:extent <http://purl.org/dc/elements/1.1/format>)
+SubAnnotationPropertyOf(dcterms:extent dcterms:format)
+
+# Annotation Property: dcterms:format (Format)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:format dcterms:Extent)
+AnnotationAssertion(dcam:rangeIncludes dcterms:format dcterms:MediaType)
+AnnotationAssertion(dcterms:description dcterms:format "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration."@en)
+AnnotationAssertion(rdfs:comment dcterms:format "The file format, physical medium, or dimensions of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:format <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:format "Format"@en)
+SubAnnotationPropertyOf(dcterms:format <http://purl.org/dc/elements/1.1/format>)
+
+# Annotation Property: dcterms:hasFormat (Has Format)
+
+AnnotationAssertion(dcterms:description dcterms:hasFormat "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of."@en)
+AnnotationAssertion(rdfs:comment dcterms:hasFormat "A related resource that is substantially the same as the pre-existing described resource, but in another format."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:hasFormat <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:hasFormat "Has Format"@en)
+SubAnnotationPropertyOf(dcterms:hasFormat <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:hasFormat dcterms:relation)
+
+# Annotation Property: dcterms:hasPart (Has Part)
+
+AnnotationAssertion(dcterms:description dcterms:hasPart "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."@en)
+AnnotationAssertion(rdfs:comment dcterms:hasPart "A related resource that is included either physically or logically in the described resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:hasPart <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:hasPart "Has Part"@en)
+SubAnnotationPropertyOf(dcterms:hasPart <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:hasPart dcterms:relation)
+
+# Annotation Property: dcterms:hasVersion (Has Version)
+
+AnnotationAssertion(dcterms:description dcterms:hasVersion "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of."@en)
+AnnotationAssertion(rdfs:comment dcterms:hasVersion "A related resource that is a version, edition, or adaptation of the described resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:hasVersion <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:hasVersion "Has Version"@en)
+SubAnnotationPropertyOf(dcterms:hasVersion <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:hasVersion dcterms:relation)
+
+# Annotation Property: dcterms:identifier (Identifier)
+
+AnnotationAssertion(dcterms:description dcterms:identifier "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."@en)
+AnnotationAssertion(rdfs:comment dcterms:identifier "An unambiguous reference to the resource within a given context."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:identifier <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:identifier "Identifier"@en)
+SubAnnotationPropertyOf(dcterms:identifier <http://purl.org/dc/elements/1.1/identifier>)
+
+# Annotation Property: dcterms:isFormatOf (Is Format Of)
+
+AnnotationAssertion(dcterms:description dcterms:isFormatOf "This property is intended to be used with non-literal values. This property is an inverse property of Has Format."@en)
+AnnotationAssertion(rdfs:comment dcterms:isFormatOf "A pre-existing related resource that is substantially the same as the described resource, but in another format."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:isFormatOf <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:isFormatOf "Is Format Of"@en)
+SubAnnotationPropertyOf(dcterms:isFormatOf <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:isFormatOf dcterms:relation)
+
+# Annotation Property: dcterms:isPartOf (Is Part Of)
+
+AnnotationAssertion(dcterms:description dcterms:isPartOf "This property is intended to be used with non-literal values. This property is an inverse property of Has Part."@en)
+AnnotationAssertion(rdfs:comment dcterms:isPartOf "A related resource in which the described resource is physically or logically included."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:isPartOf <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:isPartOf "Is Part Of"@en)
+SubAnnotationPropertyOf(dcterms:isPartOf <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:isPartOf dcterms:relation)
+
+# Annotation Property: dcterms:isReferencedBy (Is Referenced By)
+
+AnnotationAssertion(dcterms:description dcterms:isReferencedBy "This property is intended to be used with non-literal values. This property is an inverse property of References."@en)
+AnnotationAssertion(rdfs:comment dcterms:isReferencedBy "A related resource that references, cites, or otherwise points to the described resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:isReferencedBy <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:isReferencedBy "Is Referenced By"@en)
+SubAnnotationPropertyOf(dcterms:isReferencedBy <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:isReferencedBy dcterms:relation)
+
+# Annotation Property: dcterms:isReplacedBy (Is Replaced By)
+
+AnnotationAssertion(dcterms:description dcterms:isReplacedBy "This property is intended to be used with non-literal values. This property is an inverse property of Replaces."@en)
+AnnotationAssertion(rdfs:comment dcterms:isReplacedBy "A related resource that supplants, displaces, or supersedes the described resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:isReplacedBy <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:isReplacedBy "Is Replaced By"@en)
+SubAnnotationPropertyOf(dcterms:isReplacedBy <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:isReplacedBy dcterms:relation)
+
+# Annotation Property: dcterms:isRequiredBy (Is Required By)
+
+AnnotationAssertion(dcterms:description dcterms:isRequiredBy "This property is intended to be used with non-literal values. This property is an inverse property of Requires."@en)
+AnnotationAssertion(rdfs:comment dcterms:isRequiredBy "A related resource that requires the described resource to support its function, delivery, or coherence."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:isRequiredBy <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:isRequiredBy "Is Required By"@en)
+SubAnnotationPropertyOf(dcterms:isRequiredBy <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:isRequiredBy dcterms:relation)
+
+# Annotation Property: dcterms:isVersionOf (Is Version Of)
+
+AnnotationAssertion(dcterms:description dcterms:isVersionOf "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version."@en)
+AnnotationAssertion(rdfs:comment dcterms:isVersionOf "A related resource of which the described resource is a version, edition, or adaptation."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:isVersionOf <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:isVersionOf "Is Version Of"@en)
+SubAnnotationPropertyOf(dcterms:isVersionOf <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:isVersionOf dcterms:relation)
+
+# Annotation Property: dcterms:issued (Date Issued)
+
+AnnotationAssertion(dcterms:description dcterms:issued "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en)
+AnnotationAssertion(rdfs:comment dcterms:issued "Date of formal issuance of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:issued <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:issued "Date Issued"@en)
+SubAnnotationPropertyOf(dcterms:issued <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:language (Language)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:language dcterms:LinguisticSystem)
+AnnotationAssertion(dcterms:description dcterms:language "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."@en)
+AnnotationAssertion(rdfs:comment dcterms:language "A language of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:language <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:language "Language"@en)
+SubAnnotationPropertyOf(dcterms:language <http://purl.org/dc/elements/1.1/language>)
+
+# Annotation Property: dcterms:license (License)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:license dcterms:LicenseDocument)
+AnnotationAssertion(dcterms:description dcterms:license "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided."@en)
+AnnotationAssertion(rdfs:comment dcterms:license "A legal document giving official permission to do something with the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:license <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:license "License"@en)
+SubAnnotationPropertyOf(dcterms:license <http://purl.org/dc/elements/1.1/rights>)
+SubAnnotationPropertyOf(dcterms:license dcterms:rights)
+
+# Annotation Property: dcterms:mediator (Mediator)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:mediator dcterms:AgentClass)
+AnnotationAssertion(dcterms:description dcterms:mediator "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en)
+AnnotationAssertion(rdfs:comment dcterms:mediator "An entity that mediates access to the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:mediator <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:mediator "Mediator"@en)
+SubAnnotationPropertyOf(dcterms:mediator dcterms:audience)
+
+# Annotation Property: dcterms:medium (Medium)
+
+AnnotationAssertion(dcam:domainIncludes dcterms:medium dcterms:PhysicalResource)
+AnnotationAssertion(dcam:rangeIncludes dcterms:medium dcterms:PhysicalMedium)
+AnnotationAssertion(rdfs:comment dcterms:medium "The material or physical carrier of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:medium <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:medium "Medium"@en)
+SubAnnotationPropertyOf(dcterms:medium <http://purl.org/dc/elements/1.1/format>)
+SubAnnotationPropertyOf(dcterms:medium dcterms:format)
+
+# Annotation Property: dcterms:modified (Date Modified)
+
+AnnotationAssertion(dcterms:description dcterms:modified "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en)
+AnnotationAssertion(rdfs:comment dcterms:modified "Date on which the resource was changed."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:modified <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:modified "Date Modified"@en)
+SubAnnotationPropertyOf(dcterms:modified <http://purl.org/dc/elements/1.1/date>)
+
+# Annotation Property: dcterms:publisher (Publisher)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:publisher dcterms:Agent)
+AnnotationAssertion(rdfs:comment dcterms:publisher "An entity responsible for making the resource available."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:publisher <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:publisher "Publisher"@en)
+SubAnnotationPropertyOf(dcterms:publisher <http://purl.org/dc/elements/1.1/publisher>)
+
+# Annotation Property: dcterms:references (References)
+
+AnnotationAssertion(dcterms:description dcterms:references "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By."@en)
+AnnotationAssertion(rdfs:comment dcterms:references "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:references <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:references "References"@en)
+SubAnnotationPropertyOf(dcterms:references <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:references dcterms:relation)
+
+# Annotation Property: dcterms:relation (Relation)
+
+AnnotationAssertion(dcterms:description dcterms:relation "Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided."@en)
+AnnotationAssertion(rdfs:comment dcterms:relation "A related resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:relation <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:relation "Relation"@en)
+SubAnnotationPropertyOf(dcterms:relation <http://purl.org/dc/elements/1.1/relation>)
+
+# Annotation Property: dcterms:replaces (Replaces)
+
+AnnotationAssertion(dcterms:description dcterms:replaces "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By."@en)
+AnnotationAssertion(rdfs:comment dcterms:replaces "A related resource that is supplanted, displaced, or superseded by the described resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:replaces <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:replaces "Replaces"@en)
+SubAnnotationPropertyOf(dcterms:replaces <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:replaces dcterms:relation)
+
+# Annotation Property: dcterms:requires (Requires)
+
+AnnotationAssertion(dcterms:description dcterms:requires "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By."@en)
+AnnotationAssertion(rdfs:comment dcterms:requires "A related resource that is required by the described resource to support its function, delivery, or coherence."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:requires <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:requires "Requires"@en)
+SubAnnotationPropertyOf(dcterms:requires <http://purl.org/dc/elements/1.1/relation>)
+SubAnnotationPropertyOf(dcterms:requires dcterms:relation)
+
+# Annotation Property: dcterms:rights (Rights)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:rights dcterms:RightsStatement)
+AnnotationAssertion(dcterms:description dcterms:rights "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided."@en)
+AnnotationAssertion(rdfs:comment dcterms:rights "Information about rights held in and over the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:rights <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:rights "Rights"@en)
+SubAnnotationPropertyOf(dcterms:rights <http://purl.org/dc/elements/1.1/rights>)
+
+# Annotation Property: dcterms:source (Source)
+
+AnnotationAssertion(dcterms:description dcterms:source "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system."@en)
+AnnotationAssertion(rdfs:comment dcterms:source "A related resource from which the described resource is derived."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:source <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:source "Source"@en)
+SubAnnotationPropertyOf(dcterms:source <http://purl.org/dc/elements/1.1/source>)
+SubAnnotationPropertyOf(dcterms:source dcterms:relation)
+
+# Annotation Property: dcterms:spatial (Spatial Coverage)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:spatial dcterms:Location)
+AnnotationAssertion(rdfs:comment dcterms:spatial "Spatial characteristics of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:spatial <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:spatial "Spatial Coverage"@en)
+SubAnnotationPropertyOf(dcterms:spatial <http://purl.org/dc/elements/1.1/coverage>)
+SubAnnotationPropertyOf(dcterms:spatial dcterms:coverage)
+
+# Annotation Property: dcterms:subject (Subject)
+
+AnnotationAssertion(dcterms:description dcterms:subject "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary."@en)
+AnnotationAssertion(rdfs:comment dcterms:subject "A topic of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:subject <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:subject "Subject"@en)
+SubAnnotationPropertyOf(dcterms:subject <http://purl.org/dc/elements/1.1/subject>)
+
+# Annotation Property: dcterms:tableOfContents (Table Of Contents)
+
+AnnotationAssertion(rdfs:comment dcterms:tableOfContents "A list of subunits of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:tableOfContents <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:tableOfContents "Table Of Contents"@en)
+SubAnnotationPropertyOf(dcterms:tableOfContents <http://purl.org/dc/elements/1.1/description>)
+SubAnnotationPropertyOf(dcterms:tableOfContents dcterms:description)
+
+# Annotation Property: dcterms:temporal (Temporal Coverage)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:temporal dcterms:PeriodOfTime)
+AnnotationAssertion(rdfs:comment dcterms:temporal "Temporal characteristics of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:temporal <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:temporal "Temporal Coverage"@en)
+SubAnnotationPropertyOf(dcterms:temporal <http://purl.org/dc/elements/1.1/coverage>)
+SubAnnotationPropertyOf(dcterms:temporal dcterms:coverage)
+
+# Annotation Property: dcterms:title (Title)
+
+AnnotationAssertion(rdfs:comment dcterms:title "A name given to the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:title <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:title "Title"@en)
+SubAnnotationPropertyOf(dcterms:title <http://purl.org/dc/elements/1.1/title>)
+
+# Annotation Property: dcterms:type (Type)
+
+AnnotationAssertion(dcterms:description dcterms:type "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format."@en)
+AnnotationAssertion(rdfs:comment dcterms:type "The nature or genre of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:type <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:type "Type"@en)
+SubAnnotationPropertyOf(dcterms:type <http://purl.org/dc/elements/1.1/type>)
+
+# Annotation Property: dcterms:valid (Date Valid)
+
+AnnotationAssertion(dcterms:description dcterms:valid "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en)
+AnnotationAssertion(rdfs:comment dcterms:valid "Date (often a range) of validity of a resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:valid <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:valid "Date Valid"@en)
+SubAnnotationPropertyOf(dcterms:valid <http://purl.org/dc/elements/1.1/date>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: dcterms:alternative (Alternative Title)
+
+SubDataPropertyOf(dcterms:alternative dcterms:title)
+DataPropertyRange(dcterms:alternative rdfs:Literal)
+
+# Data Property: dcterms:available (Date Available)
+
+SubDataPropertyOf(dcterms:available dcterms:date)
+DataPropertyRange(dcterms:available rdfs:Literal)
+
+# Data Property: dcterms:bibliographicCitation (Bibliographic Citation)
+
+SubDataPropertyOf(dcterms:bibliographicCitation dcterms:identifier)
+DataPropertyRange(dcterms:bibliographicCitation rdfs:Literal)
+
+# Data Property: dcterms:created (Date Created)
+
+SubDataPropertyOf(dcterms:created dcterms:date)
+DataPropertyRange(dcterms:created rdfs:Literal)
+
+# Data Property: dcterms:date (Date)
+
+DataPropertyRange(dcterms:date rdfs:Literal)
+
+# Data Property: dcterms:dateAccepted (Date Accepted)
+
+SubDataPropertyOf(dcterms:dateAccepted dcterms:date)
+DataPropertyRange(dcterms:dateAccepted rdfs:Literal)
+
+# Data Property: dcterms:dateCopyrighted (Date Copyrighted)
+
+SubDataPropertyOf(dcterms:dateCopyrighted dcterms:date)
+DataPropertyRange(dcterms:dateCopyrighted rdfs:Literal)
+
+# Data Property: dcterms:dateSubmitted (Date Submitted)
+
+SubDataPropertyOf(dcterms:dateSubmitted dcterms:date)
+DataPropertyRange(dcterms:dateSubmitted rdfs:Literal)
+
+# Data Property: dcterms:identifier (Identifier)
+
+DataPropertyRange(dcterms:identifier rdfs:Literal)
+
+# Data Property: dcterms:issued (Date Issued)
+
+SubDataPropertyOf(dcterms:issued dcterms:date)
+DataPropertyRange(dcterms:issued rdfs:Literal)
+
+# Data Property: dcterms:modified (Date Modified)
+
+SubDataPropertyOf(dcterms:modified dcterms:date)
+DataPropertyRange(dcterms:modified rdfs:Literal)
+
+# Data Property: dcterms:title (Title)
+
+DataPropertyRange(dcterms:title rdfs:Literal)
+
+# Data Property: dcterms:valid (Date Valid)
+
+SubDataPropertyOf(dcterms:valid dcterms:date)
+DataPropertyRange(dcterms:valid rdfs:Literal)
+
+
+############################
+#   Datatypes
+############################
+
+# Datatype: dcterms:Box (DCMI Box)
+
+AnnotationAssertion(rdfs:comment dcterms:Box "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Box <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Box "DCMI Box"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:Box <https://www.dublincore.org/specifications/dublin-core/dcmi-box/>)
+
+# Datatype: dcterms:ISO3166 (ISO 3166)
+
+AnnotationAssertion(rdfs:comment dcterms:ISO3166 "The set of codes listed in ISO 3166-1 for the representation of names of countries."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:ISO3166 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:ISO3166 "ISO 3166"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:ISO3166 <https://www.iso.org/obp/ui/#search>)
+
+# Datatype: dcterms:ISO639-2 (ISO 639-2)
+
+AnnotationAssertion(rdfs:comment dcterms:ISO639-2 "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:ISO639-2 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:ISO639-2 "ISO 639-2"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:ISO639-2 <http://lcweb.loc.gov/standards/iso639-2/langhome.html>)
+
+# Datatype: dcterms:ISO639-3 (ISO 639-3)
+
+AnnotationAssertion(rdfs:comment dcterms:ISO639-3 "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:ISO639-3 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:ISO639-3 "ISO 639-3"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:ISO639-3 <http://www.sil.org/iso639-3/>)
+
+# Datatype: dcterms:Period (DCMI Period)
+
+AnnotationAssertion(rdfs:comment dcterms:Period "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Period <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Period "DCMI Period"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:Period <https://www.dublincore.org/specifications/dublin-core/dcmi-period/>)
+
+# Datatype: dcterms:Point (DCMI Point)
+
+AnnotationAssertion(rdfs:comment dcterms:Point "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Point <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Point "DCMI Point"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:Point <https://www.dublincore.org/specifications/dublin-core/dcmi-point/>)
+
+# Datatype: dcterms:RFC1766 (RFC 1766)
+
+AnnotationAssertion(rdfs:comment dcterms:RFC1766 "The set of tags, constructed according to RFC 1766, for the identification of languages."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:RFC1766 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:RFC1766 "RFC 1766"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:RFC1766 <http://www.ietf.org/rfc/rfc1766.txt>)
+
+# Datatype: dcterms:RFC3066 (RFC 3066)
+
+AnnotationAssertion(dcterms:description dcterms:RFC3066 "RFC 3066 has been obsoleted by RFC 4646."@en)
+AnnotationAssertion(rdfs:comment dcterms:RFC3066 "The set of tags constructed according to RFC 3066 for the identification of languages."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:RFC3066 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:RFC3066 "RFC 3066"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:RFC3066 <http://www.ietf.org/rfc/rfc3066.txt>)
+
+# Datatype: dcterms:RFC4646 (RFC 4646)
+
+AnnotationAssertion(dcterms:description dcterms:RFC4646 "RFC 4646 obsoletes RFC 3066."@en)
+AnnotationAssertion(rdfs:comment dcterms:RFC4646 "The set of tags constructed according to RFC 4646 for the identification of languages."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:RFC4646 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:RFC4646 "RFC 4646"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:RFC4646 <http://www.ietf.org/rfc/rfc4646.txt>)
+
+# Datatype: dcterms:RFC5646 (RFC 5646)
+
+AnnotationAssertion(dcterms:description dcterms:RFC5646 "RFC 5646 obsoletes RFC 4646."@en)
+AnnotationAssertion(rdfs:comment dcterms:RFC5646 "The set of tags constructed according to RFC 5646 for the identification of languages."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:RFC5646 <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:RFC5646 "RFC 5646"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:RFC5646 <http://www.ietf.org/rfc/rfc5646.txt>)
+
+# Datatype: dcterms:URI (URI)
+
+AnnotationAssertion(rdfs:comment dcterms:URI "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:URI <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:URI "URI"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:URI <http://www.ietf.org/rfc/rfc3986.txt>)
+
+# Datatype: dcterms:W3CDTF (W3C-DTF)
+
+AnnotationAssertion(rdfs:comment dcterms:W3CDTF "The set of dates and times constructed according to the W3C Date and Time Formats Specification."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:W3CDTF <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:W3CDTF "W3C-DTF"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:W3CDTF <http://www.w3.org/TR/NOTE-datetime>)
+
+
+############################
+#   Classes
+############################
+
+# Class: dcterms:Agent (Agent)
+
+AnnotationAssertion(rdfs:comment dcterms:Agent "A resource that acts or has the power to act."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Agent <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Agent "Agent"@en)
+
+# Class: dcterms:AgentClass (Agent Class)
+
+AnnotationAssertion(rdfs:comment dcterms:AgentClass "A group of agents."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:AgentClass <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:AgentClass "Agent Class"@en)
+SubClassOf(dcterms:AgentClass rdfs:Class)
+
+# Class: dcterms:BibliographicResource (Bibliographic Resource)
+
+AnnotationAssertion(rdfs:comment dcterms:BibliographicResource "A book, article, or other documentary resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:BibliographicResource <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:BibliographicResource "Bibliographic Resource"@en)
+
+# Class: dcterms:FileFormat (File Format)
+
+AnnotationAssertion(rdfs:comment dcterms:FileFormat "A digital resource format."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:FileFormat <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:FileFormat "File Format"@en)
+SubClassOf(dcterms:FileFormat dcterms:MediaType)
+
+# Class: dcterms:Frequency (Frequency)
+
+AnnotationAssertion(rdfs:comment dcterms:Frequency "A rate at which something recurs."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Frequency <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Frequency "Frequency"@en)
+
+# Class: dcterms:Jurisdiction (Jurisdiction)
+
+AnnotationAssertion(rdfs:comment dcterms:Jurisdiction "The extent or range of judicial, law enforcement, or other authority."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Jurisdiction <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Jurisdiction "Jurisdiction"@en)
+SubClassOf(dcterms:Jurisdiction dcterms:LocationPeriodOrJurisdiction)
+
+# Class: dcterms:LicenseDocument (License Document)
+
+AnnotationAssertion(rdfs:comment dcterms:LicenseDocument "A legal document giving official permission to do something with a resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:LicenseDocument <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:LicenseDocument "License Document"@en)
+SubClassOf(dcterms:LicenseDocument dcterms:RightsStatement)
+
+# Class: dcterms:LinguisticSystem (Linguistic System)
+
+AnnotationAssertion(dcterms:description dcterms:LinguisticSystem "Written, spoken, sign, and computer languages are linguistic systems."@en)
+AnnotationAssertion(rdfs:comment dcterms:LinguisticSystem "A system of signs, symbols, sounds, gestures, or rules used in communication."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:LinguisticSystem <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:LinguisticSystem "Linguistic System"@en)
+
+# Class: dcterms:Location (Location)
+
+AnnotationAssertion(rdfs:comment dcterms:Location "A spatial region or named place."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Location <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Location "Location"@en)
+SubClassOf(dcterms:Location dcterms:LocationPeriodOrJurisdiction)
+
+# Class: dcterms:LocationPeriodOrJurisdiction (Location, Period, or Jurisdiction)
+
+AnnotationAssertion(rdfs:comment dcterms:LocationPeriodOrJurisdiction "A location, period of time, or jurisdiction."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:LocationPeriodOrJurisdiction <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:LocationPeriodOrJurisdiction "Location, Period, or Jurisdiction"@en)
+
+# Class: dcterms:MediaType (Media Type)
+
+AnnotationAssertion(rdfs:comment dcterms:MediaType "A file format or physical medium."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:MediaType <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:MediaType "Media Type"@en)
+SubClassOf(dcterms:MediaType dcterms:MediaTypeOrExtent)
+
+# Class: dcterms:MediaTypeOrExtent (Media Type or Extent)
+
+AnnotationAssertion(rdfs:comment dcterms:MediaTypeOrExtent "A media type or extent."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:MediaTypeOrExtent <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:MediaTypeOrExtent "Media Type or Extent"@en)
+
+# Class: dcterms:MethodOfAccrual (Method of Accrual)
+
+AnnotationAssertion(rdfs:comment dcterms:MethodOfAccrual "A method by which resources are added to a collection."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:MethodOfAccrual <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:MethodOfAccrual "Method of Accrual"@en)
+
+# Class: dcterms:MethodOfInstruction (Method of Instruction)
+
+AnnotationAssertion(rdfs:comment dcterms:MethodOfInstruction "A process that is used to engender knowledge, attitudes, and skills."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:MethodOfInstruction <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:MethodOfInstruction "Method of Instruction"@en)
+
+# Class: dcterms:PeriodOfTime (Period of Time)
+
+AnnotationAssertion(rdfs:comment dcterms:PeriodOfTime "An interval of time that is named or defined by its start and end dates."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:PeriodOfTime <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:PeriodOfTime "Period of Time"@en)
+SubClassOf(dcterms:PeriodOfTime dcterms:LocationPeriodOrJurisdiction)
+
+# Class: dcterms:PhysicalMedium (Physical Medium)
+
+AnnotationAssertion(dcterms:description dcterms:PhysicalMedium "Examples include paper, canvas, or DVD."@en)
+AnnotationAssertion(rdfs:comment dcterms:PhysicalMedium "A physical material or carrier."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:PhysicalMedium <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:PhysicalMedium "Physical Medium"@en)
+SubClassOf(dcterms:PhysicalMedium dcterms:MediaType)
+
+# Class: dcterms:PhysicalResource (Physical Resource)
+
+AnnotationAssertion(rdfs:comment dcterms:PhysicalResource "A material thing."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:PhysicalResource <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:PhysicalResource "Physical Resource"@en)
+
+# Class: dcterms:Policy (Policy)
+
+AnnotationAssertion(rdfs:comment dcterms:Policy "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Policy <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Policy "Policy"@en)
+
+# Class: dcterms:ProvenanceStatement (Provenance Statement)
+
+AnnotationAssertion(rdfs:comment dcterms:ProvenanceStatement "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:ProvenanceStatement <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:ProvenanceStatement "Provenance Statement"@en)
+
+# Class: dcterms:RightsStatement (Rights Statement)
+
+AnnotationAssertion(rdfs:comment dcterms:RightsStatement "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:RightsStatement <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:RightsStatement "Rights Statement"@en)
+
+# Class: dcterms:SizeOrDuration (Size or Duration)
+
+AnnotationAssertion(dcterms:description dcterms:SizeOrDuration "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."@en)
+AnnotationAssertion(rdfs:comment dcterms:SizeOrDuration "A dimension or extent, or a time taken to play or execute."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:SizeOrDuration <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:SizeOrDuration "Size or Duration"@en)
+SubClassOf(dcterms:SizeOrDuration dcterms:MediaTypeOrExtent)
+
+# Class: dcterms:Standard (Standard)
+
+AnnotationAssertion(rdfs:comment dcterms:Standard "A reference point against which other things can be evaluated or compared."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:Standard <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:Standard "Standard"@en)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: dcterms: (dcterms:)
+
+AnnotationAssertion(dcterms:publisher <http://purl.org/dc/terms/> <http://purl.org/dc/aboutdcmi#DCMI>)
+DataPropertyAssertion(dcterms:modified <http://purl.org/dc/terms/> "2012-06-14"^^xsd:date)
+DataPropertyAssertion(dcterms:title <http://purl.org/dc/terms/> "DCMI Metadata Terms - other"@en)
+
+# Individual: dcterms:Agent (Agent)
+
+ClassAssertion(dcterms:AgentClass dcterms:Agent)
+DataPropertyAssertion(dcterms:issued dcterms:Agent "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:AgentClass (Agent Class)
+
+DataPropertyAssertion(dcterms:issued dcterms:AgentClass "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:BibliographicResource (Bibliographic Resource)
+
+DataPropertyAssertion(dcterms:issued dcterms:BibliographicResource "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:Box (DCMI Box)
+
+DataPropertyAssertion(dcterms:issued dcterms:Box "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:DCMIType (DCMI Type Vocabulary)
+
+AnnotationAssertion(rdfs:comment dcterms:DCMIType "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:DCMIType <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:DCMIType "DCMI Type Vocabulary"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:DCMIType <http://purl.org/dc/dcmitype/>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:DCMIType)
+DataPropertyAssertion(dcterms:issued dcterms:DCMIType "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:DDC (DDC)
+
+AnnotationAssertion(rdfs:comment dcterms:DDC "The set of conceptual resources specified by the Dewey Decimal Classification."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:DDC <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:DDC "DDC"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:DDC <http://www.oclc.org/dewey/>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:DDC)
+DataPropertyAssertion(dcterms:issued dcterms:DDC "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:FileFormat (File Format)
+
+DataPropertyAssertion(dcterms:issued dcterms:FileFormat "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:Frequency (Frequency)
+
+DataPropertyAssertion(dcterms:issued dcterms:Frequency "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:IMT (IMT)
+
+AnnotationAssertion(rdfs:comment dcterms:IMT "The set of media types specified by the Internet Assigned Numbers Authority."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:IMT <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:IMT "IMT"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:IMT <http://www.iana.org/assignments/media-types/>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:IMT)
+DataPropertyAssertion(dcterms:issued dcterms:IMT "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:ISO3166 (ISO 3166)
+
+DataPropertyAssertion(dcterms:issued dcterms:ISO3166 "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:ISO639-2 (ISO 639-2)
+
+DataPropertyAssertion(dcterms:issued dcterms:ISO639-2 "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:ISO639-3 (ISO 639-3)
+
+DataPropertyAssertion(dcterms:issued dcterms:ISO639-3 "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:Jurisdiction (Jurisdiction)
+
+DataPropertyAssertion(dcterms:issued dcterms:Jurisdiction "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:LCC (LCC)
+
+AnnotationAssertion(rdfs:comment dcterms:LCC "The set of conceptual resources specified by the Library of Congress Classification."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:LCC <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:LCC "LCC"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:LCC <http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:LCC)
+DataPropertyAssertion(dcterms:issued dcterms:LCC "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:LCSH (LCSH)
+
+AnnotationAssertion(rdfs:comment dcterms:LCSH "The set of labeled concepts specified by the Library of Congress Subject Headings."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:LCSH <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:LCSH "LCSH"@en)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:LCSH)
+DataPropertyAssertion(dcterms:issued dcterms:LCSH "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:LicenseDocument (License Document)
+
+DataPropertyAssertion(dcterms:issued dcterms:LicenseDocument "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:LinguisticSystem (Linguistic System)
+
+DataPropertyAssertion(dcterms:issued dcterms:LinguisticSystem "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:Location (Location)
+
+DataPropertyAssertion(dcterms:issued dcterms:Location "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:LocationPeriodOrJurisdiction (Location, Period, or Jurisdiction)
+
+DataPropertyAssertion(dcterms:issued dcterms:LocationPeriodOrJurisdiction "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:MESH (MeSH)
+
+AnnotationAssertion(rdfs:comment dcterms:MESH "The set of labeled concepts specified by the Medical Subject Headings."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:MESH <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:MESH "MeSH"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:MESH <http://www.nlm.nih.gov/mesh/meshhome.html>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:MESH)
+DataPropertyAssertion(dcterms:issued dcterms:MESH "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:MediaType (Media Type)
+
+DataPropertyAssertion(dcterms:issued dcterms:MediaType "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:MediaTypeOrExtent (Media Type or Extent)
+
+DataPropertyAssertion(dcterms:issued dcterms:MediaTypeOrExtent "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:MethodOfAccrual (Method of Accrual)
+
+DataPropertyAssertion(dcterms:issued dcterms:MethodOfAccrual "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:MethodOfInstruction (Method of Instruction)
+
+DataPropertyAssertion(dcterms:issued dcterms:MethodOfInstruction "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:NLM (NLM)
+
+AnnotationAssertion(rdfs:comment dcterms:NLM "The set of conceptual resources specified by the National Library of Medicine Classification."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:NLM <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:NLM "NLM"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:NLM <http://wwwcf.nlm.nih.gov/class/>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:NLM)
+DataPropertyAssertion(dcterms:issued dcterms:NLM "2005-06-13"^^xsd:date)
+
+# Individual: dcterms:Period (DCMI Period)
+
+DataPropertyAssertion(dcterms:issued dcterms:Period "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:PeriodOfTime (Period of Time)
+
+DataPropertyAssertion(dcterms:issued dcterms:PeriodOfTime "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:PhysicalMedium (Physical Medium)
+
+DataPropertyAssertion(dcterms:issued dcterms:PhysicalMedium "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:PhysicalResource (Physical Resource)
+
+DataPropertyAssertion(dcterms:issued dcterms:PhysicalResource "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:Point (DCMI Point)
+
+DataPropertyAssertion(dcterms:issued dcterms:Point "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:Policy (Policy)
+
+DataPropertyAssertion(dcterms:issued dcterms:Policy "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:ProvenanceStatement (Provenance Statement)
+
+DataPropertyAssertion(dcterms:issued dcterms:ProvenanceStatement "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:RFC1766 (RFC 1766)
+
+DataPropertyAssertion(dcterms:issued dcterms:RFC1766 "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:RFC3066 (RFC 3066)
+
+DataPropertyAssertion(dcterms:issued dcterms:RFC3066 "2002-07-13"^^xsd:date)
+
+# Individual: dcterms:RFC4646 (RFC 4646)
+
+DataPropertyAssertion(dcterms:issued dcterms:RFC4646 "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:RFC5646 (RFC 5646)
+
+DataPropertyAssertion(dcterms:issued dcterms:RFC5646 "2010-10-11"^^xsd:date)
+
+# Individual: dcterms:RightsStatement (Rights Statement)
+
+DataPropertyAssertion(dcterms:issued dcterms:RightsStatement "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:SizeOrDuration (Size or Duration)
+
+DataPropertyAssertion(dcterms:issued dcterms:SizeOrDuration "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:Standard (Standard)
+
+DataPropertyAssertion(dcterms:issued dcterms:Standard "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:TGN (TGN)
+
+AnnotationAssertion(rdfs:comment dcterms:TGN "The set of places specified by the Getty Thesaurus of Geographic Names."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:TGN <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:TGN "TGN"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:TGN <http://www.getty.edu/research/tools/vocabulary/tgn/index.html>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:TGN)
+DataPropertyAssertion(dcterms:issued dcterms:TGN "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:UDC (UDC)
+
+AnnotationAssertion(rdfs:comment dcterms:UDC "The set of conceptual resources specified by the Universal Decimal Classification."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:UDC <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:UDC "UDC"@en)
+AnnotationAssertion(rdfs:seeAlso dcterms:UDC <http://www.udcc.org/>)
+ClassAssertion(dcam:VocabularyEncodingScheme dcterms:UDC)
+DataPropertyAssertion(dcterms:issued dcterms:UDC "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:URI (URI)
+
+DataPropertyAssertion(dcterms:issued dcterms:URI "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:W3CDTF (W3C-DTF)
+
+DataPropertyAssertion(dcterms:issued dcterms:W3CDTF "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:abstract (Abstract)
+
+DataPropertyAssertion(dcterms:issued dcterms:abstract "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:accessRights (Access Rights)
+
+DataPropertyAssertion(dcterms:issued dcterms:accessRights "2003-02-15"^^xsd:date)
+
+# Individual: dcterms:accrualMethod (Accrual Method)
+
+DataPropertyAssertion(dcterms:issued dcterms:accrualMethod "2005-06-13"^^xsd:date)
+
+# Individual: dcterms:accrualPeriodicity (Accrual Periodicity)
+
+DataPropertyAssertion(dcterms:issued dcterms:accrualPeriodicity "2005-06-13"^^xsd:date)
+
+# Individual: dcterms:accrualPolicy (Accrual Policy)
+
+DataPropertyAssertion(dcterms:issued dcterms:accrualPolicy "2005-06-13"^^xsd:date)
+
+# Individual: dcterms:alternative (Alternative Title)
+
+DataPropertyAssertion(dcterms:issued dcterms:alternative "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:audience (Audience)
+
+DataPropertyAssertion(dcterms:issued dcterms:audience "2001-05-21"^^xsd:date)
+
+# Individual: dcterms:available (Date Available)
+
+DataPropertyAssertion(dcterms:issued dcterms:available "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:bibliographicCitation (Bibliographic Citation)
+
+DataPropertyAssertion(dcterms:issued dcterms:bibliographicCitation "2003-02-15"^^xsd:date)
+
+# Individual: dcterms:conformsTo (Conforms To)
+
+DataPropertyAssertion(dcterms:issued dcterms:conformsTo "2001-05-21"^^xsd:date)
+
+# Individual: dcterms:contributor (Contributor)
+
+DataPropertyAssertion(dcterms:issued dcterms:contributor "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:coverage (Coverage)
+
+DataPropertyAssertion(dcterms:issued dcterms:coverage "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:created (Date Created)
+
+DataPropertyAssertion(dcterms:issued dcterms:created "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:creator (Creator)
+
+DataPropertyAssertion(dcterms:issued dcterms:creator "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:date (Date)
+
+DataPropertyAssertion(dcterms:issued dcterms:date "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:dateAccepted (Date Accepted)
+
+DataPropertyAssertion(dcterms:issued dcterms:dateAccepted "2002-07-13"^^xsd:date)
+
+# Individual: dcterms:dateCopyrighted (Date Copyrighted)
+
+DataPropertyAssertion(dcterms:issued dcterms:dateCopyrighted "2002-07-13"^^xsd:date)
+
+# Individual: dcterms:dateSubmitted (Date Submitted)
+
+DataPropertyAssertion(dcterms:issued dcterms:dateSubmitted "2002-07-13"^^xsd:date)
+
+# Individual: dcterms:description (Description)
+
+DataPropertyAssertion(dcterms:issued dcterms:description "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:educationLevel (Audience Education Level)
+
+DataPropertyAssertion(dcterms:issued dcterms:educationLevel "2002-07-13"^^xsd:date)
+
+# Individual: dcterms:extent (Extent)
+
+DataPropertyAssertion(dcterms:issued dcterms:extent "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:format (Format)
+
+DataPropertyAssertion(dcterms:issued dcterms:format "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:hasFormat (Has Format)
+
+DataPropertyAssertion(dcterms:issued dcterms:hasFormat "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:hasPart (Has Part)
+
+DataPropertyAssertion(dcterms:issued dcterms:hasPart "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:hasVersion (Has Version)
+
+DataPropertyAssertion(dcterms:issued dcterms:hasVersion "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:identifier (Identifier)
+
+DataPropertyAssertion(dcterms:issued dcterms:identifier "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:instructionalMethod (Instructional Method)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:instructionalMethod dcterms:MethodOfInstruction)
+AnnotationAssertion(dcterms:description dcterms:instructionalMethod "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."@en)
+AnnotationAssertion(rdfs:comment dcterms:instructionalMethod "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:instructionalMethod <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:instructionalMethod "Instructional Method"@en)
+DataPropertyAssertion(dcterms:issued dcterms:instructionalMethod "2005-06-13"^^xsd:date)
+
+# Individual: dcterms:isFormatOf (Is Format Of)
+
+DataPropertyAssertion(dcterms:issued dcterms:isFormatOf "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:isPartOf (Is Part Of)
+
+DataPropertyAssertion(dcterms:issued dcterms:isPartOf "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:isReferencedBy (Is Referenced By)
+
+DataPropertyAssertion(dcterms:issued dcterms:isReferencedBy "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:isReplacedBy (Is Replaced By)
+
+DataPropertyAssertion(dcterms:issued dcterms:isReplacedBy "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:isRequiredBy (Is Required By)
+
+DataPropertyAssertion(dcterms:issued dcterms:isRequiredBy "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:isVersionOf (Is Version Of)
+
+DataPropertyAssertion(dcterms:issued dcterms:isVersionOf "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:issued (Date Issued)
+
+DataPropertyAssertion(dcterms:issued dcterms:issued "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:language (Language)
+
+DataPropertyAssertion(dcterms:issued dcterms:language "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:license (License)
+
+DataPropertyAssertion(dcterms:issued dcterms:license "2004-06-14"^^xsd:date)
+
+# Individual: dcterms:mediator (Mediator)
+
+DataPropertyAssertion(dcterms:issued dcterms:mediator "2001-05-21"^^xsd:date)
+
+# Individual: dcterms:medium (Medium)
+
+DataPropertyAssertion(dcterms:issued dcterms:medium "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:modified (Date Modified)
+
+DataPropertyAssertion(dcterms:issued dcterms:modified "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:provenance (Provenance)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:provenance dcterms:ProvenanceStatement)
+AnnotationAssertion(dcterms:description dcterms:provenance "The statement may include a description of any changes successive custodians made to the resource."@en)
+AnnotationAssertion(rdfs:comment dcterms:provenance "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:provenance <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:provenance "Provenance"@en)
+DataPropertyAssertion(dcterms:issued dcterms:provenance "2004-09-20"^^xsd:date)
+
+# Individual: dcterms:publisher (Publisher)
+
+DataPropertyAssertion(dcterms:issued dcterms:publisher "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:references (References)
+
+DataPropertyAssertion(dcterms:issued dcterms:references "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:relation (Relation)
+
+DataPropertyAssertion(dcterms:issued dcterms:relation "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:replaces (Replaces)
+
+DataPropertyAssertion(dcterms:issued dcterms:replaces "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:requires (Requires)
+
+DataPropertyAssertion(dcterms:issued dcterms:requires "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:rights (Rights)
+
+DataPropertyAssertion(dcterms:issued dcterms:rights "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:rightsHolder (Rights Holder)
+
+AnnotationAssertion(dcam:rangeIncludes dcterms:rightsHolder dcterms:Agent)
+AnnotationAssertion(dcterms:description dcterms:rightsHolder "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."@en)
+AnnotationAssertion(rdfs:comment dcterms:rightsHolder "A person or organization owning or managing rights over the resource."@en)
+AnnotationAssertion(rdfs:isDefinedBy dcterms:rightsHolder <http://purl.org/dc/terms/>)
+AnnotationAssertion(rdfs:label dcterms:rightsHolder "Rights Holder"@en)
+DataPropertyAssertion(dcterms:issued dcterms:rightsHolder "2004-06-14"^^xsd:date)
+
+# Individual: dcterms:source (Source)
+
+DataPropertyAssertion(dcterms:issued dcterms:source "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:spatial (Spatial Coverage)
+
+DataPropertyAssertion(dcterms:issued dcterms:spatial "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:subject (Subject)
+
+DataPropertyAssertion(dcterms:issued dcterms:subject "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:tableOfContents (Table Of Contents)
+
+DataPropertyAssertion(dcterms:issued dcterms:tableOfContents "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:temporal (Temporal Coverage)
+
+DataPropertyAssertion(dcterms:issued dcterms:temporal "2000-07-11"^^xsd:date)
+
+# Individual: dcterms:title (Title)
+
+DataPropertyAssertion(dcterms:issued dcterms:title "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:type (Type)
+
+DataPropertyAssertion(dcterms:issued dcterms:type "2008-01-14"^^xsd:date)
+
+# Individual: dcterms:valid (Date Valid)
+
+DataPropertyAssertion(dcterms:issued dcterms:valid "2000-07-11"^^xsd:date)
+
+
+)

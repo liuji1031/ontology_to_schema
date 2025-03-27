@@ -1,0 +1,865 @@
+Prefix(:=<http://xmlns.com/foaf/0.1/>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(vs:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(wot:=<http://xmlns.com/wot/0.1/>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://xmlns.com/foaf/0.1/>
+Annotation(dc:description "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.")
+Annotation(dc:title "Friend of a Friend (FOAF) vocabulary")
+
+Declaration(Class(<http://purl.org/dc/terms/Agent>))
+Declaration(Class(<http://schema.org/CreativeWork>))
+Declaration(Class(<http://schema.org/ImageObject>))
+Declaration(Class(<http://schema.org/Person>))
+Declaration(Class(rdfs:Class))
+Declaration(Class(<http://www.w3.org/2000/10/swap/pim/contact#Person>))
+Declaration(Class(<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>))
+Declaration(Class(<http://www.w3.org/2004/02/skos/core#Concept>))
+Declaration(Class(foaf:Agent))
+Declaration(Class(foaf:Document))
+Declaration(Class(foaf:Group))
+Declaration(Class(foaf:Image))
+Declaration(Class(foaf:LabelProperty))
+Declaration(Class(foaf:OnlineAccount))
+Declaration(Class(foaf:OnlineChatAccount))
+Declaration(Class(foaf:OnlineEcommerceAccount))
+Declaration(Class(foaf:OnlineGamingAccount))
+Declaration(Class(foaf:Organization))
+Declaration(Class(foaf:Person))
+Declaration(Class(foaf:PersonalProfileDocument))
+Declaration(Class(foaf:Project))
+Declaration(ObjectProperty(foaf:account))
+Declaration(ObjectProperty(foaf:accountServiceHomepage))
+Declaration(ObjectProperty(foaf:aimChatID))
+Declaration(ObjectProperty(foaf:based_near))
+Declaration(ObjectProperty(foaf:currentProject))
+Declaration(ObjectProperty(foaf:depiction))
+Declaration(ObjectProperty(foaf:depicts))
+Declaration(ObjectProperty(foaf:focus))
+Declaration(ObjectProperty(foaf:fundedBy))
+Declaration(ObjectProperty(foaf:holdsAccount))
+Declaration(ObjectProperty(foaf:homepage))
+Declaration(ObjectProperty(foaf:icqChatID))
+Declaration(ObjectProperty(foaf:img))
+Declaration(ObjectProperty(foaf:interest))
+Declaration(ObjectProperty(foaf:isPrimaryTopicOf))
+Declaration(ObjectProperty(foaf:jabberID))
+Declaration(ObjectProperty(foaf:knows))
+Declaration(ObjectProperty(foaf:logo))
+Declaration(ObjectProperty(foaf:made))
+Declaration(ObjectProperty(foaf:maker))
+Declaration(ObjectProperty(foaf:mbox))
+Declaration(ObjectProperty(foaf:mbox_sha1sum))
+Declaration(ObjectProperty(foaf:member))
+Declaration(ObjectProperty(foaf:msnChatID))
+Declaration(ObjectProperty(foaf:openid))
+Declaration(ObjectProperty(foaf:page))
+Declaration(ObjectProperty(foaf:pastProject))
+Declaration(ObjectProperty(foaf:phone))
+Declaration(ObjectProperty(foaf:primaryTopic))
+Declaration(ObjectProperty(foaf:publications))
+Declaration(ObjectProperty(foaf:schoolHomepage))
+Declaration(ObjectProperty(foaf:theme))
+Declaration(ObjectProperty(foaf:thumbnail))
+Declaration(ObjectProperty(foaf:tipjar))
+Declaration(ObjectProperty(foaf:topic))
+Declaration(ObjectProperty(foaf:topic_interest))
+Declaration(ObjectProperty(foaf:weblog))
+Declaration(ObjectProperty(foaf:workInfoHomepage))
+Declaration(ObjectProperty(foaf:workplaceHomepage))
+Declaration(ObjectProperty(foaf:yahooChatID))
+Declaration(DataProperty(foaf:accountName))
+Declaration(DataProperty(foaf:age))
+Declaration(DataProperty(foaf:aimChatID))
+Declaration(DataProperty(foaf:birthday))
+Declaration(DataProperty(foaf:dnaChecksum))
+Declaration(DataProperty(foaf:familyName))
+Declaration(DataProperty(foaf:family_name))
+Declaration(DataProperty(foaf:firstName))
+Declaration(DataProperty(foaf:geekcode))
+Declaration(DataProperty(foaf:gender))
+Declaration(DataProperty(foaf:givenName))
+Declaration(DataProperty(foaf:givenname))
+Declaration(DataProperty(foaf:icqChatID))
+Declaration(DataProperty(foaf:jabberID))
+Declaration(DataProperty(foaf:lastName))
+Declaration(DataProperty(foaf:mbox_sha1sum))
+Declaration(DataProperty(foaf:msnChatID))
+Declaration(DataProperty(foaf:myersBriggs))
+Declaration(DataProperty(foaf:name))
+Declaration(DataProperty(foaf:nick))
+Declaration(DataProperty(foaf:plan))
+Declaration(DataProperty(foaf:sha1))
+Declaration(DataProperty(foaf:skypeID))
+Declaration(DataProperty(foaf:status))
+Declaration(DataProperty(foaf:surname))
+Declaration(DataProperty(foaf:title))
+Declaration(DataProperty(foaf:yahooChatID))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(vs:term_status))
+Declaration(AnnotationProperty(foaf:membershipClass))
+Declaration(AnnotationProperty(wot:assurance))
+Declaration(AnnotationProperty(wot:src_assurance))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: foaf:membershipClass (membershipClass)
+
+AnnotationAssertion(rdfs:comment foaf:membershipClass "Indicates the class of individuals that are a member of a Group")
+AnnotationAssertion(rdfs:isDefinedBy foaf:membershipClass <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:membershipClass "membershipClass")
+AnnotationAssertion(vs:term_status foaf:membershipClass "unstable")
+
+# Annotation Property: foaf:name (name)
+
+AnnotationAssertion(rdfs:comment foaf:name "A name for some thing.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:name <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:name "name")
+AnnotationAssertion(vs:term_status foaf:name "testing")
+SubAnnotationPropertyOf(foaf:name rdfs:label)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: foaf:account (account)
+
+AnnotationAssertion(rdfs:comment foaf:account "Indicates an account held by this agent.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:account <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:account "account")
+AnnotationAssertion(vs:term_status foaf:account "testing")
+ObjectPropertyDomain(foaf:account foaf:Agent)
+ObjectPropertyRange(foaf:account foaf:OnlineAccount)
+
+# Object Property: foaf:accountServiceHomepage (account service homepage)
+
+AnnotationAssertion(rdfs:comment foaf:accountServiceHomepage "Indicates a homepage of the service provide for this online account.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:accountServiceHomepage <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:accountServiceHomepage "account service homepage")
+AnnotationAssertion(vs:term_status foaf:accountServiceHomepage "testing")
+ObjectPropertyDomain(foaf:accountServiceHomepage foaf:OnlineAccount)
+ObjectPropertyRange(foaf:accountServiceHomepage foaf:Document)
+
+# Object Property: foaf:aimChatID (AIM chat ID)
+
+AnnotationAssertion(rdfs:comment foaf:aimChatID "An AIM chat ID")
+AnnotationAssertion(rdfs:isDefinedBy foaf:aimChatID <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:aimChatID "AIM chat ID")
+AnnotationAssertion(vs:term_status foaf:aimChatID "testing")
+InverseFunctionalObjectProperty(foaf:aimChatID)
+ObjectPropertyDomain(foaf:aimChatID foaf:Agent)
+
+# Object Property: foaf:based_near (based near)
+
+AnnotationAssertion(rdfs:comment foaf:based_near "A location that something is based near, for some broadly human notion of near.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:based_near <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:based_near "based near")
+AnnotationAssertion(vs:term_status foaf:based_near "testing")
+ObjectPropertyDomain(foaf:based_near <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>)
+ObjectPropertyRange(foaf:based_near <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>)
+
+# Object Property: foaf:currentProject (current project)
+
+AnnotationAssertion(rdfs:comment foaf:currentProject "A current project this person works on.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:currentProject <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:currentProject "current project")
+AnnotationAssertion(vs:term_status foaf:currentProject "testing")
+ObjectPropertyDomain(foaf:currentProject foaf:Person)
+ObjectPropertyRange(foaf:currentProject owl:Thing)
+
+# Object Property: foaf:depiction (depiction)
+
+AnnotationAssertion(rdfs:comment foaf:depiction "A depiction of some thing.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:depiction <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:depiction "depiction")
+AnnotationAssertion(vs:term_status foaf:depiction "testing")
+InverseObjectProperties(foaf:depiction foaf:depicts)
+ObjectPropertyDomain(foaf:depiction owl:Thing)
+ObjectPropertyRange(foaf:depiction foaf:Image)
+
+# Object Property: foaf:depicts (depicts)
+
+AnnotationAssertion(rdfs:comment foaf:depicts "A thing depicted in this representation.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:depicts <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:depicts "depicts")
+AnnotationAssertion(vs:term_status foaf:depicts "testing")
+ObjectPropertyDomain(foaf:depicts foaf:Image)
+ObjectPropertyRange(foaf:depicts owl:Thing)
+
+# Object Property: foaf:focus (focus)
+
+AnnotationAssertion(rdfs:comment foaf:focus "The underlying or 'focal' entity associated with some SKOS-described concept.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:focus <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:focus "focus")
+AnnotationAssertion(vs:term_status foaf:focus "testing")
+ObjectPropertyDomain(foaf:focus <http://www.w3.org/2004/02/skos/core#Concept>)
+ObjectPropertyRange(foaf:focus owl:Thing)
+
+# Object Property: foaf:fundedBy (funded by)
+
+AnnotationAssertion(rdfs:comment foaf:fundedBy "An organization funding a project or person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:fundedBy <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:fundedBy "funded by")
+AnnotationAssertion(vs:term_status foaf:fundedBy "archaic")
+ObjectPropertyDomain(foaf:fundedBy owl:Thing)
+ObjectPropertyRange(foaf:fundedBy owl:Thing)
+
+# Object Property: foaf:holdsAccount (account)
+
+AnnotationAssertion(rdfs:comment foaf:holdsAccount "Indicates an account held by this agent.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:holdsAccount <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:holdsAccount "account")
+AnnotationAssertion(vs:term_status foaf:holdsAccount "archaic")
+ObjectPropertyDomain(foaf:holdsAccount foaf:Agent)
+ObjectPropertyRange(foaf:holdsAccount foaf:OnlineAccount)
+
+# Object Property: foaf:homepage (homepage)
+
+AnnotationAssertion(rdfs:comment foaf:homepage "A homepage for some thing.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:homepage <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:homepage "homepage")
+AnnotationAssertion(vs:term_status foaf:homepage "stable")
+SubObjectPropertyOf(foaf:homepage foaf:isPrimaryTopicOf)
+SubObjectPropertyOf(foaf:homepage foaf:page)
+InverseFunctionalObjectProperty(foaf:homepage)
+ObjectPropertyDomain(foaf:homepage owl:Thing)
+ObjectPropertyRange(foaf:homepage foaf:Document)
+
+# Object Property: foaf:icqChatID (ICQ chat ID)
+
+AnnotationAssertion(rdfs:comment foaf:icqChatID "An ICQ chat ID")
+AnnotationAssertion(rdfs:isDefinedBy foaf:icqChatID <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:icqChatID "ICQ chat ID")
+AnnotationAssertion(vs:term_status foaf:icqChatID "testing")
+InverseFunctionalObjectProperty(foaf:icqChatID)
+ObjectPropertyDomain(foaf:icqChatID foaf:Agent)
+
+# Object Property: foaf:img (image)
+
+AnnotationAssertion(rdfs:comment foaf:img "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).")
+AnnotationAssertion(rdfs:isDefinedBy foaf:img <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:img "image")
+AnnotationAssertion(vs:term_status foaf:img "testing")
+SubObjectPropertyOf(foaf:img foaf:depiction)
+ObjectPropertyDomain(foaf:img foaf:Person)
+ObjectPropertyRange(foaf:img foaf:Image)
+
+# Object Property: foaf:interest (interest)
+
+AnnotationAssertion(rdfs:comment foaf:interest "A page about a topic of interest to this person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:interest <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:interest "interest")
+AnnotationAssertion(vs:term_status foaf:interest "testing")
+ObjectPropertyDomain(foaf:interest foaf:Agent)
+ObjectPropertyRange(foaf:interest foaf:Document)
+
+# Object Property: foaf:isPrimaryTopicOf (is primary topic of)
+
+AnnotationAssertion(rdfs:comment foaf:isPrimaryTopicOf "A document that this thing is the primary topic of.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:isPrimaryTopicOf <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:isPrimaryTopicOf "is primary topic of")
+AnnotationAssertion(vs:term_status foaf:isPrimaryTopicOf "stable")
+SubObjectPropertyOf(foaf:isPrimaryTopicOf foaf:page)
+InverseObjectProperties(foaf:isPrimaryTopicOf foaf:primaryTopic)
+InverseFunctionalObjectProperty(foaf:isPrimaryTopicOf)
+ObjectPropertyDomain(foaf:isPrimaryTopicOf owl:Thing)
+ObjectPropertyRange(foaf:isPrimaryTopicOf foaf:Document)
+
+# Object Property: foaf:jabberID (jabber ID)
+
+AnnotationAssertion(rdfs:comment foaf:jabberID "A jabber ID for something.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:jabberID <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:jabberID "jabber ID")
+AnnotationAssertion(vs:term_status foaf:jabberID "testing")
+InverseFunctionalObjectProperty(foaf:jabberID)
+ObjectPropertyDomain(foaf:jabberID foaf:Agent)
+
+# Object Property: foaf:knows (knows)
+
+AnnotationAssertion(rdfs:comment foaf:knows "A person known by this person (indicating some level of reciprocated interaction between the parties).")
+AnnotationAssertion(rdfs:isDefinedBy foaf:knows <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:knows "knows")
+AnnotationAssertion(vs:term_status foaf:knows "stable")
+ObjectPropertyDomain(foaf:knows foaf:Person)
+ObjectPropertyRange(foaf:knows foaf:Person)
+
+# Object Property: foaf:logo (logo)
+
+AnnotationAssertion(rdfs:comment foaf:logo "A logo representing some thing.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:logo <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:logo "logo")
+AnnotationAssertion(vs:term_status foaf:logo "testing")
+InverseFunctionalObjectProperty(foaf:logo)
+ObjectPropertyDomain(foaf:logo owl:Thing)
+ObjectPropertyRange(foaf:logo owl:Thing)
+
+# Object Property: foaf:made (made)
+
+AnnotationAssertion(rdfs:comment foaf:made "Something that was made by this agent.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:made <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:made "made")
+AnnotationAssertion(vs:term_status foaf:made "stable")
+InverseObjectProperties(foaf:made foaf:maker)
+ObjectPropertyDomain(foaf:made foaf:Agent)
+ObjectPropertyRange(foaf:made owl:Thing)
+
+# Object Property: foaf:maker (maker)
+
+AnnotationAssertion(rdfs:comment foaf:maker "An agent that  made this thing.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:maker <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:maker "maker")
+AnnotationAssertion(vs:term_status foaf:maker "stable")
+ObjectPropertyDomain(foaf:maker owl:Thing)
+ObjectPropertyRange(foaf:maker foaf:Agent)
+
+# Object Property: foaf:mbox (personal mailbox)
+
+AnnotationAssertion(rdfs:comment foaf:mbox "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:mbox <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:mbox "personal mailbox")
+AnnotationAssertion(vs:term_status foaf:mbox "stable")
+InverseFunctionalObjectProperty(foaf:mbox)
+ObjectPropertyDomain(foaf:mbox foaf:Agent)
+ObjectPropertyRange(foaf:mbox owl:Thing)
+
+# Object Property: foaf:mbox_sha1sum (sha1sum of a personal mailbox URI name)
+
+AnnotationAssertion(rdfs:comment foaf:mbox_sha1sum "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:mbox_sha1sum <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:mbox_sha1sum "sha1sum of a personal mailbox URI name")
+AnnotationAssertion(vs:term_status foaf:mbox_sha1sum "testing")
+InverseFunctionalObjectProperty(foaf:mbox_sha1sum)
+ObjectPropertyDomain(foaf:mbox_sha1sum foaf:Agent)
+
+# Object Property: foaf:member (member)
+
+AnnotationAssertion(rdfs:comment foaf:member "Indicates a member of a Group")
+AnnotationAssertion(rdfs:isDefinedBy foaf:member <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:member "member")
+AnnotationAssertion(vs:term_status foaf:member "stable")
+ObjectPropertyDomain(foaf:member foaf:Group)
+ObjectPropertyRange(foaf:member foaf:Agent)
+
+# Object Property: foaf:msnChatID (MSN chat ID)
+
+AnnotationAssertion(rdfs:comment foaf:msnChatID "An MSN chat ID")
+AnnotationAssertion(rdfs:isDefinedBy foaf:msnChatID <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:msnChatID "MSN chat ID")
+AnnotationAssertion(vs:term_status foaf:msnChatID "testing")
+InverseFunctionalObjectProperty(foaf:msnChatID)
+ObjectPropertyDomain(foaf:msnChatID foaf:Agent)
+
+# Object Property: foaf:openid (openid)
+
+AnnotationAssertion(rdfs:comment foaf:openid "An OpenID for an Agent.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:openid <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:openid "openid")
+AnnotationAssertion(vs:term_status foaf:openid "testing")
+SubObjectPropertyOf(foaf:openid foaf:isPrimaryTopicOf)
+InverseFunctionalObjectProperty(foaf:openid)
+ObjectPropertyDomain(foaf:openid foaf:Agent)
+ObjectPropertyRange(foaf:openid foaf:Document)
+
+# Object Property: foaf:page (page)
+
+AnnotationAssertion(rdfs:comment foaf:page "A page or document about this thing.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:page <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:page "page")
+AnnotationAssertion(vs:term_status foaf:page "stable")
+InverseObjectProperties(foaf:page foaf:topic)
+ObjectPropertyDomain(foaf:page owl:Thing)
+ObjectPropertyRange(foaf:page foaf:Document)
+
+# Object Property: foaf:pastProject (past project)
+
+AnnotationAssertion(rdfs:comment foaf:pastProject "A project this person has previously worked on.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:pastProject <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:pastProject "past project")
+AnnotationAssertion(vs:term_status foaf:pastProject "testing")
+ObjectPropertyDomain(foaf:pastProject foaf:Person)
+ObjectPropertyRange(foaf:pastProject owl:Thing)
+
+# Object Property: foaf:phone (phone)
+
+AnnotationAssertion(rdfs:comment foaf:phone "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).")
+AnnotationAssertion(rdfs:isDefinedBy foaf:phone <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:phone "phone")
+AnnotationAssertion(vs:term_status foaf:phone "testing")
+
+# Object Property: foaf:primaryTopic (primary topic)
+
+AnnotationAssertion(rdfs:comment foaf:primaryTopic "The primary topic of some page or document.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:primaryTopic <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:primaryTopic "primary topic")
+AnnotationAssertion(vs:term_status foaf:primaryTopic "stable")
+FunctionalObjectProperty(foaf:primaryTopic)
+ObjectPropertyDomain(foaf:primaryTopic foaf:Document)
+ObjectPropertyRange(foaf:primaryTopic owl:Thing)
+
+# Object Property: foaf:publications (publications)
+
+AnnotationAssertion(rdfs:comment foaf:publications "A link to the publications of this person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:publications <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:publications "publications")
+AnnotationAssertion(vs:term_status foaf:publications "testing")
+ObjectPropertyDomain(foaf:publications foaf:Person)
+ObjectPropertyRange(foaf:publications foaf:Document)
+
+# Object Property: foaf:schoolHomepage (schoolHomepage)
+
+AnnotationAssertion(rdfs:comment foaf:schoolHomepage "A homepage of a school attended by the person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:schoolHomepage <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:schoolHomepage "schoolHomepage")
+AnnotationAssertion(vs:term_status foaf:schoolHomepage "testing")
+ObjectPropertyDomain(foaf:schoolHomepage foaf:Person)
+ObjectPropertyRange(foaf:schoolHomepage foaf:Document)
+
+# Object Property: foaf:theme (theme)
+
+AnnotationAssertion(rdfs:comment foaf:theme "A theme.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:theme <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:theme "theme")
+AnnotationAssertion(vs:term_status foaf:theme "archaic")
+ObjectPropertyDomain(foaf:theme owl:Thing)
+ObjectPropertyRange(foaf:theme owl:Thing)
+
+# Object Property: foaf:thumbnail (thumbnail)
+
+AnnotationAssertion(rdfs:comment foaf:thumbnail "A derived thumbnail image.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:thumbnail <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:thumbnail "thumbnail")
+AnnotationAssertion(vs:term_status foaf:thumbnail "testing")
+ObjectPropertyDomain(foaf:thumbnail foaf:Image)
+ObjectPropertyRange(foaf:thumbnail foaf:Image)
+
+# Object Property: foaf:tipjar (tipjar)
+
+AnnotationAssertion(rdfs:comment foaf:tipjar "A tipjar document for this agent, describing means for payment and reward.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:tipjar <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:tipjar "tipjar")
+AnnotationAssertion(vs:term_status foaf:tipjar "testing")
+SubObjectPropertyOf(foaf:tipjar foaf:page)
+ObjectPropertyDomain(foaf:tipjar foaf:Agent)
+ObjectPropertyRange(foaf:tipjar foaf:Document)
+
+# Object Property: foaf:topic (topic)
+
+AnnotationAssertion(rdfs:comment foaf:topic "A topic of some page or document.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:topic <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:topic "topic")
+AnnotationAssertion(vs:term_status foaf:topic "testing")
+ObjectPropertyDomain(foaf:topic foaf:Document)
+ObjectPropertyRange(foaf:topic owl:Thing)
+
+# Object Property: foaf:topic_interest (topic_interest)
+
+AnnotationAssertion(rdfs:comment foaf:topic_interest "A thing of interest to this person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:topic_interest <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:topic_interest "topic_interest")
+AnnotationAssertion(vs:term_status foaf:topic_interest "testing")
+ObjectPropertyDomain(foaf:topic_interest foaf:Agent)
+ObjectPropertyRange(foaf:topic_interest owl:Thing)
+
+# Object Property: foaf:weblog (weblog)
+
+AnnotationAssertion(rdfs:comment foaf:weblog "A weblog of some thing (whether person, group, company etc.).")
+AnnotationAssertion(rdfs:isDefinedBy foaf:weblog <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:weblog "weblog")
+AnnotationAssertion(vs:term_status foaf:weblog "stable")
+SubObjectPropertyOf(foaf:weblog foaf:page)
+InverseFunctionalObjectProperty(foaf:weblog)
+ObjectPropertyDomain(foaf:weblog foaf:Agent)
+ObjectPropertyRange(foaf:weblog foaf:Document)
+
+# Object Property: foaf:workInfoHomepage (work info homepage)
+
+AnnotationAssertion(rdfs:comment foaf:workInfoHomepage "A work info homepage of some person; a page about their work for some organization.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:workInfoHomepage <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:workInfoHomepage "work info homepage")
+AnnotationAssertion(vs:term_status foaf:workInfoHomepage "testing")
+ObjectPropertyDomain(foaf:workInfoHomepage foaf:Person)
+ObjectPropertyRange(foaf:workInfoHomepage foaf:Document)
+
+# Object Property: foaf:workplaceHomepage (workplace homepage)
+
+AnnotationAssertion(rdfs:comment foaf:workplaceHomepage "A workplace homepage of some person; the homepage of an organization they work for.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:workplaceHomepage <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:workplaceHomepage "workplace homepage")
+AnnotationAssertion(vs:term_status foaf:workplaceHomepage "testing")
+ObjectPropertyDomain(foaf:workplaceHomepage foaf:Person)
+ObjectPropertyRange(foaf:workplaceHomepage foaf:Document)
+
+# Object Property: foaf:yahooChatID (Yahoo chat ID)
+
+AnnotationAssertion(rdfs:comment foaf:yahooChatID "A Yahoo chat ID")
+AnnotationAssertion(rdfs:isDefinedBy foaf:yahooChatID <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:yahooChatID "Yahoo chat ID")
+AnnotationAssertion(vs:term_status foaf:yahooChatID "testing")
+InverseFunctionalObjectProperty(foaf:yahooChatID)
+ObjectPropertyDomain(foaf:yahooChatID foaf:Agent)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: foaf:accountName (account name)
+
+AnnotationAssertion(rdfs:comment foaf:accountName "Indicates the name (identifier) associated with this online account.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:accountName <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:accountName "account name")
+AnnotationAssertion(vs:term_status foaf:accountName "testing")
+DataPropertyDomain(foaf:accountName foaf:OnlineAccount)
+DataPropertyRange(foaf:accountName rdfs:Literal)
+
+# Data Property: foaf:age (age)
+
+AnnotationAssertion(rdfs:comment foaf:age "The age in years of some agent.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:age <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:age "age")
+AnnotationAssertion(vs:term_status foaf:age "unstable")
+FunctionalDataProperty(foaf:age)
+DataPropertyDomain(foaf:age foaf:Agent)
+DataPropertyRange(foaf:age rdfs:Literal)
+
+# Data Property: foaf:aimChatID (AIM chat ID)
+
+SubDataPropertyOf(foaf:aimChatID foaf:nick)
+DataPropertyRange(foaf:aimChatID rdfs:Literal)
+
+# Data Property: foaf:birthday (birthday)
+
+AnnotationAssertion(rdfs:comment foaf:birthday "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:birthday <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:birthday "birthday")
+AnnotationAssertion(vs:term_status foaf:birthday "unstable")
+FunctionalDataProperty(foaf:birthday)
+DataPropertyDomain(foaf:birthday foaf:Agent)
+DataPropertyRange(foaf:birthday rdfs:Literal)
+
+# Data Property: foaf:dnaChecksum (DNA checksum)
+
+AnnotationAssertion(rdfs:comment foaf:dnaChecksum "A checksum for the DNA of some thing. Joke.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:dnaChecksum <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:dnaChecksum "DNA checksum")
+AnnotationAssertion(vs:term_status foaf:dnaChecksum "archaic")
+DataPropertyRange(foaf:dnaChecksum rdfs:Literal)
+
+# Data Property: foaf:familyName (familyName)
+
+AnnotationAssertion(rdfs:comment foaf:familyName "The family name of some person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:familyName <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:familyName "familyName")
+AnnotationAssertion(vs:term_status foaf:familyName "testing")
+DataPropertyDomain(foaf:familyName foaf:Person)
+DataPropertyRange(foaf:familyName rdfs:Literal)
+
+# Data Property: foaf:family_name (family_name)
+
+AnnotationAssertion(rdfs:comment foaf:family_name "The family name of some person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:family_name <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:family_name "family_name")
+AnnotationAssertion(vs:term_status foaf:family_name "archaic")
+DataPropertyDomain(foaf:family_name foaf:Person)
+DataPropertyRange(foaf:family_name rdfs:Literal)
+
+# Data Property: foaf:firstName (firstName)
+
+AnnotationAssertion(rdfs:comment foaf:firstName "The first name of a person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:firstName <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:firstName "firstName")
+AnnotationAssertion(vs:term_status foaf:firstName "testing")
+DataPropertyDomain(foaf:firstName foaf:Person)
+DataPropertyRange(foaf:firstName rdfs:Literal)
+
+# Data Property: foaf:geekcode (geekcode)
+
+AnnotationAssertion(rdfs:comment foaf:geekcode "A textual geekcode for this person, see http://www.geekcode.com/geek.html")
+AnnotationAssertion(rdfs:isDefinedBy foaf:geekcode <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:geekcode "geekcode")
+AnnotationAssertion(vs:term_status foaf:geekcode "archaic")
+DataPropertyDomain(foaf:geekcode foaf:Person)
+DataPropertyRange(foaf:geekcode rdfs:Literal)
+
+# Data Property: foaf:gender (gender)
+
+AnnotationAssertion(rdfs:comment foaf:gender "The gender of this Agent (typically but not necessarily 'male' or 'female').")
+AnnotationAssertion(rdfs:isDefinedBy foaf:gender <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:gender "gender")
+AnnotationAssertion(vs:term_status foaf:gender "testing")
+FunctionalDataProperty(foaf:gender)
+DataPropertyDomain(foaf:gender foaf:Agent)
+DataPropertyRange(foaf:gender rdfs:Literal)
+
+# Data Property: foaf:givenName (Given name)
+
+AnnotationAssertion(rdfs:comment foaf:givenName "The given name of some person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:givenName <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:givenName "Given name")
+AnnotationAssertion(vs:term_status foaf:givenName "testing")
+
+# Data Property: foaf:givenname (Given name)
+
+AnnotationAssertion(rdfs:comment foaf:givenname "The given name of some person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:givenname <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:givenname "Given name")
+AnnotationAssertion(vs:term_status foaf:givenname "archaic")
+
+# Data Property: foaf:icqChatID (ICQ chat ID)
+
+SubDataPropertyOf(foaf:icqChatID foaf:nick)
+DataPropertyRange(foaf:icqChatID rdfs:Literal)
+
+# Data Property: foaf:jabberID (jabber ID)
+
+DataPropertyRange(foaf:jabberID rdfs:Literal)
+
+# Data Property: foaf:lastName (lastName)
+
+AnnotationAssertion(rdfs:comment foaf:lastName "The last name of a person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:lastName <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:lastName "lastName")
+AnnotationAssertion(vs:term_status foaf:lastName "testing")
+DataPropertyDomain(foaf:lastName foaf:Person)
+DataPropertyRange(foaf:lastName rdfs:Literal)
+
+# Data Property: foaf:mbox_sha1sum (sha1sum of a personal mailbox URI name)
+
+DataPropertyRange(foaf:mbox_sha1sum rdfs:Literal)
+
+# Data Property: foaf:msnChatID (MSN chat ID)
+
+SubDataPropertyOf(foaf:msnChatID foaf:nick)
+DataPropertyRange(foaf:msnChatID rdfs:Literal)
+
+# Data Property: foaf:myersBriggs (myersBriggs)
+
+AnnotationAssertion(rdfs:comment foaf:myersBriggs "A Myers Briggs (MBTI) personality classification.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:myersBriggs <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:myersBriggs "myersBriggs")
+AnnotationAssertion(vs:term_status foaf:myersBriggs "testing")
+DataPropertyDomain(foaf:myersBriggs foaf:Person)
+DataPropertyRange(foaf:myersBriggs rdfs:Literal)
+
+# Data Property: foaf:name (name)
+
+DataPropertyDomain(foaf:name owl:Thing)
+DataPropertyRange(foaf:name rdfs:Literal)
+
+# Data Property: foaf:nick (nickname)
+
+AnnotationAssertion(rdfs:comment foaf:nick "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).")
+AnnotationAssertion(rdfs:isDefinedBy foaf:nick <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:nick "nickname")
+AnnotationAssertion(vs:term_status foaf:nick "testing")
+
+# Data Property: foaf:plan (plan)
+
+AnnotationAssertion(rdfs:comment foaf:plan "A .plan comment, in the tradition of finger and '.plan' files.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:plan <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:plan "plan")
+AnnotationAssertion(vs:term_status foaf:plan "testing")
+DataPropertyDomain(foaf:plan foaf:Person)
+DataPropertyRange(foaf:plan rdfs:Literal)
+
+# Data Property: foaf:sha1 (sha1sum (hex))
+
+AnnotationAssertion(rdfs:comment foaf:sha1 "A sha1sum hash, in hex.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:sha1 <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:sha1 "sha1sum (hex)")
+AnnotationAssertion(vs:term_status foaf:sha1 "unstable")
+DataPropertyDomain(foaf:sha1 foaf:Document)
+
+# Data Property: foaf:skypeID (Skype ID)
+
+AnnotationAssertion(rdfs:comment foaf:skypeID "A Skype ID")
+AnnotationAssertion(rdfs:isDefinedBy foaf:skypeID <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:skypeID "Skype ID")
+AnnotationAssertion(vs:term_status foaf:skypeID "testing")
+SubDataPropertyOf(foaf:skypeID foaf:nick)
+DataPropertyDomain(foaf:skypeID foaf:Agent)
+DataPropertyRange(foaf:skypeID rdfs:Literal)
+
+# Data Property: foaf:status (status)
+
+AnnotationAssertion(rdfs:comment foaf:status "A string expressing what the user is happy for the general public (normally) to know about their current activity.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:status <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:status "status")
+AnnotationAssertion(vs:term_status foaf:status "unstable")
+DataPropertyDomain(foaf:status foaf:Agent)
+DataPropertyRange(foaf:status rdfs:Literal)
+
+# Data Property: foaf:surname (Surname)
+
+AnnotationAssertion(rdfs:comment foaf:surname "The surname of some person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:surname <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:surname "Surname")
+AnnotationAssertion(vs:term_status foaf:surname "archaic")
+DataPropertyDomain(foaf:surname foaf:Person)
+DataPropertyRange(foaf:surname rdfs:Literal)
+
+# Data Property: foaf:title (title)
+
+AnnotationAssertion(rdfs:comment foaf:title "Title (Mr, Mrs, Ms, Dr. etc)")
+AnnotationAssertion(rdfs:isDefinedBy foaf:title <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:title "title")
+AnnotationAssertion(vs:term_status foaf:title "testing")
+
+# Data Property: foaf:yahooChatID (Yahoo chat ID)
+
+SubDataPropertyOf(foaf:yahooChatID foaf:nick)
+DataPropertyRange(foaf:yahooChatID rdfs:Literal)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/dc/terms/Agent> (<http://purl.org/dc/terms/Agent>)
+
+EquivalentClasses(<http://purl.org/dc/terms/Agent> foaf:Agent)
+
+# Class: <http://schema.org/CreativeWork> (<http://schema.org/CreativeWork>)
+
+EquivalentClasses(<http://schema.org/CreativeWork> foaf:Document)
+
+# Class: <http://schema.org/ImageObject> (<http://schema.org/ImageObject>)
+
+EquivalentClasses(<http://schema.org/ImageObject> foaf:Image)
+
+# Class: <http://schema.org/Person> (<http://schema.org/Person>)
+
+EquivalentClasses(<http://schema.org/Person> foaf:Person)
+
+# Class: <http://www.w3.org/2000/10/swap/pim/contact#Person> (<http://www.w3.org/2000/10/swap/pim/contact#Person>)
+
+EquivalentClasses(<http://www.w3.org/2000/10/swap/pim/contact#Person> foaf:Person)
+
+# Class: owl:Thing (Thing)
+
+AnnotationAssertion(rdfs:label owl:Thing "Thing")
+
+# Class: <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> (Spatial Thing)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> "Spatial Thing")
+
+# Class: <http://www.w3.org/2004/02/skos/core#Concept> (Concept)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/2004/02/skos/core#Concept> "Concept")
+
+# Class: foaf:Agent (Agent)
+
+AnnotationAssertion(rdfs:comment foaf:Agent "An agent (eg. person, group, software or physical artifact).")
+AnnotationAssertion(rdfs:label foaf:Agent "Agent")
+AnnotationAssertion(vs:term_status foaf:Agent "stable")
+
+# Class: foaf:Document (Document)
+
+AnnotationAssertion(rdfs:comment foaf:Document "A document.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:Document <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:Document "Document")
+AnnotationAssertion(vs:term_status foaf:Document "stable")
+DisjointClasses(foaf:Document foaf:Organization)
+DisjointClasses(foaf:Document foaf:Project)
+
+# Class: foaf:Group (Group)
+
+AnnotationAssertion(rdfs:comment foaf:Group "A class of Agents.")
+AnnotationAssertion(rdfs:label foaf:Group "Group")
+AnnotationAssertion(vs:term_status foaf:Group "stable")
+SubClassOf(foaf:Group foaf:Agent)
+
+# Class: foaf:Image (Image)
+
+AnnotationAssertion(rdfs:comment foaf:Image "An image.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:Image <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:Image "Image")
+AnnotationAssertion(vs:term_status foaf:Image "stable")
+SubClassOf(foaf:Image foaf:Document)
+
+# Class: foaf:LabelProperty (Label Property)
+
+AnnotationAssertion(rdfs:comment foaf:LabelProperty "A foaf:LabelProperty is any RDF property with texual values that serve as labels.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:LabelProperty <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:LabelProperty "Label Property")
+AnnotationAssertion(vs:term_status foaf:LabelProperty "unstable")
+
+# Class: foaf:OnlineAccount (Online Account)
+
+AnnotationAssertion(rdfs:comment foaf:OnlineAccount "An online account.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:OnlineAccount <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:OnlineAccount "Online Account")
+AnnotationAssertion(vs:term_status foaf:OnlineAccount "testing")
+SubClassOf(foaf:OnlineAccount owl:Thing)
+
+# Class: foaf:OnlineChatAccount (Online Chat Account)
+
+AnnotationAssertion(rdfs:comment foaf:OnlineChatAccount "An online chat account.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:OnlineChatAccount <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:OnlineChatAccount "Online Chat Account")
+AnnotationAssertion(vs:term_status foaf:OnlineChatAccount "unstable")
+SubClassOf(foaf:OnlineChatAccount foaf:OnlineAccount)
+
+# Class: foaf:OnlineEcommerceAccount (Online E-commerce Account)
+
+AnnotationAssertion(rdfs:comment foaf:OnlineEcommerceAccount "An online e-commerce account.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:OnlineEcommerceAccount <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:OnlineEcommerceAccount "Online E-commerce Account")
+AnnotationAssertion(vs:term_status foaf:OnlineEcommerceAccount "unstable")
+SubClassOf(foaf:OnlineEcommerceAccount foaf:OnlineAccount)
+
+# Class: foaf:OnlineGamingAccount (Online Gaming Account)
+
+AnnotationAssertion(rdfs:comment foaf:OnlineGamingAccount "An online gaming account.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:OnlineGamingAccount <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:OnlineGamingAccount "Online Gaming Account")
+AnnotationAssertion(vs:term_status foaf:OnlineGamingAccount "unstable")
+SubClassOf(foaf:OnlineGamingAccount foaf:OnlineAccount)
+
+# Class: foaf:Organization (Organization)
+
+AnnotationAssertion(rdfs:comment foaf:Organization "An organization.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:Organization <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:Organization "Organization")
+AnnotationAssertion(vs:term_status foaf:Organization "stable")
+SubClassOf(foaf:Organization foaf:Agent)
+DisjointClasses(foaf:Organization foaf:Person)
+
+# Class: foaf:Person (Person)
+
+AnnotationAssertion(rdfs:comment foaf:Person "A person.")
+AnnotationAssertion(rdfs:isDefinedBy foaf:Person <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:Person "Person")
+AnnotationAssertion(vs:term_status foaf:Person "stable")
+SubClassOf(foaf:Person <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>)
+SubClassOf(foaf:Person foaf:Agent)
+DisjointClasses(foaf:Person foaf:Project)
+
+# Class: foaf:PersonalProfileDocument (PersonalProfileDocument)
+
+AnnotationAssertion(rdfs:comment foaf:PersonalProfileDocument "A personal profile RDF document.")
+AnnotationAssertion(rdfs:label foaf:PersonalProfileDocument "PersonalProfileDocument")
+AnnotationAssertion(vs:term_status foaf:PersonalProfileDocument "testing")
+SubClassOf(foaf:PersonalProfileDocument foaf:Document)
+
+# Class: foaf:Project (Project)
+
+AnnotationAssertion(rdfs:comment foaf:Project "A project (a collective endeavour of some kind).")
+AnnotationAssertion(rdfs:isDefinedBy foaf:Project <http://xmlns.com/foaf/0.1/>)
+AnnotationAssertion(rdfs:label foaf:Project "Project")
+AnnotationAssertion(vs:term_status foaf:Project "testing")
+
+
+)

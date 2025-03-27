@@ -1,0 +1,182 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:rddl="http://www.rddl.org/"
+      xml:lang="en-US" lang="en-US">
+<head>
+  <title>web.resource.org/cc</title>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="banner">
+  <h1><a href="http://web.resource.org/cc/">web.resource.org/cc</a></h1>
+  <span class="description">describing copyright in RDF</span>
+</div>
+<div class="content">
+
+<p>The CC schema lets you describe copyright licenses in RDF. Here's a summary of the included terms:</p>
+
+<dl>
+<dt>cc:license</dt>
+<dd>A copyright license for the resource, a structured <strong>cc:License</strong>. If there are two <strong>cc:license</strong>s, then the licensee gets to pick which to use.</dd>
+</dl>
+
+<p><strong>Agent</strong>s (people or things that do stuff) and <strong>License</strong>s, of course, can use the same structure to provide their names, dates, etc.</p>
+
+<h2>Licenses</h2>
+
+<p>Licenses are described by their characteristics, which come in three types:</p>
+
+<h3>Permissions (rights granted by the license)</h3>
+
+<dl>
+<dt>Reproduction</dt>
+
+<dd>the work may be reproduced</dd>
+<dt>Distribution</dt>
+<dd>the work (and, if authorized, derivative works) may be distributed, publicly displayed, and publicly performed</dd>
+<dt>DerivativeWorks</dt>
+<dd>derivative works may be created and reproduced</dd>
+</dl>
+
+<h3>Prohibitions (things prohibited by the license)</h3>
+
+<dl>
+<dt>CommercialUse</dt>
+
+<dd>rights may be exercised for commercial purposes</dd>
+</dl>
+
+<h3>Requirements (restrictions imposed by the license)</h3>
+
+<dl>
+<dt>Notice</dt>
+<dd>copyright and license notices must be kept intact</dd>
+<dt>Attribution</dt>
+<dd>credit must be given to copyright holder and/or author</dd>
+<dt>ShareAlike</dt>
+<dd>derivative works must be licensed under the same terms as the original work</dd>
+<dt>SourceCode</dt>
+<dd>source code (the preferred form for making modifications) must be provided for all derivative works</dd>
+</dl>
+
+<p><strong>Note:</strong> these characteristics are advisory only. They are designed to
+describe the characteristics of a license; they are not themselves a
+license. For the specific implementation of each characteristic, as
+well as other details which may not be encoded in the RDF, you must
+consult the text of the actual license. A license should always be
+linked from these metadata terms.</p>
+
+
+<p>More details are on <a href="http://creativecommons.org/learn/technology/metadata/">the Creative Commons metadata project website</a>.</p>
+
+<rddl:resource
+  xlink:href="http://web.resource.org/cc/schema.rdf"
+  xlink:title="Creative Commons RDF Metadata Schema"
+  xlink:role="http://www.w3.org/2000/01/rdf-schema#">
+<p>RDF users might be interested in our machine-readable <a href="schema.rdf">RDF Schema</a>. A copy is also embedded in this document.</p>
+</rddl:resource>
+
+</div>
+<div class="footer">
+[ part of <a href="http://web.resource.org/">web.resource.org</a> | <a href="mailto:webmaster@web.resource.org">webmaster@web.resource.org</a> for help ]
+</div></body>
+</html>
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <rdfs:Class rdf:about="http://web.resource.org/cc/Work">
+        <dc:title>work</dc:title>
+        <dc:description>a potentially copyrightable work</dc:description>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/2000/10/swap/pim/doc#Work"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://web.resource.org/cc/Agent">
+        <dc:title>agent</dc:title>
+        <dc:description>something (e.g. a person, corporation or computer) capable of creating things</dc:description>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://web.resource.org/cc/License">
+        <dc:title>license</dc:title>
+        <dc:description>a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors</dc:description>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://web.resource.org/cc/Permission">
+        <dc:title>permission</dc:title>
+        <dc:description>an action that may or may not be allowed or desired</dc:description>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://web.resource.org/cc/Requirement">
+        <dc:title>requirement</dc:title>
+        <dc:description>an action that may or may not be requested of you</dc:description>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://web.resource.org/cc/Prohibition">
+        <dc:title>prohibition</dc:title>
+        <dc:description>something you may be asked not to do</dc:description>
+    </rdfs:Class>
+
+    <License rdf:about="http://web.resource.org/cc/PublicDomain">
+        <dc:title>public domain</dc:title>
+        <dc:description>no copyright; everything is permitted without restriction</dc:description>
+    </License>
+
+    <Permission rdf:about="http://web.resource.org/cc/Reproduction">
+        <dc:title>reproduction</dc:title>
+        <dc:description>making multiple copies</dc:description>
+    </Permission>
+    <Permission rdf:about="http://web.resource.org/cc/Distribution">
+        <dc:title>distribution</dc:title>
+        <dc:description>distribution, public display, and publicly performance</dc:description>
+    </Permission>
+    <Permission rdf:about="http://web.resource.org/cc/DerivativeWorks">
+        <dc:title>derivative works</dc:title>
+        <dc:description>creation and distribution of derivative works</dc:description>
+    </Permission>
+
+    <Requirement rdf:about="http://web.resource.org/cc/Notice">
+        <dc:title>copyright notices</dc:title>
+        <dc:description>copyright and license notices be kept intact</dc:description>
+    </Requirement>
+    <Requirement rdf:about="http://web.resource.org/cc/Attribution">
+        <dc:title>attribution</dc:title>
+        <dc:description>credit be given to copyright holder and/or author</dc:description>
+    </Requirement>
+    <Requirement rdf:about="http://web.resource.org/cc/ShareAlike">
+        <dc:title>share alike</dc:title>
+        <dc:description>derivative works be licensed under the same terms as the original work</dc:description>
+    </Requirement>
+
+    <Prohibition rdf:about="http://web.resource.org/cc/CommercialUse">
+        <dc:title>commercial use</dc:title>
+        <dc:description>exercising rights for commercial purposes</dc:description>
+    </Prohibition>
+
+    <rdf:Property rdf:about="http://web.resource.org/cc/license">
+        <dc:title>has license</dc:title>
+        <rdfs:domain rdf:resource="http://web.resource.org/cc/Work"/>
+        <rdfs:range rdf:resource="http://web.resource.org/cc/License"/>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/2000/10/swap/pim/doc#ipr"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://web.resource.org/cc/permits">
+        <dc:title>permits</dc:title>
+        <rdfs:domain rdf:resource="http://web.resource.org/cc/License"/>
+        <rdfs:range rdf:resource="http://web.resource.org/cc/Permission"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://web.resource.org/cc/requires">
+        <dc:title>requires</dc:title>
+        <rdfs:domain rdf:resource="http://web.resource.org/cc/License"/>
+        <rdfs:range rdf:resource="http://web.resource.org/cc/Requirement"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://web.resource.org/cc/prohibits">
+        <dc:title>prohibits</dc:title>
+        <rdfs:domain rdf:resource="http://web.resource.org/cc/License"/>
+        <rdfs:range rdf:resource="http://web.resource.org/cc/Prohibition"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://web.resource.org/cc/derivativeWork">
+        <dc:title>has a derivative work</dc:title>
+        <rdfs:domain rdf:resource="http://web.resource.org/cc/Work" />
+        <rdfs:range rdf:resource="http://web.resource.org/cc/Work" />
+        <rdfs:seeAlso rdf:resource="http://purl.org/dc/elements/1.1/source" />
+    </rdf:Property>
+</rdf:RDF>
+-->

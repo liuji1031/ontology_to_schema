@@ -1,0 +1,1308 @@
+Prefix(:=<http://purl.org/spar/scoro#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(pro:=<http://purl.org/spar/pro/>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(tvc:=<http://www.essepuntato.it/2012/04/tvc/>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(owl2:=<http://purl.org/spar/scoro/owl:>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(dcterms:=<http://dublincore.org/documents/dcmi-terms/>)
+Prefix(timeindexedsituation:=<http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#>)
+
+
+Ontology(<http://purl.org/spar/scoro>
+<http://purl.org/spar/scoro/2017-09-04>
+Import(<http://purl.org/spar/pro>)
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2017-09-04")
+Annotation(dc:description <http://purl.org/spar/scoro/scoro.png>)
+Annotation(dc:description "SCoRO, the Scholarly Contributions and Roles Ontology, is an ontology for use by authors and publishers for describing the contributions that may be made and the roles that may be held by a person with respect to a journal article or other publication, and by research administrators for describing contributions and roles with respect to other aspects of scholarly research.
+
+In this ontology, the object properties (e.g. scoro:makesContribution) and the individuals within classes (e.g. scoro:conducts-experiments) are expressed in the present tense, as is conventional for ontologies, but should be taken as potentially referring to past, present or future roles and contributions.
+
+Since roles have contexts and times that are important to take into account (for example, a person can be author of one paper and reviewer of another, while another person will be editor of a journal only for a defined period, not for ever), the SCORO ontology permit these contexts to be specified, using an ontological design pattern called the time-indexed value in context (TVC) (http://www.essepuntato.it/2012/04/tvc) which is part of the PRO ontology (http://purl.org/spar/pro) imported by SCORO.
+
+This ontology design pattern permits one to construct the following RDF statements:
+       foaf:Agent pro:holdsRoleInTime [ a pro:RoleInTime pro:withRole pro:editor ] .
+
+Thus the domain of pro:withRole is not foaf:Agent, but rather an anonymous member of the class pro:RoleInTime, which itself is the range of the property pro:holdsRoleInTime, for which the domain is foaf:Agent.
+
+The range of pro:withRole is the class pro:Role, and its sub-classes pro:PublishingRole, scoro:InvestigationalRole, scoro:OrganizationalRole, etc., whose members permit specific roles to be specified.
+
+This single step of indirection permits other contextual and temporal attributes (not shown here) to be specified for this member of the class pro:RoleInTime, putting that role into context.
+
+Exemplar usage:
+
+	fabio:Dataset  dcterms:contributor  [ rdf:type foaf:Organization ;
+	   foaf:name \"Met Office\" ;
+	   foaf:homepage <http://www.metoffice.gov.uk/>  ;
+	   pro:holdsRoleInTime [ a pro:RoleInTime
+		  pro:withRole  scoro:data-creator ]  ] .
+
+Exactly the same use of TVC and of individuals within the class scoro:Contribution and its sub-classes is used for scoro:withContribution, enabling contributions to be time-limited and given contexts.
+"@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "SCoRO, the Scholarly Contributions and Roles Ontology"@en)
+Annotation(rdfs:comment "The Scholarly Contributions and Roles Ontology (SCoRO) is an ontology based on PRO for describing the contributions that may be made, and the roles that may be held by a person with respect to a journal article or other publication (e.g. the role of article guarantor or illustrator).
+
+**URL:** http://purl.org/spar/scoro
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/scoro"@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/SCoRO/2016-01-19-SCoRO-1_9.owl>)
+Annotation(owl:versionInfo "1.9.1")
+
+Declaration(Class(pro:Role))
+Declaration(Class(pro:RoleInTime))
+Declaration(Class(<http://purl.org/spar/scoro/AuthorshipContribution>))
+Declaration(Class(<http://purl.org/spar/scoro/AuthorshipRole>))
+Declaration(Class(<http://purl.org/spar/scoro/ComputationalAgent>))
+Declaration(Class(<http://purl.org/spar/scoro/Contribution>))
+Declaration(Class(<http://purl.org/spar/scoro/ContributionEffort>))
+Declaration(Class(<http://purl.org/spar/scoro/ContributionSituation>))
+Declaration(Class(<http://purl.org/spar/scoro/DataRole>))
+Declaration(Class(<http://purl.org/spar/scoro/EducationalRole>))
+Declaration(Class(<http://purl.org/spar/scoro/ExperimentalContribution>))
+Declaration(Class(<http://purl.org/spar/scoro/FinancialRole>))
+Declaration(Class(<http://purl.org/spar/scoro/IntellectualContribution>))
+Declaration(Class(<http://purl.org/spar/scoro/InvestigationRole>))
+Declaration(Class(<http://purl.org/spar/scoro/OrganizationalContribution>))
+Declaration(Class(<http://purl.org/spar/scoro/OrganizationalRole>))
+Declaration(Class(<http://purl.org/spar/scoro/ProjectRole>))
+Declaration(Class(tvc:ValueInTime))
+Declaration(Class(foaf:Agent))
+Declaration(Class(foaf:Person))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/hasContributionContext>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/isContributionIn>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/isEqualToContributionSituation>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/isEqualToRoleInTime>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/isMadeBy>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/isRelatedToContributionSituation>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/makesContribution>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/withContribution>))
+Declaration(ObjectProperty(<http://purl.org/spar/scoro/withEffort>))
+Declaration(ObjectProperty(tvc:hasValue))
+Declaration(ObjectProperty(tvc:withValue))
+Declaration(ObjectProperty(tvc:withinContext))
+Declaration(ObjectProperty(timeindexedsituation:forEntity))
+Declaration(ObjectProperty(timeindexedsituation:hasTimeIndexedSetting))
+Declaration(DataProperty(<http://purl.org/spar/scoro/hasORCID>))
+Declaration(DataProperty(<http://purl.org/spar/scoro/hasPersonalIdentifier>))
+Declaration(DataProperty(<http://purl.org/spar/scoro/percentageFTE>))
+Declaration(DataProperty(<http://purl.org/spar/scoro/withJobTitle>))
+Declaration(NamedIndividual(pro:author))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/access-provider>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/accountant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/administrator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/affiliate>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/agent>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/analyses-data>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/approves-final-manuscript>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/article-guarantor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/auditor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/builds-and-or-maintains-instruments>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/chief-executive-officer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/chief-scientist>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/chief-technology-officer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/claimant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/co-applicant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/co-investigator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/collaborator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/collects-data>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/college-fellow>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/college-head>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/computer-programmer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/conceives-project>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/consortium-author>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/consultant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/contact-person>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/contractor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/controls-project-finances>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/corresponding-author>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/creates-novel-organisms-or-cells>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/creates-novel-reagents>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/creates-software>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/curator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/data-creator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/data-curator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/data-manager>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/data-publisher>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/data-user>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/departmental-administrator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/designs-experiments>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/develops-methodology>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/director>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/doctoral-student>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/embargo-controller>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/employee>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/employer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/ensures-regulatory-compliance>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/faculty-member>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/financial-controller>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/formulates-research-questions>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/funder>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/funding-recipient>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/head-of-department>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/host-institution>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/illustrator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/interprets-results>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/inventor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/lead-applicant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/leads-investigation>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/maintains-IT-Infrastructure>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/maintains-organisms-or-cells>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/maintains-research-facility>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/major-effort>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/manager>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/manages-project>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/master-student>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/member>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/minor-effort>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/non-academic-staff-member>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/obtains-and-or-prepares-specimens>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/organizer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/owner>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/participant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/partner>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/patent-holder>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/performs-experiments>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/photographer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/possessor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/postdoctoral-researcher>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/postgraduate-student>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/prepares-illustrations>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/prepares-supplementary-information>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/principal-author>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/principal-investigator>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/processes-data>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/programme-manager>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/project-leader>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/project-manager>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/project-member>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/project-student>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-administrative-support>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-advice>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-exising-data>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-patients>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-reagents-specimens-or-materials>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-service>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-software>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-technical-support>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/provides-tools-equipment-or-facilities>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/publishes-data>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/purchaser>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/registrar>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/registration-agency>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/registration-authority>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/repository-manager>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/research-assistant>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/research-student>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/researcher>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/revises-manuscript>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/rights-holder>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/scholar>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/secures-funding>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/senior-author>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/service-engineer>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/solo-effort>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/spokesperson>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/sponsor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/stakeholder>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/sub-contractor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/successor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/supervises-colleagues>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/supervisor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/supplier>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/technician>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/undergraduate-student>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/undertakes-modelling>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/vice-chancellor>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/web-master>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/workpackage-leader>))
+Declaration(NamedIndividual(<http://purl.org/spar/scoro/writes-manuscript-draft>))
+Declaration(NamedIndividual(<http://www.opengis.net/def/uom/ISO-8601/0/Gregorian>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Friday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Monday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Saturday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Sunday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Thursday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Tuesday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Wednesday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitDay>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitHour>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitMinute>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitMonth>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitSecond>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitWeek>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitYear>))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/created>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/isVersionOf>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/modified>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/rights>))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(rdfs:seeAlso))
+Declaration(AnnotationProperty(xsd:pattern))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#changeNote>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#editorialNote>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#historyNote>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#note>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#prefLabel>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#scopeNote>))
+Declaration(Datatype(xsd:date))
+Declaration(Datatype(xsd:duration))
+Declaration(Datatype(xsd:gDay))
+Declaration(Datatype(xsd:gMonth))
+Declaration(Datatype(xsd:gYear))
+Declaration(Datatype(xsd:gYearMonth))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/scoro/hasContributionContext> (has contribution context)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/hasContributionContext> "A property relating a contribution situation to an entity representing the context for that situation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/hasContributionContext> "has contribution context"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/hasContributionContext> tvc:withinContext)
+InverseObjectProperties(<http://purl.org/spar/scoro/hasContributionContext> <http://purl.org/spar/scoro/isRelatedToContributionSituation>)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/hasContributionContext> <http://purl.org/spar/scoro/ContributionSituation>)
+
+# Object Property: <http://purl.org/spar/scoro/isContributionIn> (is contribution in)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/isContributionIn> "The property relating the definition of a specific contribution to the contribution situation of an agent making that contribution."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/isContributionIn> "is contribution in"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/isContributionIn> timeindexedsituation:hasTimeIndexedSetting)
+InverseObjectProperties(<http://purl.org/spar/scoro/isContributionIn> <http://purl.org/spar/scoro/withContribution>)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/isContributionIn> <http://purl.org/spar/scoro/Contribution>)
+ObjectPropertyRange(<http://purl.org/spar/scoro/isContributionIn> <http://purl.org/spar/scoro/ContributionSituation>)
+
+# Object Property: <http://purl.org/spar/scoro/isEqualToContributionSituation> (is equal to contribution situation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/isEqualToContributionSituation> "This property allows the link of two contribution situations that are equals for particular aspects (i.e. for type of contribution, contribution effort and context)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/isEqualToContributionSituation> "is equal to contribution situation"@en)
+SymmetricObjectProperty(<http://purl.org/spar/scoro/isEqualToContributionSituation>)
+TransitiveObjectProperty(<http://purl.org/spar/scoro/isEqualToContributionSituation>)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/isEqualToContributionSituation> <http://purl.org/spar/scoro/ContributionSituation>)
+ObjectPropertyRange(<http://purl.org/spar/scoro/isEqualToContributionSituation> <http://purl.org/spar/scoro/ContributionSituation>)
+
+# Object Property: <http://purl.org/spar/scoro/isEqualToRoleInTime> (is equal to role in time)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/isEqualToRoleInTime> "This property allows the link of two roles in time as being equal, and is particularly useful for specifying that two principal authorship roles are equal."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/isEqualToRoleInTime> "is equal to role in time"@en)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/isEqualToRoleInTime> pro:RoleInTime)
+ObjectPropertyRange(<http://purl.org/spar/scoro/isEqualToRoleInTime> pro:RoleInTime)
+
+# Object Property: <http://purl.org/spar/scoro/isMadeBy> (is made by)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/isMadeBy> "A property relating a contribution situation that an agent makes, to that agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/isMadeBy> "is made by"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/isMadeBy> timeindexedsituation:forEntity)
+InverseObjectProperties(<http://purl.org/spar/scoro/isMadeBy> <http://purl.org/spar/scoro/makesContribution>)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/isMadeBy> <http://purl.org/spar/scoro/ContributionSituation>)
+ObjectPropertyRange(<http://purl.org/spar/scoro/isMadeBy> foaf:Agent)
+
+# Object Property: <http://purl.org/spar/scoro/isRelatedToContributionSituation> (is related to contribution situation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/isRelatedToContributionSituation> "A property relating an entity to the contribution situation for which that entity provides the context."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/isRelatedToContributionSituation> "is related to contribution situation"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/isRelatedToContributionSituation> timeindexedsituation:hasTimeIndexedSetting)
+ObjectPropertyRange(<http://purl.org/spar/scoro/isRelatedToContributionSituation> <http://purl.org/spar/scoro/ContributionSituation>)
+
+# Object Property: <http://purl.org/spar/scoro/makesContribution> (makes contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/makesContribution> "An object property linking an agent to a contribution.  This is done via the indirection: foaf:Agent scoro:makesContribution [ a scoro:ContributionSituation ; scoro:withContribution scoro:Contribution ; scoro:withEffort scoro:ContributionEffort ] .  The ontology permits one to specify the time period over which a contribution is made, and the other contextual entities to which that agent's contribution relates."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/makesContribution> "makes contribution"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/makesContribution> tvc:hasValue)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/makesContribution> foaf:Agent)
+ObjectPropertyRange(<http://purl.org/spar/scoro/makesContribution> <http://purl.org/spar/scoro/ContributionSituation>)
+
+# Object Property: <http://purl.org/spar/scoro/withContribution> (with contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/withContribution> "An object property connecting an agent's contribution situation to a definition of the contribution made by this agent, specified as an instance of the class scoro:Contribution or of one of its sub-classes."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/withContribution> "with contribution"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/withContribution> tvc:withValue)
+FunctionalObjectProperty(<http://purl.org/spar/scoro/withContribution>)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/withContribution> <http://purl.org/spar/scoro/ContributionSituation>)
+ObjectPropertyRange(<http://purl.org/spar/scoro/withContribution> <http://purl.org/spar/scoro/Contribution>)
+
+# Object Property: <http://purl.org/spar/scoro/withEffort> (with contribution effort)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/withEffort> "An object property connecting an agent's contribution with respect to a particular entity to the amount of effort exerted by this agent in making that contribution, defined by individuals of the class scoro:ContributionEffort."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/withEffort> "with contribution effort"@en)
+SubObjectPropertyOf(<http://purl.org/spar/scoro/withEffort> timeindexedsituation:forEntity)
+ObjectPropertyDomain(<http://purl.org/spar/scoro/withEffort> <http://purl.org/spar/scoro/ContributionSituation>)
+ObjectPropertyRange(<http://purl.org/spar/scoro/withEffort> <http://purl.org/spar/scoro/ContributionEffort>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.org/spar/scoro/hasORCID> (has ORCID)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/scoro/hasORCID> "owl:equivalentProperty <http://purl.org/spar/frapo/hasORCID> ."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/hasORCID> "A data property relating an individual to his/her Open Researcher and Contributor ID (ORCID), an alphanumeric identifier for individual scholars described at http://about.orcid.org/."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/hasORCID> "has ORCID"@en)
+SubDataPropertyOf(<http://purl.org/spar/scoro/hasORCID> <http://purl.org/spar/scoro/hasPersonalIdentifier>)
+DataPropertyDomain(<http://purl.org/spar/scoro/hasORCID> foaf:Person)
+
+# Data Property: <http://purl.org/spar/scoro/hasPersonalIdentifier> (has personal identifier)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/scoro/hasPersonalIdentifier> " owl:equivalentProperty <http://purl.org/spar/datacite/hasPersonalIdentifier> ."@en)
+AnnotationAssertion(dc:description <http://purl.org/spar/scoro/hasPersonalIdentifier> " owl:equivalentProperty <http://purl.org/spar/frapo/hasPersonalIdentifier> ."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/hasPersonalIdentifier> "A data property specifying a unique and unambiguous identifier for an individual person within a given context, specified by the object property scoro:usesPersonalIdentifierScheme and an individual member of the class scoro:PersonalIdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/hasPersonalIdentifier> "has personal identifier"@en)
+DataPropertyDomain(<http://purl.org/spar/scoro/hasPersonalIdentifier> foaf:Person)
+
+# Data Property: <http://purl.org/spar/scoro/percentageFTE> (percentage full-time equivalent)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/percentageFTE> "A data property permitting specification of the proportion of a person's full time activity that is dedicated to a particular role (e.g. for part-time employment, 50% FTE)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/percentageFTE> "percentage full-time equivalent"@en)
+DataPropertyDomain(<http://purl.org/spar/scoro/percentageFTE> pro:RoleInTime)
+
+# Data Property: <http://purl.org/spar/scoro/withJobTitle> (with job title)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/withJobTitle> "A data property connecting an agent's role in time to a job title that characterizes that role.  This data property complements the definition of that role in time specified by scoro:Role.  For example, for the scoro:OrganizationalRole 'Head of Department', the specific Job Title might be 'Linacre Professor of Zoology' or 'Regius Professor of Moral Philosophy'. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/withJobTitle> "with job title"@en)
+DataPropertyDomain(<http://purl.org/spar/scoro/withJobTitle> pro:RoleInTime)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/spar/scoro/AuthorshipContribution> (authorship contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/AuthorshipContribution> "Defines the type or nature of a contribution made with respect to the authorship of a publication such as a journal article.  Individual members of this class are used to specify particular authorship contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/AuthorshipContribution> "authorship contribution"@en)
+SubClassOf(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/Contribution>)
+
+# Class: <http://purl.org/spar/scoro/AuthorshipRole> (authorship role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/AuthorshipRole> "A role that a person might hold as an author of a publication or the creator of a work.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/AuthorshipRole> "authorship role"@en)
+SubClassOf(<http://purl.org/spar/scoro/AuthorshipRole> pro:Role)
+
+# Class: <http://purl.org/spar/scoro/ComputationalAgent> (computational agent)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/ComputationalAgent> "A computer system or software program whose action has an effect on external events, for example a laboratory robot that undertakes your experiments, or the financial control system that controls an institution's payrole, or that, following programmed business rules, prevents the principal investigator from placing an order for research equipment because there is insufficient money left in the project budget."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/ComputationalAgent> "computational agent"@en)
+SubClassOf(<http://purl.org/spar/scoro/ComputationalAgent> foaf:Agent)
+
+# Class: <http://purl.org/spar/scoro/Contribution> (contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/Contribution> "Defines the type or nature of a contribution made by an agent.  Individual members of this class or its sub-classes are used to specify particular contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/Contribution> "contribution"@en)
+SubClassOf(<http://purl.org/spar/scoro/Contribution> owl:Thing)
+DisjointClasses(<http://purl.org/spar/scoro/Contribution> <http://purl.org/spar/scoro/ContributionEffort>)
+
+# Class: <http://purl.org/spar/scoro/ContributionEffort> (contribution effort)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/ContributionEffort> "Defines the effort expended in making a contribution."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/ContributionEffort> "contribution effort"@en)
+SubClassOf(<http://purl.org/spar/scoro/ContributionEffort> owl:Thing)
+
+# Class: <http://purl.org/spar/scoro/ContributionSituation> (contribution situation)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/scoro/ContributionSituation> "A contribution situation describes always:
+- a particular contribution C
+- a particular agent A making contribution C
+- a particular time interval T in which A makes C (optional)
+- a particular contribution effort E
+- one or more entities (e.g. an investigation or data) that defines a context for C contributed by A. (At least one contextual entity should be specified for a particular contribution)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/ContributionSituation> "The situation an agent has of making a contribution to realizing a goal or completing a task relating to a scholarly activity or entity such as journal article.  The type or nature of the contribution is defined by the object of the object property scoro:withContribution, which is an individual in the class scoro:Contribution or one of its sub-classes.  The entity to which the contribution relates is specified using the object property scoro:relatesToEntity or one of its sub-properties, and the effort expended in making that contribution is specified using the object property scoro:withContributionEffort."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/ContributionSituation> "contribution situation"@en)
+SubClassOf(<http://purl.org/spar/scoro/ContributionSituation> tvc:ValueInTime)
+SubClassOf(<http://purl.org/spar/scoro/ContributionSituation> ObjectSomeValuesFrom(<http://purl.org/spar/scoro/withContribution> <http://purl.org/spar/scoro/Contribution>))
+
+# Class: <http://purl.org/spar/scoro/DataRole> (data role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/DataRole> "A role that an agent might hold with respect to data.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/DataRole> "data role"@en)
+SubClassOf(<http://purl.org/spar/scoro/DataRole> pro:Role)
+
+# Class: <http://purl.org/spar/scoro/EducationalRole> (educational role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/EducationalRole> "A role that an agent might hold with respect to an educational organization or activity.  Individual members of this class are used to specify particular educational roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/EducationalRole> "educational role"@en)
+SubClassOf(<http://purl.org/spar/scoro/EducationalRole> pro:Role)
+
+# Class: <http://purl.org/spar/scoro/ExperimentalContribution> (experimental contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/ExperimentalContribution> "Defines the type or nature of a practical or experimental contribution made to the research.  Individual members of this class are used to specify particular contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/ExperimentalContribution> "experimental contribution"@en)
+SubClassOf(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/Contribution>)
+
+# Class: <http://purl.org/spar/scoro/FinancialRole> (financial role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/FinancialRole> "A role that an agent might hold with respect to academic and project finance.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/FinancialRole> "financial role"@en)
+SubClassOf(<http://purl.org/spar/scoro/FinancialRole> pro:Role)
+
+# Class: <http://purl.org/spar/scoro/IntellectualContribution> (intellectual contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/IntellectualContribution> "Defines the type or nature of an intellectual contribution made to the research described in a journal article.  Individual members of this class are used to specify particular contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/IntellectualContribution> "intellectual contribution"@en)
+SubClassOf(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/Contribution>)
+
+# Class: <http://purl.org/spar/scoro/InvestigationRole> (investigation role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/InvestigationRole> "A role that an agent might hold with respect to an investigation.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/InvestigationRole> "investigation role"@en)
+SubClassOf(<http://purl.org/spar/scoro/InvestigationRole> pro:Role)
+
+# Class: <http://purl.org/spar/scoro/OrganizationalContribution> (organizational contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/OrganizationalContribution> "Defines the type or nature of an organizational or administrative contribution.  Individual members of this class are used to specify particular contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/OrganizationalContribution> "organizational contribution"@en)
+SubClassOf(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/Contribution>)
+
+# Class: <http://purl.org/spar/scoro/OrganizationalRole> (organizational role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/OrganizationalRole> "A role that an agent might hold with respect to an organization and its administration, particularly within an academic context.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/OrganizationalRole> "organizational role"@en)
+SubClassOf(<http://purl.org/spar/scoro/OrganizationalRole> pro:Role)
+
+# Class: <http://purl.org/spar/scoro/ProjectRole> (project role)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/ProjectRole> "A role that an agent might hold with respect to a project.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/ProjectRole> "project role"@en)
+SubClassOf(<http://purl.org/spar/scoro/ProjectRole> pro:Role)
+
+# Class: foaf:Person ((foaf) Person)
+
+AnnotationAssertion(rdfs:label foaf:Person "person"@en)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: pro:author (author)
+
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> pro:author)
+
+# Individual: <http://purl.org/spar/scoro/access-provider> (access provider)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/access-provider> "The role of an agent who provides access to a resource, for example an online data repository."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/access-provider> "access provider"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/access-provider>)
+
+# Individual: <http://purl.org/spar/scoro/accountant> (accountant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/accountant> "The role held by a person whose job is to manage financial accounts, for example the accounts of an organization, or of a particular funded project or activity of that organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/accountant> "accountant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/accountant>)
+
+# Individual: <http://purl.org/spar/scoro/administrator> (administrator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/administrator> "The role held by an agent responsible for the day-to-day management and running of an organization or activity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/administrator> "administrator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/administrator>)
+
+# Individual: <http://purl.org/spar/scoro/affiliate> (affiliate)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/scoro/affiliate> "The affiliation of a person to an organization or institution can be specified by using the property pro:relatesToEntity, as shown in the following example:
+
+foaf:Person scoro:holdsOrganizationalRole [ pro:withRole pro:affiliate ; pro:relatesToEntity _:aff ] .
+
+_:aff a foaf:Organization ; vcard:extended-address 'Department of Zoology, University of Oxford, United Kingdom' ."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/affiliate> "The role an agent has of being affiliated to some organization or institution in a context of some entity or activity, for example a document, a project or an internship."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/affiliate> "affiliate"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/affiliate>)
+
+# Individual: <http://purl.org/spar/scoro/agent> (agent)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/agent> "An agent that acts on behalf of another agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/agent> "agent"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/agent>)
+
+# Individual: <http://purl.org/spar/scoro/analyses-data> (analyses data)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/analyses-data> "The contribution of data analysis.  This might include statistical analysis, bioinformatics analysis, or image analysis."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/analyses-data> "analyses data"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/analyses-data>)
+
+# Individual: <http://purl.org/spar/scoro/approves-final-manuscript> (approves final manuscript)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/approves-final-manuscript> "The contribution of approving the final version of the manuscript, prior to submission for publication. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/approves-final-manuscript> "approves final manuscript"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/approves-final-manuscript>)
+
+# Individual: <http://purl.org/spar/scoro/article-guarantor> (article guarantor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/article-guarantor> "The role of a person who takes responsibility for the integrity of the work as a whole, from the inception of the research investigation to the published research article."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/article-guarantor> "article guarantor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/article-guarantor>)
+
+# Individual: <http://purl.org/spar/scoro/auditor> (auditor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/auditor> "The role held by a person who conducts a formal audit of financial accounts."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/auditor> "auditor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/auditor>)
+
+# Individual: <http://purl.org/spar/scoro/builds-and-or-maintains-instruments> (builds and/or maintains instruments)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/builds-and-or-maintains-instruments> "The contribution of building instruments, equipment or scientific apparatus and/or maintaining the same in a workable condition for use in experiments."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/builds-and-or-maintains-instruments> "builds and/or maintains instruments"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/builds-and-or-maintains-instruments>)
+
+# Individual: <http://purl.org/spar/scoro/chief-executive-officer> (chief executive officer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/chief-executive-officer> "The role held by a person who is the chief executive officer of an organization, responsible for directing and managing the business of that organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/chief-executive-officer> "CEO"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/chief-executive-officer> "chief executive officer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/chief-executive-officer>)
+
+# Individual: <http://purl.org/spar/scoro/chief-scientist> (chief scientist)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/chief-scientist> "A senior scientist who takes a leadership role in an organization or group."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/chief-scientist> "chief scientist"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/chief-scientist>)
+
+# Individual: <http://purl.org/spar/scoro/chief-technology-officer> (CTO)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/chief-technology-officer> "The role held by a person who is the chief technology officer of an organization, responsible for directing and managing technical developments for that organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/chief-technology-officer> "CTO"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/chief-technology-officer> "chief technology officer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/chief-technology-officer>)
+
+# Individual: <http://purl.org/spar/scoro/claimant> (claimant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/claimant> "The role held by a person making a financial claim, for example for refund of travel expenses from a project grant."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/claimant> "claimant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/claimant>)
+
+# Individual: <http://purl.org/spar/scoro/co-applicant> (co-applicant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/co-applicant> "The role a person has of being a co-applicant on the grant application to obtain funding to fund an endeavour such as a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/co-applicant> "co-applicant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ProjectRole> <http://purl.org/spar/scoro/co-applicant>)
+
+# Individual: <http://purl.org/spar/scoro/co-investigator> (co-investigator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/co-investigator> "The role a person has of being a co-investigator for a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/co-investigator> "co-investigator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/co-investigator>)
+
+# Individual: <http://purl.org/spar/scoro/collaborator> (collaborator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/collaborator> "The role a person, typically from another research group or institution, who collaborates with the team undertaking a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/collaborator> "collaborator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/collaborator>)
+
+# Individual: <http://purl.org/spar/scoro/collects-data> (collects data)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/collects-data> "The contribution of making experimental observations and collecting data, for example using a telescope, a microscope or an analytical instrument."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/collects-data> "collects data"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/collects-data>)
+
+# Individual: <http://purl.org/spar/scoro/college-fellow> (college fellow)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/college-fellow> "The role held by an academic as a senior member of a college."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/college-fellow> "college fellow"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/college-fellow>)
+
+# Individual: <http://purl.org/spar/scoro/college-head> (college head)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/college-head> "The role held by a senior academic who heads a college and acts as its CEO.  Among the many alternative titles give to this role, the most common are President or Master of the college."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/college-head> "college head"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/college-head>)
+
+# Individual: <http://purl.org/spar/scoro/computer-programmer> (computer programmer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/computer-programmer> "The role a person has of being someone who develops computer software."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/computer-programmer> "computer programmer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/computer-programmer>)
+
+# Individual: <http://purl.org/spar/scoro/conceives-project> (conceives project)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/conceives-project> "The contribution of conceiving the research project in the first place.
+
+Note that an individual other than the lead applicant and the co-applicants on a grant application may make considerable contributions to conceiving a research project, but may be prevented from being a formal applicant by reason of affiliation or status (e.g. as a non-academic partner, or a research student)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/conceives-project> "conceives project"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/conceives-project>)
+
+# Individual: <http://purl.org/spar/scoro/consortium-author> (consortium author)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/consortium-author> "The authorship role of an organisation or consortium that has contributed collectively to the work described in the publication and is named in the list of authors, e.g. 'Wellcome Trust Case Control Consortium' or 'Malaria Genomic Epidemiology Network'.  (The members of such a group should be separately listed elsewhere in the document)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/consortium-author> "consortium author"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/consortium-author>)
+
+# Individual: <http://purl.org/spar/scoro/consultant> (consultant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/consultant> "The role a person has of being a consultant who is providing expertise or services."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/consultant> "consultant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/consultant>)
+
+# Individual: <http://purl.org/spar/scoro/contact-person> (contact person)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/contact-person> "The role of a person who serves as the primary contact and information provider for third parties wishing to find out more about an organization or an activity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/contact-person> "contact person"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/contact-person>)
+
+# Individual: <http://purl.org/spar/scoro/contractor> (contractor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/contractor> "The role held by an agent who enters into a contract to undertake specified work or to supply specified services in return for payment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/contractor> "contractor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/contractor>)
+
+# Individual: <http://purl.org/spar/scoro/controls-project-finances> (controls project finances)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/controls-project-finances> "The contribution of controlling the financial aspects of the research project, including authorizing expenditure, creating and managing budgets, and submitting financial reports to the funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/controls-project-finances> "controls project finances"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/controls-project-finances>)
+
+# Individual: <http://purl.org/spar/scoro/corresponding-author> (corresponding author)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/corresponding-author> "The role an author has of being the corresponding author of the document, with whom editors and readers should correspond concerning it. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/corresponding-author> "corresponding author"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/corresponding-author>)
+
+# Individual: <http://purl.org/spar/scoro/creates-novel-organisms-or-cells> (creates novel organisms or cells)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/creates-novel-organisms-or-cells> "The contribution of creating novel organisms (e.g. mouse mutants) or cells (e.g. tranformed cell lines), either for use in the research, or as a research output of use to others."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/creates-novel-organisms-or-cells> "creates novel organisms or cells"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/creates-novel-organisms-or-cells>)
+
+# Individual: <http://purl.org/spar/scoro/creates-novel-reagents> (creates novel reagents)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/creates-novel-reagents> "The contribution of creating novel physical or chemical compounds, or molecular biology constructs, either for use in the research, or as a research output of use to others."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/creates-novel-reagents> "creates novel reagents"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/creates-novel-reagents>)
+
+# Individual: <http://purl.org/spar/scoro/creates-software> (creates software)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/creates-software> "The contribution of creating computer software, including software for experimental control, analytical tools, mathematical model and computational simulations for use in the research, or of creating an IT service (e.g. a bioinformatics database or Web service) of use to others.  "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/creates-software> "creates software"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/creates-software>)
+
+# Individual: <http://purl.org/spar/scoro/curator> (curator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/curator> "The role of an agent that documents, cares for and manages collections of objects (for example in a museum) or of data (as in a data repository or database).  [A data curator is a curator who specializes in digital data, while a librarian is a type of curator specializing in textual publications.]"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/curator> "curator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/curator>)
+
+# Individual: <http://purl.org/spar/scoro/data-creator> (data creator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/data-creator> "The role a person has of being a creator, originator, gatherer or collector of new data."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/data-creator> "data creator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/data-creator>)
+
+# Individual: <http://purl.org/spar/scoro/data-curator> (data curator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/data-curator> "The role a person has of being a data curator, responsible reviewing, enhancing, cleaning, or standardizing data and their associated metadata, for example those arising from the research project, and for their long-term preservation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/data-curator> "data curator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/data-curator>)
+
+# Individual: <http://purl.org/spar/scoro/data-manager> (data manager)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/data-manager> "The role a person has of being a data manager, responsible for day-to-day management, maintenance and back-up of data, for example those arising from the research project or held in a repository."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/data-manager> "data manager"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/data-manager>)
+
+# Individual: <http://purl.org/spar/scoro/data-publisher> (data publisher)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/data-publisher> "The role of an agent who publishes data."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/data-publisher> "data publisher"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/data-publisher>)
+
+# Individual: <http://purl.org/spar/scoro/data-user> (data user)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/data-user> "The role a person has of being a user or re-user of existing data."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/data-user> "data user"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/data-user>)
+
+# Individual: <http://purl.org/spar/scoro/departmental-administrator> (departmental administrator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/departmental-administrator> "The role held by a person who is the administrator of a department within a larger organization, for example of a university academic department."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/departmental-administrator> "departmental administrator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/departmental-administrator>)
+
+# Individual: <http://purl.org/spar/scoro/designs-experiments> (designs experiments)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/designs-experiments> "The contribution of experimental design and planning."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/designs-experiments> "designs experiments"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/designs-experiments>)
+
+# Individual: <http://purl.org/spar/scoro/develops-methodology> (develops methodology)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/develops-methodology> "The contribution of developing experimental methodology that enables research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/develops-methodology> "develops methodology"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/develops-methodology>)
+
+# Individual: <http://purl.org/spar/scoro/director> (director)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/director> "The role held by a person who is in charge of an organization or activity, for example a research institute or a dramatic performance."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/director> "director"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/director>)
+
+# Individual: <http://purl.org/spar/scoro/doctoral-student> (doctoral student)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/doctoral-student> "The role of a person registerd for a Ph.D. degree at a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/doctoral-student> "doctoral student"@en)
+ClassAssertion(<http://purl.org/spar/scoro/EducationalRole> <http://purl.org/spar/scoro/doctoral-student>)
+
+# Individual: <http://purl.org/spar/scoro/embargo-controller> (embargo controller)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/embargo-controller> "The role of the person who has responsibility for setting and lifting embargos that restrict access to a dataset (or a document) for a specified period of time."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/embargo-controller> "embargo controller"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/embargo-controller>)
+
+# Individual: <http://purl.org/spar/scoro/employee> (employee)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/employee> "The role held by a person employed for wages or a salary by an organization, to undertake work for that organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/employee> "employee"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/employee>)
+
+# Individual: <http://purl.org/spar/scoro/employer> (employer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/employer> "The role held by an agent that employs one or more people to undertake work on that agent's behalf."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/employer> "employer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/employer>)
+
+# Individual: <http://purl.org/spar/scoro/ensures-regulatory-compliance> (ensures regulatory compliance)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/ensures-regulatory-compliance> "The contribution of ensuring regulatory compliance for the research undertaken, for example in obtaining informed consent from patients, approval from research ethics or radiation safety committees, or a license for animal experimentation.  "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/ensures-regulatory-compliance> "ensures regulatory compliance"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/ensures-regulatory-compliance>)
+
+# Individual: <http://purl.org/spar/scoro/faculty-member> (faculty member)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/faculty-member> "The role of an academic employed to undertake research and teaching within a university department, school or institute."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/faculty-member> "faculty member"@en)
+ClassAssertion(<http://purl.org/spar/scoro/EducationalRole> <http://purl.org/spar/scoro/faculty-member>)
+
+# Individual: <http://purl.org/spar/scoro/financial-controller> (financial controller)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/financial-controller> "The role held by an agent of controlling the finances, for example the finances of an organization, a building project or a research project.  This role extends to the control of or the authorisation of expenditure from a budget, and may be undertaken by a computational agent."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/financial-controller> "financial controller"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/financial-controller>)
+
+# Individual: <http://purl.org/spar/scoro/formulates-research-questions> (formulates research questions)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/formulates-research-questions> "The contribution of formulating the questions to be answered and the hypotheses to be tested by the research to be undertaken."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/formulates-research-questions> "formulates research questions"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/formulates-research-questions>)
+
+# Individual: <http://purl.org/spar/scoro/funder> (funder)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/funder> "The role held by an agent of providing funds, for example for a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/funder> "funder"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/funder>)
+
+# Individual: <http://purl.org/spar/scoro/funding-recipient> (funding recipient)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/funding-recipient> "The role held by an agent who is the official recipient of funding, for example the university of which a funded research project leader is a member."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/funding-recipient> "funding recipient"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/funding-recipient>)
+
+# Individual: <http://purl.org/spar/scoro/head-of-department> (head of department)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/head-of-department> "The role held by a person who is the chief executive officer of a department within a larger organization, for example a senior academic who is head of a university academic department."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/head-of-department> "head of department"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/head-of-department>)
+
+# Individual: <http://purl.org/spar/scoro/host-institution> (host institution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/host-institution> "The role held by a institution of hosting some initiative, people, or event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/host-institution> "host institution"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/host-institution>)
+
+# Individual: <http://purl.org/spar/scoro/illustrator> (illustrator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/illustrator> "The role a person has of being an illustrator of, or for, some entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/illustrator> "illustrator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/illustrator>)
+
+# Individual: <http://purl.org/spar/scoro/interprets-results> (interprets results)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/interprets-results> "The contribution of interpretation of experimental results."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/interprets-results> "interprets results"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/interprets-results>)
+
+# Individual: <http://purl.org/spar/scoro/inventor> (inventor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/inventor> "The role a person has of being the inventor or some entity (for example a computer algorithm, or an experimental procedure)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/inventor> "inventor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/inventor>)
+
+# Individual: <http://purl.org/spar/scoro/lead-applicant> (lead applicant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/lead-applicant> "The role a person has of being the lead applicant on the grant application to obtain funding to fund an endeavour such as a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/lead-applicant> "lead applicant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ProjectRole> <http://purl.org/spar/scoro/lead-applicant>)
+
+# Individual: <http://purl.org/spar/scoro/leads-investigation> (leads investigation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/leads-investigation> "The contribution of providing intellectual leadership and direction for the research.
+
+Note that an individual other than the principal investigator and the co-investigators may make considerable leadership contributions to a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/leads-investigation> "leads investigation"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/leads-investigation>)
+
+# Individual: <http://purl.org/spar/scoro/maintains-IT-Infrastructure> (maintains IT infrastructure)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/maintains-IT-Infrastructure> "The contribution of maintaining the IT infrastructure required for the research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/maintains-IT-Infrastructure> "maintains IT infrastructure"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/maintains-IT-Infrastructure>)
+
+# Individual: <http://purl.org/spar/scoro/maintains-organisms-or-cells> (maintains organisms or cell cultures)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/maintains-organisms-or-cells> "The contribution of maintaining multicellular organisms (plants, animals or fungi) or cell cultures used as experimental subjects, and of breeding these where appropriate.
+
+[Note that there may be occasions when it is inappropriate to acknowledge such contributions, for fear of personal reprisals on the individuals involved from animal rights activists]."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/maintains-organisms-or-cells> "maintains organisms or cell cultures"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/maintains-organisms-or-cells>)
+
+# Individual: <http://purl.org/spar/scoro/maintains-research-facility> (maintains research facility)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/maintains-research-facility> "The contribution of managing and operating a research facility, for example a confocal microscopy facility."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/maintains-research-facility> "maintains research facility"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/maintains-research-facility>)
+
+# Individual: <http://purl.org/spar/scoro/major-effort> (contributed major effort)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/major-effort> "The contributor provided a major effort towards achieving this contribution.  (It would be unusual for more than three contributors to be described as providing major effort towards achieving any particular contribution)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/major-effort> "contributed major effort"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ContributionEffort> <http://purl.org/spar/scoro/major-effort>)
+
+# Individual: <http://purl.org/spar/scoro/manager> (manager)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/manager> "The role held by a person responsible for managing the day-to-day activities of an activity, enterprise or organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/manager> "manager"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/manager>)
+
+# Individual: <http://purl.org/spar/scoro/manages-project> (manages project)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/manages-project> "The contribution of project management.
+
+Note that an individual other than the person holding the formal role of project manager may make considerable contributions to the management of a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/manages-project> "manages project"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/manages-project>)
+
+# Individual: <http://purl.org/spar/scoro/master-student> (master student)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/master-student> "The role of a person registerd for a master degree at a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/master-student> "master student"@en)
+ClassAssertion(<http://purl.org/spar/scoro/EducationalRole> <http://purl.org/spar/scoro/master-student>)
+
+# Individual: <http://purl.org/spar/scoro/member> (member)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/member> "The role held by an agent of belonging to a group or organization."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/member> "member"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/member>)
+
+# Individual: <http://purl.org/spar/scoro/minor-effort> (contributed minor effort)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/minor-effort> "The contributor provided a minor effort towards achieving this contribution. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/minor-effort> "contributed minor effort"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ContributionEffort> <http://purl.org/spar/scoro/minor-effort>)
+
+# Individual: <http://purl.org/spar/scoro/non-academic-staff-member> (non-academic staff member)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/non-academic-staff-member> "The role of a person employed within a university department, school or institute who is not a member of the academic faculty."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/non-academic-staff-member> "non-academic staff member"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/non-academic-staff-member>)
+
+# Individual: <http://purl.org/spar/scoro/obtains-and-or-prepares-specimens> (obtains and/or prepared specimens)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/obtains-and-or-prepares-specimens> "The contribution of obtaining and/or preparing specimens in a manner requiring research expertise or skill, for example collecting and preparing fossils, or preparing electron microscope specimens for examination.  "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/obtains-and-or-prepares-specimens> "obtains and/or prepared specimens"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/obtains-and-or-prepares-specimens>)
+
+# Individual: <http://purl.org/spar/scoro/organizer> (organizer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/organizer> "The role held by an agent who organizes something, such as a conference, a private meeting or a public event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/organizer> "organizer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/organizer>)
+
+# Individual: <http://purl.org/spar/scoro/owner> (owner)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/owner> "The role held by an agent who is the owner of something with actual or potential financial value, for example a building, a piece of equipment, the copyright of a document, or the intellectual property rights relating to an idea or discovery."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/owner> "owner"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/owner>)
+
+# Individual: <http://purl.org/spar/scoro/participant> (participant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/participant> "The role held by an agent who takes part in something, for example a conference, a private meeting or a public event."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/participant> "participant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/participant>)
+
+# Individual: <http://purl.org/spar/scoro/partner> (partner)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/partner> "The role held by a person who is a partner with one or more other people in an organization, project, endeavour, activity or sphere of common interest."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/partner> "partner"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/partner>)
+
+# Individual: <http://purl.org/spar/scoro/patent-holder> (patent holder)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/patent-holder> "The role held by an agent who holds a patent.
+
+[See also http://purl.org/spar/scoro/rights-holder and http://purl.org/spar/pro/copyright-owner]."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/patent-holder> "patent holder"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/patent-holder>)
+
+# Individual: <http://purl.org/spar/scoro/performs-experiments> (performs experiments)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/performs-experiments> "The contribution of performing experiments."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/performs-experiments> "performs experiments"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/performs-experiments>)
+
+# Individual: <http://purl.org/spar/scoro/photographer> (photographer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/photographer> "The role a person has of being a photographer of, or for, some entity."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/photographer> "photographer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/photographer>)
+
+# Individual: <http://purl.org/spar/scoro/possessor> (possessor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/possessor> "The role held by an agent as possessor or owner of some entity such as an address or a telephone number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/possessor> "possessor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/possessor>)
+
+# Individual: <http://purl.org/spar/scoro/postdoctoral-researcher> (postdoctoral researcher)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/postdoctoral-researcher> "The role a person has of being a post-doctoral researcher involved in a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/postdoctoral-researcher> "postdoctoral researcher"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/postdoctoral-researcher>)
+
+# Individual: <http://purl.org/spar/scoro/postgraduate-student> (postgraduate student)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/postgraduate-student> "The role of a person registerd for a graduate (masters or doctoral) degree at a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/postgraduate-student> "postgraduate student"@en)
+ClassAssertion(<http://purl.org/spar/scoro/EducationalRole> <http://purl.org/spar/scoro/postgraduate-student>)
+
+# Individual: <http://purl.org/spar/scoro/prepares-illustrations> (prepares illustrations)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/prepares-illustrations> "The contribution of selecting the data and preparing the figures and tables presenting these data for inclusion in the publication. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/prepares-illustrations> "prepares illustrations"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/prepares-illustrations>)
+
+# Individual: <http://purl.org/spar/scoro/prepares-supplementary-information> (prepares supplementary information)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/prepares-supplementary-information> "The contribution of preparing the supplementary information files submitted with the manuscript. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/prepares-supplementary-information> "prepares supplementary information"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/prepares-supplementary-information>)
+
+# Individual: <http://purl.org/spar/scoro/principal-author> (principal author)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/principal-author> "The role an author has of being the principal or primary author of the document, who has contributed most to the work described.
+
+(In some communities, but not all, the principal author is named first in the author list.  Two or more authors can have the role of principal author if they contributed equally to the work.  This role should not be employed in communities in which no primacy of authorship is asserted, but where all authors are deemed to have made an equal contribution to the work.)"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/principal-author> "principal author"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/principal-author>)
+
+# Individual: <http://purl.org/spar/scoro/principal-investigator> (principal investigator)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/principal-investigator> "The role a person has of being the principal investigator for a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/principal-investigator> "principal investigator"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/principal-investigator>)
+
+# Individual: <http://purl.org/spar/scoro/processes-data> (processs data)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/processes-data> "The contribution of processing, cleaning, assembling, condensing or refining the data."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/processes-data> "processs data"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/processes-data>)
+
+# Individual: <http://purl.org/spar/scoro/programme-manager> (programme manager)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/programme-manager> "The role held by a person who is in charge of a programme of related activities or projects, for example on behalf of a funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/programme-manager> "programme manager"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/programme-manager>)
+
+# Individual: <http://purl.org/spar/scoro/project-leader> (project leader)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/project-leader> "The role a person or an institution has of being project leader for a resource or a project such as a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/project-leader> "project leader"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ProjectRole> <http://purl.org/spar/scoro/project-leader>)
+
+# Individual: <http://purl.org/spar/scoro/project-manager> (project manager)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/project-manager> "The role a person has of being project manager for a project such as a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/project-manager> "project manager"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ProjectRole> <http://purl.org/spar/scoro/project-manager>)
+
+# Individual: <http://purl.org/spar/scoro/project-member> (project member)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/project-member> "The role a person has of being a member of a project such as a research project."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/project-member> "project member"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ProjectRole> <http://purl.org/spar/scoro/project-member>)
+
+# Individual: <http://purl.org/spar/scoro/project-student> (project student)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/project-student> "The role a person has of being a project student, namely someone engaged in an undergraduate research project as part of studying for an undergraduate degree at a university, whose research will be presented in an undergraduate research project report in part fulfilment of the requirements of that degree."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/project-student> "project student"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/project-student>)
+
+# Individual: <http://purl.org/spar/scoro/provides-administrative-support> (provides administrative support)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-administrative-support> "The contribution of providing administrative support for the research project.  "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-administrative-support> "provides administrative support"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/provides-administrative-support>)
+
+# Individual: <http://purl.org/spar/scoro/provides-advice> (provides advice)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-advice> "The contribution of providing advice to facilitate the research, while not actively participating in the work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-advice> "provides advice"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/provides-advice>)
+
+# Individual: <http://purl.org/spar/scoro/provides-exising-data> (provides existing data)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-exising-data> "The contribution of providing pre-existing data for re-use in the research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-exising-data> "provides existing data"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-exising-data>)
+
+# Individual: <http://purl.org/spar/scoro/provides-patients> (provides patients)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-patients> "The contribution of providing access to medical or veterinary patients, to make possible the research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-patients> "provides patients"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-patients>)
+
+# Individual: <http://purl.org/spar/scoro/provides-reagents-specimens-or-materials> (provides reagents, specimens or materials)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-reagents-specimens-or-materials> "The contribution of providing reagents, specimens or materials, including living organisms and cells, for example those not readily obtainable from commercial sources, to make possible the research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-reagents-specimens-or-materials> "provides reagents, specimens or materials"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-reagents-specimens-or-materials>)
+
+# Individual: <http://purl.org/spar/scoro/provides-service> (provided service)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-service> "The contribution of providing a research service, for example a DNA sequencing service or a custom peptide synthesis service."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-service> "provided service"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-service>)
+
+# Individual: <http://purl.org/spar/scoro/provides-software> (provides software)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-software> "The contribution of providing software to facilitate the research, while not actively participating in the work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-software> "provides software"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-software>)
+
+# Individual: <http://purl.org/spar/scoro/provides-technical-support> (provides technical support)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-technical-support> "The contribution of providing technical support that facilitates research."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-technical-support> "provides technical support"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-technical-support>)
+
+# Individual: <http://purl.org/spar/scoro/provides-tools-equipment-or-facilities> (provides tools, equipment or facilities)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/provides-tools-equipment-or-facilities> "The contribution of providing tools, equipment or facilities for the research, while not actively participating in the work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/provides-tools-equipment-or-facilities> "provides tools, equipment or facilities"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/provides-tools-equipment-or-facilities>)
+
+# Individual: <http://purl.org/spar/scoro/publishes-data> (publishes data)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/publishes-data> "The contribution of publishing in a public database or data repository data arising from the research.
+
+Note that this activity is distinct from that of publishing a journal article containing a selection of these data."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/publishes-data> "publishes data"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/publishes-data>)
+
+# Individual: <http://purl.org/spar/scoro/purchaser> (purchaser)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/purchaser> "The role held by an agent of making purchases of goods or services, the cost of which is typically charged to a particular academic budget, for example a project manager placing an order to purchase equipment funded from a research grant."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/purchaser> "purchaser"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/purchaser>)
+
+# Individual: <http://purl.org/spar/scoro/registrar> (registrar)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/registrar> "The role held by an agent responsible for maintaining official records, for example the records of student enrollment and academic standing held by a college or university, or the records of securities owned by a financial institution."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/registrar> "registrar"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/registrar>)
+
+# Individual: <http://purl.org/spar/scoro/registration-agency> (registration agency)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/registration-agency> "The role of an agent officially appointed by a Registration Authority that acts to register things. For example, CrossRef is a registration agency for DOIs relating to documents, while DataCite is a registration agency for DOIs relating to datasets, both acting for the Registration Authority for DOIs, namely the International DOI Foundation (IDF)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/registration-agency> "registration agency"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/registration-agency>)
+
+# Individual: <http://purl.org/spar/scoro/registration-authority> (registration authority)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/registration-authority> "The role of an agent with responsibility for registering and maintaining international standards, internet domain names, patents, controlled vocabularies and other similar entities required for reliable international cooperatative activities.  For example, the International DOI Foundation (IDF) is the Registration Authority for DOIs."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/registration-authority> "registration authority"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/registration-authority>)
+
+# Individual: <http://purl.org/spar/scoro/repository-manager> (repository manager)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/repository-manager> "The role a person has of being a manager of a repository where entities are given secure long-term storage, typically digital repository for information objects, for example a data repository."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/repository-manager> "repository manager"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/repository-manager>)
+
+# Individual: <http://purl.org/spar/scoro/research-assistant> (research assistant)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/research-assistant> "The role a person has of being a research assistant involved in a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/research-assistant> "research assistant"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/research-assistant>)
+
+# Individual: <http://purl.org/spar/scoro/research-student> (research student)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/research-student> "The role a person has of being a research student, namely someone engaged in research as part of studying for a higher degree at a university or research institute, whose research will be presented in a thesis in part fulfilment of the requirements of that degree."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/research-student> "research student"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/research-student>)
+
+# Individual: <http://purl.org/spar/scoro/researcher> (researcher)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/researcher> "The role a person has of being a researcher involved in a research investigation, for example by conducting experiments, collecting and analyzing data, or undertaking formal study."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/researcher> "researcher"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/researcher>)
+
+# Individual: <http://purl.org/spar/scoro/revises-manuscript> (revises manuscript)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/revises-manuscript> "The contribution of critically reviewing and revising drafts of the manuscript of the research paper."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/revises-manuscript> "revises manuscript"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/revises-manuscript>)
+
+# Individual: <http://purl.org/spar/scoro/rights-holder> (rights holder)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/rights-holder> "The role held by an agent who holds, owns and manages the legal rights to a project or activity and its products and outcomes, for example the exploitation, licensing and intellectual property rights.
+
+[See also http://purl.org/spar/scoro/patent-holder and http://purl.org/spar/pro/copyright-owner]."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/rights-holder> "rights holder"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/rights-holder>)
+
+# Individual: <http://purl.org/spar/scoro/scholar> (scholar)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/scholar> "The role of an academic who undertakes scholarly activities, including research investigations.  This role is particularly used to describe endeavours in the arts and humanites that are frequently undertaken without financial support from a particular funded project dedicated to these scholarly activities."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/scholar> "scholar"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/scholar>)
+
+# Individual: <http://purl.org/spar/scoro/secures-funding> (secures funding)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/secures-funding> "The contribution of securing funding for the research project.
+
+Note that an individual other than the lead applicant and the co-applicants on a grant application may make contributions to securing funding for a research project, for example by assisting in writing the grant application."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/secures-funding> "secures funding"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/secures-funding>)
+
+# Individual: <http://purl.org/spar/scoro/senior-author> (senior author)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/senior-author> "The role an author has of being the senior author of the document. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/senior-author> "senior author"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/senior-author>)
+
+# Individual: <http://purl.org/spar/scoro/service-engineer> (service engineer)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/service-engineer> "The role held by a person who services, maintains and repairs equipment, facilities or technical infrastructure. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/service-engineer> "service engineer"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/service-engineer>)
+
+# Individual: <http://purl.org/spar/scoro/solo-effort> (contributed all the effort)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/solo-effort> "The contributor was the only person who provided effort in achieving this contribution, which was entirely due to this contributor."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/solo-effort> "contributed all the effort"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ContributionEffort> <http://purl.org/spar/scoro/solo-effort>)
+
+# Individual: <http://purl.org/spar/scoro/spokesperson> (spokesperson)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/spokesperson> "The role held by a person who makes statements on behalf of another individual, a group, a project or an institution"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/spokesperson> "spokesperson"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/spokesperson>)
+
+# Individual: <http://purl.org/spar/scoro/sponsor> (sponsor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/sponsor> "The role held by an agent that provides funds or support for a person, project or activity, often in return for access to the exploitable commercial potential associated with that person’s work, or that project or activity’s output, for example through equity sharing or publicity.
+
+[Note: there are also several other non-financial meaning of 'sponsor'.]"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/sponsor> "sponsor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/sponsor>)
+
+# Individual: <http://purl.org/spar/scoro/stakeholder> (stakeholder)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/stakeholder> "The role held by an agent with an interest or concern in something, for example the creation of a new university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/stakeholder> "stakeholder"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/stakeholder>)
+
+# Individual: <http://purl.org/spar/scoro/sub-contractor> (sub-contractor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/sub-contractor> "The role held by an agent who enters into a contract to take over part of another contractor's obligation to undertake specified work or supply specified services in return for payment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/sub-contractor> "sub-contractor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/sub-contractor>)
+
+# Individual: <http://purl.org/spar/scoro/successor> (successor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/successor> "The relationship held by an entity that succeeds another, for example a new electron microscope that replaces an out-dated one, a research project that follows on from a preceding project, or a faculty member who succeeds a colleague as head of department."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/successor> "successor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/successor>)
+
+# Individual: <http://purl.org/spar/scoro/supervises-colleagues> (Supervises, mentors or trains colleagues)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/supervises-colleagues> "The contribution of supervising, mentoring, instructing or training colleagues, particularly junior research assistants and research students, in aspects of the research or its methodologies."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/supervises-colleagues> "Supervises, mentors or trains colleagues"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalContribution> <http://purl.org/spar/scoro/supervises-colleagues>)
+
+# Individual: <http://purl.org/spar/scoro/supervisor> (supervisor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/supervisor> "The role of a person who guides and oversees the research activities of a team member, or who formally supervises a student during that student's research project undertaken as part of a degree course at a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/supervisor> "supervisor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/EducationalRole> <http://purl.org/spar/scoro/supervisor>)
+
+# Individual: <http://purl.org/spar/scoro/supplier> (supplier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/supplier> "The role held by an agent of providing goods or services in exchange for payment."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/supplier> "supplier"@en)
+ClassAssertion(<http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/supplier>)
+
+# Individual: <http://purl.org/spar/scoro/technician> (technician)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/technician> "The role a person has of being a technician, providing technical assistance in some endeavour such as a research investigation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/technician> "technician"@en)
+ClassAssertion(<http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/technician>)
+
+# Individual: <http://purl.org/spar/scoro/undergraduate-student> (undergraduate student)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/undergraduate-student> "The role of a person registerd for an undergraduate degree at a university."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/undergraduate-student> "undergraduate student"@en)
+ClassAssertion(<http://purl.org/spar/scoro/EducationalRole> <http://purl.org/spar/scoro/undergraduate-student>)
+
+# Individual: <http://purl.org/spar/scoro/undertakes-modelling> (undertakes modelling)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/undertakes-modelling> "The contribution of design, implementation and analysis of mathematical models or computer simulations."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/undertakes-modelling> "undertakes modelling"@en)
+ClassAssertion(<http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/undertakes-modelling>)
+
+# Individual: <http://purl.org/spar/scoro/vice-chancellor> (vice-chancellor)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/vice-chancellor> "The role held by the chief executive officer of a university, responsible for directing and managing its business and academic activities."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/vice-chancellor> "vice-chancellor"@en)
+ClassAssertion(<http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/vice-chancellor>)
+
+# Individual: <http://purl.org/spar/scoro/web-master> (web-master)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/web-master> "The role of a person responsible for maintaining a web site and its content."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/web-master> "web-master"@en)
+ClassAssertion(<http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/web-master>)
+
+# Individual: <http://purl.org/spar/scoro/workpackage-leader> (workpackage leader)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/workpackage-leader> "The role a person or institution has of being leader for a workpackage or sub-project within a project such as a research project, with responsibility for ensuring that the proposed work is undertaken and documented, the generated data are properly curated and archived, and the results are published and reported to the funding agency."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/workpackage-leader> "workpackage leader"@en)
+ClassAssertion(<http://purl.org/spar/scoro/ProjectRole> <http://purl.org/spar/scoro/workpackage-leader>)
+
+# Individual: <http://purl.org/spar/scoro/writes-manuscript-draft> (writes manuscript draft)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/scoro/writes-manuscript-draft> "The contribution of writing the initial draft of the manuscript of the research paper."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/scoro/writes-manuscript-draft> "writes manuscript draft"@en)
+ClassAssertion(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/writes-manuscript-draft>)
+
+
+DisjointClasses(<http://purl.org/spar/scoro/AuthorshipContribution> <http://purl.org/spar/scoro/ExperimentalContribution> <http://purl.org/spar/scoro/IntellectualContribution> <http://purl.org/spar/scoro/OrganizationalContribution>)
+DisjointClasses(<http://purl.org/spar/scoro/AuthorshipRole> <http://purl.org/spar/scoro/DataRole> <http://purl.org/spar/scoro/FinancialRole> <http://purl.org/spar/scoro/InvestigationRole> <http://purl.org/spar/scoro/OrganizationalRole> <http://purl.org/spar/scoro/ProjectRole>)
+
+)

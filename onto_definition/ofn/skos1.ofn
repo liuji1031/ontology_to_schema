@@ -1,0 +1,645 @@
+Prefix(:=<http://www.w3.org/2008/05/skos#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(vs:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(dct:=<http://purl.org/dc/terms/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2008/05/skos#>)
+
+
+Ontology(<http://www.w3.org/2008/05/skos>
+Annotation(dc:contributor "Dave Beckett")
+Annotation(dc:contributor "Nikki Rogers")
+Annotation(dc:contributor "Participants in W3C's Semantic Web Deployment Working Group.")
+Annotation(dc:creator "Alistair Miles")
+Annotation(dc:creator "Sean Bechhofer")
+Annotation(dc:description "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."@en)
+Annotation(dc:title "SKOS Core Vocabulary"@en)
+
+Declaration(Class(rdf:List))
+Declaration(Class(skos:Collection))
+Declaration(Class(skos:Concept))
+Declaration(Class(skos:ConceptScheme))
+Declaration(Class(skos:OrderedCollection))
+Declaration(ObjectProperty(skos:broadMatch))
+Declaration(ObjectProperty(skos:broader))
+Declaration(ObjectProperty(skos:broaderTransitive))
+Declaration(ObjectProperty(skos:changeNote))
+Declaration(ObjectProperty(skos:closeMatch))
+Declaration(ObjectProperty(skos:definition))
+Declaration(ObjectProperty(skos:editorialNote))
+Declaration(ObjectProperty(skos:exactMatch))
+Declaration(ObjectProperty(skos:example))
+Declaration(ObjectProperty(skos:hasTopConcept))
+Declaration(ObjectProperty(skos:historyNote))
+Declaration(ObjectProperty(skos:inScheme))
+Declaration(ObjectProperty(skos:mappingRelation))
+Declaration(ObjectProperty(skos:member))
+Declaration(ObjectProperty(skos:memberList))
+Declaration(ObjectProperty(skos:narrowMatch))
+Declaration(ObjectProperty(skos:narrower))
+Declaration(ObjectProperty(skos:narrowerTransitive))
+Declaration(ObjectProperty(skos:note))
+Declaration(ObjectProperty(skos:related))
+Declaration(ObjectProperty(skos:relatedMatch))
+Declaration(ObjectProperty(skos:scopeNote))
+Declaration(ObjectProperty(skos:semanticRelation))
+Declaration(ObjectProperty(skos:topConceptOf))
+Declaration(DataProperty(skos:altLabel))
+Declaration(DataProperty(skos:hiddenLabel))
+Declaration(DataProperty(skos:notation))
+Declaration(DataProperty(skos:prefLabel))
+Declaration(NamedIndividual(skos:Collection))
+Declaration(NamedIndividual(skos:Concept))
+Declaration(NamedIndividual(skos:ConceptScheme))
+Declaration(NamedIndividual(skos:OrderedCollection))
+Declaration(NamedIndividual(skos:broadMatch))
+Declaration(NamedIndividual(skos:broader))
+Declaration(NamedIndividual(skos:broaderTransitive))
+Declaration(NamedIndividual(skos:changeNote))
+Declaration(NamedIndividual(skos:closeMatch))
+Declaration(NamedIndividual(skos:editorialNote))
+Declaration(NamedIndividual(skos:exactMatch))
+Declaration(NamedIndividual(skos:example))
+Declaration(NamedIndividual(skos:hasTopConcept))
+Declaration(NamedIndividual(skos:historyNote))
+Declaration(NamedIndividual(skos:inScheme))
+Declaration(NamedIndividual(skos:mappingRelation))
+Declaration(NamedIndividual(skos:member))
+Declaration(NamedIndividual(skos:memberList))
+Declaration(NamedIndividual(skos:narrowMatch))
+Declaration(NamedIndividual(skos:narrower))
+Declaration(NamedIndividual(skos:narrowerTransitive))
+Declaration(NamedIndividual(skos:notation))
+Declaration(NamedIndividual(skos:note))
+Declaration(NamedIndividual(skos:related))
+Declaration(NamedIndividual(skos:relatedMatch))
+Declaration(NamedIndividual(skos:scopeNote))
+Declaration(NamedIndividual(skos:semanticRelation))
+Declaration(NamedIndividual(skos:topConceptOf))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(dct:issued))
+Declaration(AnnotationProperty(rdf:value))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: skos:altLabel (alternative label)
+
+AnnotationAssertion(dct:issued skos:altLabel "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:altLabel "Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept.  Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel)."@en)
+AnnotationAssertion(rdfs:comment skos:altLabel "The range of skos:altLabel is the class of RDF plain literals."@en)
+AnnotationAssertion(rdfs:comment skos:altLabel "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:altLabel <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:altLabel "alternative label"@en)
+AnnotationAssertion(skos:definition skos:altLabel "An alternative lexical label for a resource."@en)
+SubAnnotationPropertyOf(skos:altLabel rdfs:label)
+
+# Annotation Property: skos:definition (definition)
+
+AnnotationAssertion(dct:issued skos:definition "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:definition <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:definition "definition"@en)
+AnnotationAssertion(skos:definition skos:definition "A statement or formal explanation of the meaning of a concept."@en)
+
+# Annotation Property: skos:hiddenLabel (hidden label)
+
+AnnotationAssertion(dct:issued skos:hiddenLabel "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:hiddenLabel "The range of skos:hiddenLabel is the class of RDF plain literals."@en)
+AnnotationAssertion(rdfs:comment skos:hiddenLabel "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:hiddenLabel <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:hiddenLabel "hidden label"@en)
+AnnotationAssertion(skos:definition skos:hiddenLabel "A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations."@en)
+SubAnnotationPropertyOf(skos:hiddenLabel rdfs:label)
+
+# Annotation Property: skos:prefLabel (preferred label)
+
+AnnotationAssertion(dct:issued skos:prefLabel "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:prefLabel "No two concepts in the same concept scheme may have the same value for skos:prefLabel in a given language."@en)
+AnnotationAssertion(rdfs:comment skos:prefLabel "The range of skos:prefLabel is the class of RDF plain literals."@en)
+AnnotationAssertion(rdfs:comment skos:prefLabel "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:prefLabel <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:prefLabel "preferred label"@en)
+AnnotationAssertion(skos:definition skos:prefLabel "The preferred lexical label for a resource, in a given language."@en)
+SubAnnotationPropertyOf(skos:prefLabel rdfs:label)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: skos:broadMatch (broader match)
+
+AnnotationAssertion(dct:issued skos:broadMatch "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:broadMatch <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:broadMatch "broader match"@en)
+AnnotationAssertion(skos:definition skos:broadMatch "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en)
+SubObjectPropertyOf(skos:broadMatch skos:broader)
+SubObjectPropertyOf(skos:broadMatch skos:mappingRelation)
+InverseObjectProperties(skos:broadMatch skos:narrowMatch)
+
+# Object Property: skos:broader (has broader)
+
+AnnotationAssertion(dct:issued skos:broader "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:broader "Broader concepts are typically rendered as parents in a concept hierarchy (tree)."@en)
+AnnotationAssertion(rdfs:comment skos:broader "By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:broader <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:broader "has broader"@en)
+AnnotationAssertion(skos:definition skos:broader "A concept that is more general in meaning."@en)
+SubObjectPropertyOf(skos:broader skos:broaderTransitive)
+InverseObjectProperties(skos:broader skos:narrower)
+
+# Object Property: skos:broaderTransitive (broader transitive)
+
+AnnotationAssertion(dct:issued skos:broaderTransitive "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:broaderTransitive "By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:broaderTransitive <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:broaderTransitive "broader transitive"@en)
+AnnotationAssertion(skos:definition skos:broaderTransitive "skos:broaderTransitive is a transitive superproperty of skos:broader.")
+SubObjectPropertyOf(skos:broaderTransitive skos:semanticRelation)
+InverseObjectProperties(skos:broaderTransitive skos:narrowerTransitive)
+TransitiveObjectProperty(skos:broaderTransitive)
+
+# Object Property: skos:changeNote (change note)
+
+AnnotationAssertion(dct:issued skos:changeNote "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:changeNote <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:changeNote "change note"@en)
+AnnotationAssertion(skos:definition skos:changeNote "A note about a modification to a concept."@en)
+SubObjectPropertyOf(skos:changeNote skos:note)
+
+# Object Property: skos:closeMatch (exact match)
+
+AnnotationAssertion(dct:issued skos:closeMatch "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:closeMatch <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:closeMatch "exact match"@en)
+AnnotationAssertion(skos:definition skos:closeMatch "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."@en)
+SubObjectPropertyOf(skos:closeMatch skos:mappingRelation)
+SymmetricObjectProperty(skos:closeMatch)
+
+# Object Property: skos:definition (definition)
+
+SubObjectPropertyOf(skos:definition skos:note)
+
+# Object Property: skos:editorialNote (editorial note)
+
+AnnotationAssertion(dct:issued skos:editorialNote "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:editorialNote <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:editorialNote "editorial note"@en)
+AnnotationAssertion(skos:definition skos:editorialNote "A note for an editor, translator or maintainer of the vocabulary."@en)
+SubObjectPropertyOf(skos:editorialNote skos:note)
+
+# Object Property: skos:exactMatch (exact match)
+
+AnnotationAssertion(dct:issued skos:exactMatch "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:exactMatch "skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:exactMatch <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:exactMatch "exact match"@en)
+AnnotationAssertion(skos:definition skos:exactMatch "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en)
+SubObjectPropertyOf(skos:exactMatch skos:closeMatch)
+SymmetricObjectProperty(skos:exactMatch)
+TransitiveObjectProperty(skos:exactMatch)
+
+# Object Property: skos:example (example)
+
+AnnotationAssertion(dct:issued skos:example "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:example <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:example "example"@en)
+AnnotationAssertion(skos:definition skos:example "An example of the use of a concept."@en)
+SubObjectPropertyOf(skos:example skos:note)
+
+# Object Property: skos:hasTopConcept (has top concept)
+
+AnnotationAssertion(dct:issued skos:hasTopConcept "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:hasTopConcept <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:hasTopConcept "has top concept"@en)
+AnnotationAssertion(skos:definition skos:hasTopConcept "A top level concept in the concept scheme."@en)
+InverseObjectProperties(skos:hasTopConcept skos:topConceptOf)
+ObjectPropertyDomain(skos:hasTopConcept skos:ConceptScheme)
+ObjectPropertyRange(skos:hasTopConcept skos:Concept)
+
+# Object Property: skos:historyNote (history note)
+
+AnnotationAssertion(dct:issued skos:historyNote "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:historyNote <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:historyNote "history note"@en)
+AnnotationAssertion(skos:definition skos:historyNote "A note about the past state/use/meaning of a concept."@en)
+SubObjectPropertyOf(skos:historyNote skos:note)
+
+# Object Property: skos:inScheme (in scheme)
+
+AnnotationAssertion(dct:issued skos:inScheme "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:inScheme "A concept may be a member of more than one concept scheme."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:inScheme <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:inScheme "in scheme"@en)
+AnnotationAssertion(skos:definition skos:inScheme "A concept scheme in which the concept is included."@en)
+ObjectPropertyRange(skos:inScheme skos:ConceptScheme)
+
+# Object Property: skos:mappingRelation (mapping relation)
+
+AnnotationAssertion(dct:issued skos:mappingRelation "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:mappingRelation "These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:mappingRelation <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:mappingRelation "mapping relation"@en)
+AnnotationAssertion(skos:definition skos:mappingRelation "Definition"@en)
+ObjectPropertyDomain(skos:mappingRelation skos:Concept)
+ObjectPropertyRange(skos:mappingRelation skos:Concept)
+
+# Object Property: skos:member (member)
+
+AnnotationAssertion(dct:issued skos:member "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:member <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:member "member"@en)
+AnnotationAssertion(skos:definition skos:member "A member of a collection."@en)
+ObjectPropertyDomain(skos:member skos:Collection)
+
+# Object Property: skos:memberList (member list)
+
+AnnotationAssertion(dct:issued skos:memberList "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:memberList "For any resource, every item in the list given as the value of the skos:memberList property is also a value of the skos:member property."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:memberList <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:memberList "member list"@en)
+AnnotationAssertion(skos:definition skos:memberList "An RDF list containing the members of an ordered collection."@en)
+FunctionalObjectProperty(skos:memberList)
+ObjectPropertyDomain(skos:memberList skos:OrderedCollection)
+ObjectPropertyRange(skos:memberList rdf:List)
+
+# Object Property: skos:narrowMatch (narrower match)
+
+AnnotationAssertion(dct:issued skos:narrowMatch "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:narrowMatch <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:narrowMatch "narrower match"@en)
+AnnotationAssertion(skos:definition skos:narrowMatch "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en)
+SubObjectPropertyOf(skos:narrowMatch skos:mappingRelation)
+SubObjectPropertyOf(skos:narrowMatch skos:narrower)
+
+# Object Property: skos:narrower (has narrower)
+
+AnnotationAssertion(dct:issued skos:narrower "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:narrower "By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources."@en)
+AnnotationAssertion(rdfs:comment skos:narrower "Narrower concepts are typically rendered as children in a concept hierarchy (tree)."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:narrower <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:narrower "has narrower"@en)
+AnnotationAssertion(skos:definition skos:narrower "A concept that is more specific in meaning."@en)
+SubObjectPropertyOf(skos:narrower skos:narrowerTransitive)
+
+# Object Property: skos:narrowerTransitive (narrower transitive)
+
+AnnotationAssertion(dct:issued skos:narrowerTransitive "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:narrowerTransitive "By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:narrowerTransitive <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:narrowerTransitive "narrower transitive"@en)
+AnnotationAssertion(skos:definition skos:narrowerTransitive "skos:narrowerTransitive is a transitive superproperty of skos:broader. By convention, skos:narrowerTransitive is not intended to be used in assertions, but provides a mechanism whereby the transitive closure of skos:narrower can be queried.")
+SubObjectPropertyOf(skos:narrowerTransitive skos:semanticRelation)
+TransitiveObjectProperty(skos:narrowerTransitive)
+
+# Object Property: skos:note (note)
+
+AnnotationAssertion(dct:issued skos:note "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:note "This property may be used directly, or as a super-property for more specific note types."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:note <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:note "note"@en)
+AnnotationAssertion(skos:definition skos:note "A general note, for any purpose."@en)
+
+# Object Property: skos:related (related to)
+
+AnnotationAssertion(dct:issued skos:related "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:related "skos:related is disjoint with skos:broaderTransitive"@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:related <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:related "related to"@en)
+AnnotationAssertion(skos:definition skos:related "A concept with which there is an associative semantic relationship."@en)
+SubObjectPropertyOf(skos:related skos:semanticRelation)
+SymmetricObjectProperty(skos:related)
+
+# Object Property: skos:relatedMatch (related match)
+
+AnnotationAssertion(dct:issued skos:relatedMatch "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:relatedMatch <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:relatedMatch "related match"@en)
+AnnotationAssertion(skos:definition skos:relatedMatch "skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes."@en)
+SubObjectPropertyOf(skos:relatedMatch skos:mappingRelation)
+SubObjectPropertyOf(skos:relatedMatch skos:related)
+SymmetricObjectProperty(skos:relatedMatch)
+
+# Object Property: skos:scopeNote (scope note)
+
+AnnotationAssertion(dct:issued skos:scopeNote "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:scopeNote <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:scopeNote "scope note"@en)
+AnnotationAssertion(skos:definition skos:scopeNote "A note that helps to clarify the meaning of a concept."@en)
+SubObjectPropertyOf(skos:scopeNote skos:note)
+
+# Object Property: skos:semanticRelation (semantic relation)
+
+AnnotationAssertion(dct:issued skos:semanticRelation "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:semanticRelation "This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:semanticRelation <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:semanticRelation "semantic relation"@en)
+AnnotationAssertion(skos:definition skos:semanticRelation "A concept related by meaning."@en)
+ObjectPropertyDomain(skos:semanticRelation skos:Concept)
+ObjectPropertyRange(skos:semanticRelation skos:Concept)
+
+# Object Property: skos:topConceptOf (top concept in scheme)
+
+AnnotationAssertion(dct:issued skos:topConceptOf "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:topConceptOf <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:topConceptOf "top concept in scheme"@en)
+AnnotationAssertion(skos:definition skos:topConceptOf "Relates a concept to the concept scheme that it is a top level concept of."@en)
+SubObjectPropertyOf(skos:topConceptOf skos:inScheme)
+ObjectPropertyDomain(skos:topConceptOf skos:Concept)
+ObjectPropertyRange(skos:topConceptOf skos:ConceptScheme)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: skos:notation (notation)
+
+AnnotationAssertion(dct:issued skos:notation "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:notation "By convention, skos:notation is used with a typed literal in the object position of the triple."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:notation <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:notation "notation"@en)
+AnnotationAssertion(skos:definition skos:notation "A notation, also known as classification code, is a string of characters such as \"T58.5\" or \"303.4833\" used to uniquely identify a concept within the scope of a given concept scheme."@en)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: skos:Collection (Collection)
+
+AnnotationAssertion(dct:issued skos:Collection "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:Collection "Labelled collections can be used with collectable semantic relation properties e.g. skos:narrower, where you would like a set of concepts to be displayed under a 'node label' in the hierarchy."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:Collection <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:Collection "Collection"@en)
+AnnotationAssertion(skos:definition skos:Collection "A meaningful collection of concepts."@en)
+DisjointClasses(skos:Collection skos:Concept)
+DisjointClasses(skos:Collection skos:ConceptScheme)
+
+# Class: skos:Concept (Concept)
+
+AnnotationAssertion(dct:issued skos:Concept "2008-05-xx")
+AnnotationAssertion(rdfs:isDefinedBy skos:Concept <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:Concept "Concept"@en)
+AnnotationAssertion(skos:definition skos:Concept "An abstract idea or notion; a unit of thought."@en)
+DisjointClasses(skos:Concept skos:ConceptScheme)
+
+# Class: skos:ConceptScheme (Concept Scheme)
+
+AnnotationAssertion(dct:issued skos:ConceptScheme "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:ConceptScheme "A concept scheme may be defined to include concepts from different sources."@en)
+AnnotationAssertion(rdfs:comment skos:ConceptScheme "Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes.  Concept schemes are also embedded in glossaries and terminologies."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:ConceptScheme <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:ConceptScheme "Concept Scheme"@en)
+AnnotationAssertion(skos:definition skos:ConceptScheme "A set of concepts, optionally including statements about semantic relationships between those concepts."@en)
+
+# Class: skos:OrderedCollection (Ordered Collection)
+
+AnnotationAssertion(dct:issued skos:OrderedCollection "2008-05-xx")
+AnnotationAssertion(rdfs:comment skos:OrderedCollection "Ordered collections can be used with collectable semantic relation properties, where you would like a set of concepts to be displayed in a specific order, and optionally under a 'node label'."@en)
+AnnotationAssertion(rdfs:isDefinedBy skos:OrderedCollection <http://www.w3.org/2008/05/skos>)
+AnnotationAssertion(rdfs:label skos:OrderedCollection "Ordered Collection"@en)
+AnnotationAssertion(skos:definition skos:OrderedCollection "An ordered collection of concepts, where both the grouping and the ordering are meaningful."@en)
+SubClassOf(skos:OrderedCollection skos:Collection)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: skos:Collection (Collection)
+
+ObjectPropertyAssertion(skos:changeNote skos:Collection _:genid2147483680)
+
+# Individual: skos:Concept (Concept)
+
+ObjectPropertyAssertion(skos:changeNote skos:Concept _:genid2147483701)
+
+# Individual: skos:ConceptScheme (Concept Scheme)
+
+ObjectPropertyAssertion(skos:changeNote skos:ConceptScheme _:genid2147483709)
+
+# Individual: skos:OrderedCollection (Ordered Collection)
+
+ObjectPropertyAssertion(skos:changeNote skos:OrderedCollection _:genid2147483702)
+
+# Individual: skos:altLabel (alternative label)
+
+ObjectPropertyAssertion(skos:changeNote skos:altLabel _:genid2147483685)
+
+# Individual: skos:broadMatch (broader match)
+
+ObjectPropertyAssertion(skos:changeNote skos:broadMatch _:genid2147483706)
+
+# Individual: skos:broader (has broader)
+
+ObjectPropertyAssertion(skos:changeNote skos:broader _:genid2147483711)
+
+# Individual: skos:broaderTransitive (broader transitive)
+
+ObjectPropertyAssertion(skos:changeNote skos:broaderTransitive _:genid2147483691)
+
+# Individual: skos:changeNote (change note)
+
+ObjectPropertyAssertion(skos:changeNote skos:changeNote _:genid2147483697)
+
+# Individual: skos:closeMatch (exact match)
+
+ObjectPropertyAssertion(skos:changeNote skos:closeMatch _:genid2147483693)
+
+# Individual: skos:definition (definition)
+
+ObjectPropertyAssertion(skos:changeNote skos:definition _:genid2147483703)
+
+# Individual: skos:editorialNote (editorial note)
+
+ObjectPropertyAssertion(skos:changeNote skos:editorialNote _:genid2147483690)
+
+# Individual: skos:exactMatch (exact match)
+
+ObjectPropertyAssertion(skos:changeNote skos:exactMatch _:genid2147483682)
+
+# Individual: skos:example (example)
+
+ObjectPropertyAssertion(skos:changeNote skos:example _:genid2147483688)
+
+# Individual: skos:hasTopConcept (has top concept)
+
+ObjectPropertyAssertion(skos:changeNote skos:hasTopConcept _:genid2147483695)
+
+# Individual: skos:hiddenLabel (hidden label)
+
+ObjectPropertyAssertion(skos:changeNote skos:hiddenLabel _:genid2147483689)
+
+# Individual: skos:historyNote (history note)
+
+ObjectPropertyAssertion(skos:changeNote skos:historyNote _:genid2147483707)
+
+# Individual: skos:inScheme (in scheme)
+
+ObjectPropertyAssertion(skos:changeNote skos:inScheme _:genid2147483699)
+
+# Individual: skos:mappingRelation (mapping relation)
+
+ObjectPropertyAssertion(skos:changeNote skos:mappingRelation _:genid2147483681)
+
+# Individual: skos:member (member)
+
+ObjectPropertyAssertion(skos:changeNote skos:member _:genid2147483696)
+
+# Individual: skos:memberList (member list)
+
+ObjectPropertyAssertion(skos:changeNote skos:memberList _:genid2147483710)
+
+# Individual: skos:narrowMatch (narrower match)
+
+ObjectPropertyAssertion(skos:changeNote skos:narrowMatch _:genid2147483684)
+
+# Individual: skos:narrower (has narrower)
+
+ObjectPropertyAssertion(skos:changeNote skos:narrower _:genid2147483686)
+
+# Individual: skos:narrowerTransitive (narrower transitive)
+
+ObjectPropertyAssertion(skos:changeNote skos:narrowerTransitive _:genid2147483687)
+
+# Individual: skos:notation (notation)
+
+ObjectPropertyAssertion(skos:changeNote skos:notation _:genid2147483683)
+
+# Individual: skos:note (note)
+
+ObjectPropertyAssertion(skos:changeNote skos:note _:genid2147483705)
+
+# Individual: skos:prefLabel (preferred label)
+
+ObjectPropertyAssertion(skos:changeNote skos:prefLabel _:genid2147483698)
+
+# Individual: skos:related (related to)
+
+ObjectPropertyAssertion(skos:changeNote skos:related _:genid2147483704)
+
+# Individual: skos:relatedMatch (related match)
+
+ObjectPropertyAssertion(skos:changeNote skos:relatedMatch _:genid2147483692)
+
+# Individual: skos:scopeNote (scope note)
+
+ObjectPropertyAssertion(skos:changeNote skos:scopeNote _:genid2147483708)
+
+# Individual: skos:semanticRelation (semantic relation)
+
+ObjectPropertyAssertion(skos:changeNote skos:semanticRelation _:genid2147483700)
+
+# Individual: skos:topConceptOf (top concept in scheme)
+
+ObjectPropertyAssertion(skos:changeNote skos:topConceptOf _:genid2147483694)
+
+
+AnnotationAssertion(dc:creator _:genid2147483680 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483680 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483680 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483681 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483681 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483681 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483682 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483682 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483682 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483683 "Alistair Miles")
+AnnotationAssertion(dc:date _:genid2147483683 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483683 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483684 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483684 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483684 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483685 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483685 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483685 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483686 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483686 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483686 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483687 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483687 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483687 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483688 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483688 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483688 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483689 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483689 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483689 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483690 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483690 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483690 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483691 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483691 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483691 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483692 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483692 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483692 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483693 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483693 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483693 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483694 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483694 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483694 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483695 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483695 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483695 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483696 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483696 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483696 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483697 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483697 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483697 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483698 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483698 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483698 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483699 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483699 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483699 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483700 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483700 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483700 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483701 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483701 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483701 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483702 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483702 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483702 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483703 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483703 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483703 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483704 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483704 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483704 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483705 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483705 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483705 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483706 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483706 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483706 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483707 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483707 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483707 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483708 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483708 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483708 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483709 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483709 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483709 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483710 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483710 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483710 "Initial description.")
+AnnotationAssertion(dc:creator _:genid2147483711 "Sean Bechhofer")
+AnnotationAssertion(dc:date _:genid2147483711 "2008-05-xx")
+AnnotationAssertion(rdf:value _:genid2147483711 "Initial description.")
+)

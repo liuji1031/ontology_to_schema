@@ -1,0 +1,737 @@
+Prefix(:=<http://www.w3.org/2002/07/owl#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(grddl:=<http://www.w3.org/2003/g/data-view#>)
+
+
+Ontology(<http://www.w3.org/2002/07/owl>
+<http://www.w3.org/2002/07/owl>
+Import(<http://www.w3.org/2000/01/rdf-schema>)
+Annotation(dc:title "The OWL 2 Schema vocabulary (OWL 2)")
+Annotation(rdfs:comment "
+  This ontology partially describes the built-in classes and
+  properties that together form the basis of the RDF/XML syntax of OWL 2.
+  The content of this ontology is based on Tables 6.1 and 6.2
+  in Section 6.4 of the OWL 2 RDF-Based Semantics specification,
+  available at http://www.w3.org/TR/owl2-rdf-based-semantics/.
+  Please note that those tables do not include the different annotations
+  (labels, comments and rdfs:isDefinedBy links) used in this file.
+  Also note that the descriptions provided in this ontology do not
+  provide a complete and correct formal description of either the syntax
+  or the semantics of the introduced terms (please see the OWL 2
+  recommendations for the complete and normative specifications).
+  Furthermore, the information provided by this ontology may be
+  misleading if not used with care. This ontology SHOULD NOT be imported
+  into OWL ontologies. Importing this file into an OWL 2 DL ontology
+  will cause it to become an OWL 2 Full ontology and may have other,
+  unexpected, consequences.
+   ")
+Annotation(rdfs:isDefinedBy <http://www.w3.org/TR/owl2-mapping-to-rdf/>)
+Annotation(rdfs:isDefinedBy <http://www.w3.org/TR/owl2-rdf-based-semantics/>)
+Annotation(rdfs:isDefinedBy <http://www.w3.org/TR/owl2-syntax/>)
+Annotation(rdfs:seeAlso <http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-classes>)
+Annotation(rdfs:seeAlso <http://www.w3.org/TR/owl2-rdf-based-semantics/#table-axiomatic-properties>)
+Annotation(owl:versionInfo "$Date: 2009/11/15 10:54:12 $")
+Annotation(grddl:namespaceTransformation <http://dev.w3.org/cvsweb/2009/owl-grddl/owx2rdf.xsl>)
+
+Declaration(Class(rdf:List))
+Declaration(Class(rdf:Property))
+Declaration(Class(owl:AllDifferent))
+Declaration(Class(owl:AllDisjointClasses))
+Declaration(Class(owl:AllDisjointProperties))
+Declaration(Class(owl:Annotation))
+Declaration(Class(owl:AnnotationProperty))
+Declaration(Class(owl:AsymmetricProperty))
+Declaration(Class(owl:Axiom))
+Declaration(Class(owl:Class))
+Declaration(Class(owl:DataRange))
+Declaration(Class(owl:DatatypeProperty))
+Declaration(Class(owl:DeprecatedClass))
+Declaration(Class(owl:DeprecatedProperty))
+Declaration(Class(owl:FunctionalProperty))
+Declaration(Class(owl:InverseFunctionalProperty))
+Declaration(Class(owl:IrreflexiveProperty))
+Declaration(Class(owl:NamedIndividual))
+Declaration(Class(owl:NegativePropertyAssertion))
+Declaration(Class(owl:Nothing))
+Declaration(Class(owl:ObjectProperty))
+Declaration(Class(owl:Ontology))
+Declaration(Class(owl:OntologyProperty))
+Declaration(Class(owl:ReflexiveProperty))
+Declaration(Class(owl:Restriction))
+Declaration(Class(owl:SymmetricProperty))
+Declaration(Class(owl:Thing))
+Declaration(Class(owl:TransitiveProperty))
+Declaration(ObjectProperty(rdfs:domain))
+Declaration(ObjectProperty(rdfs:member))
+Declaration(ObjectProperty(rdfs:range))
+Declaration(ObjectProperty(rdfs:subClassOf))
+Declaration(ObjectProperty(rdfs:subPropertyOf))
+Declaration(ObjectProperty(owl:allValuesFrom))
+Declaration(ObjectProperty(owl:annotatedProperty))
+Declaration(ObjectProperty(owl:annotatedSource))
+Declaration(ObjectProperty(owl:annotatedTarget))
+Declaration(ObjectProperty(owl:assertionProperty))
+Declaration(ObjectProperty(owl:bottomObjectProperty))
+Declaration(ObjectProperty(owl:complementOf))
+Declaration(ObjectProperty(owl:datatypeComplementOf))
+Declaration(ObjectProperty(owl:differentFrom))
+Declaration(ObjectProperty(owl:disjointUnionOf))
+Declaration(ObjectProperty(owl:disjointWith))
+Declaration(ObjectProperty(owl:distinctMembers))
+Declaration(ObjectProperty(owl:equivalentClass))
+Declaration(ObjectProperty(owl:equivalentProperty))
+Declaration(ObjectProperty(owl:hasKey))
+Declaration(ObjectProperty(owl:hasSelf))
+Declaration(ObjectProperty(owl:hasValue))
+Declaration(ObjectProperty(owl:intersectionOf))
+Declaration(ObjectProperty(owl:inverseOf))
+Declaration(ObjectProperty(owl:members))
+Declaration(ObjectProperty(owl:onClass))
+Declaration(ObjectProperty(owl:onDataRange))
+Declaration(ObjectProperty(owl:onDatatype))
+Declaration(ObjectProperty(owl:onProperties))
+Declaration(ObjectProperty(owl:onProperty))
+Declaration(ObjectProperty(owl:oneOf))
+Declaration(ObjectProperty(owl:propertyChainAxiom))
+Declaration(ObjectProperty(owl:propertyDisjointWith))
+Declaration(ObjectProperty(owl:sameAs))
+Declaration(ObjectProperty(owl:someValuesFrom))
+Declaration(ObjectProperty(owl:sourceIndividual))
+Declaration(ObjectProperty(owl:targetIndividual))
+Declaration(ObjectProperty(owl:targetValue))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(ObjectProperty(owl:unionOf))
+Declaration(ObjectProperty(owl:withRestrictions))
+Declaration(DataProperty(owl:bottomDataProperty))
+Declaration(DataProperty(owl:cardinality))
+Declaration(DataProperty(owl:maxCardinality))
+Declaration(DataProperty(owl:maxQualifiedCardinality))
+Declaration(DataProperty(owl:minCardinality))
+Declaration(DataProperty(owl:minQualifiedCardinality))
+Declaration(DataProperty(owl:qualifiedCardinality))
+Declaration(DataProperty(owl:topDataProperty))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(owl:backwardCompatibleWith))
+Declaration(AnnotationProperty(owl:deprecated))
+Declaration(AnnotationProperty(owl:imports))
+Declaration(AnnotationProperty(owl:incompatibleWith))
+Declaration(AnnotationProperty(owl:priorVersion))
+Declaration(AnnotationProperty(owl:versionIRI))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(AnnotationProperty(grddl:namespaceTransformation))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: owl:backwardCompatibleWith (backwardCompatibleWith)
+
+AnnotationAssertion(rdfs:comment owl:backwardCompatibleWith "The annotation property that indicates that a given ontology is backward compatible with another ontology.")
+AnnotationAssertion(rdfs:isDefinedBy owl:backwardCompatibleWith <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:backwardCompatibleWith "backwardCompatibleWith")
+AnnotationPropertyRange(owl:backwardCompatibleWith owl:Ontology)
+AnnotationPropertyDomain(owl:backwardCompatibleWith owl:Ontology)
+
+# Annotation Property: owl:deprecated (deprecated)
+
+AnnotationAssertion(rdfs:comment owl:deprecated "The annotation property that indicates that a given entity has been deprecated.")
+AnnotationAssertion(rdfs:isDefinedBy owl:deprecated <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:deprecated "deprecated")
+AnnotationPropertyRange(owl:deprecated rdfs:Resource)
+AnnotationPropertyDomain(owl:deprecated rdfs:Resource)
+
+# Annotation Property: owl:imports (imports)
+
+AnnotationAssertion(rdfs:comment owl:imports "The property that is used for importing other ontologies into a given ontology.")
+AnnotationAssertion(rdfs:isDefinedBy owl:imports <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:imports "imports")
+AnnotationPropertyRange(owl:imports owl:Ontology)
+AnnotationPropertyDomain(owl:imports owl:Ontology)
+
+# Annotation Property: owl:incompatibleWith (incompatibleWith)
+
+AnnotationAssertion(rdfs:comment owl:incompatibleWith "The annotation property that indicates that a given ontology is incompatible with another ontology.")
+AnnotationAssertion(rdfs:isDefinedBy owl:incompatibleWith <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:incompatibleWith "incompatibleWith")
+AnnotationPropertyRange(owl:incompatibleWith owl:Ontology)
+AnnotationPropertyDomain(owl:incompatibleWith owl:Ontology)
+
+# Annotation Property: owl:priorVersion (priorVersion)
+
+AnnotationAssertion(rdfs:comment owl:priorVersion "The annotation property that indicates the predecessor ontology of a given ontology.")
+AnnotationAssertion(rdfs:isDefinedBy owl:priorVersion <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:priorVersion "priorVersion")
+AnnotationPropertyRange(owl:priorVersion owl:Ontology)
+AnnotationPropertyDomain(owl:priorVersion owl:Ontology)
+
+# Annotation Property: owl:versionIRI (versionIRI)
+
+AnnotationAssertion(rdfs:comment owl:versionIRI "The property that identifies the version IRI of an ontology.")
+AnnotationAssertion(rdfs:isDefinedBy owl:versionIRI <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:versionIRI "versionIRI")
+AnnotationPropertyRange(owl:versionIRI owl:Ontology)
+AnnotationPropertyDomain(owl:versionIRI owl:Ontology)
+
+# Annotation Property: owl:versionInfo (versionInfo)
+
+AnnotationAssertion(rdfs:comment owl:versionInfo "The annotation property that provides version information for an ontology or another OWL construct.")
+AnnotationAssertion(rdfs:isDefinedBy owl:versionInfo <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:versionInfo "versionInfo")
+AnnotationPropertyRange(owl:versionInfo rdfs:Resource)
+AnnotationPropertyDomain(owl:versionInfo rdfs:Resource)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: owl:allValuesFrom (allValuesFrom)
+
+AnnotationAssertion(rdfs:comment owl:allValuesFrom "The property that determines the class that a universal property restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:allValuesFrom <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:allValuesFrom "allValuesFrom")
+ObjectPropertyDomain(owl:allValuesFrom owl:Restriction)
+ObjectPropertyRange(owl:allValuesFrom rdfs:Class)
+
+# Object Property: owl:annotatedProperty (annotatedProperty)
+
+AnnotationAssertion(rdfs:comment owl:annotatedProperty "The property that determines the predicate of an annotated axiom or annotated annotation.")
+AnnotationAssertion(rdfs:isDefinedBy owl:annotatedProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:annotatedProperty "annotatedProperty")
+ObjectPropertyDomain(owl:annotatedProperty rdfs:Resource)
+ObjectPropertyRange(owl:annotatedProperty rdfs:Resource)
+
+# Object Property: owl:annotatedSource (annotatedSource)
+
+AnnotationAssertion(rdfs:comment owl:annotatedSource "The property that determines the subject of an annotated axiom or annotated annotation.")
+AnnotationAssertion(rdfs:isDefinedBy owl:annotatedSource <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:annotatedSource "annotatedSource")
+ObjectPropertyDomain(owl:annotatedSource rdfs:Resource)
+ObjectPropertyRange(owl:annotatedSource rdfs:Resource)
+
+# Object Property: owl:annotatedTarget (annotatedTarget)
+
+AnnotationAssertion(rdfs:comment owl:annotatedTarget "The property that determines the object of an annotated axiom or annotated annotation.")
+AnnotationAssertion(rdfs:isDefinedBy owl:annotatedTarget <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:annotatedTarget "annotatedTarget")
+ObjectPropertyDomain(owl:annotatedTarget rdfs:Resource)
+ObjectPropertyRange(owl:annotatedTarget rdfs:Resource)
+
+# Object Property: owl:assertionProperty (assertionProperty)
+
+AnnotationAssertion(rdfs:comment owl:assertionProperty "The property that determines the predicate of a negative property assertion.")
+AnnotationAssertion(rdfs:isDefinedBy owl:assertionProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:assertionProperty "assertionProperty")
+ObjectPropertyDomain(owl:assertionProperty owl:NegativePropertyAssertion)
+ObjectPropertyRange(owl:assertionProperty rdf:Property)
+
+# Object Property: owl:bottomObjectProperty (bottomObjectProperty)
+
+AnnotationAssertion(rdfs:comment owl:bottomObjectProperty "The object property that does not relate any two individuals.")
+AnnotationAssertion(rdfs:isDefinedBy owl:bottomObjectProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:bottomObjectProperty "bottomObjectProperty")
+ObjectPropertyDomain(owl:bottomObjectProperty owl:Thing)
+ObjectPropertyRange(owl:bottomObjectProperty owl:Thing)
+
+# Object Property: owl:complementOf (complementOf)
+
+AnnotationAssertion(rdfs:comment owl:complementOf "The property that determines that a given class is the complement of another class.")
+AnnotationAssertion(rdfs:isDefinedBy owl:complementOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:complementOf "complementOf")
+ObjectPropertyDomain(owl:complementOf owl:Class)
+ObjectPropertyRange(owl:complementOf owl:Class)
+
+# Object Property: owl:datatypeComplementOf (datatypeComplementOf)
+
+AnnotationAssertion(rdfs:comment owl:datatypeComplementOf "The property that determines that a given data range is the complement of another data range with respect to the data domain.")
+AnnotationAssertion(rdfs:isDefinedBy owl:datatypeComplementOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:datatypeComplementOf "datatypeComplementOf")
+ObjectPropertyDomain(owl:datatypeComplementOf rdfs:Datatype)
+ObjectPropertyRange(owl:datatypeComplementOf rdfs:Datatype)
+
+# Object Property: owl:differentFrom (differentFrom)
+
+AnnotationAssertion(rdfs:comment owl:differentFrom "The property that determines that two given individuals are different.")
+AnnotationAssertion(rdfs:isDefinedBy owl:differentFrom <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:differentFrom "differentFrom")
+ObjectPropertyDomain(owl:differentFrom owl:Thing)
+ObjectPropertyRange(owl:differentFrom owl:Thing)
+
+# Object Property: owl:disjointUnionOf (disjointUnionOf)
+
+AnnotationAssertion(rdfs:comment owl:disjointUnionOf "The property that determines that a given class is equivalent to the disjoint union of a collection of other classes.")
+AnnotationAssertion(rdfs:isDefinedBy owl:disjointUnionOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:disjointUnionOf "disjointUnionOf")
+ObjectPropertyDomain(owl:disjointUnionOf owl:Class)
+ObjectPropertyRange(owl:disjointUnionOf rdf:List)
+
+# Object Property: owl:disjointWith (disjointWith)
+
+AnnotationAssertion(rdfs:comment owl:disjointWith "The property that determines that two given classes are disjoint.")
+AnnotationAssertion(rdfs:isDefinedBy owl:disjointWith <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:disjointWith "disjointWith")
+ObjectPropertyDomain(owl:disjointWith owl:Class)
+ObjectPropertyRange(owl:disjointWith owl:Class)
+
+# Object Property: owl:distinctMembers (distinctMembers)
+
+AnnotationAssertion(rdfs:comment owl:distinctMembers "The property that determines the collection of pairwise different individuals in a owl:AllDifferent axiom.")
+AnnotationAssertion(rdfs:isDefinedBy owl:distinctMembers <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:distinctMembers "distinctMembers")
+ObjectPropertyDomain(owl:distinctMembers owl:AllDifferent)
+ObjectPropertyRange(owl:distinctMembers rdf:List)
+
+# Object Property: owl:equivalentClass (equivalentClass)
+
+AnnotationAssertion(rdfs:comment owl:equivalentClass "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions.")
+AnnotationAssertion(rdfs:isDefinedBy owl:equivalentClass <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:equivalentClass "equivalentClass")
+ObjectPropertyDomain(owl:equivalentClass rdfs:Class)
+ObjectPropertyRange(owl:equivalentClass rdfs:Class)
+
+# Object Property: owl:equivalentProperty (equivalentProperty)
+
+AnnotationAssertion(rdfs:comment owl:equivalentProperty "The property that determines that two given properties are equivalent.")
+AnnotationAssertion(rdfs:isDefinedBy owl:equivalentProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:equivalentProperty "equivalentProperty")
+ObjectPropertyDomain(owl:equivalentProperty rdf:Property)
+ObjectPropertyRange(owl:equivalentProperty rdf:Property)
+
+# Object Property: owl:hasKey (hasKey)
+
+AnnotationAssertion(rdfs:comment owl:hasKey "The property that determines the collection of properties that jointly build a key.")
+AnnotationAssertion(rdfs:isDefinedBy owl:hasKey <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:hasKey "hasKey")
+ObjectPropertyDomain(owl:hasKey owl:Class)
+ObjectPropertyRange(owl:hasKey rdf:List)
+
+# Object Property: owl:hasSelf (hasSelf)
+
+AnnotationAssertion(rdfs:comment owl:hasSelf "The property that determines the property that a self restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:hasSelf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:hasSelf "hasSelf")
+ObjectPropertyDomain(owl:hasSelf owl:Restriction)
+ObjectPropertyRange(owl:hasSelf rdfs:Resource)
+
+# Object Property: owl:hasValue (hasValue)
+
+AnnotationAssertion(rdfs:comment owl:hasValue "The property that determines the individual that a has-value restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:hasValue <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:hasValue "hasValue")
+ObjectPropertyDomain(owl:hasValue owl:Restriction)
+ObjectPropertyRange(owl:hasValue rdfs:Resource)
+
+# Object Property: owl:intersectionOf (intersectionOf)
+
+AnnotationAssertion(rdfs:comment owl:intersectionOf "The property that determines the collection of classes or data ranges that build an intersection.")
+AnnotationAssertion(rdfs:isDefinedBy owl:intersectionOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:intersectionOf "intersectionOf")
+ObjectPropertyDomain(owl:intersectionOf rdfs:Class)
+ObjectPropertyRange(owl:intersectionOf rdf:List)
+
+# Object Property: owl:inverseOf (inverseOf)
+
+AnnotationAssertion(rdfs:comment owl:inverseOf "The property that determines that two given properties are inverse.")
+AnnotationAssertion(rdfs:isDefinedBy owl:inverseOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:inverseOf "inverseOf")
+ObjectPropertyDomain(owl:inverseOf owl:ObjectProperty)
+ObjectPropertyRange(owl:inverseOf owl:ObjectProperty)
+
+# Object Property: owl:members (members)
+
+AnnotationAssertion(rdfs:comment owl:members "The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom.")
+AnnotationAssertion(rdfs:isDefinedBy owl:members <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:members "members")
+ObjectPropertyDomain(owl:members rdfs:Resource)
+ObjectPropertyRange(owl:members rdf:List)
+
+# Object Property: owl:onClass (onClass)
+
+AnnotationAssertion(rdfs:comment owl:onClass "The property that determines the class that a qualified object cardinality restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:onClass <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:onClass "onClass")
+ObjectPropertyDomain(owl:onClass owl:Restriction)
+ObjectPropertyRange(owl:onClass owl:Class)
+
+# Object Property: owl:onDataRange (onDataRange)
+
+AnnotationAssertion(rdfs:comment owl:onDataRange "The property that determines the data range that a qualified data cardinality restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:onDataRange <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:onDataRange "onDataRange")
+ObjectPropertyDomain(owl:onDataRange owl:Restriction)
+ObjectPropertyRange(owl:onDataRange rdfs:Datatype)
+
+# Object Property: owl:onDatatype (onDatatype)
+
+AnnotationAssertion(rdfs:comment owl:onDatatype "The property that determines the datatype that a datatype restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:onDatatype <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:onDatatype "onDatatype")
+ObjectPropertyDomain(owl:onDatatype rdfs:Datatype)
+ObjectPropertyRange(owl:onDatatype rdfs:Datatype)
+
+# Object Property: owl:onProperties (onProperties)
+
+AnnotationAssertion(rdfs:comment owl:onProperties "The property that determines the n-tuple of properties that a property restriction on an n-ary data range refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:onProperties <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:onProperties "onProperties")
+ObjectPropertyDomain(owl:onProperties owl:Restriction)
+ObjectPropertyRange(owl:onProperties rdf:List)
+
+# Object Property: owl:onProperty (onProperty)
+
+AnnotationAssertion(rdfs:comment owl:onProperty "The property that determines the property that a property restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:onProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:onProperty "onProperty")
+ObjectPropertyDomain(owl:onProperty owl:Restriction)
+ObjectPropertyRange(owl:onProperty rdf:Property)
+
+# Object Property: owl:oneOf (oneOf)
+
+AnnotationAssertion(rdfs:comment owl:oneOf "The property that determines the collection of individuals or data values that build an enumeration.")
+AnnotationAssertion(rdfs:isDefinedBy owl:oneOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:oneOf "oneOf")
+ObjectPropertyDomain(owl:oneOf rdfs:Class)
+ObjectPropertyRange(owl:oneOf rdf:List)
+
+# Object Property: owl:propertyChainAxiom (propertyChainAxiom)
+
+AnnotationAssertion(rdfs:comment owl:propertyChainAxiom "The property that determines the n-tuple of properties that build a sub property chain of a given property.")
+AnnotationAssertion(rdfs:isDefinedBy owl:propertyChainAxiom <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:propertyChainAxiom "propertyChainAxiom")
+ObjectPropertyDomain(owl:propertyChainAxiom owl:ObjectProperty)
+ObjectPropertyRange(owl:propertyChainAxiom rdf:List)
+
+# Object Property: owl:propertyDisjointWith (propertyDisjointWith)
+
+AnnotationAssertion(rdfs:comment owl:propertyDisjointWith "The property that determines that two given properties are disjoint.")
+AnnotationAssertion(rdfs:isDefinedBy owl:propertyDisjointWith <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:propertyDisjointWith "propertyDisjointWith")
+ObjectPropertyDomain(owl:propertyDisjointWith rdf:Property)
+ObjectPropertyRange(owl:propertyDisjointWith rdf:Property)
+
+# Object Property: owl:sameAs (sameAs)
+
+AnnotationAssertion(rdfs:comment owl:sameAs "The property that determines that two given individuals are equal.")
+AnnotationAssertion(rdfs:isDefinedBy owl:sameAs <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:sameAs "sameAs")
+ObjectPropertyDomain(owl:sameAs owl:Thing)
+ObjectPropertyRange(owl:sameAs owl:Thing)
+
+# Object Property: owl:someValuesFrom (someValuesFrom)
+
+AnnotationAssertion(rdfs:comment owl:someValuesFrom "The property that determines the class that an existential property restriction refers to.")
+AnnotationAssertion(rdfs:isDefinedBy owl:someValuesFrom <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:someValuesFrom "someValuesFrom")
+ObjectPropertyDomain(owl:someValuesFrom owl:Restriction)
+ObjectPropertyRange(owl:someValuesFrom rdfs:Class)
+
+# Object Property: owl:sourceIndividual (sourceIndividual)
+
+AnnotationAssertion(rdfs:comment owl:sourceIndividual "The property that determines the subject of a negative property assertion.")
+AnnotationAssertion(rdfs:isDefinedBy owl:sourceIndividual <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:sourceIndividual "sourceIndividual")
+ObjectPropertyDomain(owl:sourceIndividual owl:NegativePropertyAssertion)
+ObjectPropertyRange(owl:sourceIndividual owl:Thing)
+
+# Object Property: owl:targetIndividual (targetIndividual)
+
+AnnotationAssertion(rdfs:comment owl:targetIndividual "The property that determines the object of a negative object property assertion.")
+AnnotationAssertion(rdfs:isDefinedBy owl:targetIndividual <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:targetIndividual "targetIndividual")
+ObjectPropertyDomain(owl:targetIndividual owl:NegativePropertyAssertion)
+ObjectPropertyRange(owl:targetIndividual owl:Thing)
+
+# Object Property: owl:targetValue (targetValue)
+
+AnnotationAssertion(rdfs:comment owl:targetValue "The property that determines the value of a negative data property assertion.")
+AnnotationAssertion(rdfs:isDefinedBy owl:targetValue <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:targetValue "targetValue")
+ObjectPropertyDomain(owl:targetValue owl:NegativePropertyAssertion)
+ObjectPropertyRange(owl:targetValue rdfs:Literal)
+
+# Object Property: owl:topObjectProperty (topObjectProperty)
+
+AnnotationAssertion(rdfs:comment owl:topObjectProperty "The object property that relates every two individuals.")
+AnnotationAssertion(rdfs:isDefinedBy owl:topObjectProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:topObjectProperty "topObjectProperty")
+ObjectPropertyDomain(owl:topObjectProperty owl:Thing)
+ObjectPropertyRange(owl:topObjectProperty owl:Thing)
+
+# Object Property: owl:unionOf (unionOf)
+
+AnnotationAssertion(rdfs:comment owl:unionOf "The property that determines the collection of classes or data ranges that build a union.")
+AnnotationAssertion(rdfs:isDefinedBy owl:unionOf <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:unionOf "unionOf")
+ObjectPropertyDomain(owl:unionOf rdfs:Class)
+ObjectPropertyRange(owl:unionOf rdf:List)
+
+# Object Property: owl:withRestrictions (withRestrictions)
+
+AnnotationAssertion(rdfs:comment owl:withRestrictions "The property that determines the collection of facet-value pairs that define a datatype restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:withRestrictions <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:withRestrictions "withRestrictions")
+ObjectPropertyDomain(owl:withRestrictions rdfs:Datatype)
+ObjectPropertyRange(owl:withRestrictions rdf:List)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: owl:bottomDataProperty (bottomDataProperty)
+
+AnnotationAssertion(rdfs:comment owl:bottomDataProperty "The data property that does not relate any individual to any data value.")
+AnnotationAssertion(rdfs:isDefinedBy owl:bottomDataProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:bottomDataProperty "bottomDataProperty")
+DataPropertyDomain(owl:bottomDataProperty owl:Thing)
+DataPropertyRange(owl:bottomDataProperty rdfs:Literal)
+
+# Data Property: owl:cardinality (cardinality)
+
+AnnotationAssertion(rdfs:comment owl:cardinality "The property that determines the cardinality of an exact cardinality restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:cardinality <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:cardinality "cardinality")
+DataPropertyDomain(owl:cardinality owl:Restriction)
+DataPropertyRange(owl:cardinality xsd:nonNegativeInteger)
+
+# Data Property: owl:maxCardinality (maxCardinality)
+
+AnnotationAssertion(rdfs:comment owl:maxCardinality "The property that determines the cardinality of a maximum cardinality restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:maxCardinality <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:maxCardinality "maxCardinality")
+DataPropertyDomain(owl:maxCardinality owl:Restriction)
+DataPropertyRange(owl:maxCardinality xsd:nonNegativeInteger)
+
+# Data Property: owl:maxQualifiedCardinality (maxQualifiedCardinality)
+
+AnnotationAssertion(rdfs:comment owl:maxQualifiedCardinality "The property that determines the cardinality of a maximum qualified cardinality restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:maxQualifiedCardinality <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:maxQualifiedCardinality "maxQualifiedCardinality")
+DataPropertyDomain(owl:maxQualifiedCardinality owl:Restriction)
+DataPropertyRange(owl:maxQualifiedCardinality xsd:nonNegativeInteger)
+
+# Data Property: owl:minCardinality (minCardinality)
+
+AnnotationAssertion(rdfs:comment owl:minCardinality "The property that determines the cardinality of a minimum cardinality restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:minCardinality <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:minCardinality "minCardinality")
+DataPropertyDomain(owl:minCardinality owl:Restriction)
+DataPropertyRange(owl:minCardinality xsd:nonNegativeInteger)
+
+# Data Property: owl:minQualifiedCardinality (minQualifiedCardinality)
+
+AnnotationAssertion(rdfs:comment owl:minQualifiedCardinality "The property that determines the cardinality of a minimum qualified cardinality restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:minQualifiedCardinality <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:minQualifiedCardinality "minQualifiedCardinality")
+DataPropertyDomain(owl:minQualifiedCardinality owl:Restriction)
+DataPropertyRange(owl:minQualifiedCardinality xsd:nonNegativeInteger)
+
+# Data Property: owl:qualifiedCardinality (qualifiedCardinality)
+
+AnnotationAssertion(rdfs:comment owl:qualifiedCardinality "The property that determines the cardinality of an exact qualified cardinality restriction.")
+AnnotationAssertion(rdfs:isDefinedBy owl:qualifiedCardinality <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:qualifiedCardinality "qualifiedCardinality")
+DataPropertyDomain(owl:qualifiedCardinality owl:Restriction)
+DataPropertyRange(owl:qualifiedCardinality xsd:nonNegativeInteger)
+
+# Data Property: owl:topDataProperty (topDataProperty)
+
+AnnotationAssertion(rdfs:comment owl:topDataProperty "The data property that relates every individual to every data value.")
+AnnotationAssertion(rdfs:isDefinedBy owl:topDataProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:topDataProperty "topDataProperty")
+DataPropertyDomain(owl:topDataProperty owl:Thing)
+DataPropertyRange(owl:topDataProperty rdfs:Literal)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: owl:AllDifferent (AllDifferent)
+
+AnnotationAssertion(rdfs:comment owl:AllDifferent "The class of collections of pairwise different individuals.")
+AnnotationAssertion(rdfs:isDefinedBy owl:AllDifferent <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:AllDifferent "AllDifferent")
+SubClassOf(owl:AllDifferent rdfs:Resource)
+
+# Class: owl:AllDisjointClasses (AllDisjointClasses)
+
+AnnotationAssertion(rdfs:comment owl:AllDisjointClasses "The class of collections of pairwise disjoint classes.")
+AnnotationAssertion(rdfs:isDefinedBy owl:AllDisjointClasses <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:AllDisjointClasses "AllDisjointClasses")
+SubClassOf(owl:AllDisjointClasses rdfs:Resource)
+
+# Class: owl:AllDisjointProperties (AllDisjointProperties)
+
+AnnotationAssertion(rdfs:comment owl:AllDisjointProperties "The class of collections of pairwise disjoint properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:AllDisjointProperties <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:AllDisjointProperties "AllDisjointProperties")
+SubClassOf(owl:AllDisjointProperties rdfs:Resource)
+
+# Class: owl:Annotation (Annotation)
+
+AnnotationAssertion(rdfs:comment owl:Annotation "The class of annotated annotations for which the RDF serialization consists of an annotated subject, predicate and object.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Annotation <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Annotation "Annotation")
+SubClassOf(owl:Annotation rdfs:Resource)
+
+# Class: owl:AnnotationProperty (AnnotationProperty)
+
+AnnotationAssertion(rdfs:comment owl:AnnotationProperty "The class of annotation properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:AnnotationProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:AnnotationProperty "AnnotationProperty")
+SubClassOf(owl:AnnotationProperty rdf:Property)
+
+# Class: owl:AsymmetricProperty (AsymmetricProperty)
+
+AnnotationAssertion(rdfs:comment owl:AsymmetricProperty "The class of asymmetric properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:AsymmetricProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:AsymmetricProperty "AsymmetricProperty")
+SubClassOf(owl:AsymmetricProperty owl:ObjectProperty)
+
+# Class: owl:Axiom (Axiom)
+
+AnnotationAssertion(rdfs:comment owl:Axiom "The class of annotated axioms for which the RDF serialization consists of an annotated subject, predicate and object.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Axiom <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Axiom "Axiom")
+SubClassOf(owl:Axiom rdfs:Resource)
+
+# Class: owl:Class (Class)
+
+AnnotationAssertion(rdfs:comment owl:Class "The class of OWL classes.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Class <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Class "Class")
+SubClassOf(owl:Class rdfs:Class)
+
+# Class: owl:DataRange (DataRange)
+
+AnnotationAssertion(rdfs:comment owl:DataRange "The class of OWL data ranges, which are special kinds of datatypes. Note: The use of the IRI owl:DataRange has been deprecated as of OWL 2. The IRI rdfs:Datatype SHOULD be used instead.")
+AnnotationAssertion(rdfs:isDefinedBy owl:DataRange <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:DataRange "DataRange")
+SubClassOf(owl:DataRange rdfs:Datatype)
+
+# Class: owl:DatatypeProperty (DatatypeProperty)
+
+AnnotationAssertion(rdfs:comment owl:DatatypeProperty "The class of data properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:DatatypeProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:DatatypeProperty "DatatypeProperty")
+SubClassOf(owl:DatatypeProperty rdf:Property)
+
+# Class: owl:DeprecatedClass (DeprecatedClass)
+
+AnnotationAssertion(rdfs:comment owl:DeprecatedClass "The class of deprecated classes.")
+AnnotationAssertion(rdfs:isDefinedBy owl:DeprecatedClass <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:DeprecatedClass "DeprecatedClass")
+SubClassOf(owl:DeprecatedClass rdfs:Class)
+
+# Class: owl:DeprecatedProperty (DeprecatedProperty)
+
+AnnotationAssertion(rdfs:comment owl:DeprecatedProperty "The class of deprecated properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:DeprecatedProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:DeprecatedProperty "DeprecatedProperty")
+SubClassOf(owl:DeprecatedProperty rdf:Property)
+
+# Class: owl:FunctionalProperty (FunctionalProperty)
+
+AnnotationAssertion(rdfs:comment owl:FunctionalProperty "The class of functional properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:FunctionalProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:FunctionalProperty "FunctionalProperty")
+SubClassOf(owl:FunctionalProperty rdf:Property)
+
+# Class: owl:InverseFunctionalProperty (InverseFunctionalProperty)
+
+AnnotationAssertion(rdfs:comment owl:InverseFunctionalProperty "The class of inverse-functional properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:InverseFunctionalProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:InverseFunctionalProperty "InverseFunctionalProperty")
+SubClassOf(owl:InverseFunctionalProperty owl:ObjectProperty)
+
+# Class: owl:IrreflexiveProperty (IrreflexiveProperty)
+
+AnnotationAssertion(rdfs:comment owl:IrreflexiveProperty "The class of irreflexive properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:IrreflexiveProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:IrreflexiveProperty "IrreflexiveProperty")
+SubClassOf(owl:IrreflexiveProperty owl:ObjectProperty)
+
+# Class: owl:NamedIndividual (NamedIndividual)
+
+AnnotationAssertion(rdfs:comment owl:NamedIndividual "The class of named individuals.")
+AnnotationAssertion(rdfs:isDefinedBy owl:NamedIndividual <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:NamedIndividual "NamedIndividual")
+SubClassOf(owl:NamedIndividual owl:Thing)
+
+# Class: owl:NegativePropertyAssertion (NegativePropertyAssertion)
+
+AnnotationAssertion(rdfs:comment owl:NegativePropertyAssertion "The class of negative property assertions.")
+AnnotationAssertion(rdfs:isDefinedBy owl:NegativePropertyAssertion <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:NegativePropertyAssertion "NegativePropertyAssertion")
+SubClassOf(owl:NegativePropertyAssertion rdfs:Resource)
+
+# Class: owl:Nothing (Nothing)
+
+AnnotationAssertion(rdfs:comment owl:Nothing "This is the empty class.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Nothing <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Nothing "Nothing")
+SubClassOf(owl:Nothing owl:Thing)
+
+# Class: owl:ObjectProperty (ObjectProperty)
+
+AnnotationAssertion(rdfs:comment owl:ObjectProperty "The class of object properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:ObjectProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:ObjectProperty "ObjectProperty")
+SubClassOf(owl:ObjectProperty rdf:Property)
+
+# Class: owl:Ontology (Ontology)
+
+AnnotationAssertion(rdfs:comment owl:Ontology "The class of ontologies.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Ontology <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Ontology "Ontology")
+SubClassOf(owl:Ontology rdfs:Resource)
+
+# Class: owl:OntologyProperty (OntologyProperty)
+
+AnnotationAssertion(rdfs:comment owl:OntologyProperty "The class of ontology properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:OntologyProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:OntologyProperty "OntologyProperty")
+SubClassOf(owl:OntologyProperty rdf:Property)
+
+# Class: owl:ReflexiveProperty (ReflexiveProperty)
+
+AnnotationAssertion(rdfs:comment owl:ReflexiveProperty "The class of reflexive properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:ReflexiveProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:ReflexiveProperty "ReflexiveProperty")
+SubClassOf(owl:ReflexiveProperty owl:ObjectProperty)
+
+# Class: owl:Restriction (Restriction)
+
+AnnotationAssertion(rdfs:comment owl:Restriction "The class of property restrictions.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Restriction <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Restriction "Restriction")
+SubClassOf(owl:Restriction owl:Class)
+
+# Class: owl:SymmetricProperty (SymmetricProperty)
+
+AnnotationAssertion(rdfs:comment owl:SymmetricProperty "The class of symmetric properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:SymmetricProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:SymmetricProperty "SymmetricProperty")
+SubClassOf(owl:SymmetricProperty owl:ObjectProperty)
+
+# Class: owl:Thing (Thing)
+
+AnnotationAssertion(rdfs:comment owl:Thing "The class of OWL individuals.")
+AnnotationAssertion(rdfs:isDefinedBy owl:Thing <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:Thing "Thing")
+
+# Class: owl:TransitiveProperty (TransitiveProperty)
+
+AnnotationAssertion(rdfs:comment owl:TransitiveProperty "The class of transitive properties.")
+AnnotationAssertion(rdfs:isDefinedBy owl:TransitiveProperty <http://www.w3.org/2002/07/owl#>)
+AnnotationAssertion(rdfs:label owl:TransitiveProperty "TransitiveProperty")
+SubClassOf(owl:TransitiveProperty owl:ObjectProperty)
+
+
+)

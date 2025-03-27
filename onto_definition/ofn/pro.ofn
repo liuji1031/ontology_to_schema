@@ -1,0 +1,530 @@
+Prefix(:=<http://purl.org/spar/pro/>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(ti:=<http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(tvc:=<http://www.essepuntato.it/2012/04/tvc/>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2004/02/skos/core#>)
+Prefix(terms:=<http://purl.org/dc/terms/>)
+Prefix(tisit:=<http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#>)
+Prefix(sw-vocab-status:=<http://www.w3.org/2003/06/sw-vocab-status/>)
+Prefix(cpannotationschema:=<http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#>)
+
+
+Ontology(<http://purl.org/spar/pro/>
+<http://purl.org/spar/pro/2017-09-04>
+Import(<http://purl.org/spar/foaf>)
+Import(<http://purl.org/spar/tvc>)
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2017-09-04")
+Annotation(dc:description :pro.png)
+Annotation(dc:description "PRO, the Publishing Roles Ontology, is an ontology written in OWL 2 DL for the characterization of the roles of agents (people, corporate bodies and computational agents) in the publication process.  It permits one to specify how an agent has a role relating to a contextual entity, and the period of time during which that role is held.
+
+It is based on the Time-indexed Value in Context (TVC) ontology pattern (http://purl.org/spar/tvc).
+
+It is easy to extend the set of specified roles, simply by adding new individuals to the class pro:PublishingRole.
+
+This ontology is imported into SCoRO, the Scholarly Contribution and Roles Ontology (http://purl.org/spar/scoro/), where it is used similarly to enable the description of a wider range of contributions and roles relating to other scholarly activities and entities, including academic administration, funded projects, research investigations, data and authorship, and to define their temporal extents and contexts, as for publishing roles in PRO."@en)
+Annotation(dc:description "Since roles have contexts and times that are important to take into account (for example, a person can be author of one paper and reviewer of another, while another person will be editor of a journal only for a defined period, not for ever), the PRO ontology permit these contexts to be specified, using an ontological design pattern called the time-indexed value in context (TVC) (http://www.essepuntato.it/2012/04/tvc/) which is imported into PRO.
+
+This ontology design pattern permits one to construct the following RDF statements:
+       foaf:Agent pro:holdsRoleInTime [ a pro:RoleInTime pro:withRole pro:editor ] .
+
+Thus the domain of pro:withRole is not foaf:Agent, but rather an anonymous member of the class pro:RoleInTime, which itself is the range of the property pro:holdsRoleInTime, for which the domain is foaf:Agent.
+
+The range of pro:withRole is the class pro:Role, whose members permit specific roles to be specified.
+
+This single step of indirection permits other contextual and temporal attributes (not shown here) to be specified for this member of the class pro:RoleInTime, putting that role into context.
+
+Exemplar usage:
+
+ foaf:Agent pro:holdsRoleInTime [ a pro:RoleInTime pro:withRole pro:editor ] ."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/)."@en)
+Annotation(dc:title "PRO, the Publishing Roles Ontology"@en)
+Annotation(rdfs:comment "The Publishing Roles Ontology (PRO) is an ontology for the characterisation of the roles of agents – people, corporate bodies and computational agents in the publication process. These agents can be, e.g. authors, editors, reviewers, publishers or librarians.
+
+**URL:** http://purl.org/spar/pro
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/pro
+
+**Cite as:** Peroni, S., Shotton, D., Vitali, F. (2012). Scholarly publishing and the Linked Data: describing roles, statuses, temporal and contextual extents. In Proceedings of the 8th International Conference on Semantic Systems (i-Semantics 2012): 9-16. DOI: https://doi.org/10.1145/2362499.2362502. Open Access at: http://speroni.web.cs.unibo.it/publications/peroni-2012-scholarly-publishing-linked.pdf"@en)
+Annotation(rdfs:comment "This ontology is available at http://purl.org/spar/pro, and uses the namespace prefix pro."@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/PRO/2013-12-18-pro-1_5_3.owl>)
+Annotation(owl:versionInfo "1.5.4")
+
+Declaration(Class(:PublishingRole))
+Declaration(Class(:Role))
+Declaration(Class(:RoleInTime))
+Declaration(Class(tvc:ValueInTime))
+Declaration(Class(tisit:TimeIndexedSituation))
+Declaration(Class(ti:TimeInterval))
+Declaration(Class(foaf:Agent))
+Declaration(Class(foaf:Document))
+Declaration(ObjectProperty(:holdsRoleInTime))
+Declaration(ObjectProperty(:isDocumentContextFor))
+Declaration(ObjectProperty(:isHeldBy))
+Declaration(ObjectProperty(:isOrganizationContextFor))
+Declaration(ObjectProperty(:isPersonContextFor))
+Declaration(ObjectProperty(:isRelatedToRoleInTime))
+Declaration(ObjectProperty(:isRoleIn))
+Declaration(ObjectProperty(:relatesToDocument))
+Declaration(ObjectProperty(:relatesToEntity))
+Declaration(ObjectProperty(:relatesToOrganization))
+Declaration(ObjectProperty(:relatesToPerson))
+Declaration(ObjectProperty(:withRole))
+Declaration(ObjectProperty(tvc:atTime))
+Declaration(ObjectProperty(tvc:hasValue))
+Declaration(ObjectProperty(tvc:withValue))
+Declaration(ObjectProperty(tvc:withinContext))
+Declaration(ObjectProperty(tisit:atTime))
+Declaration(ObjectProperty(tisit:forEntity))
+Declaration(ObjectProperty(tisit:hasTimeIndexedSetting))
+Declaration(DataProperty(ti:hasIntervalDate))
+Declaration(DataProperty(ti:hasIntervalEndDate))
+Declaration(DataProperty(ti:hasIntervalStartDate))
+Declaration(NamedIndividual(:archivist))
+Declaration(NamedIndividual(:author))
+Declaration(NamedIndividual(:authors-agent))
+Declaration(NamedIndividual(:biographer))
+Declaration(NamedIndividual(:blogger))
+Declaration(NamedIndividual(:commissioning-editor))
+Declaration(NamedIndividual(:compiler))
+Declaration(NamedIndividual(:contributor))
+Declaration(NamedIndividual(:copy-editor))
+Declaration(NamedIndividual(:copyright-owner))
+Declaration(NamedIndividual(:critic))
+Declaration(NamedIndividual(:deputy-editor))
+Declaration(NamedIndividual(:distributor))
+Declaration(NamedIndividual(:editor))
+Declaration(NamedIndividual(:editor-in-chief))
+Declaration(NamedIndividual(:executive-editor))
+Declaration(NamedIndividual(:ghost-writer))
+Declaration(NamedIndividual(:guest-editor))
+Declaration(NamedIndividual(:illustrator))
+Declaration(NamedIndividual(:journalist))
+Declaration(NamedIndividual(:librarian))
+Declaration(NamedIndividual(:managing-editor))
+Declaration(NamedIndividual(:peer-reviewer))
+Declaration(NamedIndividual(:printer))
+Declaration(NamedIndividual(:producer))
+Declaration(NamedIndividual(:production-editor))
+Declaration(NamedIndividual(:proof-reader))
+Declaration(NamedIndividual(:publisher))
+Declaration(NamedIndividual(:reader))
+Declaration(NamedIndividual(:reviewer))
+Declaration(NamedIndividual(:senior-editor))
+Declaration(NamedIndividual(:series-editor))
+Declaration(NamedIndividual(:translator))
+Declaration(NamedIndividual(<http://www.opengis.net/def/uom/ISO-8601/0/Gregorian>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Friday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Monday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Saturday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Sunday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Thursday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Tuesday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#Wednesday>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitDay>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitHour>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitMinute>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitMonth>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitSecond>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitWeek>))
+Declaration(NamedIndividual(<http://www.w3.org/2006/time#unitYear>))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(terms:created))
+Declaration(AnnotationProperty(terms:isVersionOf))
+Declaration(AnnotationProperty(terms:license))
+Declaration(AnnotationProperty(terms:modified))
+Declaration(AnnotationProperty(terms:rights))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(rdfs:seeAlso))
+Declaration(AnnotationProperty(xsd:pattern))
+Declaration(AnnotationProperty(owl:versionInfo))
+Declaration(AnnotationProperty(skos:changeNote))
+Declaration(AnnotationProperty(skos:definition))
+Declaration(AnnotationProperty(skos:editorialNote))
+Declaration(AnnotationProperty(skos:historyNote))
+Declaration(AnnotationProperty(skos:note))
+Declaration(AnnotationProperty(skos:prefLabel))
+Declaration(AnnotationProperty(skos:scopeNote))
+Declaration(Datatype(xsd:date))
+Declaration(Datatype(xsd:duration))
+Declaration(Datatype(xsd:gDay))
+Declaration(Datatype(xsd:gMonth))
+Declaration(Datatype(xsd:gYear))
+Declaration(Datatype(xsd:gYearMonth))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :holdsRoleInTime (holds role in time)
+
+AnnotationAssertion(rdfs:comment :holdsRoleInTime "A property relating an agent to a role that the agent holds.  This is done via the indirection: foaf:Agent pro:holdsRoleInTime [ a pro:RoleInTime ; pro:withRole pro:Role ] .  The ontology permits one to specify the time period over which a role is held, and the other contextual entities to which that agent's role relates."@en)
+AnnotationAssertion(rdfs:label :holdsRoleInTime "holds role in time"@en)
+SubObjectPropertyOf(:holdsRoleInTime tvc:hasValue)
+InverseObjectProperties(:holdsRoleInTime :isHeldBy)
+ObjectPropertyDomain(:holdsRoleInTime foaf:Agent)
+ObjectPropertyRange(:holdsRoleInTime :RoleInTime)
+
+# Object Property: :isDocumentContextFor (is document context for)
+
+AnnotationAssertion(rdfs:comment :isDocumentContextFor "A property relating a document to the role for which that document provides the context (e.g. relating a document to the role of author or peer-reviewer of that document)."@en)
+AnnotationAssertion(rdfs:label :isDocumentContextFor "is document context for"@en)
+SubObjectPropertyOf(:isDocumentContextFor :isRelatedToRoleInTime)
+InverseObjectProperties(:isDocumentContextFor :relatesToDocument)
+ObjectPropertyDomain(:isDocumentContextFor foaf:Document)
+
+# Object Property: :isHeldBy (is role held by)
+
+AnnotationAssertion(rdfs:comment :isHeldBy "A property relating a role in time that an agent holds, or a contribution situation that an agent makes, to that agent."@en)
+AnnotationAssertion(rdfs:label :isHeldBy "is role held by"@en)
+SubObjectPropertyOf(:isHeldBy tisit:forEntity)
+ObjectPropertyDomain(:isHeldBy :RoleInTime)
+ObjectPropertyRange(:isHeldBy foaf:Agent)
+
+# Object Property: :isOrganizationContextFor (is organization context for)
+
+AnnotationAssertion(rdfs:comment :isOrganizationContextFor "A property relating an organization to the role for which that organization provides the context (e.g. relating an institution to the role of member held by a person)."@en)
+AnnotationAssertion(rdfs:label :isOrganizationContextFor "is organization context for"@it)
+SubObjectPropertyOf(:isOrganizationContextFor :isRelatedToRoleInTime)
+InverseObjectProperties(:isOrganizationContextFor :relatesToOrganization)
+ObjectPropertyDomain(:isOrganizationContextFor foaf:Organization)
+
+# Object Property: :isPersonContextFor (is person context for)
+
+AnnotationAssertion(rdfs:comment :isPersonContextFor "A property relating a person to the role for which that person provides the context (e.g. relating a graduate student to the role of supervisor held by a faculty member)."@en)
+AnnotationAssertion(rdfs:label :isPersonContextFor "is person context for"@en)
+SubObjectPropertyOf(:isPersonContextFor :isRelatedToRoleInTime)
+
+# Object Property: :isRelatedToRoleInTime (is related to role in time)
+
+AnnotationAssertion(rdfs:comment :isRelatedToRoleInTime "A property relating an entity to the role for which that entity provides the context."@en)
+AnnotationAssertion(rdfs:label :isRelatedToRoleInTime "is related to role in time"@en)
+SubObjectPropertyOf(:isRelatedToRoleInTime tisit:hasTimeIndexedSetting)
+InverseObjectProperties(:isRelatedToRoleInTime :relatesToEntity)
+ObjectPropertyRange(:isRelatedToRoleInTime :RoleInTime)
+
+# Object Property: :isRoleIn (is role in)
+
+AnnotationAssertion(rdfs:comment :isRoleIn "The property relating the definition of a specific role to the situation of an agent holding that role."@en)
+AnnotationAssertion(rdfs:label :isRoleIn "is role in"@en)
+SubObjectPropertyOf(:isRoleIn tisit:hasTimeIndexedSetting)
+InverseObjectProperties(:isRoleIn :withRole)
+ObjectPropertyDomain(:isRoleIn :Role)
+ObjectPropertyRange(:isRoleIn :RoleInTime)
+
+# Object Property: :relatesToDocument (relates to document)
+
+AnnotationAssertion(rdfs:comment :relatesToDocument "A property relating a time-indexed situation describing a publishing role to a document that represents the context for that situation (e.g. relating the role of editor or peer-reviewer to the document being edited or peer-reviewed)."@en)
+AnnotationAssertion(rdfs:label :relatesToDocument "relates to document"@en)
+SubObjectPropertyOf(:relatesToDocument :relatesToEntity)
+ObjectPropertyRange(:relatesToDocument foaf:Document)
+
+# Object Property: :relatesToEntity (relates to)
+
+AnnotationAssertion(rdfs:comment :relatesToEntity "A property relating a time-indexed situation to an entity representing the context for that situation."@en)
+AnnotationAssertion(rdfs:label :relatesToEntity "relates to"@en)
+SubObjectPropertyOf(:relatesToEntity tvc:withinContext)
+ObjectPropertyDomain(:relatesToEntity :RoleInTime)
+
+# Object Property: :relatesToOrganization (relates to organization)
+
+AnnotationAssertion(rdfs:comment :relatesToOrganization "A property relating a time-indexed situation to an organization that represents the context for that situation (e.g. relating the role of member to the institution of which that person is a member)."@en)
+AnnotationAssertion(rdfs:label :relatesToOrganization "relates to organization"@en)
+SubObjectPropertyOf(:relatesToOrganization :relatesToEntity)
+ObjectPropertyRange(:relatesToOrganization foaf:Organization)
+
+# Object Property: :relatesToPerson (relates to person)
+
+AnnotationAssertion(rdfs:comment :relatesToPerson "A property relating a time-indexed situation to a person who represents the context for that situation (e.g. relating the role of an supervisor with respect to the graduate student being supervised)."@en)
+AnnotationAssertion(rdfs:label :relatesToPerson "relates to person"@en)
+SubObjectPropertyOf(:relatesToPerson :relatesToEntity)
+ObjectPropertyRange(:relatesToPerson foaf:Person)
+
+# Object Property: :withRole (with role)
+
+AnnotationAssertion(rdfs:comment :withRole "An object property connecting an agent's role in time to a definition of the type of role held by this agent, specified as an instance of the class pro:Role or of one of its sub-classes."@en)
+AnnotationAssertion(rdfs:label :withRole "with role"@en)
+SubObjectPropertyOf(:withRole tvc:withValue)
+FunctionalObjectProperty(:withRole)
+ObjectPropertyDomain(:withRole :RoleInTime)
+ObjectPropertyRange(:withRole :Role)
+
+# Object Property: tisit:atTime (at time)
+
+AnnotationAssertion(rdfs:comment tisit:atTime "A time interval during which a role is held or a contribution is made by an agent."@en)
+AnnotationAssertion(rdfs:label tisit:atTime "at time"@en)
+FunctionalObjectProperty(tisit:atTime)
+
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :PublishingRole (publishing role)
+
+AnnotationAssertion(rdfs:comment :PublishingRole "A role an agent may have with respect to the publishing process.  Individual members of this class are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label :PublishingRole "publishing role"@en)
+SubClassOf(:PublishingRole :Role)
+
+# Class: :Role (role)
+
+AnnotationAssertion(rdfs:comment :Role "A role an agent may have.  Individual members of this class or its sub-classes are used to specify particular roles."@en)
+AnnotationAssertion(rdfs:label :Role "role"@en)
+SubClassOf(:Role owl:Thing)
+
+# Class: :RoleInTime (role in time)
+
+AnnotationAssertion(dc:description :RoleInTime "A role in time describes always:
+- a particular role R
+- a particular agent A holding R
+- a particular time interval T in which A holds R (optional)
+- one or more entities (e.g. a particular bibliographic entity or a specific institution) that defines a context for R held by A. (At least one contextual entity should be specified for a particular role)."@en)
+AnnotationAssertion(rdfs:comment :RoleInTime "A particular situation that describe a role an agent may have, that can be restricted to a particular time interval."@en)
+AnnotationAssertion(rdfs:label :RoleInTime "role in time"@en)
+SubClassOf(:RoleInTime tvc:ValueInTime)
+SubClassOf(:RoleInTime ObjectSomeValuesFrom(:relatesToEntity owl:Thing))
+SubClassOf(:RoleInTime ObjectSomeValuesFrom(:withRole :Role))
+SubClassOf(:RoleInTime ObjectSomeValuesFrom(tvc:atTime ti:TimeInterval))
+SubClassOf(:RoleInTime ObjectAllValuesFrom(tvc:atTime ObjectIntersectionOf(ti:TimeInterval DataAllValuesFrom(ti:hasIntervalDate xsd:dateTime))))
+SubClassOf(:RoleInTime ObjectExactCardinality(1 :isHeldBy foaf:Agent))
+
+# Class: ti:TimeInterval (Time interval)
+
+AnnotationAssertion(rdfs:comment ti:TimeInterval "Two (starting and ending) points in time that define a particular period of time."@en)
+AnnotationAssertion(rdfs:label ti:TimeInterval "time interval"@en)
+
+# Class: foaf:Agent ((foaf) Agent)
+
+AnnotationAssertion(rdfs:comment foaf:Agent "An abstract class defining any kind of agents, such as a person, a group, an organization or a software agent."@en)
+AnnotationAssertion(rdfs:label foaf:Agent "agent"@en)
+
+# Class: foaf:Document ((foaf) Document)
+
+AnnotationAssertion(rdfs:comment foaf:Document "An abstract class defining any kinds of publishing work."@en)
+AnnotationAssertion(rdfs:label foaf:Document "document"@en)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :archivist (archivist)
+
+AnnotationAssertion(rdfs:comment :archivist "The role of a person who manages, undertakes and supervises the work of an archive.  [This term is typically used with respect to a document archive, whereas the term data curator is used with respect to a data archive.]"@en)
+AnnotationAssertion(rdfs:label :archivist "archivist"@en)
+ClassAssertion(:PublishingRole :archivist)
+
+# Individual: :author (author)
+
+AnnotationAssertion(rdfs:comment :author "The role a person has of authorship of some material (for example a document)."@en)
+AnnotationAssertion(rdfs:label :author "author"@en)
+ClassAssertion(:PublishingRole :author)
+
+# Individual: :authors-agent (author's agent)
+
+AnnotationAssertion(rdfs:comment :authors-agent "A person who finds work for professional authors, manages their contracts, and works to advance their careers, charging their clients as fees for their services a percentage of the money made from the authors' writings."@en)
+AnnotationAssertion(rdfs:label :authors-agent "author's agent"@en)
+ClassAssertion(:PublishingRole :authors-agent)
+
+# Individual: :biographer (biographer)
+
+AnnotationAssertion(rdfs:comment :biographer "The role of an author who writes biographies."@en)
+AnnotationAssertion(rdfs:label :biographer "biographer"@en)
+ClassAssertion(:PublishingRole :biographer)
+
+# Individual: :blogger (blogger)
+
+AnnotationAssertion(rdfs:comment :blogger "The role of an author who writes blog posts."@en)
+AnnotationAssertion(rdfs:label :blogger "blogger"@en)
+ClassAssertion(:PublishingRole :blogger)
+
+# Individual: :commissioning-editor (commissioning editor)
+
+AnnotationAssertion(rdfs:comment :commissioning-editor "The role of an editor who actively commissions authors to write books to be published by the publishing house for which the commissioning editor works."@en)
+AnnotationAssertion(rdfs:label :commissioning-editor "commissioning editor"@en)
+ClassAssertion(:PublishingRole :commissioning-editor)
+
+# Individual: :compiler (compiler)
+
+AnnotationAssertion(rdfs:comment :compiler "The role an agent has of compiling a number of items into a compilation or collection."@en)
+AnnotationAssertion(rdfs:label :compiler "compiler"@en)
+ClassAssertion(:PublishingRole :compiler)
+
+# Individual: :contributor (contributor)
+
+AnnotationAssertion(rdfs:comment :contributor "The role an agent has of contribution of some material (for example an article to a magazine)."@en)
+AnnotationAssertion(rdfs:label :contributor "contributor"@en)
+ClassAssertion(:PublishingRole :contributor)
+
+# Individual: :copy-editor (copy editor)
+
+AnnotationAssertion(rdfs:comment :copy-editor "The role of an editor who undertakes alterations to the text of a document submitted for publication to improve the formatting, style and accuracy of text, or to bring the text into the house style of the publisher (e.g. Americanization of British spelling), without intentionally altering the substance or meaning of the text."@en)
+AnnotationAssertion(rdfs:label :copy-editor "copy editor"@en)
+ClassAssertion(:PublishingRole :copy-editor)
+
+# Individual: :copyright-owner (copyright owner)
+
+AnnotationAssertion(rdfs:comment :copyright-owner "The role of owning the copyright to a publication, usually held by the author or by the publishing house that publishes the author's work."@en)
+AnnotationAssertion(rdfs:label :copyright-owner "copyright owner"@en)
+ClassAssertion(:PublishingRole :copyright-owner)
+
+# Individual: :critic (critic)
+
+AnnotationAssertion(rdfs:comment :critic "The role of an author who writes evaluations and criticisms of, for example, plays or other works of art."@en)
+AnnotationAssertion(rdfs:label :critic "critic"@en)
+AnnotationAssertion(rdfs:seeAlso :critic :reviewer)
+ClassAssertion(:PublishingRole :critic)
+
+# Individual: :deputy-editor (deputy editor)
+
+AnnotationAssertion(rdfs:comment :deputy-editor "The role of a senior editor of a publication who deputizes for the Editor-in-Chief."@en)
+AnnotationAssertion(rdfs:label :deputy-editor "deputy editor"@en)
+ClassAssertion(:PublishingRole :deputy-editor)
+
+# Individual: :distributor (distributor)
+
+AnnotationAssertion(rdfs:comment :distributor "The role of a person who distributes or disseminates publications or other resources."@en)
+AnnotationAssertion(rdfs:label :distributor "distributor"@en)
+ClassAssertion(:PublishingRole :distributor)
+
+# Individual: :editor (editor)
+
+AnnotationAssertion(rdfs:comment :editor "The role of a person who selects and prepares for publication material created and submitted by authors, having oversight of its content, format and presentation."@en)
+AnnotationAssertion(rdfs:label :editor "editor"@en)
+ClassAssertion(:PublishingRole :editor)
+
+# Individual: :editor-in-chief (editor-in-chief)
+
+AnnotationAssertion(rdfs:comment :editor-in-chief "The role of the person who has final responsibility for the editorial operations and policies for a particular publication."@en)
+AnnotationAssertion(rdfs:label :editor-in-chief "editor-in-chief"@en)
+ClassAssertion(:PublishingRole :editor-in-chief)
+
+# Individual: :executive-editor (executive editor)
+
+AnnotationAssertion(rdfs:comment :executive-editor "The role of an editor who has executive responsibility for the production of particular publication, usually acting under the authority of the Editor-in-Chief."@en)
+AnnotationAssertion(rdfs:label :executive-editor "executive editor"@en)
+ClassAssertion(:PublishingRole :executive-editor)
+
+# Individual: :ghost-writer (ghost writer)
+
+AnnotationAssertion(rdfs:comment :ghost-writer "The role of a professional writer who assists an aspiring author lacking authorship skills to write a book or article for publication, for example by helping the author to create grammatically correct and lucid prose, or who writes the book on behalf of the named author, without himself/herself claiming authorship."@en)
+AnnotationAssertion(rdfs:label :ghost-writer "ghost writer"@en)
+ClassAssertion(:PublishingRole :ghost-writer)
+
+# Individual: :guest-editor (guest editor)
+
+AnnotationAssertion(rdfs:comment :guest-editor "The role of someone who is a guest editor, for example for a special themed issue of a journal."@en)
+AnnotationAssertion(rdfs:label :guest-editor "guest editor"@en)
+ClassAssertion(:PublishingRole :guest-editor)
+
+# Individual: :illustrator (illustrator)
+
+AnnotationAssertion(rdfs:comment :illustrator "The role of an agent that illustrates a document."@en)
+AnnotationAssertion(rdfs:label :illustrator "illustrator"@en)
+ClassAssertion(:PublishingRole :illustrator)
+
+# Individual: :journalist (journalist)
+
+AnnotationAssertion(rdfs:comment :journalist "The role of an author who writes newspaper or magazine news reports or articles."@en)
+AnnotationAssertion(rdfs:label :journalist "journalist"@en)
+ClassAssertion(:PublishingRole :journalist)
+
+# Individual: :librarian (librarian)
+
+AnnotationAssertion(rdfs:comment :librarian "The role of a person who manages, undertakes and supervises the work of a library."@en)
+AnnotationAssertion(rdfs:label :librarian "librarian"@en)
+ClassAssertion(:PublishingRole :librarian)
+
+# Individual: :managing-editor (managing editor)
+
+AnnotationAssertion(rdfs:comment :managing-editor "The role of an editor who has management responsibility for the production of particular publication, usually acting under the authority of the Executive Editor and the Editor-in-Chief."@en)
+AnnotationAssertion(rdfs:label :managing-editor "managing editor"@en)
+ClassAssertion(:PublishingRole :managing-editor)
+
+# Individual: :peer-reviewer (peer reviewer)
+
+AnnotationAssertion(rdfs:comment :peer-reviewer "The role of an academic peer in evaluating a manuscript submitted by an author for publication as a journal article on behalf of the journal editor, or a conference paper on behalf of the conference programme committee, and in deciding whether it is suitable for acceptance, usually subject to revisions suggested by the peer-reviewer."@en)
+AnnotationAssertion(rdfs:label :peer-reviewer "peer reviewer"@en)
+AnnotationAssertion(rdfs:seeAlso :peer-reviewer :reviewer)
+ClassAssertion(:PublishingRole :peer-reviewer)
+
+# Individual: :printer (printer)
+
+AnnotationAssertion(rdfs:comment :printer "The role of an agent involved in printing documents, either a company providing printing services or an individual engaged in the process of printing documents."@en)
+AnnotationAssertion(rdfs:label :printer "printer"@en)
+ClassAssertion(:PublishingRole :printer)
+
+# Individual: :producer (producer)
+
+AnnotationAssertion(rdfs:comment :producer "The role of someone who acts as a producer."@en)
+AnnotationAssertion(rdfs:label :producer "producer"@en)
+ClassAssertion(:PublishingRole :producer)
+
+# Individual: :production-editor (production editor)
+
+AnnotationAssertion(rdfs:comment :production-editor "The role of an editor who takes responsibility for the passage of a document through the various stages of the publication workflow from the submitted manuscript to the final publication, including responsibility for scheduling and budget."@en)
+AnnotationAssertion(rdfs:label :production-editor "production editor"@en)
+ClassAssertion(:PublishingRole :production-editor)
+
+# Individual: :proof-reader (proof reader)
+
+AnnotationAssertion(rdfs:comment :proof-reader "The role of a person who reads the proofs of documents to detect any errors prior to final publication."@en)
+AnnotationAssertion(rdfs:label :proof-reader "proof reader"@en)
+ClassAssertion(:PublishingRole :proof-reader)
+
+# Individual: :publisher (publisher)
+
+AnnotationAssertion(rdfs:comment :publisher "The role of a person or an organization that published material, or of a publisher's employee who has responsibility for such publications."@en)
+AnnotationAssertion(rdfs:label :publisher "publisher"@en)
+ClassAssertion(:PublishingRole :publisher)
+
+# Individual: :reader (reader)
+
+AnnotationAssertion(rdfs:comment :reader "The role of a person who reads publications."@en)
+AnnotationAssertion(rdfs:label :reader "reader"@en)
+ClassAssertion(:PublishingRole :reader)
+
+# Individual: :reviewer (reviewer)
+
+AnnotationAssertion(rdfs:comment :reviewer "The role of a person who subjects a publication to a written review and critical analysis of its content, scope and quality."@en)
+AnnotationAssertion(rdfs:label :reviewer "reviewer"@en)
+ClassAssertion(:PublishingRole :reviewer)
+
+# Individual: :senior-editor (senior editor)
+
+AnnotationAssertion(rdfs:comment :senior-editor "The role of the person who has senior responsibility for the editorial operations and policies for a particular publication, usually acting under the authority of the Editor-in-Chief."@en)
+AnnotationAssertion(rdfs:label :senior-editor "senior editor"@en)
+ClassAssertion(:PublishingRole :senior-editor)
+
+# Individual: :series-editor (series editor)
+
+AnnotationAssertion(rdfs:comment :series-editor "The role of the person who has editorial responsibility for publication series, for example a book series."@en)
+AnnotationAssertion(rdfs:label :series-editor "series editor"@en)
+ClassAssertion(:PublishingRole :series-editor)
+
+# Individual: :translator (translator)
+
+AnnotationAssertion(rdfs:comment :translator "The role of an agent that translates a document into another language."@en)
+AnnotationAssertion(rdfs:label :translator "translator"@en)
+ClassAssertion(:PublishingRole :translator)
+
+
+)

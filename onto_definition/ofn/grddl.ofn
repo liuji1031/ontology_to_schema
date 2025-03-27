@@ -1,0 +1,182 @@
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(admin:=<http://webns.net/mvcb/>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(doap:=<http://usefulinc.com/ns/doap#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+
+
+Ontology(
+Declaration(Class(owl:FunctionalProperty))
+Declaration(Class(<http://www.w3.org/2003/g/data-view#InformationResource>))
+Declaration(Class(<http://www.w3.org/2003/g/data-view#RDFGraph>))
+Declaration(Class(<http://www.w3.org/2003/g/data-view#RootNode>))
+Declaration(Class(<http://www.w3.org/2003/g/data-view#Transformation>))
+Declaration(Class(<http://www.w3.org/2003/g/data-view#TransformationProperty>))
+Declaration(ObjectProperty(<http://www.w3.org/2003/g/data-view#TransformationProperty>))
+Declaration(ObjectProperty(<http://www.w3.org/2003/g/data-view#namespaceTransformation>))
+Declaration(ObjectProperty(<http://www.w3.org/2003/g/data-view#profileTransformation>))
+Declaration(ObjectProperty(<http://www.w3.org/2003/g/data-view#result>))
+Declaration(ObjectProperty(<http://www.w3.org/2003/g/data-view#transformation>))
+Declaration(ObjectProperty(<http://www.w3.org/2003/g/data-view#transformationProperty>))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(doap:homepage))
+Declaration(AnnotationProperty(doap:mailing-list))
+Declaration(AnnotationProperty(doap:shortdesc))
+Declaration(AnnotationProperty(admin:generatorAgent))
+Declaration(AnnotationProperty(<http://www.rddl.org/purposes#normative-reference>))
+Declaration(AnnotationProperty(foaf:homepage))
+Declaration(AnnotationProperty(foaf:maker))
+Declaration(AnnotationProperty(foaf:name))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://www.w3.org/2003/g/data-view#TransformationProperty> (TransformationProperty)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#TransformationProperty> "a FunctionalProperty that relates
+    XML document root nodes to
+    RDF graphs")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#TransformationProperty> "TransformationProperty")
+ObjectPropertyDomain(<http://www.w3.org/2003/g/data-view#TransformationProperty> <http://www.w3.org/2003/g/data-view#RootNode>)
+ObjectPropertyRange(<http://www.w3.org/2003/g/data-view#TransformationProperty> <http://www.w3.org/2003/g/data-view#RDFGraph>)
+
+# Object Property: <http://www.w3.org/2003/g/data-view#namespaceTransformation> (namespaceTransformation)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#namespaceTransformation> "relates a namespace to a transformation for
+    all documents in that namespace")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#namespaceTransformation> "namespaceTransformation")
+ObjectPropertyRange(<http://www.w3.org/2003/g/data-view#namespaceTransformation> <http://www.w3.org/2003/g/data-view#Transformation>)
+
+# Object Property: <http://www.w3.org/2003/g/data-view#profileTransformation> (profileTransformation)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#profileTransformation> "relates a profile document to a
+    transformation for all documents bearing that profile")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#profileTransformation> "profileTransformation")
+ObjectPropertyRange(<http://www.w3.org/2003/g/data-view#profileTransformation> <http://www.w3.org/2003/g/data-view#Transformation>)
+
+# Object Property: <http://www.w3.org/2003/g/data-view#result> (result)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#result> "an
+    RDF graph obtained from an information resource by directly
+    parsing a representation in the standard RDF/XML syntax or
+    indirectly by parsing some other dialect using a transformation
+    nominated by the document")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#result> "result")
+ObjectPropertyDomain(<http://www.w3.org/2003/g/data-view#result> <http://www.w3.org/2003/g/data-view#InformationResource>)
+ObjectPropertyRange(<http://www.w3.org/2003/g/data-view#result> <http://www.w3.org/2003/g/data-view#RDFGraph>)
+
+# Object Property: <http://www.w3.org/2003/g/data-view#transformation> (transformation)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#transformation> "relates a source document to a
+    transformation, usually represented in XSLT, that relates the source document syntax
+    to the RDF graph syntax")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#transformation> "transformation")
+ObjectPropertyDomain(<http://www.w3.org/2003/g/data-view#transformation> <http://www.w3.org/2003/g/data-view#RootNode>)
+ObjectPropertyRange(<http://www.w3.org/2003/g/data-view#transformation> <http://www.w3.org/2003/g/data-view#Transformation>)
+
+# Object Property: <http://www.w3.org/2003/g/data-view#transformationProperty> (transformationProperty)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#transformationProperty> "relates a transformation to the algorithm
+    specified by the property that computes an RDF graph from an XML
+    document node")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#transformationProperty> "transformationProperty")
+FunctionalObjectProperty(<http://www.w3.org/2003/g/data-view#transformationProperty>)
+ObjectPropertyDomain(<http://www.w3.org/2003/g/data-view#transformationProperty> <http://www.w3.org/2003/g/data-view#Transformation>)
+ObjectPropertyRange(<http://www.w3.org/2003/g/data-view#transformationProperty> <http://www.w3.org/2003/g/data-view#TransformationProperty>)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: owl:FunctionalProperty (FunctionalProperty)
+
+AnnotationAssertion(rdfs:label owl:FunctionalProperty "FunctionalProperty")
+
+# Class: <http://www.w3.org/2003/g/data-view#InformationResource> (InformationResource)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#InformationResource> "A resource which has the property that all of its essential characteristics can be conveyed in a message")
+AnnotationAssertion(rdfs:isDefinedBy <http://www.w3.org/2003/g/data-view#InformationResource> <http://www.w3.org/TR/2004/REC-webarch-20041215/#def-information-resource>)
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#InformationResource> "InformationResource")
+
+# Class: <http://www.w3.org/2003/g/data-view#RDFGraph> (RDFGraph)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#RDFGraph> "a
+    set of RDF triples")
+AnnotationAssertion(rdfs:isDefinedBy <http://www.w3.org/2003/g/data-view#RDFGraph> <http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-rdf-graph>)
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#RDFGraph> "RDF graphs")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#RDFGraph> "RDFGraph")
+
+# Class: <http://www.w3.org/2003/g/data-view#RootNode> (XML document root nodes)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#RootNode> "the root of the tree in the XPath data
+    model")
+AnnotationAssertion(rdfs:isDefinedBy <http://www.w3.org/2003/g/data-view#RootNode> <http://www.w3.org/TR/1999/REC-xpath-19991116#root-node>)
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#RootNode> "RootNode")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#RootNode> "XML document root nodes")
+
+# Class: <http://www.w3.org/2003/g/data-view#Transformation> (Transformation)
+
+AnnotationAssertion(rdfs:comment <http://www.w3.org/2003/g/data-view#Transformation> "an InformationResource that specifies
+    a transformation from a set of XML documents to RDF graphs")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2003/g/data-view#Transformation> "Transformation")
+SubClassOf(<http://www.w3.org/2003/g/data-view#Transformation> <http://www.w3.org/2003/g/data-view#InformationResource>)
+
+# Class: <http://www.w3.org/2003/g/data-view#TransformationProperty> (TransformationProperty)
+
+SubClassOf(<http://www.w3.org/2003/g/data-view#TransformationProperty> owl:FunctionalProperty)
+
+
+AnnotationAssertion(rdfs:label <http://lists.w3.org/Archives/Public/public-grddl-comments/> "public-grddl-comments")
+AnnotationAssertion(rdfs:label <http://www.w3.org/2001/sw-grddl-wg/> "the GRDDL Working Group")
+AnnotationAssertion(admin:generatorAgent <http://www.w3.org/2003/g/data-view> <http://purl.org/NET/erdf/extract>)
+AnnotationAssertion(<http://www.rddl.org/purposes#normative-reference> <http://www.w3.org/2003/g/data-view> <http://www.w3.org/TR/xslt>)
+AnnotationAssertion(<http://www.rddl.org/purposes#normative-reference> <http://www.w3.org/2003/g/data-view> <http://www.w3.org/TR/grddl/>)
+AnnotationAssertion(<http://www.rddl.org/purposes#normative-reference> <http://www.w3.org/2003/g/data-view> <http://www.w3.org/TR/rdf-concepts/>)
+AnnotationAssertion(foaf:maker <http://www.w3.org/2003/g/data-view> <http://www.w3.org/2003/g/data-view#grddl-wg>)
+AnnotationAssertion(foaf:homepage <http://www.w3.org/2003/g/data-view#danc> <http://www.w3.org/People/Connolly/>)
+AnnotationAssertion(foaf:name <http://www.w3.org/2003/g/data-view#danc> "Dan Connolly")
+AnnotationAssertion(foaf:homepage <http://www.w3.org/2003/g/data-view#grddl-wg> <http://www.w3.org/2001/sw-grddl-wg/>)
+AnnotationAssertion(doap:homepage <http://www.w3.org/2003/g/data-view#grddlProject> <http://www.w3.org/2003/g/data-view>)
+AnnotationAssertion(doap:mailing-list <http://www.w3.org/2003/g/data-view#grddlProject> <http://lists.w3.org/Archives/Public/public-grddl-comments/>)
+AnnotationAssertion(doap:shortdesc <http://www.w3.org/2003/g/data-view#grddlProject> "GRDDL
+    is a technique for gleaning resource
+    descriptions from dialects of
+    languages. It's a way of extracting Semantic Web
+    data in RDF from XML formats (especially
+    XHTML dialects or microformats) via
+    transformations identified by URIs and typically expressed in
+    XSLT.")
+AnnotationAssertion(rdfs:label <http://www.w3.org/People/Connolly/> "Dan Connolly")
+AnnotationAssertion(rdfs:label <http://www.w3.org/TR/xslt> "XSLT")
+AnnotationAssertion(rdfs:label <http://www.w3.org/TR/1999/REC-xpath-19991116#root-node> "section
+    5.1 Root Node in XML Path Language (XPath) Version
+    1.0")
+AnnotationAssertion(rdfs:label <http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-rdf-graph> "definition
+    in Resource Description Framework (RDF): Concepts and
+    Abstract Syntax")
+AnnotationAssertion(rdfs:label <http://www.w3.org/TR/2004/REC-webarch-20041215/#def-information-resource> "definition in Architecture of the World Wide Web, Volume One")
+AnnotationAssertion(dc:date <http://www.w3.org/TR/grddl/> "2005-05-15")
+AnnotationAssertion(dc:title <http://www.w3.org/TR/grddl/> "Gleaning
+        Resource Descriptions from Dialects of Languages
+        (GRDDL)")
+AnnotationAssertion(rdfs:label <http://www.w3.org/TR/grddl/> "Gleaning
+        Resource Descriptions from Dialects of Languages
+        (GRDDL), 16
+        May 2005")
+AnnotationAssertion(dc:date <http://www.w3.org/TR/rdf-concepts/> "2004-02-10")
+AnnotationAssertion(dc:title <http://www.w3.org/TR/rdf-concepts/> "Resource
+      Description Framework (RDF): Concepts and Abstract
+      Syntax")
+AnnotationAssertion(rdfs:label <http://www.w3.org/TR/rdf-concepts/> "Resource
+      Description Framework (RDF): Concepts and Abstract
+      Syntax, 10
+      February 2004")
+)

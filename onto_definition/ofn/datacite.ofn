@@ -1,0 +1,849 @@
+Prefix(:=<http://purl.org/spar/datacite#>)
+Prefix(co:=<http://purl.org/co/>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2004/02/skos/core#>)
+Prefix(fabio:=<http://purl.org/spar/fabio/>)
+Prefix(dcterms:=<http://purl.org/dc/terms/>)
+Prefix(literal:=<http://www.essepuntato.it/2010/06/literalreification/>)
+
+
+Ontology(<http://purl.org/spar/datacite>
+<http://purl.org/spar/datacite/2022-09-15>
+Import(<http://purl.org/spar/literal>)
+Annotation(dc:contributor "Amy J. Barton")
+Annotation(dc:contributor "Egbert Gramsbergen")
+Annotation(dc:contributor "Jan Ashton")
+Annotation(dc:contributor "Marie-Christine Jacquemot")
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2022-09-15")
+Annotation(dc:description <http://purl.org/spar/datacite/datacite.png>)
+Annotation(dc:description "The DataCite Ontology is an ontology written in OWL 2 DL to enable the metadata properties of the [DataCite Metadata Kernel Specification version 3.1](https://www.datacite.org/sites/default/files/document/DataCite-MetadataSchema_V31_Final_8-24-2015_0.pdf) to be described in RDF.
+
+This version of the DataCite Ontology has been completely revised and significantly expanded to permit accurate mapping of this new version of the DataCite Metadata Kernel Specification to RDF."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/)."@en)
+Annotation(dc:title "The DataCite Ontology"@en)
+Annotation(rdfs:comment "The DataCite Ontology (DataCite) is an ontology that enables the metadata properties of the DataCite Metadata Schema Specification (i.e., a list of metadata properties for the accurate and consistent identification of a resource for citation and retrieval purposes) to be described in RDF.
+
+**URL:** http://purl.org/spar/datacite
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**Contributors:** [Amy J. Barton](https://orcid.org/0000-0002-2184-3723), [Egbert Gramsbergen](https://www.linkedin.com/in/egbertgramsbergen/), [Jan Ashton](https://www.bl.uk/people/experts/janet-ashton), [Marie-Christine Jacquemot](https://orcid.org/0000-0002-6316-1472)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/datacite"@en)
+Annotation(owl:priorVersion <http://purl.org/spar/datacite/2021-09-24>)
+Annotation(owl:versionInfo "1.2")
+
+Declaration(Class(co:List))
+Declaration(Class(<http://purl.org/spar/datacite/AgentIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/AgentIdentifierScheme>))
+Declaration(Class(<http://purl.org/spar/datacite/AlternateResourceIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/DescriptionType>))
+Declaration(Class(<http://purl.org/spar/datacite/FunderIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/FunderIdentifierScheme>))
+Declaration(Class(<http://purl.org/spar/datacite/Identifier>))
+Declaration(Class(<http://purl.org/spar/datacite/IdentifierScheme>))
+Declaration(Class(<http://purl.org/spar/datacite/MetadataScheme>))
+Declaration(Class(<http://purl.org/spar/datacite/OrganizationIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/OrganizationIdentifierScheme>))
+Declaration(Class(<http://purl.org/spar/datacite/PersonalIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/PersonalIdentifierScheme>))
+Declaration(Class(<http://purl.org/spar/datacite/PrimaryResourceIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/ResourceIdentifier>))
+Declaration(Class(<http://purl.org/spar/datacite/ResourceIdentifierScheme>))
+Declaration(Class(literal:Literal))
+Declaration(Class(skos:Concept))
+Declaration(ObjectProperty(dcterms:type))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/hasCreatorList>))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/hasDescription>))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/hasDescriptionType>))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/hasGeneralResourceType>))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/hasIdentifier>))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/usesIdentifierScheme>))
+Declaration(ObjectProperty(<http://purl.org/spar/datacite/usesMetadataScheme>))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(DataProperty(fabio:hasURL))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/abstract>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/acm>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/ark>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/arxiv>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/bibcode>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/crossref>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/dblp>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/dblp-record>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/dia>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/dnb>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/doi>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/ean13>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/eissn>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/fundref>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/gepris>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/github>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/gitlab>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/gnd>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/google-scholar>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/handle>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/ieee>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/infouri>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/isbn>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/isni>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/issn>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/istc>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/jst>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/lattes>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/linkedin>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/lissn>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/loc>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/local-funder-identifier-scheme>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/local-organization-identifier-scheme>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/local-personal-identifier-scheme>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/local-resource-identifier-scheme>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/lsid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/math-genealogy>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/methods>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/national-insurance-number>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/nihmsid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/nii>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/oci>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/oclc>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/openalex>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/openid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/orcid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/other>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/pii>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/pmcid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/pmid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/purl>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/repec>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/research-gate>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/researcherid>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/ror>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/scigraph>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/series-information>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/sici>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/social-security-number>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/spar>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/table-of-content>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/twitter>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/upc>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/uri>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/url>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/urn>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/viaf>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/wikidata>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/wikipedia>))
+Declaration(NamedIndividual(<http://purl.org/spar/datacite/zbmath>))
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(owl:priorVersion))
+Declaration(AnnotationProperty(owl:versionInfo))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://purl.org/spar/datacite/hasCreatorList> (has creator list)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/hasCreatorList> "This property allows one to specify the list of the creators of a certain resource."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/hasCreatorList> "has creator list"@en)
+ObjectPropertyDomain(<http://purl.org/spar/datacite/hasCreatorList> ObjectSomeValuesFrom(<http://purl.org/spar/datacite/hasIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>))
+ObjectPropertyRange(<http://purl.org/spar/datacite/hasCreatorList> co:List)
+
+# Object Property: <http://purl.org/spar/datacite/hasDescription> (has description)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/hasDescription> "An object property permitting specification of an entity used to describe a resource."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/hasDescription> "has description"@en)
+ObjectPropertyDomain(<http://purl.org/spar/datacite/hasDescription> ObjectSomeValuesFrom(<http://purl.org/spar/datacite/hasIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>))
+ObjectPropertyRange(<http://purl.org/spar/datacite/hasDescription> ObjectExactCardinality(1 <http://purl.org/spar/datacite/hasDescriptionType>))
+
+# Object Property: <http://purl.org/spar/datacite/hasDescriptionType> (has description type)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/hasDescriptionType> "An object property permitting specification of the type of description used to describe a resource, defined as an individual of the class datacite:DescriptionType from the DataCite controlled list of Abstract, SeriesInformation, TableOfContent and Other."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/hasDescriptionType> "has description type"@en)
+SubObjectPropertyOf(<http://purl.org/spar/datacite/hasDescriptionType> dcterms:type)
+ObjectPropertyDomain(<http://purl.org/spar/datacite/hasDescriptionType> ObjectAllValuesFrom(ObjectInverseOf(<http://purl.org/spar/datacite/hasDescription>) ObjectSomeValuesFrom(<http://purl.org/spar/datacite/hasIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>)))
+ObjectPropertyRange(<http://purl.org/spar/datacite/hasDescriptionType> <http://purl.org/spar/datacite/DescriptionType>)
+
+# Object Property: <http://purl.org/spar/datacite/hasGeneralResourceType> (has general resource type)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/hasGeneralResourceType> "An object property permitting specification of the general type of a resource, defined from the DataCite controlled list, namely:
+
+* dcmitype:MovingImage;
+* dcmitype:Collection;
+* dcmitype:Dataset;
+* dcmitype:Event;
+* dcmitype:dcmitype:StillImage;
+* dcmitype:InteractiveResource;
+* fabio:Model;
+* dcmitype:PhysicalObject;
+* dcmitype:Service;
+* dcmitype:Software;
+* dcmitype:Sound;
+* dcmitype:Text;
+* fabio:Workflow;
+* frbr:Endeavour.
+
+All the prefixes used here refer to external ontologies, i.e., DC Metadata Terms (dcmitype: http://purl.org/dc/dcmitype/), FaBiO (fabio: http://purl.org/spar/fabio/), and FRBR (frbr: http://purl.org/vocab/frbr/core#)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/hasGeneralResourceType> "has general resource type"@en)
+SubObjectPropertyOf(<http://purl.org/spar/datacite/hasGeneralResourceType> dcterms:type)
+ObjectPropertyDomain(<http://purl.org/spar/datacite/hasGeneralResourceType> ObjectSomeValuesFrom(<http://purl.org/spar/datacite/hasIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>))
+ObjectPropertyRange(<http://purl.org/spar/datacite/hasGeneralResourceType> skos:Concept)
+
+# Object Property: <http://purl.org/spar/datacite/hasIdentifier> (has identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/hasIdentifier> "An object property specifying a datacite:Identifier that provides a unique identifer for the entity (either a funder, a person or a resource)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/hasIdentifier> "has identifier"@en)
+InverseFunctionalObjectProperty(<http://purl.org/spar/datacite/hasIdentifier>)
+ObjectPropertyRange(<http://purl.org/spar/datacite/hasIdentifier> <http://purl.org/spar/datacite/Identifier>)
+
+# Object Property: <http://purl.org/spar/datacite/usesIdentifierScheme> (uses identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/usesIdentifierScheme> "An object property permitting specification of the identifier scheme used to provide the identifier for an entity – either a funder, a person or a resource – defined as an individual of the class datacite:IdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/usesIdentifierScheme> "uses identifier scheme"@en)
+ObjectPropertyDomain(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/Identifier>)
+ObjectPropertyRange(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/IdentifierScheme>)
+
+# Object Property: <http://purl.org/spar/datacite/usesMetadataScheme> (uses metadata scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/usesMetadataScheme> "The link between a metadata document and the scheme followed for creating metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/usesMetadataScheme> "uses metadata scheme"@en)
+ObjectPropertyRange(<http://purl.org/spar/datacite/usesMetadataScheme> <http://purl.org/spar/datacite/MetadataScheme>)
+
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/spar/datacite/AgentIdentifier> (agent identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/AgentIdentifier> "An identifier that uniquely identities an individual agent, belonging to a particular identifier scheme specified by an individual within the class datacite:AgentIdentifierScheme (or any of its subclasses)."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/AgentIdentifier> "agent identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/AgentIdentifier> <http://purl.org/spar/datacite/Identifier>)
+SubClassOf(<http://purl.org/spar/datacite/AgentIdentifier> ObjectAllValuesFrom(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/AgentIdentifier>))
+DisjointClasses(<http://purl.org/spar/datacite/AgentIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>)
+
+# Class: <http://purl.org/spar/datacite/AgentIdentifierScheme> (agent identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/AgentIdentifierScheme> "The identifier scheme used to identify an agent. Individual schemes are defines as members of its sub-classes."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/AgentIdentifierScheme> "agent identifier scheme"@en)
+SubClassOf(<http://purl.org/spar/datacite/AgentIdentifierScheme> <http://purl.org/spar/datacite/IdentifierScheme>)
+SubClassOf(<http://purl.org/spar/datacite/AgentIdentifierScheme> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.org/spar/datacite/usesIdentifierScheme>) <http://purl.org/spar/datacite/AgentIdentifier>))
+
+# Class: <http://purl.org/spar/datacite/AlternateResourceIdentifier> (alternate resource identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/AlternateResourceIdentifier> "An identifier other than a DOI that is used as an alternative identifier to uniquely identifies the primary resource that is the subject of the DataCite metadata record, belonging to a particular scheme such as ISBN specified by an individual that is a member of the class datacite:ResourceIdentifierScheme. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/AlternateResourceIdentifier> "alternate resource identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/AlternateResourceIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>)
+DisjointClasses(<http://purl.org/spar/datacite/AlternateResourceIdentifier> <http://purl.org/spar/datacite/PrimaryResourceIdentifier>)
+
+# Class: <http://purl.org/spar/datacite/DescriptionType> (description type)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/DescriptionType> "This class permits classification of the type of description given to a resource described by the DataCite Metadata schema.  Individual members of the class conform to the five values allowed in the DataCite controlled list, namely:
+
+* abstract;
+* methods;
+* series-information;
+* table-of-content;
+* other."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/DescriptionType> "description type"@en)
+SubClassOf(<http://purl.org/spar/datacite/DescriptionType> skos:Concept)
+
+# Class: <http://purl.org/spar/datacite/FunderIdentifier> (funder identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/FunderIdentifier> "An identifier that uniquely identities a funding agency, belonging to a particular scheme such as FundRef specified by an individual within the class datacite:FunderIdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/FunderIdentifier> "funder identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/FunderIdentifier> <http://purl.org/spar/datacite/AgentIdentifier>)
+SubClassOf(<http://purl.org/spar/datacite/FunderIdentifier> ObjectAllValuesFrom(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/FunderIdentifierScheme>))
+
+# Class: <http://purl.org/spar/datacite/FunderIdentifierScheme> (funder identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/FunderIdentifierScheme> "The identifier scheme used to identify a funding agency. Individual schemes are defines as members of this class. At present, the only individual of this class is datacite:fundref."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/FunderIdentifierScheme> "funder identifier scheme"@en)
+SubClassOf(<http://purl.org/spar/datacite/FunderIdentifierScheme> <http://purl.org/spar/datacite/AgentIdentifierScheme>)
+SubClassOf(<http://purl.org/spar/datacite/FunderIdentifierScheme> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.org/spar/datacite/usesIdentifierScheme>) <http://purl.org/spar/datacite/FunderIdentifier>))
+
+# Class: <http://purl.org/spar/datacite/Identifier> (identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/Identifier> "An identifier that uniquely identities an entity – such as a funding agency, a person and a resource – belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/Identifier> "identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/Identifier> literal:Literal)
+SubClassOf(<http://purl.org/spar/datacite/Identifier> ObjectExactCardinality(1 <http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/IdentifierScheme>))
+SubClassOf(<http://purl.org/spar/datacite/Identifier> ObjectExactCardinality(1 ObjectInverseOf(<http://purl.org/spar/datacite/hasIdentifier>)))
+
+# Class: <http://purl.org/spar/datacite/IdentifierScheme> (identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/IdentifierScheme> "The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/IdentifierScheme> "identifier scheme"@en)
+
+# Class: <http://purl.org/spar/datacite/MetadataScheme> (metadata scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/MetadataScheme> "The class that describe metadata schemes used for creating a metadata document referring to a certain resource.
+
+Neither a class for metadata documents nor a property linking a resource to its metadata document are not explicitly defined in this ontology. However, we recommend to use the class fabio:MetadataDocument (from http://purl.org/spar/fabio) and cito:citesAsMetadataDocument (from http://purl.org/spar/cito) for providing such descriptions. An example of use of such entities is shown as follows:
+
+    :my-resource
+        cito:citesAsMetadataDocument :my-resource-metadata .
+    :my-resource-metadata a fabio:MetadataDocument ;
+        datacite:usesMetadataScheme datacite:spar .
+
+In addition, if needed, it is possible to use the dataproperty fabio:hasURL (not included in this ontology as well) for defining the actual URL of a certain metadata scheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/MetadataScheme> "metadata scheme"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/MetadataScheme> <http://purl.org/spar/cito/citesAsMetadataDocument>)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/MetadataScheme> fabio:MetadataDocument)
+
+# Class: <http://purl.org/spar/datacite/OrganizationIdentifier> (organization identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/OrganizationIdentifier> "An identifier that uniquely identities an individual organization, belonging to a particular identifier scheme such as ISNI specified by an individual within the class datacite:OrganizationIdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/OrganizationIdentifier> "organization identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/OrganizationIdentifier> <http://purl.org/spar/datacite/AgentIdentifier>)
+SubClassOf(<http://purl.org/spar/datacite/OrganizationIdentifier> ObjectAllValuesFrom(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/OrganizationIdentifier>))
+
+# Class: <http://purl.org/spar/datacite/OrganizationIdentifierScheme> (organization identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/OrganizationIdentifierScheme> "The identifier scheme used to identify an organization. Individual schemes are defines as members of this class."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/OrganizationIdentifierScheme> "organization identifier scheme"@en)
+SubClassOf(<http://purl.org/spar/datacite/OrganizationIdentifierScheme> <http://purl.org/spar/datacite/AgentIdentifierScheme>)
+SubClassOf(<http://purl.org/spar/datacite/OrganizationIdentifierScheme> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.org/spar/datacite/usesIdentifierScheme>) <http://purl.org/spar/datacite/OrganizationIdentifier>))
+
+# Class: <http://purl.org/spar/datacite/PersonalIdentifier> (personal identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/PersonalIdentifier> "An identifier that uniquely identities an individual person, belonging to a particular identifier scheme such as ORCID specified by an individual within the class datacite:PersonalIdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/PersonalIdentifier> "personal identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/PersonalIdentifier> <http://purl.org/spar/datacite/AgentIdentifier>)
+SubClassOf(<http://purl.org/spar/datacite/PersonalIdentifier> ObjectAllValuesFrom(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/PersonalIdentifierScheme>))
+
+# Class: <http://purl.org/spar/datacite/PersonalIdentifierScheme> (personal identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/PersonalIdentifierScheme> "The identifier scheme used to identify a person.  Individual schemes are defines as members of this class."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/PersonalIdentifierScheme> "personal identifier scheme"@en)
+SubClassOf(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/AgentIdentifierScheme>)
+SubClassOf(<http://purl.org/spar/datacite/PersonalIdentifierScheme> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.org/spar/datacite/usesIdentifierScheme>) <http://purl.org/spar/datacite/PersonalIdentifier>))
+
+# Class: <http://purl.org/spar/datacite/PrimaryResourceIdentifier> (primary resource identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/PrimaryResourceIdentifier> "An identifier that is used as the primary identifier to uniquely identifies the primary resource that is the subject of the DataCite metadata record.  Within the DataCite metadata record, a Digital Object Identifier is the only permitted primary resource identifier scheme, specified by the individual datacite:doi, that is a member of the class datacite:ResourceIdentifierScheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/PrimaryResourceIdentifier> "primary resource identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/PrimaryResourceIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>)
+SubClassOf(<http://purl.org/spar/datacite/PrimaryResourceIdentifier> ObjectHasValue(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/doi>))
+
+# Class: <http://purl.org/spar/datacite/ResourceIdentifier> (resource identifier)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/ResourceIdentifier> "An identifier that is used to uniquely identifies a resource."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/ResourceIdentifier> "resource identifier"@en)
+SubClassOf(<http://purl.org/spar/datacite/ResourceIdentifier> <http://purl.org/spar/datacite/Identifier>)
+SubClassOf(<http://purl.org/spar/datacite/ResourceIdentifier> ObjectAllValuesFrom(<http://purl.org/spar/datacite/usesIdentifierScheme> <http://purl.org/spar/datacite/ResourceIdentifierScheme>))
+
+# Class: <http://purl.org/spar/datacite/ResourceIdentifierScheme> (resource identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/ResourceIdentifierScheme> "The identifier scheme used to identify a resource.  Individual schemes are defines as members of this class.  For DataCite, the only permitted identifier scheme for the primary resource identifier is the Digital Object Identifier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/ResourceIdentifierScheme> "resource identifier scheme"@en)
+SubClassOf(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/IdentifierScheme>)
+SubClassOf(<http://purl.org/spar/datacite/ResourceIdentifierScheme> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.org/spar/datacite/usesIdentifierScheme>) <http://purl.org/spar/datacite/ResourceIdentifier>))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://purl.org/spar/datacite/abstract> (abstract)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/abstract> "A brief summary of a textual work, appearing at the beginning of the work and designed to act as the point-of-entry that will help the reader quickly to obtain an overview of the work's contents."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/abstract> "abstract"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/abstract> fabio:Abstract)
+ClassAssertion(<http://purl.org/spar/datacite/DescriptionType> <http://purl.org/spar/datacite/abstract>)
+
+# Individual: <http://purl.org/spar/datacite/acm> (acm)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/acm> "ACM Digital Library author ID, which is resolvable using the following URL: https://dl.acm.org/profile/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/acm> "acm"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/acm>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/acm> "https://dl.acm.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/ark> (ark)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/ark> "Archival Resource Key."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/ark> "ark"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/ark>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/ark> "https://confluence.ucop.edu/display/Curation/ARK"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/arxiv> (arxiv)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/arxiv> "Identifier for ArXiv (http://arxiv.org/), a open access repository of preprints, having the format arXiv:1207.2147."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/arxiv> "arxiv"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/arxiv>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/arxiv> "http://arxiv.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/bibcode> (bibcode)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/bibcode> "It is the Astrophysics Data System bibliographic codes, a standardized 19 character identifier according to the syntax \"yyyyjjjjjvvvvmppppa\"."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/bibcode> "bibcode"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/bibcode>)
+
+# Individual: <http://purl.org/spar/datacite/crossref> (crossref)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/crossref> "Crossref member identifier, which is resolvable from the following URL: https://api.crossref.org/members/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/crossref> "crossref"@en)
+ClassAssertion(<http://purl.org/spar/datacite/OrganizationIdentifierScheme> <http://purl.org/spar/datacite/crossref>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/crossref> "https://crossref.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/dblp> (dblp)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/dblp> "DBLP author identifier, which is resolvable from the following URL: https://dblp.org/pid/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/dblp> "dblp"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/dblp>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/dblp> "https://dblp.org"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/dblp-record> (dblp record)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/dblp-record> "DBLP publication identifier, which is resolvable from the following URL: https://dblp.org/rec/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/dblp-record> "dblp record"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/dblp-record>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/dblp-record> "https://dblp.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/dia> (dia)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/dia> "The Digital Author Identification system assigns a unique number to all authors in the Netherlands research system."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/dia> "dia"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/dia>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/dia> "http://www.surf.nl/en/themas/openonderzoek/infrastructuur/Pages/digitalauthoridentifierdai.aspx"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/dnb> (dnb)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/dnb> "DNB catalogue number, which is resolvable from the following URL: https://d-nb.info/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/dnb> "dnb"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/dnb>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/dnb> "https://d-nb.info/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/doi> (doi)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/doi> "Digital Object Identier"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/doi> "doi"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/doi>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/doi> "http://www.doi.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/ean13> (ean13)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/ean13> "International Article Number"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/ean13> "ean13"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/ean13> <http://en.wikipedia.org/wiki/EAN13>)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/ean13>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/ean13> "http://www.gs1.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/eissn> (eissn)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/eissn> "Electronic International Standard Serial Number"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/eissn> "eissn"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/eissn>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/eissn> "http://www.issn.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/fundref> (fundref)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/fundref> "FundRef is a collaborative pilot project of scholarly publishers and funding agencies, facilitated by CrossRef, to provide a standard way of identifying and reporting funding sources for published scholarly research. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/fundref> "fundref"@en)
+ClassAssertion(<http://purl.org/spar/datacite/FunderIdentifierScheme> <http://purl.org/spar/datacite/fundref>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/fundref> "http://www.crossref.org/fundref/index.html"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/gepris> (gepris)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/gepris> "GEPRIS person identifier, which is resolvable from the following URL: http://gepris.dfg.de/gepris/person/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/gepris> "gepris"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/gepris>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/gepris> "http://gepris.dfg.de"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/github> (github)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/github> "GitHub username, which is resolvable from the following URL: https://github.com/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/github> "github"@en)
+ClassAssertion(<http://purl.org/spar/datacite/AgentIdentifierScheme> <http://purl.org/spar/datacite/github>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/github> "https://github.com/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/gitlab> (GitLab user account)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/gitlab> "The identifier for GitLab Users."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/gitlab> "GitLab user account"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/gitlab>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/gitlab> "https://docs.gitlab.com/ee/user/profile/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/gnd> (gnd)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/gnd> "Gemeinsame Normdatei identifier, which is resolvable from the following URL: https://d-nb.info/gnd/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/gnd> "gnd"@en)
+ClassAssertion(<http://purl.org/spar/datacite/IdentifierScheme> <http://purl.org/spar/datacite/gnd>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/gnd> "https://gnd.network/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/google-scholar> (google scholar)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/google-scholar> "Google Scholar author identifier, which resolvable from the following URL:	https://scholar.google.com/citations?user=<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/google-scholar> "google scholar"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/google-scholar>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/google-scholar> "https://scholar.google.com/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/handle> (handle)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/handle> "The Handle system"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/handle> "handle"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/handle>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/handle> "http://www.handle.net/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/ieee> (ieee)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/ieee> "IEEE Xplore author ID, which is resolvable from the following URL: https://ieeexplore.ieee.org/author/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/ieee> "ieee"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/ieee>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/ieee> "https://ieeexplore.ieee.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/infouri> (infouri)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/infouri> "Info URI scheme"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/infouri> "infouri"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/infouri>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/infouri> "http://info-uri.info/registry/docs/misc/faq.html"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/isbn> (isbn)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/isbn> "International Standard Book Number"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/isbn> "isbn"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/isbn>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/isbn> "http://www.isbn-international.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/isni> (isni)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/isni> "International Standard Name Identifier scheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/isni> "isni"@en)
+ClassAssertion(<http://purl.org/spar/datacite/OrganizationIdentifierScheme> <http://purl.org/spar/datacite/isni>)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/isni>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/isni> "http://www.isni.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/issn> (issn)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/issn> "International Standard Serial Number"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/issn> "issn"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/issn>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/issn> "http://www.issn.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/istc> (istc)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/istc> "International Standard Text Code"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/istc> "istc"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/istc>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/istc> "http://www.istc-international.org/html/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/jst> (jst)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/jst> "Japanese Science and Technology Agency identifier scheme"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/jst> "jst"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/jst>)
+
+# Individual: <http://purl.org/spar/datacite/lattes> (lattes)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/lattes> "Lattes Platform number, which is resolvable from the following URL: http://lattes.cnpq.br/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/lattes> "lattes"@en)
+ClassAssertion(<http://purl.org/spar/datacite/AgentIdentifierScheme> <http://purl.org/spar/datacite/lattes>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/lattes> "https://lattes.cnpq.br/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/linkedin> (linkedin)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/linkedin> "LinkedIn personal profile identifier, which is resolvable from the following URL: https://www.linkedin.com/in/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/linkedin> "linkedin"@en)
+ClassAssertion(<http://purl.org/spar/datacite/AgentIdentifierScheme> <http://purl.org/spar/datacite/linkedin>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/linkedin> "https://www.linkedin.com/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/lissn> (lissn)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/lissn> "Linking International Standard Serial Number"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/lissn> "lissn"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/lissn>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/lissn> "http://www.issn.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/loc> (loc)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/loc> "Library of Congress authority identifier, which is resolvable from the following URL: https://id.loc.gov/authorities/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/loc> "loc"@en)
+ClassAssertion(<http://purl.org/spar/datacite/IdentifierScheme> <http://purl.org/spar/datacite/loc>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/loc> "https://id.loc.gov/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/local-funder-identifier-scheme> (local funder identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/local-funder-identifier-scheme> "A funder identifier scheme that provides local funder identifiers that are unique in their local environment and understood by the person submitting the metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/local-funder-identifier-scheme> "local funder identifier scheme"@en)
+ClassAssertion(<http://purl.org/spar/datacite/FunderIdentifierScheme> <http://purl.org/spar/datacite/local-funder-identifier-scheme>)
+
+# Individual: <http://purl.org/spar/datacite/local-organization-identifier-scheme> (local organization identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/local-organization-identifier-scheme> "An organization identifier scheme that provides local organization identifiers that are unique in their local environment and understood by the person submitting the metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/local-organization-identifier-scheme> "local organization identifier scheme"@en)
+ClassAssertion(<http://purl.org/spar/datacite/OrganizationIdentifierScheme> <http://purl.org/spar/datacite/local-organization-identifier-scheme>)
+
+# Individual: <http://purl.org/spar/datacite/local-personal-identifier-scheme> (local personal identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/local-personal-identifier-scheme> "A personal identifier scheme that provides local personal identifiers that are unique in their local environment and understood by the person submitting the metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/local-personal-identifier-scheme> "local personal identifier scheme"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/local-personal-identifier-scheme>)
+
+# Individual: <http://purl.org/spar/datacite/local-resource-identifier-scheme> (local resource identifier scheme)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/local-resource-identifier-scheme> "A resource identifier scheme that provides local resource identifiers that are unique in their local environment and understood by the person submitting the metadata."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/local-resource-identifier-scheme> "local resource identifier scheme"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/local-resource-identifier-scheme>)
+
+# Individual: <http://purl.org/spar/datacite/lsid> (lsid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/lsid> "Life Science Identifier"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/lsid> "lsid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/lsid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/lsid> "http://www.ibm.com/developerworks/opensource/library/os-lsidbp/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/math-genealogy> (math genealogy)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/math-genealogy> "Mathematics Genealogy Project identifier, which is resolvable from the following URL: https://mathgenealogy.org/id.php?id=<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/math-genealogy> "math genealogy"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/math-genealogy>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/math-genealogy> "https://mathgenealogy.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/methods> (methods)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/methods> "A description in a research paper documenting the specialized methods used in the work described."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/methods> <http://purl.org/spar/deo/Methods>)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/methods> "methods"@en)
+ClassAssertion(<http://purl.org/spar/datacite/DescriptionType> <http://purl.org/spar/datacite/methods>)
+
+# Individual: <http://purl.org/spar/datacite/national-insurance-number> (national insurance number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/national-insurance-number> "United Kingdom National Insurance Number scheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/national-insurance-number> "national insurance number"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/national-insurance-number>)
+
+# Individual: <http://purl.org/spar/datacite/nihmsid> (nihmsid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/nihmsid> "NIH Manuscript Submission Identifier"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/nihmsid> "nihmsid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/nihmsid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/nihmsid> "http://nexus.od.nih.gov/all/2009/09/01/nih-public-access-update-clarifying-use-of-the-nih-manuscript-submission-id-nihmsid/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/nii> (nii)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/nii> "National Individual Identifier scheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/nii> "nii"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/nii>)
+
+# Individual: <http://purl.org/spar/datacite/oci> (oci)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/datacite/oci> "The Open Citation Identifier (OCI) is a persistent identifier for bibliographic citations, created and maintained by OpenCitations (http://opencitations.net)."@en)
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/oci> "Open Citation Identifier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/oci> "oci"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/oci>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/oci> "https://w3id.org/oc/oci"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/oclc> (oclc)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/oclc> "OCLC control number, which is resolvable from the following URL: https://www.worldcat.org/oclc/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/oclc> "oclc"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/oclc>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/oclc> "https://www.worldcat.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/openalex> (OpenAlex ID)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/openalex> "The primary key for all entities included in OpenAlex.
+
+The OpenAlex ID has two parts. The first part is the base, that is always https://openalex.org/. The second part is the key, i.e. the unique primary key that identifies a given resource in our database. The key starts with a letter that tells us the kind of entity: W(ork), A(uthor), V(enue), I(nstitution), or C(oncept). In addition, the IDs are not case-sensitive, so w2741809807 is just as valid as W2741809807."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/openalex> "OpenAlex ID"@en)
+ClassAssertion(<http://purl.org/spar/datacite/IdentifierScheme> <http://purl.org/spar/datacite/openalex>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/openalex> "https://docs.openalex.org/about-the-data"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/openid> (openid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/openid> "OpenID is an open standard that describes how users can be authenticated in a decentralized manner, eliminating the need for centralized registration services. "@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/openid> "openid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/openid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/openid> "http://openid.net/foundation/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/orcid> (orcid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/orcid> "Open Researcher and Contributor Identifier."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/orcid> "orcid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/AgentIdentifierScheme> <http://purl.org/spar/datacite/orcid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/orcid> "http://orcid.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/other> (other)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/other> "A catch-all description type required by the DataCite Metadata Schema to characterize description types that are not abstracts, series information or tables of content."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/other> "other"@en)
+ClassAssertion(<http://purl.org/spar/datacite/DescriptionType> <http://purl.org/spar/datacite/other>)
+
+# Individual: <http://purl.org/spar/datacite/pii> (pii)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/pii> "Pulisher Item Identifier scheme."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/pii> "pii"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/pii> <http://en.wikipedia.org/wiki/Publisher_Item_Identifier>)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/pii>)
+
+# Individual: <http://purl.org/spar/datacite/pmcid> (pmcid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/pmcid> "PubMed Central Identifier"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/pmcid> "pmcid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/pmcid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/pmcid> "http://www.ncbi.nlm.nih.gov/pmc/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/pmid> (pmid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/pmid> "PubMed Identifier"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/pmid> "pmid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/pmid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/pmid> "http://www.ncbi.nlm.nih.gov/pubmed/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/purl> (purl)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/purl> "Persistent Uniform Resource Locator"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/purl> "purl"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/purl>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/purl> "http://purl.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/repec> (repec)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/repec> "RePEc Short identifier, which is resolvable from the following URL: https://authors.repec.org/pro/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/repec> "repec"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/repec>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/repec> "https://authors.repec.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/research-gate> (research gate)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/research-gate> "ResearchGate profile identifier, which is resolvable from the following URL: https://www.researchgate.net/profile/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/research-gate> "research gate"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/research-gate>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/research-gate> "https://www.researchgate.net"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/researcherid> (researcherid)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/researcherid> "ResearcherID is an identifying system for scientific authors created and owned by Thomson Reuters."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/researcherid> "researcherid"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/researcherid>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/researcherid> "http://www.researcherid.com/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/ror> (ror)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/ror> "The Research Organization Registry Community identifier, which is resolvable from the following URL: https://ror.org/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/ror> "ror"@en)
+ClassAssertion(<http://purl.org/spar/datacite/OrganizationIdentifierScheme> <http://purl.org/spar/datacite/ror>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/ror> "https://ror.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/scigraph> (SciGraph ID)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/scigraph> "The identifier used for referring to entities in the Springer Nature SciGraph dataset."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/scigraph> "SciGraph ID"@en)
+ClassAssertion(<http://purl.org/spar/datacite/IdentifierScheme> <http://purl.org/spar/datacite/scigraph>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/scigraph> "https://scigraph.springernature.com/explorer/datasets/data_at_a_glance/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/series-information> (series information)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/series-information> "Used to charactierize a description of a resource that is part of a series."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/series-information> "series information"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/series-information> fabio:BookSeries)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/series-information> fabio:Periodical)
+ClassAssertion(<http://purl.org/spar/datacite/DescriptionType> <http://purl.org/spar/datacite/series-information>)
+
+# Individual: <http://purl.org/spar/datacite/sici> (sici)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/sici> "Serial Item and Contribution Identifier"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/sici> "sici"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/sici>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/sici> "http://en.wikipedia.org/wiki/Serial_Item_and_Contribution_Identifier"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/social-security-number> (social security number)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/social-security-number> "United States of America social security number scheme"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/social-security-number> "social security number"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/social-security-number>)
+
+# Individual: <http://purl.org/spar/datacite/spar> (SPAR Ontologies)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/spar> "The Semantic Publishing and Referencing Ontologies, a.k.a. SPAR Ontologies, form a suite of orthogonal and complementary OWL 2 DL ontology modules for the creation of comprehensive machine-readable RDF metadata for every aspect of semantic publishing and referencing: document description, bibliographic resource identifiers, types of citations and related contexts, bibliographic references, document parts and status, agents' roles and contributions, bibliometric data and workflow processes."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/spar> "SPAR Ontologies"@en)
+ClassAssertion(<http://purl.org/spar/datacite/MetadataScheme> <http://purl.org/spar/datacite/spar>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/spar> "http://www.sparontologies.net"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/table-of-content> (table of content)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/table-of-content> "A table of content giving information about the content of a resource, appearing before the body text.  Where the resource is a journal or magazine issue, the table of content lists the constituent items contained in that issue, typically by title, authors and first page number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/table-of-content> "table of content"@en)
+AnnotationAssertion(rdfs:seeAlso <http://purl.org/spar/datacite/table-of-content> <http://purl.org/spar/doco/TableOfContents>)
+ClassAssertion(<http://purl.org/spar/datacite/DescriptionType> <http://purl.org/spar/datacite/table-of-content>)
+
+# Individual: <http://purl.org/spar/datacite/twitter> (<http://purl.org/spar/datacite/twitter>)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/twitter> "Twitter handle, which is resolvable from the following URL: https://twitter.com/<identifier>."@en)
+ClassAssertion(<http://purl.org/spar/datacite/AgentIdentifierScheme> <http://purl.org/spar/datacite/twitter>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/twitter> "https://twitter.com/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/upc> (upc)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/upc> "Universal Product Code"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/upc> "upc"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/upc>)
+
+# Individual: <http://purl.org/spar/datacite/uri> (uri)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/uri> "Uniform Resource Identifier")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/uri> "uri"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/uri>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/uri> "http://tools.ietf.org/html/rfc3986"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/url> (url)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/url> "Uniform Resource Locator."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/url> "url"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/url>)
+
+# Individual: <http://purl.org/spar/datacite/urn> (urn)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/urn> "Uniform Resource Name."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/urn> "urn"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/urn>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/urn> "http://datatracker.ietf.org/wg/urn/charter/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/viaf> (viaf)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/viaf> "The Virtual International Authority File is an international authority file created by amalagamating the national authority files of several national libraries and operated by the Online Computer Library Center (OCLC).  It contains information about many topics including personal names."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/viaf> "viaf"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/viaf>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/viaf> "http://viaf.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/wikidata> (wikidata)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/wikidata> "Wikidata QID, which is resolvable from the following URL: https://www.wikidata.org/wiki/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/wikidata> "wikidata")
+ClassAssertion(<http://purl.org/spar/datacite/IdentifierScheme> <http://purl.org/spar/datacite/wikidata>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/wikidata> "https://www.wikidata.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/wikipedia> (wikipedia)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/wikipedia> "Wikipedia page name, which is resolvable from the following URL: https://en.wikipedia.org/wiki/<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/wikipedia> "wikipedia"@en)
+ClassAssertion(<http://purl.org/spar/datacite/ResourceIdentifierScheme> <http://purl.org/spar/datacite/wikipedia>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/wikipedia> "https://en.wikipedia.org/"^^xsd:anyURI)
+
+# Individual: <http://purl.org/spar/datacite/zbmath> (zbmath)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/datacite/zbmath> "zbMATH author identifier, which is resolvable from the following URL: https://zbmath.org/authors/?q=ai:<identifier>."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/datacite/zbmath> "zbmath"@en)
+ClassAssertion(<http://purl.org/spar/datacite/PersonalIdentifierScheme> <http://purl.org/spar/datacite/zbmath>)
+DataPropertyAssertion(fabio:hasURL <http://purl.org/spar/datacite/zbmath> "https://zbmath.org/"^^xsd:anyURI)
+
+
+DisjointClasses(<http://purl.org/spar/datacite/FunderIdentifier> <http://purl.org/spar/datacite/PersonalIdentifier> <http://purl.org/spar/datacite/ResourceIdentifier>)
+)

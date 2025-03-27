@@ -1,0 +1,346 @@
+Prefix(:=<http://purl.org/spar/deo#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(orb:=<http://purl.org/orb/1.0/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(sro:=<http://salt.semanticauthoring.org/ontologies/sro#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(terms:=<http://purl.org/dc/terms/>)
+
+
+Ontology(<http://purl.org/spar/deo>
+<http://purl.org/spar/pso/2015-07-03>
+Annotation(dc:creator "David Shotton")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2015-07-03")
+Annotation(dc:description "DEO, The Discourse Elements Ontology, is an ontology written in OWL 2 DL that provides a structured vocabulary for rhetorical elements within documents (e.g. Introduction, Discussion, Acknowledgements, Reference List, Figures, Appendix), enabling these to be described in RDF.  It uses some of the rhetorical block elements from the SALT Rhetorical Ontology  and the Ontology of Rhetorical Blocks."@en)
+Annotation(dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en)
+Annotation(dc:title "The Discourse Elements Ontology
+     (DEO)"@en)
+Annotation(rdfs:comment "The Discourse Elements Ontology (DEO) is an ontology that provides a structured vocabulary for rhetorical elements within documents (e.g., Introduction, Discussion, Acknowledgements, Reference List, Figures, Appendix).
+
+**URL:** http://purl.org/spar/deo
+
+**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** http://www.sparontologies.net/ontologies/deo
+
+**Cite as:** Constantin, A., Peroni, S., Pettifer, S., Shotton, D., Vitali, F. (2016). The Document Components Ontology (DoCO). In Semantic Web, 7 (2): 167-181. DOI: http://dx.doi.org/10.3233/SW-150177"@en)
+Annotation(owl:priorVersion <https://svn.code.sf.net/p/sempublishing/code/DEO/2011-05-05-deo-1_0.owl>)
+Annotation(owl:versionInfo "1.1")
+
+Declaration(Class(orb:Acknowledgements))
+Declaration(Class(orb:Acknowledgments))
+Declaration(Class(orb:Conclusion))
+Declaration(Class(orb:Discussion))
+Declaration(Class(orb:Introduction))
+Declaration(Class(orb:Methods))
+Declaration(Class(orb:References))
+Declaration(Class(orb:Results))
+Declaration(Class(<http://purl.org/spar/deo/Acknowledgements>))
+Declaration(Class(<http://purl.org/spar/deo/AuthorContribution>))
+Declaration(Class(<http://purl.org/spar/deo/Background>))
+Declaration(Class(<http://purl.org/spar/deo/BibliographicReference>))
+Declaration(Class(<http://purl.org/spar/deo/Biography>))
+Declaration(Class(<http://purl.org/spar/deo/Caption>))
+Declaration(Class(<http://purl.org/spar/deo/Conclusion>))
+Declaration(Class(<http://purl.org/spar/deo/Contribution>))
+Declaration(Class(<http://purl.org/spar/deo/Data>))
+Declaration(Class(<http://purl.org/spar/deo/DatasetDescription>))
+Declaration(Class(<http://purl.org/spar/deo/Dedication>))
+Declaration(Class(<http://purl.org/spar/deo/DiscourseElement>))
+Declaration(Class(<http://purl.org/spar/deo/Discussion>))
+Declaration(Class(<http://purl.org/spar/deo/Epilogue>))
+Declaration(Class(<http://purl.org/spar/deo/Evaluation>))
+Declaration(Class(<http://purl.org/spar/deo/ExternalResourceDescription>))
+Declaration(Class(<http://purl.org/spar/deo/FutureWork>))
+Declaration(Class(<http://purl.org/spar/deo/Introduction>))
+Declaration(Class(<http://purl.org/spar/deo/Legend>))
+Declaration(Class(<http://purl.org/spar/deo/Materials>))
+Declaration(Class(<http://purl.org/spar/deo/Methods>))
+Declaration(Class(<http://purl.org/spar/deo/Model>))
+Declaration(Class(<http://purl.org/spar/deo/Motivation>))
+Declaration(Class(<http://purl.org/spar/deo/Postscript>))
+Declaration(Class(<http://purl.org/spar/deo/ProblemStatement>))
+Declaration(Class(<http://purl.org/spar/deo/Prologue>))
+Declaration(Class(<http://purl.org/spar/deo/Reference>))
+Declaration(Class(<http://purl.org/spar/deo/RelatedWork>))
+Declaration(Class(<http://purl.org/spar/deo/Results>))
+Declaration(Class(<http://purl.org/spar/deo/Scenario>))
+Declaration(Class(<http://purl.org/spar/deo/SupplementaryInformationDescription>))
+Declaration(Class(sro:Background))
+Declaration(Class(sro:Conclusion))
+Declaration(Class(sro:Contribution))
+Declaration(Class(sro:Discussion))
+Declaration(Class(sro:Evaluation))
+Declaration(Class(sro:Motivation))
+Declaration(Class(sro:Scenario))
+Declaration(Class(owl:Thing))
+Declaration(ObjectProperty(terms:hasPart))
+Declaration(ObjectProperty(terms:isPartOf))
+Declaration(ObjectProperty(terms:relation))
+Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:rights))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: terms:hasPart (has part)
+
+AnnotationAssertion(rdfs:comment terms:hasPart "A related resource that is included either physically or logically in the described resource."@en)
+AnnotationAssertion(rdfs:label terms:hasPart "has part"@en)
+SubObjectPropertyOf(terms:hasPart terms:relation)
+InverseObjectProperties(terms:hasPart terms:isPartOf)
+TransitiveObjectProperty(terms:hasPart)
+
+# Object Property: terms:isPartOf (is part of)
+
+AnnotationAssertion(rdfs:comment terms:isPartOf "A related resource in which the described resource is physically or logically included."@en)
+AnnotationAssertion(rdfs:label terms:isPartOf "is part of"@en)
+SubObjectPropertyOf(terms:isPartOf terms:relation)
+TransitiveObjectProperty(terms:isPartOf)
+
+# Object Property: terms:relation (has relation)
+
+AnnotationAssertion(rdfs:comment terms:relation "A related resource."@en)
+AnnotationAssertion(rdfs:label terms:relation "has relation"@en)
+SubObjectPropertyOf(terms:relation owl:topObjectProperty)
+SymmetricObjectProperty(terms:relation)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: orb:Acknowledgements (orb:Acknowledgements)
+
+EquivalentClasses(orb:Acknowledgements <http://purl.org/spar/deo/Acknowledgements>)
+
+# Class: orb:Conclusion (orb:Conclusion)
+
+EquivalentClasses(orb:Conclusion <http://purl.org/spar/deo/Conclusion>)
+
+# Class: orb:Discussion (orb:Discussion)
+
+EquivalentClasses(orb:Discussion <http://purl.org/spar/deo/Discussion>)
+
+# Class: orb:Introduction (orb:Introduction)
+
+EquivalentClasses(orb:Introduction <http://purl.org/spar/deo/Introduction>)
+
+# Class: orb:Methods (orb:Methods)
+
+EquivalentClasses(orb:Methods <http://purl.org/spar/deo/Methods>)
+
+# Class: orb:Results (orb:Results)
+
+EquivalentClasses(orb:Results <http://purl.org/spar/deo/Results>)
+
+# Class: <http://purl.org/spar/deo/Acknowledgements> (acknowledgements)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Acknowledgements> "Usually part of the preface, or a separate section in its own right, often as part of the back matter, it acknowledges those, including funding agencies, who contributed to the undertaking of a research project described in a publication, or to the creation of the work in some way. In scientific articles, the acknowledgements are usually placed as a separated section immediately following the Discussion or Conclusions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Acknowledgements> "acknowledgements"@en)
+SubClassOf(<http://purl.org/spar/deo/Acknowledgements> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/AuthorContribution> (author contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/AuthorContribution> "A description of the roles played by an author in the publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/AuthorContribution> "author contribution"@en)
+SubClassOf(<http://purl.org/spar/deo/AuthorContribution> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Background> (background)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Background> "Presentation of information that is essential for understanding the situation or problem that is the subject of the publication. In a journal article, the background is usually part of the Introduction, but may be present as separated section.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Background> "background")
+EquivalentClasses(<http://purl.org/spar/deo/Background> sro:Background)
+SubClassOf(<http://purl.org/spar/deo/Background> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/BibliographicReference> (bibliographic reference)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/BibliographicReference> "A reference, usually contained in a footnote or a bibliographic reference list, that refer to another publication, such as a journal article, a book, a book chapter or a Web site. The inclusion of the bibliographic reference in a publication constitutes the performative act of bibliographic citation."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/BibliographicReference> "bibliographic reference"@en)
+SubClassOf(<http://purl.org/spar/deo/BibliographicReference> orb:References)
+SubClassOf(<http://purl.org/spar/deo/BibliographicReference> <http://purl.org/spar/deo/Reference>)
+
+# Class: <http://purl.org/spar/deo/Biography> (biography)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Biography> "Information describing a person and his or her life history and contributions."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Biography> "biography"@en)
+SubClassOf(<http://purl.org/spar/deo/Biography> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Caption> (caption)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Caption> "Text accompanying another item, such as a picture."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Caption> "caption"@en)
+SubClassOf(<http://purl.org/spar/deo/Caption> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Conclusion> (conclusion)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Conclusion> "A reflection on the preceding text, summarizing the evidence, arguments or premises presented in the document and their logical outcomes. Conclusions are a fundamental feature in academic research publications, and may be included in the Discussion section.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Conclusion> "conclusion")
+EquivalentClasses(<http://purl.org/spar/deo/Conclusion> sro:Conclusion)
+SubClassOf(<http://purl.org/spar/deo/Conclusion> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Contribution> (contribution)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Contribution> "A description of the part that this publication plays in the overall field.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Contribution> "contribution")
+EquivalentClasses(<http://purl.org/spar/deo/Contribution> sro:Contribution)
+SubClassOf(<http://purl.org/spar/deo/Contribution> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Data> (data)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Data> "A textual description of data used or produced in the work which the document describes, or the data themselves."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Data> "data"@en)
+SubClassOf(<http://purl.org/spar/deo/Data> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/DatasetDescription> (dataset description)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/DatasetDescription> "Information describing a dataset held in an external database or repository and including a reference to it, such as a database ID or an accession number."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/DatasetDescription> "dataset description"@en)
+SubClassOf(<http://purl.org/spar/deo/DatasetDescription> <http://purl.org/spar/deo/ExternalResourceDescription>)
+
+# Class: <http://purl.org/spar/deo/Dedication> (dedication)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Dedication> "Text in which the author names the person or people for whom he/she has written the document, or to whose memory it is dedicated."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Dedication> "dedication"@en)
+SubClassOf(<http://purl.org/spar/deo/Dedication> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/DiscourseElement> (discourse element)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/DiscourseElement> "An element of a document that carries out a rhetorical function."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/DiscourseElement> "discourse element"@en)
+SubClassOf(<http://purl.org/spar/deo/DiscourseElement> owl:Thing)
+
+# Class: <http://purl.org/spar/deo/Discussion> (discussion)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Discussion> "An interpretation and discussion of the results obtained and an analysis of their significance, in support of conclusions. These conclusions may be part of this discussion or may be included in a separate section of the document.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Discussion> "discussion")
+EquivalentClasses(<http://purl.org/spar/deo/Discussion> sro:Discussion)
+SubClassOf(<http://purl.org/spar/deo/Discussion> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Epilogue> (epilogue)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Epilogue> "A piece of writing at the end of a work of literature or drama, usually used to bring closure to the work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Epilogue> "epilogue"@en)
+SubClassOf(<http://purl.org/spar/deo/Epilogue> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Evaluation> (evaluation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Evaluation> "A consideration of the value, meaning and significance of the results obtained.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Evaluation> "evaluation")
+EquivalentClasses(<http://purl.org/spar/deo/Evaluation> sro:Evaluation)
+SubClassOf(<http://purl.org/spar/deo/Evaluation> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/ExternalResourceDescription> (external resource description)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/ExternalResourceDescription> "Information describing an external resource and including a reference to that resource."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/ExternalResourceDescription> "external resource description"@en)
+SubClassOf(<http://purl.org/spar/deo/ExternalResourceDescription> ObjectIntersectionOf(<http://purl.org/spar/deo/DiscourseElement> ObjectSomeValuesFrom(terms:hasPart <http://purl.org/spar/deo/Reference>)))
+
+# Class: <http://purl.org/spar/deo/FutureWork> (future work)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/FutureWork> "A proposal for new investigation to be undertaken in order to continue and advance the work described in the publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/FutureWork> "future work"@en)
+SubClassOf(<http://purl.org/spar/deo/FutureWork> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Introduction> (introduction)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Introduction> "An initial description which states the purpose and goals of the following writing, and, in the case of journal articles, typically includes background information on the research topic and a review of related work in the area."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Introduction> "introduction"@en)
+SubClassOf(<http://purl.org/spar/deo/Introduction> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Legend> (legend)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Legend> "Informative text that explicitly explains another item, such as a figure or a table."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Legend> "legend"@en)
+SubClassOf(<http://purl.org/spar/deo/Legend> <http://purl.org/spar/deo/Caption>)
+
+# Class: <http://purl.org/spar/deo/Materials> (materials)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Materials> "A description in a research paper documenting the specialized materials used in the work described. This description is often combined with a description of the methods used, in a section entitled 'Methods and Materials', 'Experimental' or a related term."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Materials> "materials"@en)
+SubClassOf(<http://purl.org/spar/deo/Materials> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Methods> (methods)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Methods> "A description in a research paper documenting the specialized methods used in the work described. This description is often combined with a description of the materials used, in a section entitled 'Methods and Materials', 'Experimental' or a related term."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Methods> "methods"@en)
+SubClassOf(<http://purl.org/spar/deo/Methods> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Model> (model)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Model> "A description of a model used or produced by the work described in the publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Model> "model"@en)
+SubClassOf(<http://purl.org/spar/deo/Model> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Motivation> (motivation)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Motivation> "A description of the justification for undertaking the work described in the publication.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Motivation> "motivation")
+EquivalentClasses(<http://purl.org/spar/deo/Motivation> sro:Motivation)
+SubClassOf(<http://purl.org/spar/deo/Motivation> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Postscript> (postscript)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Postscript> "Text added after the signature of a letter, or sometimes after the main body of an essay or book."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Postscript> "postscript"@en)
+SubClassOf(<http://purl.org/spar/deo/Postscript> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/ProblemStatement> (problem statement)
+
+AnnotationAssertion(dc:description <http://purl.org/spar/deo/ProblemStatement> "A concise description of the issues that needed to be addressed by a work described in the document."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/ProblemStatement> "problem statement"@en)
+SubClassOf(<http://purl.org/spar/deo/ProblemStatement> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Prologue> (prologue)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Prologue> "A piece of writing at the beginning of a work of literature or drama, usually used to set the scene or to introduce the work."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Prologue> "prologue"@en)
+SubClassOf(<http://purl.org/spar/deo/Prologue> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Reference> (reference)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Reference> "A reference to a specific part of the document, or to another publication."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Reference> "reference"@en)
+SubClassOf(<http://purl.org/spar/deo/Reference> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/RelatedWork> (related work)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/RelatedWork> "The authors' critical review of current knowledge by specific reference to others' work, both in terms of substantive findings and theoretical and methodological contributions to a particular topic. This description is often included within the introduction section."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/RelatedWork> "related work"@en)
+SubClassOf(<http://purl.org/spar/deo/RelatedWork> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Results> (results)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Results> "The report of the specific findings of an investigation, given without discussion or conclusion being drawn."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Results> "results"@en)
+SubClassOf(<http://purl.org/spar/deo/Results> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/Scenario> (scenario)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/Scenario> "A presentation of a use case or test, based on a real or hypothetical situation, used to help someone think through a complex problem or system.")
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/Scenario> "scenario")
+EquivalentClasses(<http://purl.org/spar/deo/Scenario> sro:Scenario)
+SubClassOf(<http://purl.org/spar/deo/Scenario> <http://purl.org/spar/deo/DiscourseElement>)
+
+# Class: <http://purl.org/spar/deo/SupplementaryInformationDescription> (supplementary information description)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/spar/deo/SupplementaryInformationDescription> "Information describing supplementary information relating to the document, including references or links to the relevant supplementary information."@en)
+AnnotationAssertion(rdfs:label <http://purl.org/spar/deo/SupplementaryInformationDescription> "supplementary information description"@en)
+SubClassOf(<http://purl.org/spar/deo/SupplementaryInformationDescription> <http://purl.org/spar/deo/ExternalResourceDescription>)
+
+
+)

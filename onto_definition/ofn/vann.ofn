@@ -1,0 +1,123 @@
+Prefix(:=<http://purl.org/vocab/vann/>)
+Prefix(cc:=<http://web.resource.org/cc/>)
+Prefix(dc:=<http://purl.org/dc/terms/>)
+Prefix(bio:=<http://purl.org/vocab/bio/0.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(vann:=<http://purl.org/vocab/vann/>)
+Prefix(dcterm:=<http://purl.org/dc/terms/>)
+
+
+Ontology(<http://purl.org/vocab/vann/>
+Annotation(dcterm:creator <http://iandavis.com/id/me>)
+Annotation(dcterm:date "2010-06-07")
+Annotation(dcterm:description "This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage notes."@en)
+Annotation(dcterm:identifier "http://purl.org/vocab/vann/vann-vocab-20050401")
+Annotation(dcterm:isVersionOf <http://purl.org/vocab/vann/>)
+Annotation(dcterm:replaces vann:vann-vocab-20040305)
+Annotation(dcterm:rights "Copyright © 2005 Ian Davis")
+Annotation(dcterm:title "VANN: A vocabulary for annotating vocabulary descriptions"@en)
+Annotation(vann:preferredNamespacePrefix "vann")
+Annotation(vann:preferredNamespaceUri "http://purl.org/vocab/vann/")
+
+Declaration(Class(cc:License))
+Declaration(Class(cc:Work))
+Declaration(Class(foaf:Person))
+Declaration(NamedIndividual(<file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/vann.xml>))
+Declaration(NamedIndividual(<http://creativecommons.org/licenses/by/1.0/>))
+Declaration(NamedIndividual(<http://iandavis.com/id/me>))
+Declaration(AnnotationProperty(dcterm:creator))
+Declaration(AnnotationProperty(dcterm:date))
+Declaration(AnnotationProperty(dcterm:description))
+Declaration(AnnotationProperty(dcterm:identifier))
+Declaration(AnnotationProperty(dcterm:isVersionOf))
+Declaration(AnnotationProperty(dcterm:replaces))
+Declaration(AnnotationProperty(dcterm:rights))
+Declaration(AnnotationProperty(dcterm:title))
+Declaration(AnnotationProperty(dcterm:type))
+Declaration(AnnotationProperty(vann:changes))
+Declaration(AnnotationProperty(vann:example))
+Declaration(AnnotationProperty(vann:preferredNamespacePrefix))
+Declaration(AnnotationProperty(vann:preferredNamespaceUri))
+Declaration(AnnotationProperty(vann:termGroup))
+Declaration(AnnotationProperty(vann:usageNote))
+Declaration(AnnotationProperty(cc:license))
+Declaration(AnnotationProperty(cc:permits))
+Declaration(AnnotationProperty(cc:requires))
+Declaration(AnnotationProperty(foaf:name))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: vann:changes (Changes)
+
+AnnotationAssertion(rdfs:comment vann:changes "A reference to a resource that describes changes between this version of a vocabulary and the previous."@en)
+AnnotationAssertion(rdfs:isDefinedBy vann:changes <http://purl.org/vocab/vann/>)
+AnnotationAssertion(rdfs:label vann:changes "Changes"@en)
+SubAnnotationPropertyOf(vann:changes rdfs:seeAlso)
+
+# Annotation Property: vann:example (Example)
+
+AnnotationAssertion(rdfs:comment vann:example "A reference to a resource that provides an example of how this resource can be used."@en)
+AnnotationAssertion(rdfs:isDefinedBy vann:example <http://purl.org/vocab/vann/>)
+AnnotationAssertion(rdfs:label vann:example "Example"@en)
+SubAnnotationPropertyOf(vann:example rdfs:seeAlso)
+
+# Annotation Property: vann:preferredNamespacePrefix (Preferred Namespace Prefix)
+
+AnnotationAssertion(rdfs:comment vann:preferredNamespacePrefix "The preferred namespace prefix to use when using terms from this vocabulary in an XML document."@en)
+AnnotationAssertion(rdfs:isDefinedBy vann:preferredNamespacePrefix <http://purl.org/vocab/vann/>)
+AnnotationAssertion(rdfs:label vann:preferredNamespacePrefix "Preferred Namespace Prefix"@en)
+
+# Annotation Property: vann:preferredNamespaceUri (Preferred Namespace Uri)
+
+AnnotationAssertion(rdfs:comment vann:preferredNamespaceUri "The preferred namespace URI to use when using terms from this vocabulary in an XML document."@en)
+AnnotationAssertion(rdfs:isDefinedBy vann:preferredNamespaceUri <http://purl.org/vocab/vann/>)
+AnnotationAssertion(rdfs:label vann:preferredNamespaceUri "Preferred Namespace Uri"@en)
+
+# Annotation Property: vann:termGroup (Term Group)
+
+AnnotationAssertion(rdfs:comment vann:termGroup "A group of related terms in a vocabulary."@en)
+AnnotationAssertion(rdfs:isDefinedBy vann:termGroup <http://purl.org/vocab/vann/>)
+AnnotationAssertion(rdfs:label vann:termGroup "Term Group"@en)
+
+# Annotation Property: vann:usageNote (Usage Note)
+
+AnnotationAssertion(rdfs:comment vann:usageNote "A reference to a resource that provides information on how this resource is to be used."@en)
+AnnotationAssertion(rdfs:isDefinedBy vann:usageNote <http://purl.org/vocab/vann/>)
+AnnotationAssertion(rdfs:label vann:usageNote "Usage Note"@en)
+SubAnnotationPropertyOf(vann:usageNote rdfs:seeAlso)
+
+
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/vann.xml> (<file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/vann.xml>)
+
+AnnotationAssertion(dcterm:type <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/vann.xml> <http://purl.org/dc/dcmitype/Text>)
+AnnotationAssertion(cc:license <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/vann.xml> <http://creativecommons.org/licenses/by/1.0/>)
+ClassAssertion(cc:Work <file:/home/ji-liu/Axle/ontology/ontology_to_schema/ttl/vann.xml>)
+
+# Individual: <http://creativecommons.org/licenses/by/1.0/> (<http://creativecommons.org/licenses/by/1.0/>)
+
+AnnotationAssertion(cc:permits <http://creativecommons.org/licenses/by/1.0/> cc:DerivativeWorks)
+AnnotationAssertion(cc:permits <http://creativecommons.org/licenses/by/1.0/> cc:Distribution)
+AnnotationAssertion(cc:permits <http://creativecommons.org/licenses/by/1.0/> cc:Reproduction)
+AnnotationAssertion(cc:requires <http://creativecommons.org/licenses/by/1.0/> cc:Attribution)
+AnnotationAssertion(cc:requires <http://creativecommons.org/licenses/by/1.0/> cc:Notice)
+ClassAssertion(cc:License <http://creativecommons.org/licenses/by/1.0/>)
+
+# Individual: <http://iandavis.com/id/me> (<http://iandavis.com/id/me>)
+
+AnnotationAssertion(foaf:name <http://iandavis.com/id/me> "Ian Davis")
+ClassAssertion(foaf:Person <http://iandavis.com/id/me>)
+
+
+)

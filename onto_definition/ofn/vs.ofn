@@ -1,0 +1,57 @@
+Prefix(:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(vs:=<http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(vann:=<http://purl.org/vocab/vann/>)
+
+
+Ontology(<http://www.w3.org/2003/06/sw-vocab-status/ns>
+Annotation(dc:contributor "Pierre-Yves Vandenbussche")
+Annotation(dc:creator "Dan Brickley")
+Annotation(dc:creator "Leigh Dodds")
+Annotation(dc:creator "Libby Miller")
+Annotation(dc:description "An RDF vocabulary for relating SW vocabulary terms to their status.")
+Annotation(dc:issued "2003-06-01"^^xsd:date)
+Annotation(dc:modified "2011-12-12"^^xsd:date)
+Annotation(dc:title "SemWeb Vocab Status ontology")
+Annotation(vann:preferredNamespacePrefix "vs")
+Annotation(vann:preferredNamespaceUri "http://www.w3.org/2003/06/sw-vocab-status/ns#")
+Annotation(rdfs:comment "This vocabulary was created in the FOAF project, based on experience with FOAF, Dublin Core and other early RDF vocabularies. Deployment experience shows that changing namespace URIs is expensive and unrewarding, so this vocabulary provides terms to support in-place evolution of structured data vocabularies. By indicating status at the level of terms rather than vocabularies, dictionary-style, fine grained improvements become easier. Different organizations and parties can agree or disagree on the status of a vocabulary term; however the status published alongside the term may deserve special attention. Future work could include patterns for citing announcements and decisions, or using SKOS to decentralise the extension of the basic status levels."@en)
+
+Declaration(AnnotationProperty(dc:contributor))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:issued))
+Declaration(AnnotationProperty(dc:modified))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(vann:preferredNamespacePrefix))
+Declaration(AnnotationProperty(vann:preferredNamespaceUri))
+Declaration(AnnotationProperty(vs:term_status))
+Declaration(Datatype(xsd:date))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: vs:term_status (term status)
+
+AnnotationAssertion(rdfs:comment vs:term_status "the status of a vocabulary term, expressed as a short symbolic string; known values include 'unstable','testing', 'stable' and 'archaic'")
+AnnotationAssertion(rdfs:isDefinedBy vs:term_status <http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+AnnotationAssertion(rdfs:label vs:term_status "term status")
+AnnotationAssertion(vs:term_status vs:term_status "unstable")
+
+
+
+AnnotationAssertion(rdfs:comment vs:moreinfo "more information about the status etc of a term, typically human oriented")
+AnnotationAssertion(rdfs:isDefinedBy vs:moreinfo <http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+AnnotationAssertion(rdfs:label vs:moreinfo "more info")
+AnnotationAssertion(vs:term_status vs:moreinfo "unstable")
+AnnotationAssertion(rdfs:comment vs:userdocs "human-oriented documentation, examples etc for use of this term")
+AnnotationAssertion(rdfs:isDefinedBy vs:userdocs <http://www.w3.org/2003/06/sw-vocab-status/ns#>)
+AnnotationAssertion(rdfs:label vs:userdocs "user docs")
+AnnotationAssertion(vs:term_status vs:userdocs "unstable")
+)

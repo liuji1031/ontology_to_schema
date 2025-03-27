@@ -1,0 +1,290 @@
+Prefix(:=<http://purl.org/spar/po#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(swrl:=<http://www.w3.org/2003/11/swrl#>)
+
+
+Ontology(<http://purl.org/spar/po>
+Annotation(dc:creator "Angelo Di Iorio")
+Annotation(dc:creator "Fabio Vitali")
+Annotation(dc:creator "Silvio Peroni")
+Annotation(dc:date "2013-07-16")
+Annotation(dc:description "The idea of using patterns to produce reusable and high-quality assets is not new in the literature. Software engineers, architects (as Alexander who first introduced this term) and designers very often use – or rather reuse – patterns to handle problems which recur over and over. Patterns have also been studied to modularize and customize web ontologies (http://ontologydesignpatterns.org). They guarantee the flexibility and maintainability of concepts and solutions in several heterogeneous scenarios.
+
+We've been investigating patterns for XML documents for some time. The overall goal of this research is to understand how the structure of digital documents can be segmented into atomic components, that can be manipulated independently and re-flowed in different contexts. Instead of defining a large number of complex and diversified structures, we have identified a small number of structures/patterns that are sufficient to express what most users need. Our idea is that a low number of patterns are enough to capture the most relevant document structures."@en)
+Annotation(dc:title "The Pattern Ontology
+Describing documents by means of their structural components"@en)
+Annotation(rdfs:comment "An ontology defining formally patterns for segmenting a document into atomic components, in order to be manipulated independently and re-flowed in different contexts."@en)
+Annotation(rdfs:label "pattern ontology"@en)
+Annotation(owl:backwardCompatibleWith <http://dwellonit.svn.sourceforge.net/viewvc/dwellonit/StructuralPattern/Pattern-1_4.owl>)
+Annotation(owl:priorVersion <http://dwellonit.svn.sourceforge.net/viewvc/dwellonit/StructuralPattern/Pattern-1_4.owl>)
+Annotation(owl:versionInfo "1.4.2")
+
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Atom>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Block>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Bucket>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Container>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Field>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Flat>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#HeadedContainer>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Inline>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Marker>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Meta>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Milestone>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Mixed>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#NonStructured>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#NonTextual>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Pattern>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Popup>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Record>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Structured>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Table>))
+Declaration(Class(<http://www.essepuntato.it/2008/12/pattern#Textual>))
+Declaration(Class(owl:Thing))
+Declaration(ObjectProperty(<http://www.essepuntato.it/2008/12/pattern#contains>))
+Declaration(ObjectProperty(<http://www.essepuntato.it/2008/12/pattern#containsAsHeader>))
+Declaration(ObjectProperty(<http://www.essepuntato.it/2008/12/pattern#isContainedBy>))
+Declaration(ObjectProperty(<http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader>))
+Declaration(DataProperty(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements>))
+Declaration(DataProperty(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements>))
+Declaration(DataProperty(<http://www.essepuntato.it/2008/12/pattern#hasName>))
+Declaration(AnnotationProperty(dc:creator))
+Declaration(AnnotationProperty(dc:date))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:title))
+Declaration(AnnotationProperty(rdfs:comment))
+Declaration(AnnotationProperty(rdfs:label))
+Declaration(AnnotationProperty(owl:versionInfo))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://www.essepuntato.it/2008/12/pattern#contains> (contains)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#contains> "A structured element contains another generic element."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#contains> "contains"@en)
+InverseObjectProperties(<http://www.essepuntato.it/2008/12/pattern#contains> <http://www.essepuntato.it/2008/12/pattern#isContainedBy>)
+ObjectPropertyDomain(<http://www.essepuntato.it/2008/12/pattern#contains> <http://www.essepuntato.it/2008/12/pattern#Structured>)
+
+# Object Property: <http://www.essepuntato.it/2008/12/pattern#containsAsHeader> (contains as header)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#containsAsHeader> "A structured element contains another generic element as part of its header."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#containsAsHeader> "contains as header"@en)
+SubObjectPropertyOf(<http://www.essepuntato.it/2008/12/pattern#containsAsHeader> <http://www.essepuntato.it/2008/12/pattern#contains>)
+InverseObjectProperties(<http://www.essepuntato.it/2008/12/pattern#containsAsHeader> <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader>)
+
+# Object Property: <http://www.essepuntato.it/2008/12/pattern#isContainedBy> (is contained by)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#isContainedBy> "An element that is contained by another structured element."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#isContainedBy> "is contained by"@en)
+
+# Object Property: <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> (is contained by as header)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> "An element is contained by another structured element as part of its header."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> "is contained by as header"@en)
+SubObjectPropertyOf(<http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> <http://www.essepuntato.it/2008/12/pattern#isContainedBy>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> (can contain heteronymous elements)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> "A hierarchical-based entity contains al least two entities having different names."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> "can contain heteronymous elements"@en)
+FunctionalDataProperty(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements>)
+DataPropertyDomain(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> <http://www.essepuntato.it/2008/12/pattern#Structured>)
+DataPropertyRange(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> xsd:boolean)
+
+# Data Property: <http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> (can contain homonymous elements)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> "A hierarchical-based entity contains al least two entities that share the same name."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> "can contain homonymous elements"@en)
+FunctionalDataProperty(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements>)
+DataPropertyDomain(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> <http://www.essepuntato.it/2008/12/pattern#Structured>)
+DataPropertyRange(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> xsd:boolean)
+
+# Data Property: <http://www.essepuntato.it/2008/12/pattern#hasName> (has name)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#hasName> "The name of a particular element."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#hasName> "has name"@en)
+FunctionalDataProperty(<http://www.essepuntato.it/2008/12/pattern#hasName>)
+DataPropertyRange(<http://www.essepuntato.it/2008/12/pattern#hasName> xsd:string)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Atom> (atom element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Atom> "This class is defined to describe literal text that is part of the document body. Moreover, similarly to Inline, elements following the Atom pattern can only be contained within block or inline elements (and consequently they also cannot be used as root elements of documents). It can contain textual content and no other elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Atom> "atom element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Atom> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Flat> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>))))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Atom> ObjectSomeValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>)))
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#Atom> <http://www.essepuntato.it/2008/12/pattern#Field>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Block> (block element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Block> "This class organise the document content as a sequence of nestable elements and text nodes. In particular, elements following this pattern can contain text and other elements compliant with the patterns Inline, Atom, Milestones and Popup, which will be introduced in the following. Furthermore, it is a requirement that block elements are contained only by container and popup elements"@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Block> "block element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Block> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Mixed> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Popup>))))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Block> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#contains> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Atom> <http://www.essepuntato.it/2008/12/pattern#Inline> <http://www.essepuntato.it/2008/12/pattern#Milestone> <http://www.essepuntato.it/2008/12/pattern#Popup>)))
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Bucket> (bucket element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Bucket> "The class of elements that can contain other elements but no text nodes."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Bucket> "bucket element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Bucket> <http://www.essepuntato.it/2008/12/pattern#NonTextual>)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Bucket> <http://www.essepuntato.it/2008/12/pattern#Structured>)
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#Bucket> <http://www.essepuntato.it/2008/12/pattern#Marker>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Container> (container element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Container> "This class concerns the structural organization of a document. Elements following this pattern contain no textual content and contain only elements compliant with the patterns: Meta, Field, Block and any subtype of Container. It is disjointed with the pattern Popup, although they share the same content model."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Container> "container element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Container> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Bucket> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Popup>))))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Container> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#contains> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Field> <http://www.essepuntato.it/2008/12/pattern#Meta>)))
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Popup>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Field> (field element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Field> "This class is defined to describe literal metadata or text that is not really part of the document body, contrarily to its disjointed sibling Atom. Its main difference with Meta is that Field can contain textual content."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Field> "field element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Field> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Flat> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Popup>))))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Flat> (flat element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Flat> "The class of elements that can contain text nodes but no elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Flat> "flat element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Flat> <http://www.essepuntato.it/2008/12/pattern#NonStructured>)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Flat> <http://www.essepuntato.it/2008/12/pattern#Textual>)
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#Flat> <http://www.essepuntato.it/2008/12/pattern#Mixed>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> (headed-container element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> "This class describes container elements whose content model need to begin with one or more block elements (the heading), specified through the property containsAsHeader."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> "headed-container element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#HeadedContainer> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Container> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#containsAsHeader> <http://www.essepuntato.it/2008/12/pattern#Block>)))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Inline> (inline element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Inline> "This class has the same use and content model of the pattern Block, but differing primarily because a) inline elements can contain other elements compliant with the same pattern while block elements cannot, and b) inline elements must always be contained by other block or inline elements and by no other type of element.
+
+These constraints also imply that inline elements cannot be used as root elements of documents and that the class Block is disjoint with the class Inline (i.e., a markup element cannot be a block and an inline at the same time)."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Inline> "inline element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Inline> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Mixed> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>))))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Inline> ObjectSomeValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>)))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Inline> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#contains> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Atom> <http://www.essepuntato.it/2008/12/pattern#Inline> <http://www.essepuntato.it/2008/12/pattern#Milestone> <http://www.essepuntato.it/2008/12/pattern#Popup>)))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Marker> (marker element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Marker> "The class of elements that can contain neither text nodes nor elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Marker> "marker element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Marker> <http://www.essepuntato.it/2008/12/pattern#NonStructured>)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Marker> <http://www.essepuntato.it/2008/12/pattern#NonTextual>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Meta> (meta element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Meta> "This class describes elements that contain neither other elements nor textual content. Contrarily to the pattern Milestone, which was meant to describe markup elements that impact the document because of their location, the main feature of its disjoint sibling is the mere existence, independently from the position it has within the document. Meta elements convey metadata information about the document or part of it, independently of where they are. Thus, meta elements can be contained only within container elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Meta> "meta element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Meta> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Marker> ObjectSomeValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Popup>))))
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#Meta> <http://www.essepuntato.it/2008/12/pattern#Milestone>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Milestone> (milestone element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Milestone> "This class describe elements that contain neither other elements nor textual content. Moreover, similarly to Inline, elements following the Milestone pattern can only be contained within block or inline elements (and consequently they also cannot be used as root elements of documents).
+
+The distinctive characteristic of the pattern Milestone is the location it assumes within the document."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Milestone> "milestone element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Milestone> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Marker> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>))))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Milestone> ObjectSomeValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>)))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Mixed> (mixed element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Mixed> "The class of elements that can contain other elements and text nodes."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Mixed> "mixed element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Mixed> <http://www.essepuntato.it/2008/12/pattern#Structured>)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Mixed> <http://www.essepuntato.it/2008/12/pattern#Textual>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#NonStructured> (non-structured element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#NonStructured> "The class of elements that cannot contain other elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#NonStructured> "non-structured element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#NonStructured> ObjectComplementOf(<http://www.essepuntato.it/2008/12/pattern#Structured>))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#NonStructured> <http://www.essepuntato.it/2008/12/pattern#Pattern>)
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#NonStructured> <http://www.essepuntato.it/2008/12/pattern#Structured>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#NonTextual> (non-textual element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#NonTextual> "The class of elements that cannot have textual content in their content models."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#NonTextual> "non-textual element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#NonTextual> ObjectComplementOf(<http://www.essepuntato.it/2008/12/pattern#Textual>))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#NonTextual> <http://www.essepuntato.it/2008/12/pattern#Pattern>)
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#NonTextual> <http://www.essepuntato.it/2008/12/pattern#Textual>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Pattern> (pattern-based element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Pattern> "A structural pattern is an atomic component of a document, that is able to capture a recurrent and well knwon structure of a document.
+
+Any entity belonging to this class is compliant with exactly one structural pattern."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Pattern> "pattern-based element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Pattern> owl:Thing)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Popup> (popup element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Popup> "This class defines bucket elements that are only present within block and inline elements. Popup elements are used whenever complex structures need to be placed within content elements such as paragraphs. "@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Popup> "popup element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Popup> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Bucket> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>))))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Popup> ObjectSomeValuesFrom(<http://www.essepuntato.it/2008/12/pattern#isContainedBy> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Inline>)))
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Popup> ObjectAllValuesFrom(<http://www.essepuntato.it/2008/12/pattern#contains> ObjectUnionOf(<http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Field> <http://www.essepuntato.it/2008/12/pattern#Meta>)))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Record> (record element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Record> "This class describes container elements that can only contain heterogeneous and non repeatable elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Record> "record element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Record> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Container> DataHasValue(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> "true"^^xsd:boolean) DataHasValue(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> "false"^^xsd:boolean)))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Structured> (structured element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Structured> "The class of elements that can contain other elements."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Structured> "structured element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Structured> <http://www.essepuntato.it/2008/12/pattern#Pattern>)
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Table> (table element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Table> "This class describes container elements that must contain only homogeneous elements (but they can be repeated)."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Table> "table element"@en)
+EquivalentClasses(<http://www.essepuntato.it/2008/12/pattern#Table> ObjectIntersectionOf(<http://www.essepuntato.it/2008/12/pattern#Container> DataHasValue(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> "false"^^xsd:boolean) DataHasValue(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> "true"^^xsd:boolean)))
+
+# Class: <http://www.essepuntato.it/2008/12/pattern#Textual> (textual element)
+
+AnnotationAssertion(rdfs:comment <http://www.essepuntato.it/2008/12/pattern#Textual> "The class of elements that can have textual content in their content models."@en)
+AnnotationAssertion(rdfs:label <http://www.essepuntato.it/2008/12/pattern#Textual> "textual element"@en)
+SubClassOf(<http://www.essepuntato.it/2008/12/pattern#Textual> <http://www.essepuntato.it/2008/12/pattern#Pattern>)
+
+
+DisjointClasses(<http://www.essepuntato.it/2008/12/pattern#HeadedContainer> <http://www.essepuntato.it/2008/12/pattern#Record> <http://www.essepuntato.it/2008/12/pattern#Table>)
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Block> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Block> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Container> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Container> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Field> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Field> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Inline> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Inline> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Meta> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Meta> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Milestone> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Milestone> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Pattern> Variable(<http://www.essepuntato.it/2008/12/pattern#y>)) ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Textual> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#g>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#g>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Textual> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Record> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)))Head(DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) "false"^^xsd:boolean)))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Record> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Record> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Table> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)))Head(DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) "false"^^xsd:boolean)))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Table> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) ObjectPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#contains> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#y>)) ObjectPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#contains> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#z>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#z>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>))))
+# DLSafeRule(Body(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Table> Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)))Head(ClassAtom(<http://www.essepuntato.it/2008/12/pattern#Table> Variable(<http://www.essepuntato.it/2008/12/pattern#y>))))
+# DLSafeRule(Body(ObjectPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#contains> Variable(<http://www.essepuntato.it/2008/12/pattern#p>) Variable(<http://www.essepuntato.it/2008/12/pattern#x>)) ObjectPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#contains> Variable(<http://www.essepuntato.it/2008/12/pattern#p>) Variable(<http://www.essepuntato.it/2008/12/pattern#y>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#x>) Variable(<http://www.essepuntato.it/2008/12/pattern#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<http://www.essepuntato.it/2008/12/pattern#y>) Variable(<http://www.essepuntato.it/2008/12/pattern#t>)) BuiltInAtom(<http://www.w3.org/2003/11/swrlb#notEqual> Variable(<http://www.essepuntato.it/2008/12/pattern#s>) Variable(<http://www.essepuntato.it/2008/12/pattern#t>)))Head(DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#canContainHeteronymousElements> Variable(<http://www.essepuntato.it/2008/12/pattern#p>) "true"^^xsd:boolean)))
+# DLSafeRule(Body(ObjectPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#contains> Variable(<urn:swrl#p>) Variable(<urn:swrl#x>)) ObjectPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#contains> Variable(<urn:swrl#p>) Variable(<urn:swrl#y>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<urn:swrl#x>) Variable(<urn:swrl#s>)) DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#hasName> Variable(<urn:swrl#y>) Variable(<urn:swrl#s>)))Head(DataPropertyAtom(<http://www.essepuntato.it/2008/12/pattern#canContainHomonymousElements> Variable(<urn:swrl#p>) "true"^^xsd:boolean)))
+)

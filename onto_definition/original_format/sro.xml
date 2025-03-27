@@ -1,0 +1,229 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xml:base="http://salt.semanticauthoring.org/ontologies/sro#"
+         xmlns:sao="http://salt.semanticauthoring.org/ontologies/sao#">
+
+	<rdfs:Class rdf:about="#RhetoricalElement"
+		 rdfs:label="RhetoricalElement">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Nucleus"
+		 rdfs:label="Nucleus">
+		<rdfs:subClassOf rdf:resource="#RhetoricalElement"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Satellite"
+		 rdfs:label="Satellite">
+		<rdfs:subClassOf rdf:resource="#RhetoricalElement"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Claim"
+		 rdfs:label="Claim">
+		<rdfs:subClassOf rdf:resource="#Nucleus"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Support"
+		 rdfs:label="Support">
+		<rdfs:subClassOf rdf:resource="#Satellite"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="#RhetoricalRelation"
+		 rdfs:label="RhetoricalRelation">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="#Antithesis"
+		 rdfs:label="Antithesis">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Circumstance"
+		 rdfs:label="Circumstance">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Concession"
+		 rdfs:label="Concession">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Condition"
+		 rdfs:label="Condition">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Cause"
+		 rdfs:label="Cause">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Consequence"
+		 rdfs:label="Consequence">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Elaboration"
+		 rdfs:label="Elaboration">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Evidence"
+		 rdfs:label="Evidence">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Means"
+		 rdfs:label="Means">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Preparation"
+		 rdfs:label="Preparation">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Purpose"
+		 rdfs:label="Purpose">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Restatement"
+		 rdfs:label="Restatement">
+		<rdfs:subClassOf rdf:resource="#RhetoricalRelation"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="#RhetoricalBlock"
+		 rdfs:label="RhetoricalBlock">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Abstract"
+		 rdfs:label="Abstract">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Motivation"
+		 rdfs:label="Motivation">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Scenario"
+		 rdfs:label="Scenario">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Contribution"
+		 rdfs:label="Contribution">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Discussion"
+		 rdfs:label="Discussion">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Evaluation"
+		 rdfs:label="Evaluation">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Background"
+		 rdfs:label="Background">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Conclusion"
+		 rdfs:label="Conclusion">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Entities"
+		 rdfs:label="Entities">
+		<rdfs:subClassOf rdf:resource="#RhetoricalBlock"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="#Position"
+		 rdfs:label="Position">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Request"
+		 rdfs:label="Request">
+		<rdfs:subClassOf rdf:resource="#Position"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Agreement"
+		 rdfs:label="Agreement">
+		<rdfs:subClassOf rdf:resource="#Position"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Disagreement"
+		 rdfs:label="Agreement">
+		<rdfs:subClassOf rdf:resource="#Position"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#NeutralPosition"
+		 rdfs:label="NeutralPosition">
+		<rdfs:subClassOf rdf:resource="#Position"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Argument"
+		 rdfs:label="Argument">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Challenge"
+		 rdfs:label="Challenge">
+		<rdfs:subClassOf rdf:resource="#Argument"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Justification"
+		 rdfs:label="Justification">
+		<rdfs:subClassOf rdf:resource="#Argument"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Issue"
+		 rdfs:label="Issue">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:about="#Statement"
+		 rdfs:label="Statement">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+	</rdfs:Class>
+
+	<rdf:Property rdf:about="#hasNucleus"
+		 rdfs:label="hasNucleus">
+		<rdfs:domain rdf:resource="#RhetoricalRelation"/>
+		<rdfs:range rdf:resource="#Nucleus"/>
+		<rdfs:range rdf:resource="#RhetoricalRelation"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#hasSatellite"
+		 rdfs:label="hasSatellite">
+		<rdfs:domain rdf:resource="#RhetoricalRelation"/>
+		<rdfs:range rdf:resource="#Satellite"/>
+		<rdfs:range rdf:resource="#RhetoricalRelation"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#containsRhetoricalElement"
+		 rdfs:label="containsRhetoricalElement">
+		<rdfs:domain rdf:resource="#RhetoricalBlock"/>
+		<rdfs:range rdf:resource="#RhetoricalElement"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#partOfRhetoricalBlock"
+		 rdfs:label="partOfRhetoricalBlock">
+		<rdfs:domain rdf:resource="#RhetoricalElement"/>
+		<rdfs:range rdf:resource="#RhetoricalBlock"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#represents"
+		 rdfs:label="represents">
+		<rdfs:domain rdf:resource="#RhetoricalElement"/>
+		<rdfs:range rdf:resource="#Issue"/>
+		<rdfs:range rdf:resource="#Argument"/>
+		<rdfs:range rdf:resource="#Position"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#raises"
+		 rdfs:label="raises">
+		<rdfs:domain rdf:resource="#Statement"/>
+		<rdfs:range rdf:resource="#Issue"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#statedAbout"
+		 rdfs:label="statedAbout">
+		<rdfs:domain rdf:resource="#Position"/>
+		<rdfs:range rdf:resource="#Statement"/>
+		<rdfs:range rdf:resource="#Issue"/>
+		<rdfs:range rdf:resource="#Argument"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#arguments"
+		 rdfs:label="arguments">
+		<rdfs:domain rdf:resource="#Argument"/>
+		<rdfs:range rdf:resource="#Position"/>
+		<rdfs:range rdf:resource="#Issue"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#isArgumentedBy"
+		 rdfs:label="isArgumentedBy">
+		<rdfs:domain rdf:resource="#Issue"/>
+		<rdfs:range rdf:resource="#Argument"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#hasPosition"
+		 rdfs:label="hasPosition">
+		<rdfs:domain rdf:resource="#Issue"/>
+		<rdfs:range rdf:resource="#Position"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="#hasAnnotation"
+		 rdfs:label="hasAnnotation">
+		<rdfs:domain rdf:resource="#RhetoricalElement"/>
+		<rdfs:domain rdf:resource="#RhetoricalBlock"/>
+		<rdfs:domain rdf:resource="#Statement"/>
+		<rdfs:domain rdf:resource="#Position"/>
+		<rdfs:range rdf:resource="sao#Annotation"/>
+	</rdf:Property>
+
+</rdf:RDF>
