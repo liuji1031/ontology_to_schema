@@ -15,6 +15,7 @@ groq = "^0.18.0"
 quantulum3 = {extras = ["classifier"], version = "^0.9.2"}
 typer = "^0.15.2"
 types-pyyaml = "^6.0.12.20241230"
+linkml-model = {git = "https://github.com/linkml/linkml-model.git"}
 
 
 [tool.poetry.group.dev.dependencies]
