@@ -1,0 +1,61 @@
+title: Common SPAR ontology data types
+name: types
+id: https://axleinfo.com/ontology/types
+
+description: Common ontology data types encountered in SPAR Ontology but not covered in linkml:types
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  shex: http://www.w3.org/ns/shex#
+  schema: http://schema.org/
+  axleinfo: https://axleinfo.com/ontology/
+
+default_prefix: axleinfo
+default_range: string
+
+
+# ==================================
+# Common type definitions
+#
+# Definition consists of:
+#    <name>:   type name
+#      uri:    RDF datatype
+#      base:   python base type
+#      repr:   representational form in yaml/python if different than representation in base
+#      (additional metadata)
+# ==================================
+types:
+  day:
+    uri: xsd:gDay
+    base: str
+    pattern: ^---(0[1-9]|[12][0-9]|3[01])(Z|([+-](0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
+  month:
+    uri: xsd:gMonth
+    base: str
+    pattern: ^--(0[1-9]|1[0-2])(Z|([+-](0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
+  month_day:
+    uri: xsd:gMonthDay
+    base: str
+    pattern: ^--(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(Z|([+-](0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
+  year:
+    uri: xsd:gYear
+    base: str
+    pattern: ^-?\d{4,}(Z|([+-](0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
+  year_month:
+    uri: xsd:gYearMonth
+    base: str
+    pattern: ^(-?\d{4,})-(0[1-9]|1[0-2])(Z|([+-](0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
+  positive_integer:
+    uri: xsd:positiveInteger
+    base: int
+    minimum_value: 1
+  non_negative_integer:
+    uri: xsd:nonNegativeInteger
+    base: int
+    minimum_value: 0
+  duration:
+    uri: xsd:duration
+    base: str
+    pattern: ^(?:-)?P(?=\d|T)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?(?:T(?=\d)(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$
